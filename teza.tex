@@ -7,6 +7,8 @@
 \usepackage{babel}
 \usepackage{color}
 \usepackage{graphicx}
+\graphicspath{ {./figuri/} }
+\usepackage[acronym]{glossaries}
 \usepackage[
   bookmarks,
   bookmarksopen=true,
@@ -20,11 +22,13 @@
 \usepackage{listings}
 \usepackage{color}
  \usepackage{url}  
+ \usepackage{float}
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
+\usepackage[export]{adjustbox}
 \lstdefinestyle{mystyle}{
 	language=Matlab,
  %   backgroundcolor=\color{backcolour},   
@@ -48,6 +52,7 @@
 \lstset{style=mystyle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \begin{document}
 
 \author{Ionescu Maria Cătălina}
@@ -61,7 +66,7 @@
 \domeniu{Calculatoare și tehnologia informației}
 \catedra{Telecomunicații}
 \campus{Leu} 
-\program{Ingineria informației }
+\program{Ingineria informației}
 \titlulobtinut{Inginer}
 %\titlulobtinut{Master}
 \director{Ş.L.Dr.Ing. George Valentin STOICA} 
@@ -73,18 +78,23 @@
 \listoffigures
 \listoftables
 \abbreviations{ 
-  HA = Harap Alb\\
-  PLL =  Păsări-Lăți-Lungilă\\
+HTML = HyperText Markup Language\\
+HTTP = Hypertext Transfer Protocol \\
    IoT = Internet of Things\\
+   VM1 = Mașină virtuală 1\\
+   VM2 = Mașină virtuală 2\\
+   
+
+   
   
 }
-%\preface{}
-\afterpreface 
 
+
+\afterpreface 
 \chapter{Introducere}
 \section{Prezentarea proiectului}
 
-Cerințele privind performanța și scalabilitatea aplicațiilor web sunt în continuă creștere datorită numărului mare de dispozitive inteligent și IoT (Internet of Things) folosite de către utilizatori pentru a-și îmbunătăți viața de zi cu zi. Creșterea de dispozitive care accesează în mod concomitent un site web duce la un număr mare de cereri către servere pentru a accesa informația cerută, ceea ce poate rezulta într-o experiență încetinită sau chiar imposibilă a utilizatorului atunci când îl accesează. Datorită acestor circumstanțe, traficului de date crește, iar aplicațiile web trebuie să facă fața la un volum de date atât de mare. La momentul actual, o soluție pentru optimizarea aplicațiilor web expuse unui trafic mare de date, dar și pentru a îmbunătăți experiența utilizatorilor este folosirea soluțiilor scalabile a resurselor software și hardware. 
+Cerințele privind performanța și scalabilitatea aplicațiilor web sunt în continuă creștere datorită gamei extinse de dispozitive inteligente și IoT (Internet of Things) folosite de către utilizatori pentru a-și îmbunătăți viața de zi cu zi. Numărul mare de dispozitive care accesează în mod concomitent un site web duce la un volum copleșitor de cereri către servere pentru a accesa informația cerută, ceea ce poate cauza o experiență întârziată sau chiar imposibilă a utilizatorul. Datorită acestor circumstanțe, traficului de date crește, iar aplicațiile web trebuie să facă față la un flux considerabil de informații. La momentul actual, o soluție pentru optimizarea aplicațiilor web expuse unui trafic mare de date, dar și pentru a spori satisfacția utilizatorilor este folosirea soluțiilor scalabile a resurselor software și hardware. 
 
 Scalabilitatea \cite{scal} reprezintă capacitatea unui sistem de a crește sau reduce performanța și costurile unui sistem în funcție de cerințele de procesare. Aceasta este de două tipuri: 
 \begin{enumerate}
@@ -92,20 +102,154 @@ Scalabilitatea \cite{scal} reprezintă capacitatea unui sistem de a crește sau 
 
 \item Scalabilitatea resurselor hardware \cite{scal.hard} reprezintă capacititatea unui sistem de a-și mări capacitatea sau de a-și crește performanța utilizând noi resurse hardware. 
 \end{enumerate}
-De asemenea, folosirea în paralel a unei bazei de date distribuită reprezintă o soluție modernă pentru asigurarea redundanței datelor și a performanței optime într-o aplicație mare. O bază de date distribuită \cite{bd} este o bază de date controlată de un sistem de gestiune a bazelor de date (Data Base Management System), în care datele sunt distribuite la mai multe calculatoare interconectate.
+De asemenea, folosirea în paralel a unei bazei de date distribuită reprezintă o soluție modernă pentru asigurarea redundanței datelor și a performanței optime într-o aplicație complexă. O bază de date distribuită \cite{bd} este o bază de date controlată de un sistem de gestiune a bazelor de date (Data Base Management System), în care datele sunt distribuite la mai multe calculatoare interconectate.
 
 \section{Scopul proiectului}
-Proiectul \textbf{„Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web”} își propune studierea, implementarea și testarea soluțiilor scalabile pentru o aplicație de rezervări de tip web, utilizând framework-ul Flask Python (pentru dezvoltarea aplicației web), MySQL (sistem de gestionare a bazelor de date relaționale) și Nginx (un loadbalancer și server web de tip reverse proxy). Scopul acestui proiect este a urmări și analiza capabilitatea aplicației de a răspunde la un număr mare de cereri simultane, îmbunătățirea performanței, extinderea și reducerea redundanței în cazul eșecurilor de tip hardware. Aplicația implementează o platformă de tip rezervări și este construită astfel încât să poată permite rularea pe mai multe mașini virtuale conectate în aceeași rețea IP/LAN și include, de asemnea, o arhitectură bazată pe o bază de date de replicare de tip master-slave pentru a optimiza operațiile de citire-scriere. Obiectivele specifice acestei lucrării sunt:
-\begin{itemize}
-\item Dezvoltarea aplicației web folosind framework-ul Python Flask care include rute pentru funcționalități de bază precum ar fi: autentificarea (login, register), managementul utilizatorilor (profile), administrarea rezervărilor (reserve) și pagini administrative (admin).
+Proiectul \textbf{„Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web”} își propune studierea, implementarea și testarea soluțiilor scalabile software pentru o platformă de rezervări online, utilizând framework-ul Flask Python (pentru dezvoltarea aplicației web), MySQL (sistem de gestionare a bazelor de date relaționale) și Nginx (loadbalancer și server web de tip reverse proxy). Scopul acestui proiect este a urmări și analiza capabilitatea aplicației de a răspunde la un număr mare de cereri simultane, îmbunătățirea performanței, extinderea și reducerea redundanței prin implementarea unei soluții scalabile de tip software care include un load balancer și o bază de date distribuită master-sclave. 
 
-\item Implementarea arhitecturii scalabile prin intermediul sistemului de load balancing folosind Nginx. Nginx are rolul de a distribui cererile trimise între mai multe servere, astfel crescând scalabilitatea aplicației web.
+Aplicația simulează o platformă de tip rezervări fiind dezvoltată într-un mediul de lucru alcătuit dintr-o stație de lucru, alături de un mediu de testare, constituit de cele două mașini virtuale instalate pe stația de lucru. Împreună, cele trei mașini fac parte din aceeași rețea IP/LAN. De asemenea, la nivel arhitectural s-a implementat o bază de date distribuită de tip master-slave pentru a optimiza operațiile de citire-scriere.  
+
+Obiectivele specifice acestei lucrării sunt:
+\begin{itemize}
+\item Dezvoltarea aplicației web folosind framework-ul Flask Python care include rute pentru funcționalități de bază precum ar fi: autentificarea (login, register), managementul utilizatorilor (profile), administrarea rezervărilor (reserve) și pagini administrative (admin).
+
+\item Implementarea arhitecturii scalabile prin intermediul sistemului de load balancing folosind Nginx. Nginx are rolul de a distribui cererile trimise între mai multe servere, astfel crescând performanța și puterea de procesare a aplicației web.
 
 \item Optimizarea performanței bazei de date cu un server master și un server sclave. Cele două servere îmbunătățesc operațiile de citire și scriere și asigură redundanța datelor. \end{itemize}
 
-Semnificația practică a acestei lucrări constă în faptul că rezultatele obținute în urma aplicării soluțiilor scalabile oferă o perspectivă asupra traficului de date și de cereri la care poate rezista o aplicație web și cum ar trebui îmbunătățită sau optimizată în urma acestor rezultate aplicația web pentru a gestiona eficient cererile utilizatorilor.
+Semnificația practică a acestei lucrări constă în faptul că rezultatele obținute în urma aplicării soluțiilor scalabile oferă o perspectivă asupra traficului de date și de cereri la care poate rezista o aplicație web și cum ar trebui îmbunătățită și optimizată pentru a gestiona eficient cererile utilizatorilor.
 
-\section{Structura proiectului}
+\section{Structura lucrării}
+În capitolele ce urmează, se vor prezenta următoarele idei:  aspectele teoretice ale proiectului, tehnologiile folosite în implementare și structura aplicației. Acestea sunt urmate de descrierea arhitecturii, în care sunt evidențiate diferitele module ce constituie aplicația și interacțiunea dintre ele la nivel scalabil. 
+Capitolele vor cuprinde și exemplificări cu fragmente de cod care un rol crucial în aplicarea fenomenului de scalabilitate asupra aplicației web.
+De asemenea, lucrarea abordează explicații amănunțite despre modul de funcționare și utilizare a interfeței grafice a aplicației cu ajutorul capturilor de ecran.
+
+\chapter{Aspectele teoretice ale proiectului}
+În mod ideal, scalabilitatea presupune gestionarea optimă a resurselor hardware, dar și software, astfel încât aplicația când este expusă unui număr mare de cereri le gestionează eficient, fără a compromite viteza de răspuns sau resursele disponibile. Scalabilitatea software \cite{ss} se referă la implementarea unor soluțiilor de tip software care asigură funcționarea eficientă a aplicației chiar și la un număr mare de utilizatori. Aceasta folosită concomitent cu scalabilitatea hardware, care are rol în extinderea resurselor fizice ale unui sistem, aduce la rezultate impresionante în gestionarea traficului și a numărului de cereri mare pentru a oferi utlizatorilor o experiență fluidă.
+
+În practică, oricât de mult am încerca să avem o viteză de răspuns cât mai optimă, aceasta implică un cost foarte mare al resurselor software, hardware dar și a energiei electrice folosite. Un volum limitat de resurse hardware și software implică, de asemenea, o eficiență de gestionare a cererilor dintr-o aplicației mai scăzută. Astfel, este necesară o arhitectură software și hardware bine definită pentru a reuși în atingerea unor rezultate promițătoare cu un număr minim de resurse folosite. Această lucrare urmărește să evidențieze importanța soluțiilor scalabile software implementate în cadrul unei aplicații de tip rezervări web care are rol în optimizarea și fluidizarea volumului de traficul de date rezultat în urma cererilor transmise de utilizatori către server.
+
+\textbf{O aplicație web} \cite{web} este o aplicație de tip software accesată prin intermediul unui browser web care poate rula pe internet sau pe un server. Aceasta poate fi accesată de pe orice tip de dispozitiv conectat la internet, cum ar fi calculatoarele, telefoanele, consolele și este implementată prin intermediul unor limbaje de programare web ca HTML, CSS și JavaScript. Ceea ce face diferită o aplicație web față de cele mobile sau desktop este faptul că poate să ruleze pe unul sau mai multe servere și este accesată cu ajutorul unui browser web. Principalele caracteristici și funcționalități ale unei aplicații web sunt:
+\begin{itemize}
+\item Scalabilitatea: datorită faptului că aplicațiile web rulează pe un server există posibilitatea de a implementa soluții scalabile care să îmbunătățească și optimizeze performanța pentru a răspunde la cerințele utilizatorilor.
+\item Accesibilitatea: oricine are un dispozitiv cu conexiune la internet poate să acceseze aplicațiile web, indiferent de locație sau specificațiile hardware și software pe care le are dispozitivul folosit.
+\item Integrarea cu alte servicii și aplicații: aplicații web fiind versatile, programatorii au posibilitatea de a rafina experiența utilizatorilor cu ajutorul serviciilor și aplicațiilor web suplimentare concepute pentru a personaliza experiența fiecărei persoane.
+\item Actualizarea eficientă: odată ce s-a confirmat de către echipa de testare faptul că noua versiune a aplicației web a trecut toate testele și îndeplinește toate cerințele, aceasta poate fi lansată către public fără a fi necesară intervenția din partea lui, actualizarea fiind automată pe server.
+\end{itemize}
+
+ \section {Protocolul HTTP}
+În contextul vremurilor actuale, aplicațiile web au devenit unul dintre cele mai rapide, populare, dar și accesibile metode de a accesa informații și servicii de către utilizatori doar la un click distanță. La baza acestora se află o arhitectură de tip client-server, unde interacțiunele sunt realizate prin intermediul protocoalelor de comunicație.
+
+Protocolul HTTP (Hypertext Transfer Protocol) \cite{http} este protocolul de bază al oricărui schimb de date pe internet care se ocupă cu preluarea resurselor, cum ar fi documentele HTML (HyperText Markup Language), fișiere audio, video ș.a.m.d. Fiind un protocol de tip client-server, cererile sunt inițializate de către client (browser-ul web). Comunicarea dintre clienți și servere are loc prin schimbul de mesaje individuale, unde mesajele trimise de client se numesc cereri, iar mesajele trimise de către server se numesc răspunsuri.
+
+ \subsection{Componentele sistemelor bazate pe HTTP}
+HTTP este un protocol de nivel de aplicație ce urmează un model de tip client-server în care un client începe o conexiune pentru a face o cerere, care așteaptă până primește un răspuns de la server. De asemenea, HTTP este un protocol fără reținerea stării, unde serverul nu reține date despre sesiunea activă.
+
+\subsubsection{Clientul: user-agent-ul}
+User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HTTP pentru a trimite informații despre aplicație, sistemul de operare, furnizorul și/sau versiunea folosită către server. 
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/ussyntax.png}
+\caption{Sintaxa user-agent-ului }
+\label{fig:ussyntax}
+\end{figure}
+
+
+Ca să afișeze o pagină web, în prima fază browser-ul trimite o cerere inițială pentru a prelua documentul HTML care reprezintă pagina. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (care pot fi imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate resursele pentru a prezenta documentul completat.
+ 
+\subsection {Server-ul web}
+Server-ul web \cite{svweb} se ocupă cu livrarea documentelor cerute de către client. Din punct de vedere al structurii hardware, poate fi un calculator sau o colecție de servere care împart cererile ce au rol în conectarea la internet și la schimbul de date stocate (de exemplu documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
+Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a înțelege adresele URL și protocolul HTTP.
+
+URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese duce la o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul server-ului, resursa solicitată va fi afișată. Un URL este compus din diferiți parametrii, unii fiind obligatorii, altele opționale. 
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=1.7\columnwidth, center]{figuri/url.png}
+\caption{Componentele URL-ului}
+\label{fig:wbsv}
+\end{figure}
+
+\subsubsection{Tipul de protocol URL}
+Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie să îl folosească pentru a trimite o cerere de acces la resursă. Protocoalele cele mai întâlnite sunt HTTPS (Hypertext Transfer Protocol Secured) sau HTTP (varianta nesecurizată), dar există cazuri în care este folosit și protocolul mailto: care deschide un client de tip mail.
+
+\subsubsection{Numele resursei și portul}
+Numele resursei sau numele domeniului, care este separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui string. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
+Folosirea portului este opțională 
+
+
+
+Un server HTTP poate fi direct accesat prin numele domeniilor pe care site-urile web le dețin și livrează conținutul acestora către utilizatori.
+La nivel fundamental, modul de funcționare al unui server web presupune ca de fiecare dată când un browser are nevoie de un fișier găzduit de către un server web, acesta va trimite o cerere HTTP pentru a primi fișierul respectiv. Odată ce server-ul HTTP a recepționat cererea, verifică dacă URL solicitat există și în cazul confirmării, acesta trimite la utilizator conținutul cerut. În cazul în care server-ul nu reușește să verifice cererea, mai întâi acesta verifică dacă este necesară generarea unui fișier dinamic. În cele din urmă, dacă niciuna dintre opțiuni nu este disponibilă, server-ul web va returna codul de eroare 404 Not Found.
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.6\columnwidth, center]{figuri/wbsv.png}
+\caption{Diagrama modului de funcționare a server-ului web}
+\label{fig:wbsv}
+\end{figure}
+
+\subsection{Cum funcționează o conexiune HTTP}
+O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce înseamnă că, de fapt, nu este rolul protocolului HTTP de a-și gestiona conexiunea, ci de a se folosi de un protocol de transport. Acesta are nevoie de un protocol de transport fiabil, prin care mesajele au o rată de pierdere foarte mică. Din acest motiv, se utilizează protocolul TCP datorită fiabilității sale care garantează să trimită mesajele cu un număr minim erori, deși acesta are o viteză de răspuns mai lentă în comparație cu protocolul UDP. 
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/tcp.png}
+\caption{Diagrama conexiunii HTTP}
+\label{fig:tcp}
+\end{figure}
+Primul pas în a începe o conexiune HTTP o reprezintă schimbul de cerere/răspuns dintre client și server. Acest schimb începe odată ce s-a stabilit o conexiune TCP, un proces care trimite unul sau mai multe cereri din partea clientului pentru a primi un răspuns de la server. Clientul are posibilitatea de a deschide o nouă conexiune, de a folosi o conexiune existentă sau de a deschide mai multe conexiuni TCP către servere.
+Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul server-ului la cererea clientului cu informația cerută. Dacă răspunsul serverului are codul 200 OK, înseamnă faptul că s-a stabilit cu succes conexiunea, iar serverul poate răspunde clientului cu informația cerută.  
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.7\columnwidth, center]{figuri/cltcp.png}
+\caption{Cerere HTTP}
+\label{fig:tcp}
+\end{figure}
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/svtcp.png}
+\caption{Răspuns HTTP}
+\label{fig:tcp}
+\end{figure}
+ 
+În cele din urmă, conexiunea este închisă sau reutilizată.
+
+\subsection{Mesaje HTTP}
+
+
+ Alegerea de a utiliza acest protocol în cadrul dezvoltării aplicației este justificată prin simplitatea cu care se implementează acesta, dar și interoperabilitatea sa extinsă cu browserele, serverele web și backend-urile.
+
+ 
+
+\chapter{Structura aplicației}
+Aplicația a fost structurată în șapte module, fiecare modul având un rol bine definit în arhitectura generală. Acestea sunt următoarele:
+\begin{enumerate}
+\item Modulul de aplicație web în Python Flask este prezent pe stația de lucru și include rute importante precum /, /login, /register, /logout, /profile, /admin, /reserve pentru gestionarea logicii unui sistem de management al rezervărilor, autentificarea utilizatorilor și interacțiunea cu baza de date. Funcționalitățile rutelor sunt:
+\begin{itemize}
+\item /login - autentificarea utilizatorilor și validarea credențialelor.
+\item /register - înregistrarea utilizatorilor noi și validarea datelor.
+\item /logout - finalizarea sesiunii active.
+\item /reserve - rezervarea unui hotel (operațiune de tip CRUD).
+\item /profile - afișarea și actualizarea profilelor utilizatorilor.
+\item /admin - rută pentru utilizatorii cu rol de administrator.
+\item / - pagina de acasă cu o interfață generală sau redirecționare în funcție de sesiune.
+\end{itemize}
+\item Modulul de load balancing (Nginx): Nginx (instalat pe stația de lucru) se ocupă de distribuirea cererilor primite de la utilizatori către cele două servere: aplicația locală Flask și serverul IIS de pe VM2, ceea ce îmbunătățește scalabilitatea soluției implementate. Load balancer-ul are mai multe roluri cum ar fi:
+\begin{itemize}
+\item Reverse proxy care asigură redirecționarea traficului.
+\item Verificarea și detectarea automată a sănătății server-ului și scoaterea temporară din funcționare până când sunt rezolvate erorile.
+\item Balansarea cererilor trimise către servere, astfel încât cereri sunt preluate secvențial.
+\item Măsură de rezervă în cazul în care unul dintre servere devine inaccesibil, traficul va fi redirecționat către următorul server disponibil.
+\end{itemize}
+\item Modulul de testare are rol în testarea izolată a aplicației web fără ca sistemul principal să fie afectat. Pentru acest mediu de testare izolat s-a folosit VM1 care are responsabilitatea de a testa codul Flask, conectivitatea cu serviciul MySQL, validarea configurației Nginx, rularea unui debug server Flask și de utilizarea a aplicației Postman sau chiar a browser-ului local pentru a rula testele.
+\item Modulul de server IIS reprezintă o a doua instanță web care poate fi folosit pentru a replica parțial funcționalități ale aplicației Flask, distribuirea paginilor, resurselor statice (HTML, JavaScript, CSS), resurselor REST și pentru a răspunde la cererile distribuite de către load balancer.
+\item Modulul de bază de date MySQL Master, ce se află pe stația de lucru, are la bază nodul principal al bazei de date unde toate operațiile de scriere (INSERT, UPDATE, DELETE) se fac pe acest server. Principalele obiective ale modulului sunt de a gestiona tabelele aplicației web, replicarea automată către slave (VM2), creare utilizatorilor și a privilegiilor pentru replicare și acceptarea conexiunilor de la aplicația Flask.
+\item Modulul de bază de date MySQL Sclave are rolul de a prelua și stoca copii ale datelor scrise pe master în timp real pentru a efectua operații de citire (SELECT) asupra bazei de date. Această tehnică asigură îmbunătățirea performanței aplicației atunci când este folosită frecvent comanda SELECT și asigură redundanța datelor. Un alt rol crucial pe care îl reprezintă sclave este acela că poate fi promovat la master în cazul în care nodul principal eșuează, astfel datele nu vor putea fi pierdute sau compromise.
+\item Modulul de rețea și virtualizare asigură comunicarea între stația de lucru, VM1 și VM2 prin intermediul rețelei bridged sau NAT în VMware Workstation. La nivelul fiecărei mașini sunt setate IP-uri statice pentru a asigura o conexiune stabilă.
+\end{enumerate}
+
+
 
 \chapter{Noțiuni teoretice privind aplicațiile web și scalabilitatea}
 
