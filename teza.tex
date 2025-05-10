@@ -172,13 +172,56 @@ URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unic
 
 \subsubsection{Tipul de protocol URL}
 Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie să îl folosească pentru a trimite o cerere de acces la resursă. Protocoalele cele mai întâlnite sunt HTTPS (Hypertext Transfer Protocol Secured) sau HTTP (varianta nesecurizată), dar există cazuri în care este folosit și protocolul mailto: care deschide un client de tip mail.
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.2\columnwidth, center]{figuri/http.png}
+\caption{Tipul de protocol URL}
+\label{fig:wbsv}
+\end{figure}
 
 \subsubsection{Numele resursei și portul}
-Numele resursei sau numele domeniului, care este separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui string. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
-Folosirea portului este opțională 
+Numele resursei sau numele domeniului, separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui string. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
+Portul este o „poartă” tehnică folosită pentru a accesa resursele pe server-ul web. În cele mai multe cazuri, declararea portului este omisă deoarece majoritatea serverelor folosesc în mod implicit portul 80 pentru HTTP și 443 pentru HTTPS, dar în situațiile în care este necesară utilizarea unui alt port, acesta trebuie declarat în mod obligatoriu.
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.4\columnwidth, center]{figuri/port.png}
+\caption{Numele resursei și portul}
+\label{fig:wbsv}
+\end{figure}
 
 
+\subsubsection{Calea către resursă}
+Următoarea componentă a unui URL este calea către resursă. Calea indică locația exactă a unei pagini, imagini sau altei resurse aflate pe server.
 
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.4\columnwidth, center]{figuri/cale.png}
+\caption{Calea către resursă}
+\label{fig:wbsv}
+\end{figure}
+
+\subsubsection{Parametrii}
+Parametrii sunt o listă de chei sau valori folosite de către server-ul web în a executa anumite operații înainte de a se ocupa de furnizarea resursei cerute. Pentru delimitarea fiecărui parametru se folosește simbolul \&. Fiecare server web are o listă de chei sau de valori specifice, nu există o regulă specifică în crearea acestora.
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.6\columnwidth, center]{figuri/param.png}
+\caption{Parametrii}
+\label{fig:wbsv}
+\end{figure}
+
+\subsubsection{Fragment de identificare internă}
+Un fragment de identificare internă sau ancora, delimitată de simbolul \#, are rol în afișarea unei anumite secțiuni din resursă. Ancorele funcționează ca un fel de „semn de carte”, aceasta indicând aplicației web până unde va trebui să parcurgă documentul ca să ajungă la secțiunea marcată și într-un final să o afișeze.
+
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.3\columnwidth, center]{figuri/ancora.png}
+\caption{Ancoră URL}
+\label{fig:wbsv}
+\end{figure}
+
+\subsection{Conexiunea HTTP}
 Un server HTTP poate fi direct accesat prin numele domeniilor pe care site-urile web le dețin și livrează conținutul acestora către utilizatori.
 La nivel fundamental, modul de funcționare al unui server web presupune ca de fiecare dată când un browser are nevoie de un fișier găzduit de către un server web, acesta va trimite o cerere HTTP pentru a primi fișierul respectiv. Odată ce server-ul HTTP a recepționat cererea, verifică dacă URL solicitat există și în cazul confirmării, acesta trimite la utilizator conținutul cerut. În cazul în care server-ul nu reușește să verifice cererea, mai întâi acesta verifică dacă este necesară generarea unui fișier dinamic. În cele din urmă, dacă niciuna dintre opțiuni nu este disponibilă, server-ul web va returna codul de eroare 404 Not Found.
 
@@ -189,7 +232,7 @@ La nivel fundamental, modul de funcționare al unui server web presupune ca de f
 \label{fig:wbsv}
 \end{figure}
 
-\subsection{Cum funcționează o conexiune HTTP}
+\subsubsection{Cum funcționează o conexiune HTTP}
 O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce înseamnă că, de fapt, nu este rolul protocolului HTTP de a-și gestiona conexiunea, ci de a se folosi de un protocol de transport. Acesta are nevoie de un protocol de transport fiabil, prin care mesajele au o rată de pierdere foarte mică. Din acest motiv, se utilizează protocolul TCP datorită fiabilității sale care garantează să trimită mesajele cu un număr minim erori, deși acesta are o viteză de răspuns mai lentă în comparație cu protocolul UDP. 
  \begin{figure}[H]
 \centering
@@ -203,20 +246,108 @@ Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul ser
 \centering
 \includegraphics*[width=0.7\columnwidth, center]{figuri/cltcp.png}
 \caption{Cerere HTTP}
-\label{fig:tcp}
+\label{fig:cltcp}
 \end{figure}
 
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/svtcp.png}
 \caption{Răspuns HTTP}
-\label{fig:tcp}
+\label{fig:svtcp}
 \end{figure}
  
 În cele din urmă, conexiunea este închisă sau reutilizată.
 
 \subsection{Mesaje HTTP}
+Mesajele HTTP sunt un mecanism de schimb de date între server și un client. Există două tipuri de mesaje: cerere și răspuns. Cererea este trimisă de către client server-ului pentru a declanșa o acțiune, iar răspunsul este informația trimisă de către server înapoi clientului. Modul prin care mesajele HTTP sunt create sau transformate se datorează API-urilor în browser, fișiere de configurație ale proxy-urilor sau serverelor sau altor interfețe.
 
+Mesajele HTTP sunt șiruri de caractere scrise în limbaj natural, simplist, începând cu versiunea HTTP/1.1 până la versiunea HTTP/2. 
+
+
+\subsubsection{Structura mesajelor HTTP}
+Conform figurei \ref{fig:httpmesaj} se poate observa faptul că mesajele de tip cerere și răspuns prezintă o structură asemănătoare:
+ \begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/httpmesaj.png}
+\caption{Răspuns HTTP}
+\label{fig:httpmesaj}
+\end{figure}
+\begin{enumerate}
+\item Linia de start este o singură linie care descrie versiunea HTTP folosită alături de metoda cererii sau răspunsul acesteia.
+\item Setul opțional de antete HTTP conțin metadate care descriu mesajul transmis. Un antet HTTP permite schimbul de informații suplimentare dintre un client și un server în cadrul unei cereri sau răspuns. În funcție de context, se remarcă mai multe categorii de antet:
+\begin{itemize}
+\item Antet de cerere (request header): conține informații despre resursa ce urmează a fi preluată.
+\item Antet de răspuns (response header): conține informații despre răspuns cum ar fi locația sau serverul de pe care provine.
+\item Antet de reprezentare (representation header): conține informații despre corpul resursei, cum ar fi tipul MIME sau tipul de compresie sau codare.
+\item Antet cu conținut util (payload header): conține informații de reprezentativ independente despre datele de conținut util 
+\end{itemize}
+\item O linie goală care indică faptul că metadata mesajului este completă.
+\item Un corp (body) opțional care conține datele asociate mesajului, stabilit încă de la linia de start și din anteturi dacă va fi trasmis alături de mesaj sau nu. Deobicei conține o metodă trimisă de client către server sau o resursă redirecționată de către server clientului.
+\end{enumerate}
+Partea superioară (head) a mesajului HTTP este compus din linia de start și antet, în timp ce corpul cuprinde restul componentelor.
+
+\subsubsection{Cereri HTTP}
+O cerere HTTP \cite{req} este un mesaj trimis de client către server cu scop de a solicita o resursă. Aceasta este compusă dintr-o parte superioară ce cuprinde linia cererii (request line), antet (header), linie goală și corp. 
+
+Prima componentă a părții superioare a unei cereri HTTP o constituie linia cererii. Așa cum se observă și în figura \ref{fig:msjcer}, se pot observa trei părți ce compun linia cererii: metoda, resursa solicitată și protocolul.
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/msjcer.png}
+\caption{Formatul unei cereri HTTP}
+\label{fig:msjcer}
+\end{figure}
+O metodă HTTP indică scopul unei cererii trimise către un server și rezultatul așteptat în cazul în care cererea a fost realizată cu succes. Deobicei fiecare metodă are propriul său rol, dar pot împărtăși anumite caracteristici comune. Există mai multe tipuri de metode precum ar fi:
+\begin{enumerate}
+\item \textbf{GET} este folosită pentru doar a prelua date de pe server, fără ca acestea să sufere noi modificări.
+\item \textbf{HEAD} se comportă în același mod ca și metoda GET, dar fără a include conținut în răspuns.
+\item \textbf{POST} are rol în a trimite date către server, de exemplu trimiterea încărcarea unui fișier.
+\item \textbf{PUT} înlocuiește toate instanțele curente cu noi instanțe specificate de către client.
+\item \textbf{DELETE} este utilizată cu scopul de a solicita ștergerea unei resurse specificate.
+\item \textbf{CONNECT} este utlizată pentru a crea un tunel de comunicație cu serverul identificat prin resursa țintă. 
+\item \textbf{OPTIONS} are rol în a descrie opțiunile de comunicare posibile pentru resursa specificată.
+\item \textbf{TRACE} este folosită pentru efectuarea unui test de buclă (loop-back) a mesajului de-a lungul traseului către resursa specificată.
+\item \textbf{PATCH} aplică modificări parțiale unei resurse.
+\end{enumerate}
+
+Resursa solicitată este un URI (Uniform Resource Identifier) și identifică resursa căreia i se trimite cererea. Există mai multe tipuri de formatare utilizate pentru a descrie o resursă solicitată, cea mai folosită fiind forma de origine (origin form). 
+
+Forma de origine, utilizată cu metodele GET, POST, HEAD și OPTIONS, este folosită pentru a identifica originea resursei dintr-un server sau gateway. Presupune combinarea unei căi absolute cu informațiile aflate în antetul „Host” la care există posibilitatea adăugării unei interogări de forma \textit{cheie = valoare} pentru a transmite informații suplimentare. 
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/formorig.png}
+\caption{Forma de origine}
+\label{fig:formorig}
+\end{figure}
+
+Forma absolută este o sintaxă de tip URL complet, ce include informațiile necesare pentru identificarea serverului, în care cererea HTTP este făcută către un proxy, cu rol în redirecționerea răspunsului sau serviciul de la un cache valid înapoi către client, utilizând metoda GET.
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/abs.png}
+\caption{Forma absolută}
+\label{fig:formorig}
+\end{figure}
+
+Forma de autoritate este o structură folosită în cererile HTTP formată dintr-un nume de gazdă și opțional un port delimitat de simbolul : împreună cu metoda CONNECTION pentru a seta un tunel către resursa țintă.
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/conn.png}
+\caption{Forma de autoritate}
+\label{fig:conn}
+\end{figure}
+
+Forma asterisk (*) este folosită altături de metoda OPTIONS atunci când cererea HTTP nu se aplică unei resurse particulare, ci server-ului ca un întreg.
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/ast.png}
+\caption{Forma asterisk}
+\label{fig:con}
+\end{figure}
+
+Ultima componentă a liniei de cerere se numește protocol. Este un indicator care reprezintă versiunea protocolului HTTP utilizată în timpul procesului de trimitere a cererii folosit pentru o interpretare corectă a mesajelor transmise. Singura versiune care trebuie declarată în acest câmp este HTTP/1.1, deoarece versiunile HTTP/0.9, HTTP/1.0 sunt învechite și nu se mai folosesc, iar versiunile mai noi de HTTP/2.0 sunt configurate de dinainte în timpul conexiunii. 
+
+Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie antetul, în care metadatele trimit o cerere după linia de start și după secțiunea principală mesajului. 
+\subsubsection{Răspunsuri HTTP}
 
  Alegerea de a utiliza acest protocol în cadrul dezvoltării aplicației este justificată prin simplitatea cu care se implementează acesta, dar și interoperabilitatea sa extinsă cu browserele, serverele web și backend-urile.
 
