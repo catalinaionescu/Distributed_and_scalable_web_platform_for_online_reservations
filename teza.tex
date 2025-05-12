@@ -94,42 +94,52 @@ HTTP = Hypertext Transfer Protocol \\
 \chapter{Introducere}
 \section{Prezentarea proiectului}
 
-Cerințele privind performanța și scalabilitatea aplicațiilor web sunt în continuă creștere datorită gamei extinse de dispozitive inteligente și IoT (Internet of Things) folosite de către utilizatori pentru a-și îmbunătăți viața de zi cu zi. Numărul mare de dispozitive care accesează în mod concomitent un site web duce la un volum copleșitor de cereri către servere pentru a accesa informația cerută, ceea ce poate cauza o experiență întârziată sau chiar imposibilă a utilizatorul. Datorită acestor circumstanțe, traficului de date crește, iar aplicațiile web trebuie să facă față la un flux considerabil de informații. La momentul actual, o soluție pentru optimizarea aplicațiilor web expuse unui trafic mare de date, dar și pentru a spori satisfacția utilizatorilor este folosirea soluțiilor scalabile a resurselor software și hardware. 
+Cerințele privind performanța aplicațiilor web sunt în continuă creștere datorită gamei extinse de dispozitive inteligente și IoT (Internet of Things) folosite de către utilizatori pentru a-și îmbunătăți viața de zi cu zi. Numărul mare de dispozitive care accesează în mod concomitent un site web duce la un volum copleșitor de cereri către servere pentru a accesa informația cerută, ceea ce poate cauza o experiență întârziată sau chiar imposibilă a utilizatorul. Datorită acestor circumstanțe, traficului de date crește, iar aplicațiile web trebuie să facă față la un flux considerabil de informații. La momentul actual, o soluție pentru optimizarea aplicațiilor web expuse unui trafic mare de date, dar și pentru a spori satisfacția utilizatorilor este folosirea soluțiilor scalabile a resurselor software și hardware. 
 
-Scalabilitatea \cite{scal} reprezintă capacitatea unui sistem de a crește sau reduce performanța și costurile unui sistem în funcție de cerințele de procesare. Aceasta este de două tipuri: 
+Scalabilitatea \cite{scal} reprezintă capacitatea unui sistem de a-și folosi în mod adaptiv și utiliza eficient resursele în scopul creșterii performanței și reducerii costurilor, în funcție de cerințele de procesare. Aceasta se clasifică după tipul de resurse folosite în: 
 \begin{enumerate}
-\item Scalabilitatea resurselor software \cite{scal.soft} se referă la abilitatea unei aplicații de a-și adapta sau menține performanța atunci când este o creștere sau o scădere a volumului de utilizatori, date sau operațiuni. 
+\item Scalabilitatea resurselor software \cite{scal.soft}: se referă la abilitatea unei aplicații de a-și adapta sau menține performanța atunci când este o creștere sau o scădere bruscă a volumului de utilizatori, date sau operațiuni. 
 
-\item Scalabilitatea resurselor hardware \cite{scal.hard} reprezintă capacititatea unui sistem de a-și mări capacitatea sau de a-și crește performanța utilizând noi resurse hardware. 
+\item Scalabilitatea resurselor hardware \cite{scal.hard}: reprezintă capacititatea unui sistem de a-și mări capacitatea sau de a-și crește performanța utilizând noi resurse hardware. 
 \end{enumerate}
-De asemenea, folosirea în paralel a unei bazei de date distribuită reprezintă o soluție modernă pentru asigurarea redundanței datelor și a performanței optime într-o aplicație complexă. O bază de date distribuită \cite{bd} este o bază de date controlată de un sistem de gestiune a bazelor de date (Data Base Management System), în care datele sunt distribuite la mai multe calculatoare interconectate.
+De asemenea, folosirea în paralel a unei bazei de date distribuită reprezintă o soluție eficientă pentru asigurarea redundanței datelor și a performanței optime într-o aplicație complexă. 
+
+O bază de date distribuită \cite{bd} este o bază de date controlată de un sistem de gestiune a bazelor de date (Data Base Management System), în care datele sunt distribuite la mai multe calculatoare interconectate.
 
 \section{Scopul proiectului}
-Proiectul \textbf{„Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web”} își propune studierea, implementarea și testarea soluțiilor scalabile software pentru o platformă de rezervări online, utilizând framework-ul Flask Python (pentru dezvoltarea aplicației web), MySQL (sistem de gestionare a bazelor de date relaționale) și Nginx (loadbalancer și server web de tip reverse proxy). Scopul acestui proiect este a urmări și analiza capabilitatea aplicației de a răspunde la un număr mare de cereri simultane, îmbunătățirea performanței, extinderea și reducerea redundanței prin implementarea unei soluții scalabile de tip software care include un load balancer și o bază de date distribuită master-sclave. 
+Proiectul \textbf{„Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web”} își propune studierea, implementarea și testarea soluțiilor scalabile software pentru o aplicație web, utilizând framework-ul Flask Python (pentru dezvoltarea aplicației web), MySQL (sistem de gestionare a bazelor de date relaționale) și Nginx (loadbalancer și server web de tip reverse proxy). 
 
-Aplicația simulează o platformă de tip rezervări fiind dezvoltată într-un mediul de lucru alcătuit dintr-o stație de lucru, alături de un mediu de testare, constituit de cele două mașini virtuale instalate pe stația de lucru. Împreună, cele trei mașini fac parte din aceeași rețea IP/LAN. De asemenea, la nivel arhitectural s-a implementat o bază de date distribuită de tip master-slave pentru a optimiza operațiile de citire-scriere.  
+Scopul acestui proiect este a urmări și analiza capabilitatea aplicației de a răspunde la un număr mare de cereri simultane, îmbunătățirea performanței și reducerea redundanței prin implementarea unei soluții scalabile de tip software care include un load balancer și o bază de date distribuită master-sclave. 
+
+Aplicația, o platformă de tip rezervări, a fost dezvoltată într-un mediul de lucru alcătuit dintr-o stație de lucru, alături de un mediu de testare, constituit de cele două mașini virtuale instalate pe stația de lucru. Împreună, cele trei mașini constituie o rețea IP/LAN privată. De asemenea, la nivel arhitectural s-a implementat o bază de date distribuită de tip master-slave pentru a optimiza operațiile de citire-scriere.  
 
 Obiectivele specifice acestei lucrării sunt:
 \begin{itemize}
-\item Dezvoltarea aplicației web folosind framework-ul Flask Python care include rute pentru funcționalități de bază precum ar fi: autentificarea (login, register), managementul utilizatorilor (profile), administrarea rezervărilor (reserve) și pagini administrative (admin).
+\item Dezvoltarea aplicației web folosind framework-ul Flask Python care include rute HTTP pentru funcționalități de bază precum ar fi: autentificarea (login, register), managementul utilizatorilor (profile), administrarea rezervărilor (reserve) și pagini administrative (admin).
 
-\item Implementarea arhitecturii scalabile prin intermediul sistemului de load balancing folosind Nginx. Nginx are rolul de a distribui cererile trimise între mai multe servere, astfel crescând performanța și puterea de procesare a aplicației web.
+\item Implementarea arhitecturii scalabile prin intermediul sistemului de load balancing folosind Nginx. Nginx are rolul de a distribui cererile trimise între cele două servere disponibile, aplicația Flask și VM2, rezultând în creșterea performanței și puterii de procesare a aplicației web.
 
-\item Optimizarea performanței bazei de date cu un server master și un server sclave. Cele două servere îmbunătățesc operațiile de citire și scriere și asigură redundanța datelor. \end{itemize}
+\item Optimizarea performanței bazei de date cu un server master pe stația de lucru și un server sclave pe VM1. Cele două servere îmbunătățesc operațiile de citire și scriere și asigură redundanța datelor prin atribuirea operațiilor de citire serverul-ui master, iar operațiile de scriere serveru-lui sclave.
+ \end{itemize}
 
-Semnificația practică a acestei lucrări constă în faptul că rezultatele obținute în urma aplicării soluțiilor scalabile oferă o perspectivă asupra traficului de date și de cereri la care poate rezista o aplicație web și cum ar trebui îmbunătățită și optimizată pentru a gestiona eficient cererile utilizatorilor.
+Semnificația practică a acestei lucrări constă în evidențierea rezultatelor obținute în urma aplicării soluțiilor scalabile implementate pentru a facilita o performanță crescută la un cost scăzut pentru a gestiona eficient cererile utilizatorilor. Rezultatele oferă o perspectivă clară asupra comportamentului unei aplicație web atunci când este supusă la un volum semnificativ de cereri, dar și asupra faptului cum pot fi îmbunătățite performanța și costurile de operare .
 
 \section{Structura lucrării}
-În capitolele ce urmează, se vor prezenta următoarele idei:  aspectele teoretice ale proiectului, tehnologiile folosite în implementare și structura aplicației. Acestea sunt urmate de descrierea arhitecturii, în care sunt evidențiate diferitele module ce constituie aplicația și interacțiunea dintre ele la nivel scalabil. 
+Capitolele următoare vor prezenta principalele concepte și soluții abordate în cadrul acestei lucrării, cum ar fi: aspectele teoretice ale proiectului, tehnologiile folosite în implementare și structura aplicației. Acestea sunt urmate de descrierea arhitecturii, în care sunt evidențiate diferitele module ce constituie aplicația și interacțiunea dintre ele la nivel scalabil. 
 Capitolele vor cuprinde și exemplificări cu fragmente de cod care un rol crucial în aplicarea fenomenului de scalabilitate asupra aplicației web.
 De asemenea, lucrarea abordează explicații amănunțite despre modul de funcționare și utilizare a interfeței grafice a aplicației cu ajutorul capturilor de ecran.
 
 \chapter{Aspectele teoretice ale proiectului}
-În mod ideal, scalabilitatea presupune gestionarea optimă a resurselor hardware, dar și software, astfel încât aplicația când este expusă unui număr mare de cereri le gestionează eficient, fără a compromite viteza de răspuns sau resursele disponibile. Scalabilitatea software \cite{ss} se referă la implementarea unor soluțiilor de tip software care asigură funcționarea eficientă a aplicației chiar și la un număr mare de utilizatori. Aceasta folosită concomitent cu scalabilitatea hardware, care are rol în extinderea resurselor fizice ale unui sistem, aduce la rezultate impresionante în gestionarea traficului și a numărului de cereri mare pentru a oferi utlizatorilor o experiență fluidă.
+În mod ideal, scalabilitatea presupune gestionarea optimă a resurselor hardware și software, astfel încât atunci când aplicația este expusă asupra unui număr mare de cereri, ea va trebui să le gestioneze eficient, fără a compromite viteza de răspuns sau resursele disponibile. Scalabilitatea software \cite{ss} reprezintă implementarea unor soluțiilor de tip software care asigură funcționarea eficientă a aplicației la un volum de utilizatori brusc variabil. Aceasta folosită concomitent cu scalabilitatea hardware, ce are rol în extinderea resurselor fizice ale unui sistem, poate aduce la rezultate impresionante în gestionarea traficului și a numărului de cereri semnificativ pentru a oferi utlizatorilor o experiență cât mai fluidă.
 
-În practică, oricât de mult am încerca să avem o viteză de răspuns cât mai optimă, aceasta implică un cost foarte mare al resurselor software, hardware dar și a energiei electrice folosite. Un volum limitat de resurse hardware și software implică, de asemenea, o eficiență de gestionare a cererilor dintr-o aplicației mai scăzută. Astfel, este necesară o arhitectură software și hardware bine definită pentru a reuși în atingerea unor rezultate promițătoare cu un număr minim de resurse folosite. Această lucrare urmărește să evidențieze importanța soluțiilor scalabile software implementate în cadrul unei aplicații de tip rezervări web care are rol în optimizarea și fluidizarea volumului de traficul de date rezultat în urma cererilor transmise de utilizatori către server.
+În practică, oricât de mult am încerca să avem o viteză de răspuns cât mai optimă, aceasta implică un cost foarte mare al resurselor software, hardware dar și a energiei electrice folosite. Un volum limitat de resurse hardware și software implică, de asemenea, o eficiență de gestionare a cererilor dintr-o aplicației mai scăzută. Astfel, este necesară o arhitectură software și hardware bine definită pentru a reuși în atingerea unor rezultate promițătoare cu un număr minim de resurse folosite.
 
-\textbf{O aplicație web} \cite{web} este o aplicație de tip software accesată prin intermediul unui browser web care poate rula pe internet sau pe un server. Aceasta poate fi accesată de pe orice tip de dispozitiv conectat la internet, cum ar fi calculatoarele, telefoanele, consolele și este implementată prin intermediul unor limbaje de programare web ca HTML, CSS și JavaScript. Ceea ce face diferită o aplicație web față de cele mobile sau desktop este faptul că poate să ruleze pe unul sau mai multe servere și este accesată cu ajutorul unui browser web. Principalele caracteristici și funcționalități ale unei aplicații web sunt:
+ Această lucrare urmărește să evidențieze importanța soluțiilor scalabile software implementate în cadrul unei aplicații de tip web care are rol în optimizarea și fluidizarea volumului de traficul de date rezultat în urma cererilor transmise de utilizatori către server.
+ \section {Aplicația web}
+
+\textbf{O aplicație web} \cite{web} este o aplicație de tip software accesată prin intermediul unui browser web care poate rula pe un server local sau cloud. Aceasta poate fi accesată de pe orice tip de dispozitiv conectat la internet cum ar fi calculatoarele, telefoanele, consolele și este implementată prin intermediul unor limbaje de programare web ca HTML, CSS și JavaScript. Ceea ce face diferită o aplicație web față de cele mobile sau desktop este faptul că poate să ruleze pe unul sau pe mai multe servere și este nevoie doar de un browser web pentru a o accesa. 
+
+Principalele caracteristici și funcționalități ale unei aplicații web sunt:
 \begin{itemize}
 \item Scalabilitatea: datorită faptului că aplicațiile web rulează pe un server există posibilitatea de a implementa soluții scalabile care să îmbunătățească și optimizeze performanța pentru a răspunde la cerințele utilizatorilor.
 \item Accesibilitatea: oricine are un dispozitiv cu conexiune la internet poate să acceseze aplicațiile web, indiferent de locație sau specificațiile hardware și software pe care le are dispozitivul folosit.
@@ -138,12 +148,12 @@ De asemenea, lucrarea abordează explicații amănunțite despre modul de funcț
 \end{itemize}
 
  \section {Protocolul HTTP}
-În contextul vremurilor actuale, aplicațiile web au devenit unul dintre cele mai rapide, populare, dar și accesibile metode de a accesa informații și servicii de către utilizatori doar la un click distanță. La baza acestora se află o arhitectură de tip client-server, unde interacțiunele sunt realizate prin intermediul protocoalelor de comunicație.
+În contextul vremurilor actuale, aplicațiile web au devenit unul dintre cele mai rapide, populare, dar și accesibile metode de a accesa informații și servicii de către utilizatori, doar la un click distanță. La baza acestora se află o arhitectură de tip client-server, unde interacțiunele sunt realizate prin intermediul protocoalelor de comunicație.
 
-Protocolul HTTP (Hypertext Transfer Protocol) \cite{http} este protocolul de bază al oricărui schimb de date pe internet care se ocupă cu preluarea resurselor, cum ar fi documentele HTML (HyperText Markup Language), fișiere audio, video ș.a.m.d. Fiind un protocol de tip client-server, cererile sunt inițializate de către client (browser-ul web). Comunicarea dintre clienți și servere are loc prin schimbul de mesaje individuale, unde mesajele trimise de client se numesc cereri, iar mesajele trimise de către server se numesc răspunsuri.
+Protocolul HTTP (Hypertext Transfer Protocol) \cite{http} este protocolul de bază al oricărui schimb de date pe internet care se ocupă cu preluarea resurselor, cum ar fi documentele HTML (HyperText Markup Language), fișiere audio, video ș.a.m.d. Fiind un protocol de tip client-server, cererile sunt inițializate de către client (browser-ul web). Comunicarea dintre clienți și servere are loc prin schimbul de mesaje individuale, unde mesajele trimise de client poartă numele de cereri, iar mesajele trimise de către server - răspunsuri.
 
  \subsection{Componentele sistemelor bazate pe HTTP}
-HTTP este un protocol de nivel de aplicație ce urmează un model de tip client-server în care un client începe o conexiune pentru a face o cerere, care așteaptă până primește un răspuns de la server. De asemenea, HTTP este un protocol fără reținerea stării, unde serverul nu reține date despre sesiunea activă.
+HTTP este un protocol de nivel de aplicație, fără reținerea stării (serverul nu reține date despre sesiunea activ) ce urmează un model de tip client-server în care un client începe o conexiune pentru a face o cerere, așteaptă până primește un răspuns de la server, iar serverul în cele din urmă face schimb de informații cu clientul. 
 
 \subsubsection{Clientul: user-agent-ul}
 User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HTTP pentru a trimite informații despre aplicație, sistemul de operare, furnizorul și/sau versiunea folosită către server. 
@@ -156,13 +166,14 @@ User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HT
 \end{figure}
 
 
-Ca să afișeze o pagină web, în prima fază browser-ul trimite o cerere inițială pentru a prelua documentul HTML care reprezintă pagina. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (care pot fi imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate resursele pentru a prezenta documentul completat.
+Ca să afișeze o pagină web, în prima fază browser-ul trimite o cerere inițială pentru a prelua documentul HTML care reprezintă pagina. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate resursele pentru a prezenta documentul complet.
  
-\subsection {Server-ul web}
-Server-ul web \cite{svweb} se ocupă cu livrarea documentelor cerute de către client. Din punct de vedere al structurii hardware, poate fi un calculator sau o colecție de servere care împart cererile ce au rol în conectarea la internet și la schimbul de date stocate (de exemplu documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
-Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a înțelege adresele URL și protocolul HTTP.
+\subsubsection {Server-ul web}
+Server-ul web \cite{svweb} se ocupă cu livrarea resurselor cerute de către client. Din punct de vedere al structurii hardware, poate fi un calculator sau o colecție de servere conectate în aceeași rețea care se ocupă cu schimbul de date stocate (de exemplu documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
 
-URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese duce la o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul server-ului, resursa solicitată va fi afișată. Un URL este compus din diferiți parametrii, unii fiind obligatorii, altele opționale. 
+Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a înțelege adresele URL și protocolul HTTP.
+\paragraph{Componente URL}
+URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese duce la o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul serverul-ui resursa solicitată va fi afișată. Conform figurii \ref{fig:wbsv}, un URL este compus din diferite componente precum ar fi tipul de protocol URL, numelei resursei, portul, calea către resursă, parametrii și fragmentul de identificare internă.
  \begin{figure}[H]
 \centering
 \includegraphics*[width=1.7\columnwidth, center]{figuri/url.png}
@@ -170,7 +181,8 @@ URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unic
 \label{fig:wbsv}
 \end{figure}
 
-\subsubsection{Tipul de protocol URL}
+\subparagraph{Tipul de protocol URL}
+
 Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie să îl folosească pentru a trimite o cerere de acces la resursă. Protocoalele cele mai întâlnite sunt HTTPS (Hypertext Transfer Protocol Secured) sau HTTP (varianta nesecurizată), dar există cazuri în care este folosit și protocolul mailto: care deschide un client de tip mail.
  \begin{figure}[H]
 \centering
@@ -179,8 +191,9 @@ Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie
 \label{fig:wbsv}
 \end{figure}
 
-\subsubsection{Numele resursei și portul}
-Numele resursei sau numele domeniului, separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui string. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
+\subparagraph{Numele resursei și portul}
+
+Numele resursei sau numele domeniului, separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui șir de caractere. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
 Portul este o „poartă” tehnică folosită pentru a accesa resursele pe server-ul web. În cele mai multe cazuri, declararea portului este omisă deoarece majoritatea serverelor folosesc în mod implicit portul 80 pentru HTTP și 443 pentru HTTPS, dar în situațiile în care este necesară utilizarea unui alt port, acesta trebuie declarat în mod obligatoriu.
 
  \begin{figure}[H]
@@ -191,7 +204,9 @@ Portul este o „poartă” tehnică folosită pentru a accesa resursele pe serv
 \end{figure}
 
 
-\subsubsection{Calea către resursă}
+
+\subparagraph{Calea către resursă}
+
 Următoarea componentă a unui URL este calea către resursă. Calea indică locația exactă a unei pagini, imagini sau altei resurse aflate pe server.
 
  \begin{figure}[H]
@@ -201,7 +216,8 @@ Următoarea componentă a unui URL este calea către resursă. Calea indică loc
 \label{fig:wbsv}
 \end{figure}
 
-\subsubsection{Parametrii}
+\subparagraph{Parametrii}
+
 Parametrii sunt o listă de chei sau valori folosite de către server-ul web în a executa anumite operații înainte de a se ocupa de furnizarea resursei cerute. Pentru delimitarea fiecărui parametru se folosește simbolul \&. Fiecare server web are o listă de chei sau de valori specifice, nu există o regulă specifică în crearea acestora.
 
  \begin{figure}[H]
@@ -211,7 +227,8 @@ Parametrii sunt o listă de chei sau valori folosite de către server-ul web în
 \label{fig:wbsv}
 \end{figure}
 
-\subsubsection{Fragment de identificare internă}
+\subparagraph{Fragment de identificare internă}
+
 Un fragment de identificare internă sau ancora, delimitată de simbolul \#, are rol în afișarea unei anumite secțiuni din resursă. Ancorele funcționează ca un fel de „semn de carte”, aceasta indicând aplicației web până unde va trebui să parcurgă documentul ca să ajungă la secțiunea marcată și într-un final să o afișeze.
 
  \begin{figure}[H]
@@ -240,8 +257,9 @@ O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce în
 \caption{Diagrama conexiunii HTTP}
 \label{fig:tcp}
 \end{figure}
-Primul pas în a începe o conexiune HTTP o reprezintă schimbul de cerere/răspuns dintre client și server. Acest schimb începe odată ce s-a stabilit o conexiune TCP, un proces care trimite unul sau mai multe cereri din partea clientului pentru a primi un răspuns de la server. Clientul are posibilitatea de a deschide o nouă conexiune, de a folosi o conexiune existentă sau de a deschide mai multe conexiuni TCP către servere.
-Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul server-ului la cererea clientului cu informația cerută. Dacă răspunsul serverului are codul 200 OK, înseamnă faptul că s-a stabilit cu succes conexiunea, iar serverul poate răspunde clientului cu informația cerută.  
+Primul pas spre a începe o conexiune HTTP îl reprezintă schimbul de cerere/răspuns dintre client și server. Acest schimb începe odată ce s-a stabilit o conexiune TCP, un proces care trimite unul sau mai multe cereri din partea clientului pentru a primi un răspuns de la server. Clientul are posibilitatea de a deschide o nouă conexiune, de a folosi o conexiune existentă sau de a deschide mai multe conexiuni TCP către servere.
+
+Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul server-ului la cererea clientului cu informația cerută. Dacă serverul răspunde cu codul 200 OK, înseamnă faptul că s-a stabilit cu succes conexiunea, iar serverul poate transmite clientului informația cerută.  
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.7\columnwidth, center]{figuri/cltcp.png}
@@ -259,9 +277,9 @@ Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul ser
 În cele din urmă, conexiunea este închisă sau reutilizată.
 
 \subsection{Mesaje HTTP}
-Mesajele HTTP sunt un mecanism de schimb de date între server și un client. Există două tipuri de mesaje: cerere și răspuns. Cererea este trimisă de către client server-ului pentru a declanșa o acțiune, iar răspunsul este informația trimisă de către server înapoi clientului. Modul prin care mesajele HTTP sunt create sau transformate se datorează API-urilor în browser, fișiere de configurație ale proxy-urilor sau serverelor sau altor interfețe.
+Mesajele HTTP  sunt șiruri de caractere scrise în limbaj natural, simplist, începând cu versiunea HTTP/1.1 până la versiunea HTTP/2. 
+Reprezintă un mecanism de schimb de date între server și un client. Există două tipuri de mesaje: cerere și răspuns. Cererea este trimisă de către client server-ului pentru a declanșa o acțiune, iar răspunsul este informația trimisă de către server înapoi clientului. Modul prin care mesajele HTTP sunt create sau transformate se datorează API-urilor în browser, fișiere de configurație ale proxy-urilor sau serverelor sau altor interfețe.
 
-Mesajele HTTP sunt șiruri de caractere scrise în limbaj natural, simplist, începând cu versiunea HTTP/1.1 până la versiunea HTTP/2. 
 
 
 \subsubsection{Structura mesajelor HTTP}
@@ -288,6 +306,18 @@ Partea superioară (head) a mesajului HTTP este compus din linia de start și an
 
 \subsubsection{Cereri HTTP}
 O cerere HTTP \cite{req} este un mesaj trimis de client către server cu scop de a solicita o resursă. Aceasta este compusă dintr-o parte superioară ce cuprinde linia cererii (request line), antet (header), linie goală și corp. 
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/cerex.png}
+\caption{Cerere HTTP}
+\label{fig:cerex}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/cer.png}
+\caption{Cerere HTTP}
+\label{fig:cer}
+\end{figure}
 
 Prima componentă a părții superioare a unei cereri HTTP o constituie linia cererii. Așa cum se observă și în figura \ref{fig:msjcer}, se pot observa trei părți ce compun linia cererii: metoda, resursa solicitată și protocolul.
 
@@ -346,12 +376,112 @@ Forma asterisk (*) este folosită altături de metoda OPTIONS atunci când cerer
 
 Ultima componentă a liniei de cerere se numește protocol. Este un indicator care reprezintă versiunea protocolului HTTP utilizată în timpul procesului de trimitere a cererii folosit pentru o interpretare corectă a mesajelor transmise. Singura versiune care trebuie declarată în acest câmp este HTTP/1.1, deoarece versiunile HTTP/0.9, HTTP/1.0 sunt învechite și nu se mai folosesc, iar versiunile mai noi de HTTP/2.0 sunt configurate de dinainte în timpul conexiunii. 
 
-Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie antetul, în care metadatele trimit o cerere după linia de start și după secțiunea principală mesajului. 
-\subsubsection{Răspunsuri HTTP}
+Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie antetul (header), care poate fi clasificat după rolul său în:
 
- Alegerea de a utiliza acest protocol în cadrul dezvoltării aplicației este justificată prin simplitatea cu care se implementează acesta, dar și interoperabilitatea sa extinsă cu browserele, serverele web și backend-urile.
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.5\columnwidth, center]{figuri/reqhed.png}
+\caption{Header request}
+\label{fig:reqhed}
+\end{figure}
 
+\begin{enumerate}
+\item antet de cerere (request header) care furnizează context suplimentar în cadrul unui mesaj de tip cerere sau adaugă instrucțiuni despre cum ar trebui să fie un mesaj tratat de către server
+\item antet de reprezentare (representation header), folosit numai în cazul în care cererea prezintă și o parte superioară, descrie forma originală a datelor din mesaj și forma de codare aplicată. Un representation request îi permite destinatarului să reconstruiască resursa așa cum era înainte de a fi transmisă în rețea. Câteva exemple de request header-uri des folosite într-o cerere sunt:
+\begin{itemize}
+\item Accept-Charset
+\item Host
+\item User-Agent
+\item Accept-Language
+\item Accept-Encoding
+\item Connection
+\item Referer
+\end{itemize}
+
+\end{enumerate}
  
+ Ultima componentă a unei cereri este constituită din corpul mesajului care are rol în transmiterea informației către server, compatibilă doar cu metodele PATCH, POST și PUT. Corpul unui mesaj poate conține o cantitate scăzută de date sub formă de perechi de tip key=value (cheie=valoare) (\ref{fig:bodcer1}) sau date în mai multe părți (\ref{fig:bodcer2}):
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/bodcer1.png}
+\caption{Date din corp sub formă de key=values}
+\label{fig:bodcer1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/bodcer2.png}
+\caption{Date din corp împărțite în mai multe părți}
+\label{fig:bodcer2}
+\end{figure}
+
+\subsubsection{Răspunsuri HTTP}
+Răspunsurile HTTP \cite{ras} sunt mesaje trimise de către server ca și răspuns înapoi către clienți. Răspunsul anunță clientul rezultatul determinat în urma cererii. 
+
+În figura \ref{fig:rasex} este descris un răspuns efectuat după realizarea operației POST, în care un nou utilizator este creat. 
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/rasex.png}
+\caption{Răspuns HTTP}
+\label{fig:rasex}
+\end{figure}
+Așa cum se poate observa din figura anterioară, un răspuns este alcătuit din trei componente: status line, response headers și corpul mesajului. 
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/ras.png}
+\caption{Alcătuirea răspunsului HTTP}
+\label{fig:ras}
+\end{figure}
+
+Status line reprezintă prima linie a părții superioare al unui răspuns HTTP. Acesta este format din trei componente:
+\begin{enumerate}
+
+\item Protocolul descrie versiunea protocolui HTTP pe care l-a folosit serverul pentru a transmite mesajul către client.
+\item Cod de stare indică dacă un răspuns HTTP a fost completat cu succes. Există cinci tipuri de coduri de stare cum ar fi: răspunsuri informaționale (cu valori între 100 și 199), răspunsuri ce descriu transmiterea cu succes (200-299), mesaje de redirecționare (300-399), răspunsuri pentru erori de client (400-499) și răspunsuri pentru erori de server (500-599). Cele mai des întâlnite coduri de stare sunt 200 - OK (mesajul a fost transmis cu succes), 404 - Not Found (serverul nu poate găsi resursa cerută, URL nu este recunoscut de către browser), 302 - Found (URL-ul asociat resursei căutate a fost schimbat temporar).
+\item Textul de stare este un text pur informațional ce detaliază codul de stare în limbaj natural pentru o mai bună înțelegere a statusului situației.
+
+\end{enumerate}
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/raspline.png}
+\caption{Status line - alcătuire}
+\label{fig:raspline}
+\end{figure}
+
+Cea de-a doua componentă a părții superioare al unui răspuns este alcătuită din response header și representation header. 
+
+Un response header este un antet cu metadatele trimise odată cu răspunsul de server către client. Fiecare antet este un șir de caractere care nu face diferențe între majuscule și litere mici, urmate de simbolul : și o valoare care este dependentă de tipul de antet folosit. Scopul response header-ului este de a oferi informații suplimentare despre mesaj sau de a adăuga logica despre cum ar trebui clientul să gestioneze cererile ce o să urmeze.
+Representation header-ul descrie forma datelor din mesaj și orice codare aplicată asupra acestuia și poate exista doar dacă mesajul are un corp. Un representation header oferă unui destinator instrucțiuni despre cum ar trebui să reconstruiască resursa înainte de a fi trimisă în rețea.
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=0.4\columnwidth, center]{figuri/resphed.png}
+\caption{Exemplu de response și representation header}
+\label{fig:resphed}
+\end{figure}
+
+ Ultima componentă a unui răspuns este alcătuită dintr-un corp, inclusiv în marea majoritatea a mesajelor atunci când un server trimite un răspuns către client. În răspunsurile realizate cu succes, corpul mesajului conține datele pe care un client le-a cerut prin intermediul metode GET. În schimb, dacă apar erori în transmiterea mesajului, se vor detalia problemele care au cauzat imposibilitatea trimiterii răspunsului în corp. 
+ 
+ 
+ \section{Flask Python}
+ Flask \cite{flask} \cite{flaskdoc} este un framework flexibil web minimalist creat în limbajul Python, deseori numit „micro-framework”. Datorită accesibilității de a dezvolta aplicații web folosind doar componente esențiale, fără necesitatea folosirii unor biblioteci suplimentare sau structuri complicate, dezvoltatorii au oportunitatea de a implementa și adăuga ușor funcționalități în aplicațiile web.
+
+
+Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un membru al grupului de pasionați de Python, Pocoo. Inițial, crearea celebrului framework a fost doar o aluzie la celebra zi a glumelor 1 aprilie, dar care mai târziu a devenit o situație serioasă. Numele „flask” este o referință la precedentul framework Bottle.
+În anul 2016, echipa Pocoo a fost desființată, iar dezvoltarea Flask-ului și a librăriilor acestuia a fost preluată de către echipa nou fondată Pallets.
+ 
+ În contextul acestei lucrări de licență, am ales să implementez serverul aplicației web în Flask datorită de avantaje pe care framework-ul le aduce  cum ar fi:
+ \begin{itemize}
+ \item Este un framework backend minimalist cu posibilitatea extinderii aplicației în funcție de cerințele impuse.
+ \item Este ușor de învățat deoarece API-ul intuitiv oferă posibilitatea chiar și începătorilor să se familiarizeze cu el.
+ \item Este un framework flexibil deoarece are abilitatea de a permite personalizarea și extinderea aplicației conform cerințelor cerute.
+ \item Poate fi folosit cu o paletă largă de baze de date precum MySQL prin intermediul extensiilor sau al bibliotecilor externe.
+ \item Routing HTTP care se ocupă cu definirea rutelor URL și asocierea acestora cu funcții care gestionează cererile și răspunsurile HTTP.\item Sesiunile de utilizatori pot fi ușor gestionate, deoarece Flask are posibilitatea de a stoca informații despre acestea în mod securizat pe server și client utilizând cookie-uri semnate.
+ \item Posibilă integrarea cu Jinja2 care oferă o paletă largă de tool-uri pentru generarea paginilor HTML dinamice.
+ \end{itemize}
+ 
+
 
 \chapter{Structura aplicației}
 Aplicația a fost structurată în șapte module, fiecare modul având un rol bine definit în arhitectura generală. Acestea sunt următoarele:
