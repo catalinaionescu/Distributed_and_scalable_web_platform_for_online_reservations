@@ -48,7 +48,12 @@
     showtabs=false,                  
     tabsize=2
 }
- 
+\usepackage{titlesec}
+ \titleformat{\subparagraph}[block]
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
 \lstset{style=mystyle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -109,9 +114,14 @@ O bază de date distribuită \cite{bd} este o bază de date controlată de un si
 \section{Scopul proiectului}
 Proiectul \textbf{„Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web”} își propune studierea, implementarea și testarea soluțiilor scalabile software pentru o aplicație web, utilizând framework-ul Flask Python (pentru dezvoltarea aplicației web), MySQL (sistem de gestionare a bazelor de date relaționale) și Nginx (loadbalancer și server web de tip reverse proxy). 
 
+În mod ideal, scalabilitatea presupune gestionarea optimă a resurselor hardware și software, astfel încât atunci când aplicația este expusă asupra unui număr mare de cereri, ea va trebui să le gestioneze eficient, fără a compromite viteza de răspuns sau epuiza toate resursele disponibile. Scalabilitatea software \cite{ss} reprezintă implementarea unor soluțiilor de tip software care asigură funcționarea eficientă a aplicației la un volum de utilizatori brusc variabil. Aceasta folosită concomitent cu scalabilitatea hardware, ce are rol în extinderea resurselor fizice ale unui sistem, poate aduce la rezultate impresionante în gestionarea traficului și a numărului de cereri semnificativ pentru a oferi utlizatorilor o experiență cât mai fluidă.
+
+În practică, oricât de mult am încerca să avem o viteză de răspuns cât mai optimă, aceasta implică un cost foarte mare al resurselor software, hardware dar și a energiei electrice folosite. Un volum limitat de resurse hardware și software implică, de asemenea, o eficiență de gestionare a cererilor din cadrul unei aplicații web mai scăzute. Astfel, este necesară o arhitectură software și hardware bine definită pentru a reuși în atingerea unor rezultate promițătoare cu un număr minim de resurse folosite.
+
+
 Scopul acestui proiect este a urmări și analiza capabilitatea aplicației de a răspunde la un număr mare de cereri simultane, îmbunătățirea performanței și reducerea redundanței prin implementarea unei soluții scalabile de tip software care include un load balancer și o bază de date distribuită master-sclave. 
 
-Aplicația, o platformă de tip rezervări, a fost dezvoltată într-un mediul de lucru alcătuit dintr-o stație de lucru, alături de un mediu de testare, constituit de cele două mașini virtuale instalate pe stația de lucru. Împreună, cele trei mașini constituie o rețea IP/LAN privată. De asemenea, la nivel arhitectural s-a implementat o bază de date distribuită de tip master-slave pentru a optimiza operațiile de citire-scriere.  
+Aplicația, o platformă de tip web destinată rezervărilor, a fost dezvoltată într-un mediul de lucru alcătuit dintr-o stație de lucru, alături de un mediu de testare, constituit de cele două mașini virtuale instalate pe stația de lucru. Împreună, cele trei mașini constituie o rețea IP/LAN privată. De asemenea, la nivel arhitectural s-a implementat o bază de date distribuită de tip master-slave pentru a optimiza operațiile de citire-scriere.  
 
 Obiectivele specifice acestei lucrării sunt:
 \begin{itemize}
@@ -122,7 +132,7 @@ Obiectivele specifice acestei lucrării sunt:
 \item Optimizarea performanței bazei de date cu un server master pe stația de lucru și un server sclave pe VM1. Cele două servere îmbunătățesc operațiile de citire și scriere și asigură redundanța datelor prin atribuirea operațiilor de citire serverul-ui master, iar operațiile de scriere serveru-lui sclave.
  \end{itemize}
 
-Semnificația practică a acestei lucrări constă în evidențierea rezultatelor obținute în urma aplicării soluțiilor scalabile implementate pentru a facilita o performanță crescută la un cost scăzut pentru a gestiona eficient cererile utilizatorilor. Rezultatele oferă o perspectivă clară asupra comportamentului unei aplicație web atunci când este supusă la un volum semnificativ de cereri, dar și asupra faptului cum pot fi îmbunătățite performanța și costurile de operare .
+Semnificația practică a acestei lucrări constă în evidențierea rezultatelor obținute în urma aplicării soluțiilor scalabile implementate pentru a facilita o performanță crescută folosind un număr de resurse limitate în gestionationarea eficientă a cererilor utilizatorilor. Rezultatele oferă o perspectivă clară asupra comportamentului unei aplicație web atunci când este supusă la un volum semnificativ de cereri, dar și asupra faptului cum pot fi îmbunătățite performanța și costurile de operare .
 
 \section{Structura lucrării}
 Capitolele următoare vor prezenta principalele concepte și soluții abordate în cadrul acestei lucrării, cum ar fi: aspectele teoretice ale proiectului, tehnologiile folosite în implementare și structura aplicației. Acestea sunt urmate de descrierea arhitecturii, în care sunt evidențiate diferitele module ce constituie aplicația și interacțiunea dintre ele la nivel scalabil. 
@@ -130,14 +140,10 @@ Capitolele vor cuprinde și exemplificări cu fragmente de cod care un rol cruci
 De asemenea, lucrarea abordează explicații amănunțite despre modul de funcționare și utilizare a interfeței grafice a aplicației cu ajutorul capturilor de ecran.
 
 \chapter{Aspectele teoretice ale proiectului}
-În mod ideal, scalabilitatea presupune gestionarea optimă a resurselor hardware și software, astfel încât atunci când aplicația este expusă asupra unui număr mare de cereri, ea va trebui să le gestioneze eficient, fără a compromite viteza de răspuns sau resursele disponibile. Scalabilitatea software \cite{ss} reprezintă implementarea unor soluțiilor de tip software care asigură funcționarea eficientă a aplicației la un volum de utilizatori brusc variabil. Aceasta folosită concomitent cu scalabilitatea hardware, ce are rol în extinderea resurselor fizice ale unui sistem, poate aduce la rezultate impresionante în gestionarea traficului și a numărului de cereri semnificativ pentru a oferi utlizatorilor o experiență cât mai fluidă.
 
-În practică, oricât de mult am încerca să avem o viteză de răspuns cât mai optimă, aceasta implică un cost foarte mare al resurselor software, hardware dar și a energiei electrice folosite. Un volum limitat de resurse hardware și software implică, de asemenea, o eficiență de gestionare a cererilor dintr-o aplicației mai scăzută. Astfel, este necesară o arhitectură software și hardware bine definită pentru a reuși în atingerea unor rezultate promițătoare cu un număr minim de resurse folosite.
-
- Această lucrare urmărește să evidențieze importanța soluțiilor scalabile software implementate în cadrul unei aplicații de tip web care are rol în optimizarea și fluidizarea volumului de traficul de date rezultat în urma cererilor transmise de utilizatori către server.
  \section {Aplicația web}
 
-\textbf{O aplicație web} \cite{web} este o aplicație de tip software accesată prin intermediul unui browser web care poate rula pe un server local sau cloud. Aceasta poate fi accesată de pe orice tip de dispozitiv conectat la internet cum ar fi calculatoarele, telefoanele, consolele și este implementată prin intermediul unor limbaje de programare web ca HTML, CSS și JavaScript. Ceea ce face diferită o aplicație web față de cele mobile sau desktop este faptul că poate să ruleze pe unul sau pe mai multe servere și este nevoie doar de un browser web pentru a o accesa. 
+\textbf{O aplicație web} \cite{web} este o aplicație de tip software accesată prin intermediul unui browser web care poate rula pe un server local sau cloud. Aceasta poate fi accesată de pe orice tip de dispozitiv conectat la internet cum ar fi calculatoarele, telefoanele, consolele ș.a.m.d. și este implementată prin intermediul unor limbaje de programare web ca HTML, CSS și JavaScript. Ceea ce deosebește o aplicație web față de cele mobile sau desktop este faptul că poate să ruleze pe unul sau pe mai multe servere și este nevoie doar de un browser web pentru a o accesa. 
 
 Principalele caracteristici și funcționalități ale unei aplicații web sunt:
 \begin{itemize}
@@ -148,12 +154,13 @@ Principalele caracteristici și funcționalități ale unei aplicații web sunt:
 \end{itemize}
 
  \section {Protocolul HTTP}
-În contextul vremurilor actuale, aplicațiile web au devenit unul dintre cele mai rapide, populare, dar și accesibile metode de a accesa informații și servicii de către utilizatori, doar la un click distanță. La baza acestora se află o arhitectură de tip client-server, unde interacțiunele sunt realizate prin intermediul protocoalelor de comunicație.
+În contextul vremurilor actuale, aplicațiile web au devenit unul dintre cele mai rapide, populare, dar și accesibile metode de a accesa informații și servicii de către utilizatori, doar la un click distanță. La baza acestora se află o arhitectură de tip client-server, unde interacțiunele sunt realizate prin intermediul protocoalelor de comunicație, cel mai des utilizat fiind protocolul HTTP.
 
-Protocolul HTTP (Hypertext Transfer Protocol) \cite{http} este protocolul de bază al oricărui schimb de date pe internet care se ocupă cu preluarea resurselor, cum ar fi documentele HTML (HyperText Markup Language), fișiere audio, video ș.a.m.d. Fiind un protocol de tip client-server, cererile sunt inițializate de către client (browser-ul web). Comunicarea dintre clienți și servere are loc prin schimbul de mesaje individuale, unde mesajele trimise de client poartă numele de cereri, iar mesajele trimise de către server - răspunsuri.
+Protocolul HTTP (Hypertext Transfer Protocol) \cite{http} este un protocol la nivelul stratului de aplicație, fără reținerea stării (serverul nu reține date despre sesiunea activă), de tip client-server care stă la baza oricărui schimb de date între un client și un server pentru preluarea unor resurse disponibile pe internet, cum ar fi documentele HTML (HyperText Markup Language), fișiere audio, video ș.a.m.d. 
+
+Comunicarea dintre clienți și servere are loc prin schimbul de mesaje individuale, în care mesajele trimise de client poartă numele de cereri, iar mesajele trimise de către server - răspunsuri. Un client începe o conexiune pentru a face o cerere, așteaptă până primește un răspuns de la server, iar serverul în cele din urmă înapoiază informațiile solicitate de către client. 
 
  \subsection{Componentele sistemelor bazate pe HTTP}
-HTTP este un protocol de nivel de aplicație, fără reținerea stării (serverul nu reține date despre sesiunea activ) ce urmează un model de tip client-server în care un client începe o conexiune pentru a face o cerere, așteaptă până primește un răspuns de la server, iar serverul în cele din urmă face schimb de informații cu clientul. 
 
 \subsubsection{Clientul: user-agent-ul}
 User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HTTP pentru a trimite informații despre aplicație, sistemul de operare, furnizorul și/sau versiunea folosită către server. 
@@ -161,19 +168,19 @@ User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HT
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/ussyntax.png}
-\caption{Sintaxa user-agent-ului }
+\caption{Structura user-agent-ului }
 \label{fig:ussyntax}
 \end{figure}
 
 
-Ca să afișeze o pagină web, în prima fază browser-ul trimite o cerere inițială pentru a prelua documentul HTML care reprezintă pagina. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate resursele pentru a prezenta documentul complet.
+Ca să afișeze o pagină web, în primă fază, browser-ul trimite o cerere inițială pentru a prelua documentul HTML solicitat de către client. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate aceste resursele pentru a afișa varinta finală a documentului.
  
 \subsubsection {Server-ul web}
-Server-ul web \cite{svweb} se ocupă cu livrarea resurselor cerute de către client. Din punct de vedere al structurii hardware, poate fi un calculator sau o colecție de servere conectate în aceeași rețea care se ocupă cu schimbul de date stocate (de exemplu documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
+Server-ul web \cite{svweb} se ocupă cu livrarea resurselor cerute de către client. Din punct de vedere al structurii hardware, acesta poate fi reprezentat de către o stație de lucru individuală sau de o colecție de servere interconectate în aceeași rețea care au rol în a gestiona schimbul de date stocate (de exemplu: documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
 
-Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a înțelege adresele URL și protocolul HTTP.
+Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a interpreta adresele URL și de a procesa cererile și răspunsurile transmise prin protocolul HTTP.
 \paragraph{Componente URL}
-URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese duce la o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul serverul-ui resursa solicitată va fi afișată. Conform figurii \ref{fig:wbsv}, un URL este compus din diferite componente precum ar fi tipul de protocol URL, numelei resursei, portul, calea către resursă, parametrii și fragmentul de identificare internă.
+URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese trimite o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul serverul-ui, resursa solicitată fie este afișată, fie un mesaj de eroare este returnat. Conform figurii \ref{fig:wbsv}, un URL este alcătuit din mai multe componente cum ar fi: tipul de protocolul URL, numele resursei, portul, calea către resursă, parametrii și fragmentul de identificare internă.
  \begin{figure}[H]
 \centering
 \includegraphics*[width=1.7\columnwidth, center]{figuri/url.png}
@@ -181,9 +188,9 @@ URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unic
 \label{fig:wbsv}
 \end{figure}
 
-\subparagraph{Tipul de protocol URL}
+\textbf{Tipul de protocol URL}
 
-Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie să îl folosească pentru a trimite o cerere de acces la resursă. Protocoalele cele mai întâlnite sunt HTTPS (Hypertext Transfer Protocol Secured) sau HTTP (varianta nesecurizată), dar există cazuri în care este folosit și protocolul mailto: care deschide un client de tip mail.
+Prima componentă regăsită într-un URL reprezintă tipul de protocol pe care browser-ul trebuie să îl folosească pentru a trimite o cerere de acces la resursă. Protocoalele cele mai des întâlnite sunt HTTPS (Hypertext Transfer Protocol Secured) sau HTTP (varianta nesecurizată), dar există cazuri în care este folosit și protocolul mailto: care deschide un client de tip mail.
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.2\columnwidth, center]{figuri/http.png}
@@ -191,10 +198,10 @@ Primul fragment din URL reprezintă tipul de protocol pe care browser-ul trebuie
 \label{fig:wbsv}
 \end{figure}
 
-\subparagraph{Numele resursei și portul}
+\textbf{Numele resursei și portul}
 
-Numele resursei sau numele domeniului, separat de tipul de protocol prin tiparul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui șir de caractere. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, numele domeniului ajută în fluidizarea procesului de accesare a unei pagini web prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
-Portul este o „poartă” tehnică folosită pentru a accesa resursele pe server-ul web. În cele mai multe cazuri, declararea portului este omisă deoarece majoritatea serverelor folosesc în mod implicit portul 80 pentru HTTP și 443 pentru HTTPS, dar în situațiile în care este necesară utilizarea unui alt port, acesta trebuie declarat în mod obligatoriu.
+Cea de-a doua componentă a URL-ului este formată din numele resursei și port. Numele resursei sau numele domeniului, separat de tipul de protocol prin șirul de caractere \textbf{://}, reprezintă adresa paginii web redactată sub forma unui șir de caractere. Orice pagină web are atribuit un IP public unic din intervalul 1.0.0.0 - 9.255.255.255, numere care sunt greu de reținut sau scris pentru orice persoană. Din acest motiv, cu ajutorul numele domeniului, procesul de accesare a unei pagini web devine mai rapid pentru utilizatori prin „traducerea în limbaj natural” a adreselor IP într-un format ușor de înteles și accesibil pentru oricine.
+Portul este o „poartă” tehnică folosită pentru a accesa resursele pe serverul web. În cele mai multe cazuri, declararea portului este omisă deoarece majoritatea serverelor folosesc în mod implicit portul 80 pentru conexiunea HTTP și 443 pentru conexiunea HTTPS, dar în situațiile în care este necesară utilizarea unui alt port, acesta trebuie declarat în mod obligatoriu.
 
  \begin{figure}[H]
 \centering
@@ -205,7 +212,7 @@ Portul este o „poartă” tehnică folosită pentru a accesa resursele pe serv
 
 
 
-\subparagraph{Calea către resursă}
+\textbf{Calea către resursă}
 
 Următoarea componentă a unui URL este calea către resursă. Calea indică locația exactă a unei pagini, imagini sau altei resurse aflate pe server.
 
@@ -216,9 +223,9 @@ Următoarea componentă a unui URL este calea către resursă. Calea indică loc
 \label{fig:wbsv}
 \end{figure}
 
-\subparagraph{Parametrii}
+\textbf{Parametrii}
 
-Parametrii sunt o listă de chei sau valori folosite de către server-ul web în a executa anumite operații înainte de a se ocupa de furnizarea resursei cerute. Pentru delimitarea fiecărui parametru se folosește simbolul \&. Fiecare server web are o listă de chei sau de valori specifice, nu există o regulă specifică în crearea acestora.
+Cea de-a patra componentă constă într-un atribut unic, denumit parametrii. Parametrii sunt o listă de chei și valori folosite, delimitate de simbolul \& de către serverul web utilizat pentru transmiterea de informații suplimentare către server. Fiecare server web are o listă de chei sau de valori specifice, nu există o regulă specifică în crearea acestora.
 
  \begin{figure}[H]
 \centering
@@ -227,9 +234,9 @@ Parametrii sunt o listă de chei sau valori folosite de către server-ul web în
 \label{fig:wbsv}
 \end{figure}
 
-\subparagraph{Fragment de identificare internă}
+\textbf{Fragment de identificare internă}
 
-Un fragment de identificare internă sau ancora, delimitată de simbolul \#, are rol în afișarea unei anumite secțiuni din resursă. Ancorele funcționează ca un fel de „semn de carte”, aceasta indicând aplicației web până unde va trebui să parcurgă documentul ca să ajungă la secțiunea marcată și într-un final să o afișeze.
+Ultima componentă ce intră în alcătuirea unui URL se numește fragment de identificare internă. Un fragment de identificare internă sau ancoră, delimitată de simbolul \#, are rol în afișarea unei anumite secțiuni din resursă. Ancorele funcționează ca un fel de „semn de carte”, acestea indicând aplicației web până unde va trebui să parcurgă documentul ca să ajungă la secțiunea marcată și într-un final să o afișeze.
 
  \begin{figure}[H]
 \centering
@@ -239,8 +246,7 @@ Un fragment de identificare internă sau ancora, delimitată de simbolul \#, are
 \end{figure}
 
 \subsection{Conexiunea HTTP}
-Un server HTTP poate fi direct accesat prin numele domeniilor pe care site-urile web le dețin și livrează conținutul acestora către utilizatori.
-La nivel fundamental, modul de funcționare al unui server web presupune ca de fiecare dată când un browser are nevoie de un fișier găzduit de către un server web, acesta va trimite o cerere HTTP pentru a primi fișierul respectiv. Odată ce server-ul HTTP a recepționat cererea, verifică dacă URL solicitat există și în cazul confirmării, acesta trimite la utilizator conținutul cerut. În cazul în care server-ul nu reușește să verifice cererea, mai întâi acesta verifică dacă este necesară generarea unui fișier dinamic. În cele din urmă, dacă niciuna dintre opțiuni nu este disponibilă, server-ul web va returna codul de eroare 404 Not Found.
+Accesarea directă a unui server HTTP se realizează prin introducerea URL-ului în bara de adrese, acesta livrând conținutul solicitat utilizatorilor. La nivel fundamental, modul de funcționare presupune ca de fiecare dată când un browser are nevoie de un fișier stocat pe un server web, acesta va iniția o cerere HTTP pentru a primi fișierul respectiv. Odată ce serverul HTTP a recepționat cererea, verifică dacă URL-ul solicitat există. În situația în care resursa este disponibilă, serverul trimite utilizatorilor conținutul corespunzător. În cazul contrar, serverul mai întâi acesta verifică dacă este necesară generarea unui fișier dinamic pentru a răspunde solicitării. În cele din urmă, dacă niciuna dintre opțiuni nu este disponibilă, serverul va returna codul de eroare 404 Not Found.
 
  \begin{figure}[H]
 \centering
@@ -250,16 +256,16 @@ La nivel fundamental, modul de funcționare al unui server web presupune ca de f
 \end{figure}
 
 \subsubsection{Cum funcționează o conexiune HTTP}
-O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce înseamnă că, de fapt, nu este rolul protocolului HTTP de a-și gestiona conexiunea, ci de a se folosi de un protocol de transport. Acesta are nevoie de un protocol de transport fiabil, prin care mesajele au o rată de pierdere foarte mică. Din acest motiv, se utilizează protocolul TCP datorită fiabilității sale care garantează să trimită mesajele cu un număr minim erori, deși acesta are o viteză de răspuns mai lentă în comparație cu protocolul UDP. 
+O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce implică faptul că se va folosi un protocol de transport pentru gestionarea conexiunii între client și server. Pentru a transmite mesaje cu o rată de pierdere foarte mică s-a optat în folosirea protocolului TCP. Datorită fiabilității sale, se utilizează protocolul TCP care garantează trimiterea mesajelor cu un număr minim erori, cu prețul unei vitezei de transfer mai mici. 
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/tcp.png}
 \caption{Diagrama conexiunii HTTP}
 \label{fig:tcp}
 \end{figure}
-Primul pas spre a începe o conexiune HTTP îl reprezintă schimbul de cerere/răspuns dintre client și server. Acest schimb începe odată ce s-a stabilit o conexiune TCP, un proces care trimite unul sau mai multe cereri din partea clientului pentru a primi un răspuns de la server. Clientul are posibilitatea de a deschide o nouă conexiune, de a folosi o conexiune existentă sau de a deschide mai multe conexiuni TCP către servere.
+Primul pas spre a începe o conexiune HTTP îl reprezintă schimbul de cerere/răspuns dintre client și server. Clientul are posibilitatea de a deschide o nouă conexiune, de a folosi o conexiune existentă sau de a deschide mai multe conexiuni TCP către servere. Acest schimb începe odată ce s-a stabilit o conexiune TCP, un proces care trimite unul sau mai multe cereri din partea clientului pentru a primi un răspuns de la server. 
 
-Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul server-ului la cererea clientului cu informația cerută. Dacă serverul răspunde cu codul 200 OK, înseamnă faptul că s-a stabilit cu succes conexiunea, iar serverul poate transmite clientului informația cerută.  
+Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul serverul-ui la cererea clientului cu informația cerută. Dacă serverul răspunde cu codul 200 OK, înseamnă că s-a stabilit cu succes conexiunea, iar serverul poate transmite clientului informația cerută.  
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.7\columnwidth, center]{figuri/cltcp.png}
@@ -274,75 +280,85 @@ Al doilea pas presupune trimiterea mesajul HTTP către server și răspunsul ser
 \label{fig:svtcp}
 \end{figure}
  
-În cele din urmă, conexiunea este închisă sau reutilizată.
-
+În cele din urmă, odată ce s-a făcut schimbul de resurse, există posibilitatea de a închide sau reutiliza conexiunea pentru viitoare sesiuni.
 \subsection{Mesaje HTTP}
-Mesajele HTTP  sunt șiruri de caractere scrise în limbaj natural, simplist, începând cu versiunea HTTP/1.1 până la versiunea HTTP/2. 
-Reprezintă un mecanism de schimb de date între server și un client. Există două tipuri de mesaje: cerere și răspuns. Cererea este trimisă de către client server-ului pentru a declanșa o acțiune, iar răspunsul este informația trimisă de către server înapoi clientului. Modul prin care mesajele HTTP sunt create sau transformate se datorează API-urilor în browser, fișiere de configurație ale proxy-urilor sau serverelor sau altor interfețe.
+Mesajele HTTP sunt șiruri de caractere scrise în limbaj natural, simplist, începând cu versiunea HTTP/1.1 până la versiunea HTTP/2. Acestea sunt clasificate în două categorii: cerere (request) și răspuns (response), reprezentând un mecanism de schimb de date între server și un client. O cerere este trimisă de către client serverul-ui cu scopul în a declanșa o acțiune, iar răspunsul are rolul de a furniza informația solicită înapoi către client. Crearea și modificarea mesajelor HTTP se datorează API-urilor disponibile în browser, fișierelor de configurație ale proxy-urilor sau serverelor sau altor interfețe software dedicate.
 
 
 
 \subsubsection{Structura mesajelor HTTP}
-Conform figurei \ref{fig:httpmesaj} se poate observa faptul că mesajele de tip cerere și răspuns prezintă o structură asemănătoare:
+Conform figurei \ref{fig:httpmesaj} se poate observa faptul că mesajele de tip cerere și răspuns prezintă o structură asemănătoare. Partea superioară (head) a mesajului HTTP este alcătuită din linia de start și anteturi, iar corpul, deși conține date transmise între client și server, este o componentă opțională.
  \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/httpmesaj.png}
 \caption{Răspuns HTTP}
 \label{fig:httpmesaj}
 \end{figure}
+
+Partea superioară conține informații esențiale pentru interpretarea mesajului cum ar fi:
 \begin{enumerate}
-\item Linia de start este o singură linie care descrie versiunea HTTP folosită alături de metoda cererii sau răspunsul acesteia.
-\item Setul opțional de antete HTTP conțin metadate care descriu mesajul transmis. Un antet HTTP permite schimbul de informații suplimentare dintre un client și un server în cadrul unei cereri sau răspuns. În funcție de context, se remarcă mai multe categorii de antet:
+\item Linia de start, compusă dintr-un singur rând, precizează versiunea HTTP, precum și metoda cererii sau codul de răspuns.
+\item Antetul (header) conține metadate folosite pentru a descrie mesajul transmis și facilitează schimbul de informații suplimentare dintre un client și un server, fie în cadrul unei cereri, fie al unui răspuns. În funcție de rolul pe care îl îndeplinesc, se remarcă mai multe categorii de antet:
 \begin{itemize}
 \item Antet de cerere (request header): conține informații despre resursa ce urmează a fi preluată.
-\item Antet de răspuns (response header): conține informații despre răspuns cum ar fi locația sau serverul de pe care provine.
-\item Antet de reprezentare (representation header): conține informații despre corpul resursei, cum ar fi tipul MIME sau tipul de compresie sau codare.
-\item Antet cu conținut util (payload header): conține informații de reprezentativ independente despre datele de conținut util 
+\item Antet de răspuns (response header): oferă informații despre răspuns, precum ar fi locația sau serverul de pe care provine.
+\item Antet de reprezentare (representation header): cuprinde informații despre corpul resursei, precum ar fi tipul de conținut sau de compresie sau codare.
+\item Antet cu conținut util (payload header): include informații referitoare la datele din corpul mesajului (payload) ce descriu caracteristici ale mesajului, fără a depinde de modul în care acesta este procesat sau trimis .
 \end{itemize}
-\item O linie goală care indică faptul că metadata mesajului este completă.
-\item Un corp (body) opțional care conține datele asociate mesajului, stabilit încă de la linia de start și din anteturi dacă va fi trasmis alături de mesaj sau nu. Deobicei conține o metodă trimisă de client către server sau o resursă redirecționată de către server clientului.
+\item O linie goală care indică faptul că metadata mesajului este complet.
 \end{enumerate}
-Partea superioară (head) a mesajului HTTP este compus din linia de start și antet, în timp ce corpul cuprinde restul componentelor.
+Un corp (body) pune la dispoziție datele asociate mesajului, transmiterea căruia este stabilită încă de la linia de start și din anteturile anterioare. Deobicei corpul include fie o metodă trimisă de client către server, fie o resursă redirecționată de către server clientului.
+
+
 
 \subsubsection{Cereri HTTP}
-O cerere HTTP \cite{req} este un mesaj trimis de client către server cu scop de a solicita o resursă. Aceasta este compusă dintr-o parte superioară ce cuprinde linia cererii (request line), antet (header), linie goală și corp. 
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/cerex.png}
-\caption{Cerere HTTP}
+\caption{Exemplu de cerere HTTP}
 \label{fig:cerex}
 \end{figure}
+O cerere HTTP \cite{req} este un mesaj trimis de client către server cu scop de a solicita o resursă. Structura acesteia este alcătuită dintr-o parte superioară ce cuprinde linia cererii (request line), antet (header), urmată de o linie goală și opțional, un corp. 
+
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/cer.png}
-\caption{Cerere HTTP}
+\caption{Structura cererii HTTP}
 \label{fig:cer}
 \end{figure}
 
-Prima componentă a părții superioare a unei cereri HTTP o constituie linia cererii. Așa cum se observă și în figura \ref{fig:msjcer}, se pot observa trei părți ce compun linia cererii: metoda, resursa solicitată și protocolul.
+
+Structura părții superioare a unei cereri HTTP este următoarea:
+\begin{enumerate}
+\item Linia cererii: este alcătuită din trei elemente precum ar fi metoda, resursa solicitată și protocolul.
 
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/msjcer.png}
-\caption{Formatul unei cereri HTTP}
+\caption{Structura unei liniii de cerere HTTP}
 \label{fig:msjcer}
 \end{figure}
+\textbf {Metoda HTTP}
+
 O metodă HTTP indică scopul unei cererii trimise către un server și rezultatul așteptat în cazul în care cererea a fost realizată cu succes. Deobicei fiecare metodă are propriul său rol, dar pot împărtăși anumite caracteristici comune. Există mai multe tipuri de metode precum ar fi:
-\begin{enumerate}
+
+\begin{itemize}
 \item \textbf{GET} este folosită pentru doar a prelua date de pe server, fără ca acestea să sufere noi modificări.
 \item \textbf{HEAD} se comportă în același mod ca și metoda GET, dar fără a include conținut în răspuns.
-\item \textbf{POST} are rol în a trimite date către server, de exemplu trimiterea încărcarea unui fișier.
+\item \textbf{POST} are rol în a trimite date către server, de exemplu încărcarea unui fișier.
 \item \textbf{PUT} înlocuiește toate instanțele curente cu noi instanțe specificate de către client.
 \item \textbf{DELETE} este utilizată cu scopul de a solicita ștergerea unei resurse specificate.
-\item \textbf{CONNECT} este utlizată pentru a crea un tunel de comunicație cu serverul identificat prin resursa țintă. 
+\item \textbf{CONNECT} crează un tunel de comunicație cu serverul identificat prin resursa țintă. 
 \item \textbf{OPTIONS} are rol în a descrie opțiunile de comunicare posibile pentru resursa specificată.
 \item \textbf{TRACE} este folosită pentru efectuarea unui test de buclă (loop-back) a mesajului de-a lungul traseului către resursa specificată.
 \item \textbf{PATCH} aplică modificări parțiale unei resurse.
-\end{enumerate}
+\end{itemize}
 
-Resursa solicitată este un URI (Uniform Resource Identifier) și identifică resursa căreia i se trimite cererea. Există mai multe tipuri de formatare utilizate pentru a descrie o resursă solicitată, cea mai folosită fiind forma de origine (origin form). 
+\textbf {Resursa solicitată}
 
-Forma de origine, utilizată cu metodele GET, POST, HEAD și OPTIONS, este folosită pentru a identifica originea resursei dintr-un server sau gateway. Presupune combinarea unei căi absolute cu informațiile aflate în antetul „Host” la care există posibilitatea adăugării unei interogări de forma \textit{cheie = valoare} pentru a transmite informații suplimentare. 
+Resursa solicitată este un URI (Uniform Resource Identifier) care identifică resursa căreia i se trimite cererea. Există mai multe tipuri de formatare utilizate pentru a descrie o resursă solicitată:
+\begin{itemize}
+\item Forma de origine, utilizată cu metodele GET, POST, HEAD și OPTIONS, este cea mai folosită formatare pentru a identifica originea resursei dintr-un server sau gateway. Presupune combinarea unei căi absolute cu informațiile aflate în antetul „Host” la care există posibilitatea adăugării unei interogări de forma \textit{cheie = valoare} pentru a transmite informații suplimentare. 
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/formorig.png}
@@ -350,7 +366,7 @@ Forma de origine, utilizată cu metodele GET, POST, HEAD și OPTIONS, este folos
 \label{fig:formorig}
 \end{figure}
 
-Forma absolută este o sintaxă de tip URL complet, ce include informațiile necesare pentru identificarea serverului, în care cererea HTTP este făcută către un proxy, cu rol în redirecționerea răspunsului sau serviciul de la un cache valid înapoi către client, utilizând metoda GET.
+\item Forma absolută este o sintaxă de tip URL complet ce include informațiile necesare pentru identificarea serverului. Atunci când cererea HTTP este făcută către un proxy, forma absolută are rol în redirecționarea răspunsului sau serviciul de la un cache valid înapoi către client, utilizând metoda GET.
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/abs.png}
@@ -358,7 +374,7 @@ Forma absolută este o sintaxă de tip URL complet, ce include informațiile nec
 \label{fig:formorig}
 \end{figure}
 
-Forma de autoritate este o structură folosită în cererile HTTP formată dintr-un nume de gazdă și opțional un port delimitat de simbolul : împreună cu metoda CONNECTION pentru a seta un tunel către resursa țintă.
+\item Forma de autoritate este o structură folosită în cererile HTTP formată dintr-un nume de gazdă și opțional un port delimitat de simbolul : împreună cu metoda CONNECTION pentru a seta un tunel către resursa țintă.
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/conn.png}
@@ -366,17 +382,19 @@ Forma de autoritate este o structură folosită în cererile HTTP formată dintr
 \label{fig:conn}
 \end{figure}
 
-Forma asterisk (*) este folosită altături de metoda OPTIONS atunci când cererea HTTP nu se aplică unei resurse particulare, ci server-ului ca un întreg.
+\item Forma asterisk (*) este folosită altături de metoda OPTIONS atunci când cererea HTTP nu se aplică unei resurse particulare, ci serverul-ui ca un întreg.
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/ast.png}
-\caption{Forma asterisk}
+\caption{Forma asterisk (*)}
 \label{fig:con}
 \end{figure}
+\end{itemize}
+\textbf {Protocol}
 
-Ultima componentă a liniei de cerere se numește protocol. Este un indicator care reprezintă versiunea protocolului HTTP utilizată în timpul procesului de trimitere a cererii folosit pentru o interpretare corectă a mesajelor transmise. Singura versiune care trebuie declarată în acest câmp este HTTP/1.1, deoarece versiunile HTTP/0.9, HTTP/1.0 sunt învechite și nu se mai folosesc, iar versiunile mai noi de HTTP/2.0 sunt configurate de dinainte în timpul conexiunii. 
+Protocolul este un indicator care reprezintă versiunea protocolului HTTP utilizată în timpul procesului de trimitere a cererii folosit având rol în  interpretarea corectă a mesajelor transmise. Singura versiune care trebuie declarată în acest câmp este HTTP/1.1, deoarece versiunile HTTP/0.9, HTTP/1.0 sunt învechite și nu se mai folosesc, iar versiunile mai noi de HTTP/2.0 sunt configurate în timpul conexiunii. 
 
-Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie antetul (header), care poate fi clasificat după rolul său în:
+\item Antetul (header) conține metadate despre mesajul ce urmează a fi transmis și se distinge în mai multe tipuri:
 
 \begin{figure}[H]
 \centering
@@ -385,9 +403,9 @@ Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie an
 \label{fig:reqhed}
 \end{figure}
 
-\begin{enumerate}
-\item antet de cerere (request header) care furnizează context suplimentar în cadrul unui mesaj de tip cerere sau adaugă instrucțiuni despre cum ar trebui să fie un mesaj tratat de către server
-\item antet de reprezentare (representation header), folosit numai în cazul în care cererea prezintă și o parte superioară, descrie forma originală a datelor din mesaj și forma de codare aplicată. Un representation request îi permite destinatarului să reconstruiască resursa așa cum era înainte de a fi transmisă în rețea. Câteva exemple de request header-uri des folosite într-o cerere sunt:
+\begin{itemize}
+\item Antet de cerere (request header) furnizează context suplimentar în cadrul unei cereri sau adaugă instrucțiuni despre cum ar trebui să fie un mesaj tratat de către server
+\item Antet de reprezentare (representation header) este folosit numai în cazul în care cererea prezintă și o parte superioară. Un representation request îi permite serverul-ui să reconstruiască resursa așa cum era înainte de a fi transmisă în rețea și să precizeze forma de codare aplicată asupra mesajului. Câteva exemple des folosite într-o cerere sunt:
 \begin{itemize}
 \item Accept-Charset
 \item Host
@@ -398,9 +416,11 @@ Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie an
 \item Referer
 \end{itemize}
 
-\end{enumerate}
+\end{itemize}
+
+ \end{enumerate}
  
- Ultima componentă a unei cereri este constituită din corpul mesajului care are rol în transmiterea informației către server, compatibilă doar cu metodele PATCH, POST și PUT. Corpul unui mesaj poate conține o cantitate scăzută de date sub formă de perechi de tip key=value (cheie=valoare) (\ref{fig:bodcer1}) sau date în mai multe părți (\ref{fig:bodcer2}):
+ Ultima componentă a unei cereri, compatibilă doar cu metodele PATCH, POST și PUT, este constituită din corpul mesajului care are rol în transmiterea informației către server. Corpul unui mesaj poate conține o cantitate scăzută de date sub formă de perechi de tip key=value (cheie=valoare) (\ref{fig:bodcer1}) sau date în mai multe componente (\ref{fig:bodcer2}):
 
 \begin{figure}[H]
 \centering
@@ -412,36 +432,40 @@ Cea de-a doua componentă a părții superioare unei cereri HTTP o constituie an
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/bodcer2.png}
-\caption{Date din corp împărțite în mai multe părți}
+\caption{Date din corp împărțite în mai multe componente}
 \label{fig:bodcer2}
 \end{figure}
 
 \subsubsection{Răspunsuri HTTP}
-Răspunsurile HTTP \cite{ras} sunt mesaje trimise de către server ca și răspuns înapoi către clienți. Răspunsul anunță clientul rezultatul determinat în urma cererii. 
-
-În figura \ref{fig:rasex} este descris un răspuns efectuat după realizarea operației POST, în care un nou utilizator este creat. 
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/rasex.png}
-\caption{Răspuns HTTP}
+\caption{Exemplu de răspuns HTTP în care un nou utiliator este creat}
 \label{fig:rasex}
 \end{figure}
-Așa cum se poate observa din figura anterioară, un răspuns este alcătuit din trei componente: status line, response headers și corpul mesajului. 
+
+Răspunsurile HTTP \cite{ras} sunt mesaje trimise de către server către clienți, în care răspunsul anunță clientul rezultatul determinat în urma cererii. Partea superioară (head) a mesajului HTTP este alcătuită din linia de status și anteturi, iar corpul, deși conține date transmise între client și server, este o componentă opțională.
+
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/ras.png}
-\caption{Alcătuirea răspunsului HTTP}
+\caption{Structura răspunsului HTTP}
 \label{fig:ras}
 \end{figure}
 
-Status line reprezintă prima linie a părții superioare al unui răspuns HTTP. Acesta este format din trei componente:
+Structura părții superioare a unui răspuns HTTP este următoarea:
 \begin{enumerate}
 
-\item Protocolul descrie versiunea protocolui HTTP pe care l-a folosit serverul pentru a transmite mesajul către client.
-\item Cod de stare indică dacă un răspuns HTTP a fost completat cu succes. Există cinci tipuri de coduri de stare cum ar fi: răspunsuri informaționale (cu valori între 100 și 199), răspunsuri ce descriu transmiterea cu succes (200-299), mesaje de redirecționare (300-399), răspunsuri pentru erori de client (400-499) și răspunsuri pentru erori de server (500-599). Cele mai des întâlnite coduri de stare sunt 200 - OK (mesajul a fost transmis cu succes), 404 - Not Found (serverul nu poate găsi resursa cerută, URL nu este recunoscut de către browser), 302 - Found (URL-ul asociat resursei căutate a fost schimbat temporar).
-\item Textul de stare este un text pur informațional ce detaliază codul de stare în limbaj natural pentru o mai bună înțelegere a statusului situației.
 
-\end{enumerate}
+\item Status line este format din trei componente:
+\begin{itemize}
+
+\item Protocolul reprezintă versiunea protocolului HTTP pe care serverul l-a folosit pentru a transmite mesajul către client.
+\item Codul de stare indică dacă starea cu care s-a finalizat transmiterea mesajului HTTP. Există cinci tipuri de coduri de stare cum ar fi: răspunsuri informaționale (cu valori între 100 și 199) ce descriu transmiterea cu succes (200-299), mesaje de redirecționare (300-399), răspunsuri pentru erori de client (400-499) și răspunsuri pentru erori de server (500-599). Cele mai des întâlnite coduri de stare sunt 200 - OK (mesajul a fost transmis cu succes), 404 - Not Found (serverul nu poate găsi resursa cerută, URL-ul nu este recunoscut de către browser) și 302 - Found (URL-ul asociat resursei căutate a fost schimbat temporar).
+\item Textul de stare este un text pur informațiv care explică semnificația codului de stare pentru a facilita o mai bună înțelegere a rezultatului generat în urma răspunsului.
+
+\end{itemize}
+
 \begin{figure}[H]
 \centering
 \includegraphics*[width=0.8\columnwidth, center]{figuri/raspline.png}
@@ -449,10 +473,20 @@ Status line reprezintă prima linie a părții superioare al unui răspuns HTTP.
 \label{fig:raspline}
 \end{figure}
 
-Cea de-a doua componentă a părții superioare al unui răspuns este alcătuită din response header și representation header. 
 
-Un response header este un antet cu metadatele trimise odată cu răspunsul de server către client. Fiecare antet este un șir de caractere care nu face diferențe între majuscule și litere mici, urmate de simbolul : și o valoare care este dependentă de tipul de antet folosit. Scopul response header-ului este de a oferi informații suplimentare despre mesaj sau de a adăuga logica despre cum ar trebui clientul să gestioneze cererile ce o să urmeze.
-Representation header-ul descrie forma datelor din mesaj și orice codare aplicată asupra acestuia și poate exista doar dacă mesajul are un corp. Un representation header oferă unui destinator instrucțiuni despre cum ar trebui să reconstruiască resursa înainte de a fi trimisă în rețea.
+\item Antetul unui răspuns conține metadate despre mesajul ce urmează a fi transmis clientului și se clasifică în:
+
+\textbf{Response header}
+
+ Un response header este un antet cu metadatele trimise odată cu răspunsul de server către client. Fiecare antet este un șir de caractere care nu face diferențe între majuscule și litere mici, urmate de simbolul : și o valoare care este dependentă de tipul de antet folosit. Scopul response header-ului este de a oferi informații suplimentare despre mesaj sau de a explica logica cu care va trebui clientul să gestioneze cererile ce o să urmeze.
+
+
+\textbf{Representation header}
+
+Representation header-ul descrie forma datelor din mesaj, orice codare aplicată asupra acestuia și poate exista doar dacă mesajul are un corp. 
+
+
+Un representation header oferă unui destinator instrucțiuni despre cum ar trebui să reconstruiască resursa înainte de a fi trimisă în rețea.
 
 \begin{figure}[H]
 \centering
@@ -461,15 +495,16 @@ Representation header-ul descrie forma datelor din mesaj și orice codare aplica
 \label{fig:resphed}
 \end{figure}
 
- Ultima componentă a unui răspuns este alcătuită dintr-un corp, inclusiv în marea majoritatea a mesajelor atunci când un server trimite un răspuns către client. În răspunsurile realizate cu succes, corpul mesajului conține datele pe care un client le-a cerut prin intermediul metode GET. În schimb, dacă apar erori în transmiterea mesajului, se vor detalia problemele care au cauzat imposibilitatea trimiterii răspunsului în corp. 
+\end{enumerate}
+ Ultima componentă a unui răspuns HTTP este corpul, prezent în majoritatea cazurilor atunci când un server trimite un răspuns către client. În cazul răspunsurile reușite, corpul conține datele solicitate de către client prin intermediul metodei GET. În schimb, dacă apar erori în procesul de transmitere a mesajului, corpul mesajului va include detalii despre problemele care au cauzat imposibilitatea trimiterii răspunsului. 
  
  
- \section{Flask Python}
- Flask \cite{flask} \cite{flaskdoc} este un framework flexibil web minimalist creat în limbajul Python, deseori numit „micro-framework”. Datorită accesibilității de a dezvolta aplicații web folosind doar componente esențiale, fără necesitatea folosirii unor biblioteci suplimentare sau structuri complicate, dezvoltatorii au oportunitatea de a implementa și adăuga ușor funcționalități în aplicațiile web.
+ \section{Framework-ul Flask Python}
+ Flask \cite{flask} \cite{flaskdoc} este un framework web minimalist flexibil creat în limbajul Python, deseori numit „micro-framework” datorită accesibilității de a dezvolta aplicații web folosind doar componente esențiale, fără necesitatea folosirii unor biblioteci suplimentare sau structuri complicate și posibilitatea implementării rapidă a unor noi funcționalități în aplicațiile web.
 
 
-Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un membru al grupului de pasionați de Python, Pocoo. Inițial, crearea celebrului framework a fost doar o aluzie la celebra zi a glumelor 1 aprilie, dar care mai târziu a devenit o situație serioasă. Numele „flask” este o referință la precedentul framework Bottle.
-În anul 2016, echipa Pocoo a fost desființată, iar dezvoltarea Flask-ului și a librăriilor acestuia a fost preluată de către echipa nou fondată Pallets.
+Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un membru al grupului de pasionați de Python, Pocoo. Inițial, crearea celebrului framework a fost doar o aluzie la celebra zi a glumelor, 1 aprilie, dar mai târziu a devenit realitate datorită cererii mari a publicului. Numele „flask” (în engleză înseamnă flacon)  este o referință la precedentul framework Bottle (în engleză sticlă).
+În anul 2016, echipa Pocoo și-a încheiat activitatea, iar dezvoltarea Flask-ului și a librăriilor acestuia a fost preluată de către echipa nou fondată numită Pallets.
  
  În contextul acestei lucrări de licență, am ales să implementez serverul aplicației web în Flask datorită de avantaje pe care framework-ul le aduce  cum ar fi:
  \begin{itemize}
@@ -478,7 +513,7 @@ Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un m
  \item Este un framework flexibil deoarece are abilitatea de a permite personalizarea și extinderea aplicației conform cerințelor cerute.
  \item Poate fi folosit cu o paletă largă de baze de date precum MySQL prin intermediul extensiilor sau al bibliotecilor externe.
  \item Routing HTTP care se ocupă cu definirea rutelor URL și asocierea acestora cu funcții care gestionează cererile și răspunsurile HTTP.\item Sesiunile de utilizatori pot fi ușor gestionate, deoarece Flask are posibilitatea de a stoca informații despre acestea în mod securizat pe server și client utilizând cookie-uri semnate.
- \item Posibilă integrarea cu Jinja2 care oferă o paletă largă de tool-uri pentru generarea paginilor HTML dinamice.
+ \item Posibilă integrarea cu Jinja2 care oferă o paletă largă de unelte pentru generarea paginilor HTML dinamice.
  \end{itemize}
  
 
@@ -512,310 +547,6 @@ Aplicația a fost structurată în șapte module, fiecare modul având un rol bi
 
 
 
-\chapter{Noțiuni teoretice privind aplicațiile web și scalabilitatea}
-
-   Pentru facilitarea formatării tezei de licență/dizertație în
-   \LaTeX{}, se furnizează fișierul clasă ``upb\_thesis.cls'' și un model de
-   folosire ``exemplu\_teza.tex''.  Utilizarea comenzilor standard
-   \verb=\documentclass=, \verb=usepackage=, \verb=setcounter=,
-   etc. nu este diferită de utilizarea lor în orice alt context
-   \LaTeX{}. Comenzile standard sau cele specifice {UPB}
-   apar într-o secvență care trebuie respectată pentru a obține documentul în formatul
-   acceptat de universitate.  Pentru redactarea tezei, este
-   obligatorie folosirea următoarelor comenzi:
-
-\verb=\singlespacing= specifică spațierea pentru întregul document.
-
-\verb=\author{Ion Creangă}= numele studentului va fi inserat pe pagina de titlu și în declarația de onestitate.  
-
-\verb=\title{Basmele românilor}= titlul tezei 
-
-\verb=\facultatea{Facultatea de Electronică, Telecomunicații și Tehnologia= \\
-\verb=Informației}=
-
-\verb=\tiplucrare{licență}= parametrul trebuie să fie ``licență'' sau ``dizertație''
-
-\verb=\domeniu{Electronică, Telecomunicații și Tehnologia Informației}=
-
-\verb=\catedra{}=Conform anexei 4 din ghidula absolventului. 
-
-\verb=\program{Povești}= numele specializării
-
-\verb=\titlulobtinut{Inginer}= parametrul trebuie să fie ``Inginer'' sau ``Master''
-
-\verb=\director{Mihail Kogălniceanu}= numele îndrumătorului de
-proiect. Dacă sunt mai mulți, se vor separate cu doi backslash și un spațiu: 
-
-\verb=\director{Mihail Kogălniceanu\\ Titu Maiorescu}=
-
-\verb=\submissionmonth{Iunie}=
-
-\verb=\submissionyear{2011}= data care apare pe pagina de titlu
-
-Listele opționale de figuri, tabele, și abrevieri trebuie incluse în secvența \\
-\verb=\beforepreface= - \verb=\afterpreface=: 
-\begin{verbatim}
-\beforepreface
-\listoffigures
-\listoftables
-\abbreviations{
-}
-\afterpreface
-\end{verbatim}
-\section{Alte recomandări}
-\begin{itemize}
-\item Se recomandă folosirea pachetului aspell (pachetul \verb=aspell-ro= în
-Debian/Ubuntu) pentru verificarea ortografiei, cu comanda:
-{\small \begin{verbatim}aspell --lang=ro -t check  ./exemplu_teza.tex\end{verbatim}}
-
-\item Se recomandă verificarea fonturilor în PDF-ul produs - este preferabil
-să nu se folosească decât ``Type 1'' sau ``Truetype'', nu ``Type 3''. 
-\end{itemize}
-
-\chapter{Basme}
-\section{Punguța cu doi bani}
-
-
-Era odată o babă și un moșneag. Baba avea o găină, și
-moșneagul un cucoș; găina babei se oua de câte două ori pe fiecare zi
-și baba mânca o mulțime de ouă; iar moșneagului nu-i da nici
-unul. Moșneagul într-o zi perdu răbdarea și zise:
-
-— Măi babă, mănânci ca în târgul lui Cremene. Ia dă-mi și mie niște
-ouă, ca să-mi prind pofta măcar. — Da' cum nu! zise baba, care era
-foarte zgârcită. Dacă ai poftă de ouă, bate și tu cucoșul tău, să facă
-ouă, și-i mânca; că eu așa am bătut găina, și iacătă-o cum se ouă.
-
-Moșneagul, pofticios și hapsin, se ia după gura babei și, de ciudă,
-prinde iute și degrabă cucoșul și-i dă o bataie bună, zicând:
-
-— Na! ori te ouă, ori du-te de la casa mea; ca să nu mai strici
-mâncarea degeaba.
-
-Cucoșul, cum scăpă din mânile moșneagului, fugi de-acasă și umbla pe
-drumuri, bezmetec. Și cum mergea el pe-un drum, numai iată găsește o
-punguță cu doi bani (Figura \ref{fig:punguta}). Și cum o găsește, o și ia în clonț și se întoarnă
-cu dânsa înapoi către casa moșneagului. Pe drum se întâlnește c-o
-trăsură c-un boier și cu niște cucoane. Boierul se uită cu băgare de
-seamă la cucoș, vede în clonțu-i o punguță și zice vezeteului:
-
-— Măi! ia dă-te jos și vezi ce are cucoșul cela în plisc.
-
-\begin{figure}[tb]
-\centering
-\includegraphics*[width=0.4\columnwidth]{figuri/punguta.jpg}
-\caption{Cucoșu găsește o pungă cu doi galbeni.}
-\label{fig:punguta}
-\end{figure}
-
-
-
-Vezeteul se dă iute jos din capra trăsurei, și c-un feliu de meșteșug,
-prinde cucoșul și luându-i punguța din clonț o dă boieriului. Boieriul
-o ia, fără păsare o pune în buzunar și pornește cu trăsura
-înainte. Cucoșul, supărat de asta, nu se lasă, ci se ia după trăsură,
-spuind neîncetat:
-
-Cucurigu ! boieri mari, Dați punguța cu doi bani !
-
-
-[...]
-
-(Publicată pentru prima oară în \cite{punguta1876}.)
-
-\section{Tinerețe fără bătrânețe și viață fără de moarte}
-
-A fost odată ca niciodată; că de n-ar fi, nu s-ar mai povesti; de când
-făcea plopșorul pere și răchita micșunele; de când se băteau urșii în
-coade; de când se luau de gât lupii cu mieii de se sărutau,
-înfrățindu-se; de când se potcovea puricele la un picior cu nouăzeci
-și nouă de oca de fier și s-arunca în slava cerului de ne aducea
-povești;
-
-
-    De când se scria musca pe părete,
-    Mai mincinos cine nu crede.
-
-
-A fost odată un împărat mare și o împărăteasă, amândoi tineri și
-frumoși, și, voind să aibă copii, a făcut de mai multe ori tot ce
-trebuia să facă pentru aceasta; a îmblat pe la vraci\cite{TanenbaumCN02} și filosofi, ca
-să caute la stele și să le ghicească daca or să facă copii; dar în
-zadar. În sfârșit, auzind împăratul că este la un sat, aproape, un
-unchiaș dibaci, a trimis să-l cheme; dar el răspunse trimișilor că:
-cine are trebuință, să vie la dânsul. S-au sculat deci împăratul și
-împărăteasa și, luând cu dânșii vro câțiva boieri mari, ostași și
-slujitori, s-au dus la unchiaș acasă. Unchiașul, cum i-a văzut de
-departe, a ieșit să-i întâmpine și totodată le-a zis:
-
-- Bine ați venit sănătoși; dar ce îmbli, împărate, să afli? Dorința ce
-ai o să-ți aducă întristare.
-
-- Eu nu am venit să te întreb asta, zise împăratul, ci, daca ai ceva
-leacuri care să ne facă să avem copii, să-mi dai.
-
-- Am, răspunse unchiașul; dar numai un copil o să faceți. El o să fie
-Făt-Frumos și drăgăstos, și parte n-o să aveți de el. Luând împăratul
-și împărăteasa leacurile, s-au întors veseli la palat și peste câteva
-zile împărăteasa s-a simțit însărcinată. Toată împărăția și toată
-curtea și toți slujitorii s-au veselit de această întâmplare.
-
-Mai-nainte de a veni ceasul nașterii, copilul se puse pe un plâns, de
-n-a putut nici un vraci să-l împace. Atunci împăratul a început să-i
-făgăduiască toate bunurile din lume, dar nici așa n-a fost cu putință
-să-l facă să tacă.
-
-- Taci, dragul tatei, zice împăratul, că ți-oi da împărăția cutare sau
-cutare; taci, fiule, că ți-oi da soție pe cutare sau cutare fată de
-împărat, și alte multe d-alde astea; în sfârșit, dacă văzu și văzu că
-nu tace, îi mai zise: taci, fătul meu, că ți-oi da Tinerețe fără
-bătrânețe și viață fără de moarte.
-
-Atunci, copilul tăcu și se născu; iar slujitorii deteră în timpine și
-în surle și în toată împărăția se ținu veselie mare o săptămână
-întreagă.
-
-De ce creștea copilul, d-aceea se făcea mai isteț și mai îndrăzneț. Îl
-deteră pe la școli și filosofi, și toate învățăturile pe care alți
-copii le învăța într-un an, el le învăța într-o lună, astfel încât
-împăratul murea și învia de bucurie. Toată împărăția se fălea că o să
-aibă un împărat înțelept și procopsit ca Solomon împărat. De la o
-vreme încoace însă, nu știu ce avea, că era tot galeș, trist și dus pe
-gânduri. Iar când fuse într-o zi, tocmai când copilul împlinea
-cincisprezece ani și împăratul se afla la masă cu toți boierii și
-slujbașii împărăției și se chefuiau, se sculă Făt-Frumos și zise:
-
-- Tată, a venit vremea să-mi dai ceea ce mi-ai făgăduit la naștere.
-
-Auzind aceasta, împăratul s-a întristat foarte și i-a zis:
-
-– Dar bine, fiule, de unde pot eu să-ți dau un astfel de lucru nemaiauzit? Și dacă ți-am făgăduit atunci, a fost numai ca să te împac.
-
-– Daca tu, tată, nu poți să-mi dai, apoi sunt nevoit să cutreier toată lumea până ce voi găsi făgăduința pentru care m-am născut.
-
-Atunci toți boierii și împăratul deteră în genuchi, cu rugăciune să nu părăsească împărăția; fiindcă, ziceau boierii:
-
-– Tatăl tău de aci înainte e bătrân, și o să te ridicăm pe tine în scaun, și avem să-ți aducem cea mai frumoasă împărăteasă de sub soare de soție.
-
-Dar n-a fost putință să-l întoarcă din hotărârea sa, rămânând statornic ca o piatră în vorbele lui; iar tată-său, dacă văzu și văzu, îi dete voie și puse la cale să-i gătească de drum merinde și tot ce-i trebuia.
-
-
-[...]
-
-\section[Cinci Pâini]{Cinci pâini \footnote{Anecdotă publicată prima oară în Convorbiri literare, nr. 12, 1 martie 1883}}
-
-
-Doi oameni, cunoscuți unul cu altul, călătoreau odată, vara, pe un drum. Unul avea în traista sa trei pâni, și celalalt două pâni. De la o vreme, fiindu-le foame, poposesc la umbra unei răchiți pletoase, lângă o fântână cu ciutură, scoate fiecare pânile ce avea și se pun să mănânce împreună, ca să aibă mai mare poftă de mâncare.
-
-
-Tocmai când scoaseră pânile din traiste, iaca un al treile drumeț, necunoscut, îi ajunge din urmă și se oprește lângă dânșii, dându-le ziua bună. Apoi se roagă să-i deie și lui ceva de mâncare, căci e tare flămând și n-are nimica merinde la dânsul, nici de unde cumpăra.
-
-— Poftim, om bun, de-i ospăta împreună cu noi, ziseră cei doi drumeți călătorului străin; căci mila Domnului! unde mănâncă doi mai poate mânca și al treilea.
-
-Călătorul străin, flămând cum era, nemaiașteptând multă poftire, se așază jos lângă cei doi, și încep a mânca cu toții pâne goală și a be apă rece din fântână, căci altă udătură nu aveau. Și mănâncă ei la un loc tustrei, și mănâncă, până ce gătesc de mâncat toate cele cinci pâni, de parcă n-au mai fost.
-
-După ce-au mântuit de mâncat, călătorul străin scoate cinci lei din pungă și-i dă, din întâmplare, celui ce avusese trei pâni, zicând:
-
-— Primiți, vă rog, oameni buni, această mică mulțămită de la mine, pentru că mi-ați dat demâncare la nevoie; veți cinsti mai încolo câte un pahar de vin, sau veți face cu banii ce veți pofti. Nu sunt vrednic să vă mulțămesc de binele ce mi-ați făcut, căci nu vedeam lumea înaintea ochilor de flămând ce eram.
-
-Cei doi nu prea voiau să primească, dar, după multă stăruință din partea celui al treilea, au primit. De la o vreme, călătorul străin și-a luat ziua bună de la cei doi și apoi și-a căutat de drum. Ceilalți mai rămân oleacă sub răchită, la umbră, să odihnească bucatele. Și, din vorbă în vorbă, cel ce avuse trei pâni dă doi lei celui cu două pâni, zicând:
-
-— Ține, frate, partea dumitale, și fă ce vrei cu dânsa. Ai avut două pâni întregi, doi lei ți se cuvin. Și mie îmi opresc trei lei, fiindc-am avut trei pâni întregi, și tot ca ale tale de mari, după cum știi.
-
-— Cum așa?! zise celălalt cu dispreț! pentru ce numai doi lei, și nu doi și jumătate, partea dreaptă ce ni se cuvine fiecăruia? Omul putea să nu ne deie nimic, și atunci cum rămânea?
-
-— Cum să rămâie? zise cel cu trei pâni; atunci aș fi avut eu pomană pentru partea ce mi se cuvine de la trei pâni, iar tu, de la două, și pace bună. Acum, însă, noi am mâncat degeaba, și banii pentru pâne îi avem în pungă cu prisos: eu trei lei și tu doi lei, fiecare după numărul pânilor ce am avut. Mai dreaptă împărțeală decât aceasta nu cred că se mai poate nici la Dumnezeu sfântul...
-
-— Ba nu, prietene, zice cel cu două pâni. Eu nu mă țin că mi-ai făcut parte dreaptă. Haide să ne judecăm, și cum a zice judecata, așa să rămâie.
-
-— Haide și la judecată, zise celălalt, dacă nu te mulțămești. Cred că și judecata are să-mi găsească dreptate, deși nu m-am târât prin judecăți de când sunt.
-
-Și așa, pornesc ei la drum, cu hotărârea să se judece. Și cum ajung într-un loc unde era judecătorie, se înfățoșează înaintea judecătorului și încep a spune împrejurarea din capăt, pe rând fiecare; cum a venit întâmplarea de au călătorit împreună, de au stat la masă împreună, câte pâni a avut fiecare, cum a mâncat drumețul cel străin la masa lor, deopotrivă cu dânșii, cum le-a dat cinci lei drept mulțămită și cum cel cu trei pâni a găsit cu cale să-i împartă.
-
-Judecătorul, după ce-i ascultă pe amândoi cu luare aminte, zise celui cu două pâni: — Și nu ești mulțămit cu împărțeala ce s-a făcut, omule?
-
-— Nu, domnule judecător, zise nemulțămitul; noi n-am avut de gând să luăm plată de la drumețul străin pentru mâncarea ce i-am dat; dar, dac-a venit întâmplarea de-așa, apoi trebuie să împărțim drept în două ceea ce ne-a dăruit oaspetele nostru. Așa cred eu că ar fi cu cale, când e vorba de dreptate.
-
-— Dacă e vorba de dreptate, zise judecătorul, apoi fă bine de înapoiește un leu istuialalt, care spui c-a avut trei pâni.
-
-— De asta chiar mă cuprinde mirare, domnule judecător, zise nemulțămitul cu îndrăzneală. Eu am venit înaintea judecăței să capăt dreptate, și văd că dumneata, care știi legile, mai rău mă acufunzi. De-a fi să fie tot așa și judecata dinaintea lui Dumnezeu, apoi vai de lume!
-
-— Așa ți se pare dumitale, zise judecătorul liniștit, dar ia să vezi că nu-i așa. Ai avut dumneata două pâni?
-
-— Da, domnule judecător, două am avut.
-
-— Tovarășul dumitale, avut-a trei pâni?
-
-— Da, domnule judecător, trei a avut.
-
-— Udătură ceva avut-ați vreunul?
-
-— Nimic, domnule judecător, numai pâne goală și apă răce din fântână, fie de sufletul cui a făcut-o acolo, în calea trecătorilor.
-
-— Dinioarea, parcă singur mi-ai spus, zise judecătorul, că ați mâncat toți tot ca unul de mult; așa este?
-
-— Așa este domnule judecător.
-
-— Acum, ia să statornicim rânduiala următoare, ca să se poată ști hotărât care câtă pâne a mâncat. Să zicem că s-a tăiat fiecare pâne în câte trei bucăți deopotrivă de mari; câte bucăți ai fi avut dumneata, care spui că avuși două pâni?
-
-— Șese bucăți aș fi avut, domnule judecător.
-
-— Dar tovarășul dumitale, care spui că avu trei pâni?
-
-— Nouă bucăți ar fi avut, domnule judecător.
-
-— Acum, câte fac la un loc șese bucăți și cu nouă bucăți?
-
-— Cincisprezece bucăți, domnule judecător.
-
-— Câți oameni ați mâncat aceste cincisprezece bucăți de pâne?
-
-— Trei oameni, domnule judecător.
-
-— Bun! Câte câte bucăți vin de fiecare om?
-
-— Câte cinci bucăți, domnule judecător.
-
-— Acum, ții minte câte bucăți ai fi avut dumneta?
-
-— Șese bucăți, domnule judecător.
-
-— Dar de mâncat, câte ai mâncat dumneta?
-
-— Cinci bucăți, domnule judecător.
-
-— Și câte ți-au mai rămas de întrecut?
-
-— Numai o bucată, domnule judecător.
-
-— Acum să stăm aici, în ceea ce te privește pe dumneta, și să luăm pe istalalt la rând. Ții minte câte bucăți de pâne ar fi avut tovarășul d-tale?
-
-— Nouă bucăți, domnule judecător.
-
-— Și câte a mâncat el de toate?
-
-— Cinci bucăți, ca și mine, domnule judecător.
-
-— Dar de întrecut, câte i-au mai rămas?
-
-— Patru bucăți, domnule judecător.
-
-— Bun! Ia, acuș avem să ne înțelegem cât se poate de bine! Vra să zică, dumneta ai avut numai o bucată de întrecut, iar tovarășul dumitale, patru bucăți. Acum, o bucată de pâne rămasă de la dumneta și cu patru bucăți de la istalalt fac la un loc cinci bucăți?
-
-— Taman cinci, domnule judecător.
-
-— Este adevărat că aceste bucăți de pâne le-a mâncat oaspetele dumneavoastră, care spui că v-a dat cinci lei drept mulțămită?
-
-— Adevărat este, domnule judecător.
-
-— Așadar, dumitale ți se cuvine numai un leu, fiindcă numai o bucată de pâne ai avut de întrecut, și aceasta ca și cum ai fi avut-o de vânzare, deoarece ați 
-primit bani de la oaspetele dumneavoastră. Iar tovarășul dumitale i se cuvin patru lei, fiindcă patru bucăți de pâne a avut de întrecut. Acum, dară, fă bine de înapoiește un leu tovarășului dumitale. Și dacă te crezi nedreptățit, du-te și la Dumnezeu, și las' dacă ți-a face și el judecată mai dreaptă decât aceasta!
-
-Cel cu două pâni, văzând că nu mai are încotro șovăi, înapoiește un leu tovarășului său, cam cu părere de rău, și pleacă rușinat. Cel cu trei pâni însă, uimit de așa judecată, mulțămește judecătorului și apoi iese, zicând cu mirare:
-
-— Dac-ar fi pretutindene tot asemenea judecători, ce nu iubesc a li cânta cucul din față, cei ce n-au dreptate n-ar mai năzui în veci și-n pururea la judecată.
-
-Corciogarii, porecliți și apărători, nemaiavând chip de traiu numai din minciuni, sau s-ar apuca de muncă, sau ar trebui, în toată viața lor, să tragă pe dracul de coadă... Iar societatea bună ar rămâne nebântuită.
 
 
 
