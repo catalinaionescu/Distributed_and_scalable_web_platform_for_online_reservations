@@ -1,0 +1,129 @@
+<!DOCTYPE html> 
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Panou Administrare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fef6ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #bdb2ff;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .status-online {
+            color: #2a9d8f;
+            font-weight: bold;
+        }
+
+        .status-offline {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffc6ff;
+        }
+
+        h2 {
+            color: #6a4c93;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Panou Administrator</h1>
+        <nav>
+            <a href="/">Acasă</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Status Servere</h2>
+        <ul>
+            <li>Flask: 
+                <span class="{{ 'status-online' if flask_status == 'Online' else 'status-offline' }}">
+                    {{ flask_status }}
+                </span>
+            </li>
+            <li>IIS:
+  <span class="{{ 'status-online' if iis_status == 'Online' else 'status-offline' }}">
+    {{ iis_status }}
+  </span>
+</li>
+
+        </ul>
+
+        <h2>Rezervări</h2>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Cameră</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Creat</th>
+            </tr>
+            {% for r in rezervari %}
+            <tr>
+                <td>{{ r.username }}</td>
+                <td>{{ r.room_name }}</td>
+                <td>{{ r.start_date }}</td>
+                <td>{{ r.end_date }}</td>
+                <td>{{ r.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+<h2>Bun venit, {{ username }}!</h2>
+<a href="/reserve">Rezervă cameră</a> |
+<a href="/logout">Logout</a>
+{% if session['isadmin'] %}
+    <br><a href="/admin">Admin</a>
+{% endif %}

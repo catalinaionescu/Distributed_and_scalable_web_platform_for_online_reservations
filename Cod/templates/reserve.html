@@ -1,0 +1,10 @@
+<form method="POST">
+  <select name="room_id">
+    {% for room in rooms %}
+      <option value="{{ room.idrooms }}">{{ room.name }} - {{ room.capacity }} pers - ${{ room.price }}</option>
+    {% endfor %}
+  </select>
+  <input type="date" name="start_date" required>
+  <input type="date" name="end_date" required>
+  <button>Rezervă</button>
+</form>

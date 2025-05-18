@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <title>Rezervări Camere - Acasă</title>
+    <style>
+        /* Stil pastelat general */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+    header {
+    background: #a0c4ff;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        header nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+        h1 {
+            color: #5e60ce;
+        }
+
+        .search-form input,
+        .search-form button {
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-form input[type="date"],
+        .search-form input[type="number"] {
+            width: 150px;
+        }
+
+        .search-form button {
+            background-color: #bdb2ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #9a91ff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #e0fbfc;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div>
+            {% if logged_in %}
+                <span>Bun venit, {{ username }}!</span>
+            {% endif %}
+        </div>
+        <nav>
+            {% if logged_in %}
+                <a href="/profile">Profil</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Înregistrare</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
+
+    <main>
+        <h1>Rezervări Camere</h1>
+        <p><em>Descoperă camerele perfecte pentru tine!</em></p>
+
+        <form method="POST" class="search-form">
+            <input type="text" name="room_name" placeholder="Nume cameră" />
+            <input type="date" name="date_available" />
+            <input type="number" name="capacity" placeholder="Capacitate minimă" min="1" />
+            <input type="number" name="price" placeholder="Preț maxim" min="0" step="0.01" />
+            <button type="submit">Caută</button>
+        </form>
+
+        {% if search_results is not none %}
+            <h2>Rezultate căutare:</h2>
+            {% if search_results|length > 0 %}
+                <ul>
+                    {% for room in search_results %}
+                        <li>
+                            <strong>{{ room.name }}</strong> - {{ room.description }}<br />
+                            Capacitate: {{ room.capacity }} persoane<br />
+                            Preț: {{ room.price }} lei<br />
+                            Disponibilă: {{ 'Da' if room.available else 'Nu' }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Nu s-au găsit camere care să corespundă criteriilor.</p>
+            {% endif %}
+        {% endif %}
+    </main>
+</body>
+</html>
