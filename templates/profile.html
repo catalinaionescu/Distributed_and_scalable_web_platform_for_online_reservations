@@ -1,0 +1,15 @@
+<h1>Profilul lui {{ username }}</h1>
+<h2>Rezervările tale:</h2>
+<ul>
+  {% for r in rezervari %}
+    <li>{{ r.property_name }} - {{ r.room_name }} ({{ r.start_date }} → {{ r.end_date }})</li>
+  {% endfor %}
+</ul>
+
+<h2>Proprietățile tale:</h2>
+<ul>
+  {% for p in proprietati %}
+    <li>{{ p.name }} – {{ p.city }}, {{ p.country }}</li>
+  {% endfor %}
+</ul>
+<a href="/add_property">Adaugă proprietate nouă</a>

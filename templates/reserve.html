@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervare Cameră</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; margin: 0; padding: 2em; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        input, button {
+            width: 100%;
+            padding: 0.8em;
+            margin: 1em 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background: #81c784;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+        .message { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Rezervă: {{ room.name }}</h2>
+    <p><strong>Proprietate:</strong> {{ room.property_name }}</p>
+    <p><strong>Capacitate:</strong> {{ room.capacity }} persoane</p>
+    <p><strong>Preț:</strong> {{ room.price }} lei/noapte</p>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="date_range">Selectează perioada:</label>
+        <input type="text" id="date_range" name="date_range" required readonly>
+
+        <button type="submit">Confirmă rezervarea</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+    const disabledDates = {{ disabled_dates | tojson }};
+    const picker = new Litepicker({
+        element: document.getElementById('date_range'),
+        singleMode: false,
+        format: 'YYYY-MM-DD',
+        lang: 'ro',
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        lockDays: disabledDates
+    });
+</script>
+</body>
+</html>

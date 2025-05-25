@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editează Proprietate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #dceefc;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-buttons a {
+            margin-left: 10px;
+            padding: 0.5em 1em;
+            background-color: #64b5f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        .header-buttons a:hover {
+            background-color: #42a5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background: #81c784;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+        button:hover {
+            background: #66bb6a;
+        }
+        .room {
+            border: 1px solid #e0e0e0;
+            padding: 1em;
+            margin-bottom: 1.5em;
+            border-radius: 6px;
+            background: #f9f9f9;
+        }
+        .room h4 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h2>Editează Proprietatea</h2>
+    <div class="header-buttons">
+        <a href="/">Înapoi la Home</a>
+        {% if logged_in %}
+            <a href="/profile">Profil</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</header>
+<div class="container">
+    <form method="post">
+        <input type="text" name="name" value="{{ prop.name }}" required>
+        <input type="text" name="address" value="{{ prop.address }}" required>
+        <input type="text" name="city" value="{{ prop.city }}" required>
+        <input type="text" name="region" placeholder="Județ" required>
+        <input type="text" name="country" value="{{ prop.country }}" required>
+
+        <h3>Camere</h3>
+        {% for room in rooms %}
+            <div class="room">
+                <h4>Camera {{ loop.index }}</h4>
+                <input type="hidden" name="room_id[]" value="{{ room.idrooms }}">
+                <input type="text" name="room_name[]" value="{{ room.name }}" required>
+                <input type="number" name="capacity[]" value="{{ room.capacity }}" required>
+                <input type="number" step="0.01" name="price[]" value="{{ room.price }}" required>
+                <select name="available[]">
+                    <option value="1" {% if room.available %}selected{% endif %}>Disponibilă</option>
+                    <option value="0" {% if not room.available %}selected{% endif %}>Indisponibilă</option>
+                </select>
+            </div>
+        {% endfor %}
+
+        <button type="submit">Salvează modificările</button>
+    </form>
+</div>
+</body>
+</html>

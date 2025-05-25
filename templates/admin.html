@@ -1,0 +1,25 @@
+<h1>Panou Admin</h1>
+
+<h2>Status servere</h2>
+<ul>
+  <li>Flask: {{ flask_status }}</li>
+  <li>IIS: {{ iis_status }}</li>
+</ul>
+
+<h2>Statistici platformă</h2>
+<p>Total proprietăți înregistrate: <strong>{{ total_properties }}</strong></p>
+
+<form method="post">
+    <label>Perioadă rezervare:</label><br>
+    De la: <input type="date" name="start_date" value="{{ start_date }}"><br>
+    Până la: <input type="date" name="end_date" value="{{ end_date }}"><br>
+    <button type="submit">Vezi statistici</button>
+</form>
+
+{% if ocupate is not none %}
+    <p><strong>Rezultate în perioada selectată:</strong></p>
+    <ul>
+      <li>Camere ocupate: {{ ocupate }}</li>
+      <li>Camere disponibile: {{ disponibile }}</li>
+    </ul>
+{% endif %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ prop.name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; margin: 0; padding: 0; }
+        header { background: #dceefc; padding: 1em 2em; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header-buttons a { margin-left: 10px; padding: 0.5em 1em; background-color: #64b5f6; color: white; text-decoration: none; border-radius: 6px; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .room { border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 1em; border-radius: 6px; background: #f9f9f9; }
+        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        input { padding: 0.5em; margin-top: 0.5em; width: 100%; border-radius: 6px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+<header>
+    <h2>{{ prop.name }}</h2>
+    <div class="header-buttons">
+        <a href="/">Înapoi la Home</a>
+        {% if logged_in %}
+            <a href="/profile">Profil</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container">
+    <p><strong>Adresă:</strong> {{ prop.address }}, {{ prop.city }}, {{ prop.country }}</p>
+    <p><strong>Proprietar:</strong> {{ prop.username }}</p>
+
+    {% if requested_capacity %}
+        {% set necesar = 0 %}
+        {% set ramasi = requested_capacity | int %}
+        {% for room in rooms if room.available %}
+            {% if ramasi > 0 %}
+                {% set ramasi = ramasi - room.capacity %}
+                {% set necesar = necesar + 1 %}
+            {% endif %}
+        {% endfor %}
+        {% if ramasi <= 0 %}
+            <p><strong>Ai nevoie de aproximativ {{ necesar }} camere pentru {{ requested_capacity }} persoane.</strong></p>
+        {% else %}
+            <p><strong>Nu sunt camere suficiente pentru {{ requested_capacity }} persoane.</strong></p>
+        {% endif %}
+    {% endif %}
+
+    <h3>Camere disponibile</h3>
+    {% for room in rooms %}
+        <div class="room">
+            <h4>{{ room.name }}</h4>
+            <p>Capacitate: {{ room.capacity }} persoane</p>
+            <p>Preț: {{ room.price }} lei/noapte</p>
+            <p>Disponibilă: {{ 'Da' if room.available else 'Nu' }}</p>
+
+            {% if logged_in and user_id == prop.owner_id %}
+                <p><em>Aceasta este proprietatea ta.</em></p>
+                <a href="/edit_property/{{ prop.property_id }}" class="cta-button">Editează</a>
+            {% elif room.available %}
+                <form method="POST" action="/reserve/{{ room.idrooms }}">
+                    <label>Selectează perioada:</label>
+                    <input type="text" name="date_range" class="date-range" id="picker-{{ room.idrooms }}" required readonly>
+                    <button type="submit" class="cta-button">Rezervă această cameră</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+    const calendarData = {{ calendar_data | tojson }};
+    Object.keys(calendarData).forEach(room_id => {
+        const picker = new Litepicker({
+            element: document.getElementById('picker-' + room_id),
+            singleMode: false,
+            format: 'YYYY-MM-DD',
+            numberOfMonths: 2,
+            numberOfColumns: 2,
+            lockDays: calendarData[room_id]
+        });
+    });
+</script>
+</body>
+</html>

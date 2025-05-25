@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Cazările mele</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; margin: 0; padding: 0; }
+        .container {
+            max-width: 900px; margin: 2em auto;
+            background: white; padding: 2em;
+            border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .property {
+            border: 1px solid #ccc; padding: 1em;
+            margin-bottom: 1em; border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .cta-button {
+            margin-top: 1em;
+            background: #64b5f6;
+            color: white; padding: 0.5em 1em;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cazările mele</h2>
+        {% if properties %}
+            {% for p in properties %}
+                <div class="property">
+                    <h3>{{ p.name }}</h3>
+                    <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                    <a href="/edit_property/{{ p.property_id }}" class="cta-button">Editează</a>
+                    <a href="/property/{{ p.property_id }}" class="cta-button">Vezi detalii</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nu ai nicio proprietate înregistrată.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

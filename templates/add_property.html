@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaugă Proprietate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #dceefc;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-buttons a {
+            margin-left: 10px;
+            padding: 0.5em 1em;
+            background-color: #64b5f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        .header-buttons a:hover {
+            background-color: #42a5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background: #81c784;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+        button:hover {
+            background: #66bb6a;
+        }
+        .room-group {
+            border: 1px solid #e0e0e0;
+            padding: 1em;
+            border-radius: 6px;
+            margin-bottom: 1em;
+            background: #f9f9f9;
+        }
+        .room-group h4 {
+            margin-top: 0;
+        }
+        .room-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .room-actions button {
+            width: auto;
+            padding: 0.5em 1em;
+        }
+    </style>
+    <script>
+        function addRoom() {
+            const container = document.getElementById('rooms-container');
+            const index = container.children.length;
+
+            const div = document.createElement('div');
+            div.className = 'room-group';
+            div.innerHTML = `
+                <h4>Camera #${index + 1}</h4>
+                <input type="text" name="room_name[]" placeholder="Nume cameră" required>
+                <input type="number" name="capacity[]" placeholder="Capacitate" required>
+                <input type="number" step="0.01" name="price[]" placeholder="Preț/noapte" required>
+                <select name="available[]">
+                    <option value="1">Disponibilă</option>
+                    <option value="0">Indisponibilă</option>
+                </select>
+                <div class="room-actions">
+                    <button type="button" onclick="this.parentElement.parentElement.remove()">- Șterge camera</button>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h2>Adaugă Proprietate</h2>
+    <div class="header-buttons">
+        <a href="/">Înapoi la Home</a>
+        {% if logged_in %}
+            <a href="/profile">Profil</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</header>
+<div class="container">
+    <form method="post">
+        <input type="text" name="name" placeholder="Numele proprietății" required>
+        <input type="text" name="address" placeholder="Locație (stradă, număr, bloc etc.)" required>
+        <input type="text" name="city" placeholder="Localitate" required>
+        <input type="text" name="region" placeholder="Județ" required>
+        <input type="text" name="country" placeholder="Țară" required>
+
+        <h3>Camere:</h3>
+        <div id="rooms-container"></div>
+        <button type="button" onclick="addRoom()">+ Adaugă cameră</button>
+
+        <br><br>
+        <button type="submit">Salvează proprietatea</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervările mele</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; padding: 0; margin: 0; }
+        .container {
+            max-width: 900px; margin: 2em auto;
+            background: white; padding: 2em;
+            border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .reservation {
+            border: 1px solid #ccc; padding: 1em;
+            margin-bottom: 1em; border-radius: 8px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rezervările mele</h2>
+        {% if reservations %}
+            {% for r in reservations %}
+                <div class="reservation">
+                    <p><strong>{{ r.property_name }} - {{ r.room_name }}</strong></p>
+                    <p>Perioadă: {{ r.start_date }} - {{ r.end_date }}</p>
+                    <p>Status: {{ r.status }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nu ai nicio rezervare.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervare Confirmată</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e8f5e9;
+            margin: 0;
+            padding: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2em 3em;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #388e3c;
+            margin-bottom: 1em;
+        }
+        .detail {
+            text-align: left;
+            margin-bottom: 1.5em;
+        }
+        .detail p {
+            margin: 0.3em 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+        .button {
+            background: #4caf50;
+            color: white;
+            padding: 0.7em 1.5em;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .button.home {
+            background: #64b5f6;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>✅ Rezervare efectuată cu succes!</h2>
+
+    <div class="detail">
+        <p><strong>Proprietate:</strong> {{ rezervare.property_name }}</p>
+        <p><strong>Cameră:</strong> {{ rezervare.room_name }}</p>
+        <p><strong>Perioadă:</strong> {{ rezervare.start_date }} → {{ rezervare.end_date }}</p>
+        <p><strong>Status:</strong> {{ rezervare.status|capitalize }}</p>
+    </div>
+
+    <div class="buttons">
+        <a href="/profile" class="button">Rezervările mele</a>
+        <a href="/" class="button home">Înapoi la Home</a>
+    </div>
+</div>
+</body>
+</html>

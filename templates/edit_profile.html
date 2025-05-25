@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editează Profilul</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; padding: 0; margin: 0; }
+        .container {
+            max-width: 600px; margin: 2em auto;
+            background: white; padding: 2em;
+            border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        input {
+            display: block;
+            width: 100%; padding: 0.6em; margin-bottom: 1em;
+            border-radius: 6px; border: 1px solid #ccc;
+        }
+        button {
+            background: #64b5f6; color: white; padding: 0.6em 1.2em;
+            border: none; border-radius: 6px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Editează Profilul</h2>
+        <form method="post">
+            <label>Nume utilizator:</label>
+            <input type="text" name="username" value="{{ user.username }}" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+
+            <button type="submit">Salvează</button>
+        </form>
+    </div>
+</body>
+</html>
+
