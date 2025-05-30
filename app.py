@@ -292,6 +292,65 @@ def add_property():
 
 
 from collections import defaultdict
+@app.route('/search_results', methods=['POST'])
+def search_results():
+    name = request.form.get('name', '').strip()
+    city = request.form.get('city', '').strip()
+    region = request.form.get('region', '').strip()
+    country = request.form.get('country', '').strip()
+    capacity = request.form.get('capacity', '').strip()
+
+    query = """
+        SELECT DISTINCT p.*, SUM(r.capacity) AS total_capacity
+        FROM properties p
+        JOIN rooms r ON p.property_id = r.property_id
+        WHERE r.available = TRUE
+    """
+    conditions = []
+    params = []
+
+    if name:
+        conditions.append("p.name LIKE %s")
+        params.append(f"%{name}%")
+    if city:
+        conditions.append("p.city LIKE %s")
+        params.append(f"%{city}%")
+    if region:
+        conditions.append("p.city LIKE %s")  # modifică dacă ai coloană separată
+        params.append(f"%{region}%")
+    if country:
+        conditions.append("p.country LIKE %s")
+        params.append(f"%{country}%")
+
+    query += " GROUP BY p.property_id"
+
+    if capacity:
+        query += " HAVING SUM(r.capacity) >= %s"
+        params.append(int(capacity))
+
+    # Dacă nu există niciun filtru, arată toate în ordine descrescătoare
+    if not conditions and not capacity:
+        cursor.execute("""
+            SELECT p.*, IFNULL(SUM(r.capacity), 0) AS total_capacity
+            FROM properties p
+            LEFT JOIN rooms r ON p.property_id = r.property_id
+            GROUP BY p.property_id
+            ORDER BY p.property_id DESC
+        """)
+    else:
+        if conditions:
+            query = query.replace("WHERE r.available = TRUE", "WHERE r.available = TRUE AND " + " AND ".join(conditions))
+        cursor.execute(query, tuple(params))
+
+    properties = cursor.fetchall()
+
+    logged_in = 'user_id' in session
+    user_id = session.get('user_id') if logged_in else None
+    username = session.get('username') if logged_in else None
+
+    return render_template("search_results.html", properties=properties, 
+                           logged_in=logged_in, user_id=user_id, username=username)
+
 
 @app.route('/property/<int:property_id>')
 def view_property(property_id):

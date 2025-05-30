@@ -2,19 +2,13 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Platformă de Cazare</title>
+    <title>Rezultatele căutării</title>
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: hidden;
+        body {
             font-family: 'Segoe UI', sans-serif;
             background: #f2f6f9;
+            margin: 0;
+            padding: 0;
         }
 
         nav {
@@ -23,6 +17,7 @@
             align-items: center;
             background-color: #dceefc;
             padding: 1em 2em;
+            box-sizing: border-box;
             width: 100%;
         }
 
@@ -36,6 +31,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-left: auto;
             position: relative;
         }
 
@@ -84,6 +80,11 @@
             background-color: #e0e0e0;
         }
 
+        .dropdown:hover > .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block;
+        }
+
         .container {
             max-width: 900px;
             margin: 2em auto;
@@ -111,40 +112,26 @@
             border-radius: 5px;
             font-weight: bold;
         }
-
-        input {
-            margin-bottom: 0.5em;
-            padding: 0.6em;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 100%;
-        }
-
-        form {
-            margin-bottom: 2em;
-        }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-left">
-        <h2>Platformă de rezervări</h2>
+        <h2>Rezultate Căutare</h2>
     </div>
     <div class="nav-right">
         {% if logged_in %}
             <a href="/add_property">Ai un loc de cazare?</a>
-
             <div class="dropdown">
-                <a href="#" id="dropdownToggle">Profil ▼</a>
-                <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#">Profil ▼</a>
+                <div class="dropdown-menu">
                     <a href="/profile">Profil</a>
                     <a href="/my-reservations">Rezervările mele</a>
                     <a href="/my-properties">Cazările mele</a>
                     <a href="/edit-profile">Editează profilul</a>
                 </div>
             </div>
-
             <a href="/logout">Logout</a>
         {% else %}
             <a href="/login">Login</a>
@@ -153,38 +140,8 @@
     </div>
 </nav>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggle = document.getElementById('dropdownToggle');
-        const menu = document.getElementById('dropdownMenu');
-
-        toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        });
-
-        document.addEventListener('click', function (e) {
-            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-                menu.style.display = 'none';
-            }
-        });
-    });
-</script>
-
 <div class="container">
-    <form action="/search_results" method="post">
-        <label><strong>Caută o cazare:</strong></label><br>
-        <input type="text" name="name" placeholder="Nume cazare">
-        <input type="text" name="city" placeholder="Localitate">
-        <input type="text" name="region" placeholder="Județ">
-        <input type="text" name="country" placeholder="Țară">
-        <input type="number" name="capacity" placeholder="Minim X persoane" value="{{ requested_capacity }}">
-        <button type="submit" class="cta-button">Caută</button>
-    </form>
-
-
-    <hr>
-
+    <h3>Rezultatele căutării:</h3>
     {% if properties %}
         {% for p in properties %}
             <div class="property">
@@ -204,8 +161,10 @@
             </div>
         {% endfor %}
     {% else %}
-        <p>Nu s-au găsit proprietăți pentru criteriul selectat.</p>
+        <p>Nu s-au găsit rezultate pentru criteriile introduse.</p>
     {% endif %}
+
+    <a href="/" class="cta-button">Înapoi la Home</a>
 </div>
 
 </body>
