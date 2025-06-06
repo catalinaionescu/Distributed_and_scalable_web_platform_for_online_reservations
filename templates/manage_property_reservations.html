@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Rezervările mele</title>
+    <title>Gestionează Rezervările pentru {{ prop.name }}</title>
     <style>
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
@@ -17,13 +17,13 @@
         .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
         .dropdown-menu a:hover { background-color: #e0e0e0; }
         .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        
-        /* Stiluri noi pentru cardul de rezervare */
-        .reservation { 
-            border: 1px solid #e0e0e0; 
-            padding: 1.5em; 
-            margin-bottom: 1.5em; 
-            border-radius: 8px; 
+
+        /* Stiluri pentru cardul de rezervare (similar cu my_reservations) */
+        .reservation {
+            border: 1px solid #e0e0e0;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+            border-radius: 8px;
             background: #ffffff;
             border-left: 5px solid #64b5f6; /* Accent vizual */
         }
@@ -51,13 +51,17 @@
             font-weight: bold;
             color: #c62828;
         }
-        .status { font-weight: bold; padding: 0.2em 0.6em; border-radius: 4px; color: white; }
+        .status { font-weight: bold; padding: 0.2em 0.6em; border-radius: 4px; color: white; text-transform: capitalize; }
         .status-confirmed { background-color: #4caf50; }
         .status-cancelled { background-color: #c62828; }
         .cancel-button { background: #ef5350; color: white; padding: 0.6em 1.2em; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .cancel-button:hover { background-color: #d32f2f; }
         .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; }
         .flash-success { background-color: #4caf50; }
         .flash-error { background-color: #f44336; }
+        .flash-info { background-color: #2196F3; }
+        /* Existing cta-button style from my_properties.html */
+        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -87,58 +91,60 @@
 </nav>
 
 <div class="container">
-    <h3>Rezervările Mele</h3>
+    <h3>Gestionează Rezervările pentru: {{ prop.name }}</h3>
+    <p><strong>Adresă:</strong> {{ prop.address }}, {{ prop.city }}, {{ prop.country }}</p>
     <hr>
+
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-                <div class="flash-message flash-{{ category or 'success' }}">{{ message }}</div>
+                <div class="flash-message flash-{{ category or 'info' }}">{{ message }}</div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
+    <h4>Rezervări active și viitoare pentru această proprietate:</h4>
     {% if reservations %}
         {% for r in reservations %}
             <div class="reservation">
                 <div class="reservation-header">
-                    <h4>{{ r.property_name }}</h4>
+                    <h4>{{ r.room_name }} (Cameră #{{ r.room_id }})</h4>
                     <span class="status status-{{ r.status }}">{{ r.status }}</span>
                 </div>
                 <div class="reservation-body">
-                    <p><strong>Cameră:</strong> {{ r.room_name }}</p>
                     <p><strong>Perioadă:</strong> {{ r.start_date | ro_date }} - {{ r.end_date | ro_date }}</p>
-                    
+                    <p><strong>Rezervat de:</strong> {{ r.full_name }} ({{ r.email }})</p>
+                    <p><strong>Telefon:</strong> {{ r.phone }}</p>
+
                     {% if r.total_price is not none %}
                         <p><strong>Preț total:</strong> <span class="price">{{ "%.2f"|format(r.total_price) }} lei</span></p>
                     {% endif %}
-                    
-                    {% if r.full_name %}
-                        <hr style="margin: 1em 0; border: 0; border-top: 1px solid #eee;">
-                        <p><strong>Nume:</strong> {{ r.full_name }}</p>
-                        <p><strong>Email:</strong> {{ r.email }}</p>
-                        <p><strong>Telefon:</strong> {{ r.phone }}</p>
-                    {% endif %}
                 </div>
-                
+
                 {% if r.status == 'confirmed' %}
                 <div style="text-align: right; margin-top: 1em;">
-                    <a href="/cancel_reservation/{{ r.reservation_id }}" class="cancel-button" onclick="return confirm('Sunteți sigur că doriți să anulați această rezervare?');">Anulează Rezervarea</a>
+                    <a href="{{ url_for('cancel_reservation', reservation_id=r.reservation_id, redirect_to_prop_id=prop.property_id) }}" class="cancel-button" onclick="return confirm('Sunteți sigur că doriți să anulați această rezervare?');">Anulează Rezervarea</a>
                 </div>
                 {% endif %}
             </div>
         {% endfor %}
     {% else %}
-        <p>Nu ai nicio rezervare efectuată.</p>
+        <p>Această proprietate nu are rezervări active sau viitoare.</p>
     {% endif %}
+    <div style="text-align: center; margin-top: 2em;">
+        {# Apply cta-button class for consistent styling #}
+        <a href="/my-properties" class="cta-button">Înapoi la proprietățile mele</a>
+    </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const toggle = document.getElementById('dropdownToggle');
-        if (!toggle) return;
-        const menu = document.getElementById('dropdownMenu');
-        toggle.addEventListener('click', function (e) { e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block'; });
-        document.addEventListener('click', function (e) { if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) { menu.style.display = 'none'; } });
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';});
+            document.addEventListener('click', function (e) {if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {menu.style.display = 'none';}});
+        }
     });
 </script>
 

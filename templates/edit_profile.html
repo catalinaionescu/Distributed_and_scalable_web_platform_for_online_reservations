@@ -2,39 +2,97 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Editează Profilul</title>
+    <title>Editează Proprietate</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f2f6f9; padding: 0; margin: 0; }
-        .container {
-            max-width: 600px; margin: 2em auto;
-            background: white; padding: 2em;
-            border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        input {
-            display: block;
-            width: 100%; padding: 0.6em; margin-bottom: 1em;
-            border-radius: 6px; border: 1px solid #ccc;
-        }
-        button {
-            background: #64b5f6; color: white; padding: 0.6em 1.2em;
-            border: none; border-radius: 6px;
-            font-weight: bold;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        input, select, button { width: 100%; padding: 0.8em; margin: 0.5em 0; border: 1px solid #ccc; border-radius: 6px; }
+        button { background: #81c784; color: white; font-weight: bold; border: none; cursor: pointer; }
+        button:hover { background: #66bb6a; }
+        .room { border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 1.5em; border-radius: 6px; background: #f9f9f9; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Editează Profilul</h2>
-        <form method="post">
-            <label>Nume utilizator:</label>
-            <input type="text" name="username" value="{{ user.username }}" required>
 
-            <label>Email:</label>
-            <input type="email" name="email" value="{{ user.email }}" required>
-
-            <button type="submit">Salvează</button>
-        </form>
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
     </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă o proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (!toggle) return;
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) { e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block'; });
+        document.addEventListener('click', function (e) { if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) { menu.style.display = 'none'; } });
+    });
+</script>
+
+<div class="container">
+    <h3>Editează Proprietatea: {{ prop.name }}</h3>
+    <form method="post">
+        <label>Nume proprietate:</label>
+        <input type="text" name="name" value="{{ prop.name }}" required>
+        <label>Adresă:</label>
+        <input type="text" name="address" value="{{ prop.address }}" required>
+        <label>Localitate:</label>
+        <input type="text" name="city" value="{{ prop.city }}" required>
+        <label>Țară:</label>
+        <input type="text" name="country" value="{{ prop.country }}" required>
+
+        <h4 style="margin-top: 2em;">Camere</h4>
+        {% for room in rooms %}
+            <div class="room">
+                <h5>Camera #{{ loop.index }}</h5>
+                <input type="hidden" name="room_id[]" value="{{ room.idrooms }}">
+                <label>Nume cameră:</label>
+                <input type="text" name="room_name[]" value="{{ room.name }}" required>
+                <label>Capacitate:</label>
+                <input type="number" name="capacity[]" value="{{ room.capacity }}" required>
+                <label>Preț/noapte:</label>
+                <input type="number" step="0.01" name="price[]" value="{{ room.price }}" required>
+                <label>Disponibilitate:</label>
+                <select name="available[]">
+                    <option value="1" {% if room.available %}selected{% endif %}>Disponibilă</option>
+                    <option value="0" {% if not room.available %}selected{% endif %}>Indisponibilă</option>
+                </select>
+            </div>
+        {% endfor %}
+
+        <button type="submit">Salvează modificările</button>
+    </form>
+</div>
+
 </body>
 </html>
-
