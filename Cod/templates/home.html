@@ -1,149 +1,194 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8" />
-    <title>Rezervări Camere - Acasă</title>
+    <meta charset="UTF-8">
+    <title>Platformă de Cazare</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
     <style>
-        /* Stil pastelat general */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .search-form-container { background-color: #fff; padding: 1.5em; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; margin-bottom: 2em;}
+        .search-form { display: flex; align-items: center; gap: 5px; width: 100%; }
+        .search-field { flex: 1; padding: 0.8em 1.2em; border: none; background-color: #f2f6f9; border-radius: 30px; cursor: pointer; text-align: left; }
+        .search-field:focus-within { outline: 2px solid #64b5f6; }
+        .search-field label { font-size: 0.8em; font-weight: bold; color: #555; }
+        .search-field input { border: none; background: transparent; width: 100%; outline: none; font-size: 1em; padding: 0.2em 0 0 0; }
+        .search-button { background-color: #ff5a5f; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-weight: bold; cursor: pointer; font-size: 1.2em; flex-shrink: 0; }
+        .guests-field { position: relative; }
+        #guests-display { font-size: 1em; padding: 0.2em 0 0 0; color: #333; }
+        .guests-popup { display: none; position: absolute; top: 110%; left: 0; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); padding: 1em; width: 280px; z-index: 100; }
+        .guests-popup .guest-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5em; }
+        .guests-popup input[type="number"] { width: 60px; text-align: center; }
+        .property { border: 1px solid #ddd; padding: 1.5em; margin-bottom: 1.5em; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .property:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .property h4 a { text-decoration: none; color: #0056b3; }
+        .property p.room-summary { font-style: italic; color: #555; font-size: 0.9em; }
+        .property p.next-available-summary { font-weight: bold; color: #0056b3; }
+        .my-property { border-left: 5px solid #64b5f6; }
+        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
 
-    header {
-    background: #a0c4ff;
-    color: #ffffff;
-    padding: 10px 20px;
-}
+        /* Stiluri pentru mesaje flash adaugate */
+        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; text-align: center; }
+        .flash-error { background-color: #f44336; }
+        .flash-success { background-color: #4caf50; }
+        .flash-info { background-color: #2196F3; }
 
-header > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav {
-    display: flex;
-    gap: 15px;
-}
-        header nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        header nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        header nav a:hover {
-            opacity: 0.8;
-        }
-
-        main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-
-        h1 {
-            color: #5e60ce;
-        }
-
-        .search-form input,
-        .search-form button {
-            padding: 8px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .search-form input[type="date"],
-        .search-form input[type="number"] {
-            width: 150px;
-        }
-
-        .search-form button {
-            background-color: #bdb2ff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .search-form button:hover {
-            background-color: #9a91ff;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            background-color: #e0fbfc;
-            border: 1px solid #ccc;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 6px;
-        }
     </style>
 </head>
 <body>
-<header>
-    <div style="display: flex; justify-content: space-between; width: 100%;">
-        <div>
-            {% if logged_in %}
-                <span>Bun venit, {{ username }}!</span>
-            {% endif %}
-        </div>
-        <nav>
-            {% if logged_in %}
-                <a href="/profile">Profil</a>
-                <a href="/logout">Logout</a>
-            {% else %}
-                <a href="/login">Login</a>
-                <a href="/register">Înregistrare</a>
-            {% endif %}
-        </nav>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
     </div>
-</header>
-
-    <main>
-        <h1>Rezervări Camere</h1>
-        <p><em>Descoperă camerele perfecte pentru tine!</em></p>
-
-        <form method="POST" class="search-form">
-            <input type="text" name="room_name" placeholder="Nume cameră" />
-            <input type="date" name="date_available" />
-            <input type="number" name="capacity" placeholder="Capacitate minimă" min="1" />
-            <input type="number" name="price" placeholder="Preț maxim" min="0" step="0.01" />
-            <button type="submit">Caută</button>
-        </form>
-
-        {% if search_results is not none %}
-            <h2>Rezultate căutare:</h2>
-            {% if search_results|length > 0 %}
-                <ul>
-                    {% for room in search_results %}
-                        <li>
-                            <strong>{{ room.name }}</strong> - {{ room.description }}<br />
-                            Capacitate: {{ room.capacity }} persoane<br />
-                            Preț: {{ room.price }} lei<br />
-                            Disponibilă: {{ 'Da' if room.available else 'Nu' }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Nu s-au găsit camere care să corespundă criteriilor.</p>
-            {% endif %}
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
         {% endif %}
-    </main>
+    </div>
+</nav>
+
+<div class="container">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="search-form-container">
+        <form action="/search_results" method="post" class="search-form">
+            <div class="search-field">
+                <label>Unde mergem</label>
+                <input type="text" name="destination" placeholder="Caută destinație...">
+            </div>
+            <div class="search-field">
+                <label>Perioada</label>
+                <input type="text" name="period" id="datepicker" placeholder="Selectează datele...">
+            </div>
+            <div class="search-field guests-field" id="guests-field-activator">
+                <label>Persoane & Camere</label>
+                <div id="guests-display">Adaugă persoane</div>
+                <div class="guests-popup" id="guests-popup">
+                    <div class="guest-row">
+                        <label>Adulți</label>
+                        <input type="number" name="adults" id="adults-input" value="1" min="1">
+                    </div>
+                    <div class="guest-row">
+                        <label>Camere</label>
+                        <input type="number" name="rooms" id="rooms-input" value="1" min="1">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="search-button">➔</button>
+        </form>
+    </div>
+    
+    <hr style="margin: 2.5em 0; border: 0; border-top: 1px solid #eee;">
+    
+    <h3>Proprietăți disponibile astăzi</h3>
+
+    {% if properties %}
+        {% for p in properties %}
+            <div class="property">
+                <h4><a href="{{ url_for('view_property', property_id=p.property_id) }}">{{ p.name }}</a></h4>
+                <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                {% if p.room_summary %}
+                    <p class="room-summary"><strong>Tipuri de camere:</strong> {{ p.room_summary }}</p>
+                {% endif %}
+
+                {% if p.is_available_today %}
+                    <p class="next-available-summary" style="color: green;">Disponibilă pentru rezervare imediată!</p>
+                {% endif %}
+                
+                <a href="{{ url_for('view_property', property_id=p.property_id) }}" class="cta-button">Vezi detalii și prețuri</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Momentan nu sunt proprietăți disponibile pentru afișare.</p>
+    {% endif %}
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('dropdownToggle');
+    if (toggle) {
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+    }
+
+    // CONFIGURARE LITEPICKER CORECTATĂ
+    new Litepicker({ 
+        element: document.getElementById('datepicker'), 
+        singleMode: false, 
+        format: 'YYYY-MM-DD', 
+        delimiter: ' to ',
+        lang: 'ro-RO',
+        minDays: 2 
+    });
+
+    const guestsField = document.getElementById('guests-field-activator');
+    const guestsPopup = document.getElementById('guests-popup');
+    const adultsInput = document.getElementById('adults-input');
+    const roomsInput = document.getElementById('rooms-input');
+    const guestsDisplay = document.getElementById('guests-display');
+
+    guestsField.addEventListener('click', function(event) {
+        event.stopPropagation();
+        guestsPopup.style.display = 'block';
+    });
+
+    function updateGuestsDisplay() {
+        let adultsVal = parseInt(adultsInput.value) || 0;
+        let roomsVal = parseInt(roomsInput.value) || 0;
+        let adultsText = `${adultsVal} Adult${adultsVal !== 1 ? 'i' : ''}`;
+        let roomsText = `${roomsVal} Camer${roomsVal !== 1 ? 'e' : 'ă'}`;
+        guestsDisplay.textContent = `${adultsText}, ${roomsText}`;
+    }
+    adultsInput.addEventListener('input', updateGuestsDisplay);
+    roomsInput.addEventListener('input', updateGuestsDisplay);
+    updateGuestsDisplay();
+
+    document.addEventListener('click', function (e) {
+        const menu = document.getElementById('dropdownMenu');
+        if (toggle && !toggle.contains(e.target) && menu && !menu.contains(e.target)) {
+            menu.style.display = 'none';
+        }
+        if (guestsPopup && !guestsPopup.contains(e.target) && !guestsField.contains(e.target)) {
+            guestsPopup.style.display = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionează Rezervările pentru {{ prop.name }}</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        /* Stiluri pentru cardul de rezervare (similar cu my_reservations) */
+        .reservation {
+            border: 1px solid #e0e0e0;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+            border-radius: 8px;
+            background: #ffffff;
+            border-left: 5px solid #64b5f6; /* Accent vizual */
+        }
+        .reservation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+        }
+        .reservation-header h4 {
+            margin: 0;
+            color: #0056b3;
+        }
+        .reservation-body p {
+            margin: 0.6em 0;
+            line-height: 1.5;
+        }
+        .reservation-body strong {
+            color: #333;
+        }
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #c62828;
+        }
+        .status { font-weight: bold; padding: 0.2em 0.6em; border-radius: 4px; color: white; text-transform: capitalize; }
+        .status-confirmed { background-color: #4caf50; }
+        .status-cancelled { background-color: #c62828; }
+        .cancel-button { background: #ef5350; color: white; padding: 0.6em 1.2em; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .cancel-button:hover { background-color: #d32f2f; }
+        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; }
+        .flash-success { background-color: #4caf50; }
+        .flash-error { background-color: #f44336; }
+        .flash-info { background-color: #2196F3; }
+        /* Existing cta-button style from my_properties.html */
+        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă o proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Gestionează Rezervările pentru: {{ prop.name }}</h3>
+    <p><strong>Adresă:</strong> {{ prop.address }}, {{ prop.city }}, {{ prop.country }}</p>
+    <hr>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category or 'info' }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h4>Rezervări active și viitoare pentru această proprietate:</h4>
+    {% if reservations %}
+        {% for r in reservations %}
+            <div class="reservation">
+                <div class="reservation-header">
+                    <h4>{{ r.room_name }} (Cameră #{{ r.room_id }})</h4>
+                    <span class="status status-{{ r.status }}">{{ r.status }}</span>
+                </div>
+                <div class="reservation-body">
+                    <p><strong>Perioadă:</strong> {{ r.start_date | ro_date }} - {{ r.end_date | ro_date }}</p>
+                    <p><strong>Rezervat de:</strong> {{ r.full_name }} ({{ r.email }})</p>
+                    <p><strong>Telefon:</strong> {{ r.phone }}</p>
+
+                    {% if r.total_price is not none %}
+                        <p><strong>Preț total:</strong> <span class="price">{{ "%.2f"|format(r.total_price) }} lei</span></p>
+                    {% endif %}
+                </div>
+
+                {% if r.status == 'confirmed' %}
+                <div style="text-align: right; margin-top: 1em;">
+                    <a href="{{ url_for('cancel_reservation', reservation_id=r.reservation_id, redirect_to_prop_id=prop.property_id) }}" class="cancel-button" onclick="return confirm('Sunteți sigur că doriți să anulați această rezervare?');">Anulează Rezervarea</a>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Această proprietate nu are rezervări active sau viitoare.</p>
+    {% endif %}
+    <div style="text-align: center; margin-top: 2em;">
+        {# Apply cta-button class for consistent styling #}
+        <a href="/my-properties" class="cta-button">Înapoi la proprietățile mele</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';});
+            document.addEventListener('click', function (e) {if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {menu.style.display = 'none';}});
+        }
+    });
+</script>
+
+</body>
+</html>

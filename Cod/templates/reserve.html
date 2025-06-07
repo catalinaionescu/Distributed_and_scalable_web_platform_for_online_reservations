@@ -1,10 +1,143 @@
-<form method="POST">
-  <select name="room_id">
-    {% for room in rooms %}
-      <option value="{{ room.idrooms }}">{{ room.name }} - {{ room.capacity }} pers - ${{ room.price }}</option>
-    {% endfor %}
-  </select>
-  <input type="date" name="start_date" required>
-  <input type="date" name="end_date" required>
-  <button>Rezervă</button>
-</form>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervare Cameră</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #dceefc;
+            padding: 1em 2em;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .nav-left h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+            position: relative;
+        }
+
+        .nav-right a {
+            background-color: #64b5f6;
+            color: white;
+            padding: 0.5em 1em;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+
+        .nav-right a:hover {
+            background-color: #42a5f5;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 0.8em;
+            margin: 1em 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #81c784;
+            color: white;
+            font-weight: bold;
+            border: none;
+        }
+
+        button:hover {
+            background: #66bb6a;
+        }
+
+        .message {
+            color: red;
+            font-weight: bold;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2>Platformă de rezervări</h2>
+    </div>
+    <div class="nav-right">
+        <a href="/">Înapoi la Home</a>
+        {% if logged_in %}
+            <a href="/profile">Profil</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Rezervă: {{ room.name }}</h2>
+    <p><strong>Proprietate:</strong> {{ room.property_name }}</p>
+    <p><strong>Capacitate:</strong> {{ room.capacity }} persoane</p>
+    <p><strong>Preț:</strong> {{ room.price }} lei/noapte</p>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="date_range"><strong>Selectează perioada:</strong></label>
+        <input type="text" id="date_range" name="date_range" required readonly placeholder="YYYY-MM-DD to YYYY-MM-DD">
+        <button type="submit">Confirmă rezervarea</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+    const disabledDates = {{ disabled_dates | tojson }};
+    new Litepicker({
+        element: document.getElementById('date_range'),
+        singleMode: false,
+        format: 'YYYY-MM-DD',
+        delimiter: ' to ',
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        lang: 'ro',
+        lockDays: disabledDates
+    });
+</script>
+
+</body>
+</html>

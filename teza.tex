@@ -506,7 +506,7 @@ Un representation header oferă unui destinator instrucțiuni despre cum ar treb
 Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un membru al grupului de pasionați de Python, Pocoo. Inițial, crearea celebrului framework a fost doar o aluzie la celebra zi a glumelor, 1 aprilie, dar mai târziu a devenit realitate datorită cererii mari a publicului. Numele „flask” (în engleză înseamnă flacon)  este o referință la precedentul framework Bottle (în engleză sticlă).
 În anul 2016, echipa Pocoo și-a încheiat activitatea, iar dezvoltarea Flask-ului și a librăriilor acestuia a fost preluată de către echipa nou fondată numită Pallets.
  
- În contextul acestei lucrări de licență, am ales să implementez serverul aplicației web în Flask datorită de avantaje pe care framework-ul le aduce  cum ar fi:
+ În contextul acestei lucrări de licență, am ales să implementez serverul aplicației web în Flask datorită funcționalităților de construire personalizată a site-urilor, definirea rutelor care facilitează redirecționarea către pagini atunci când un link este accesat și gestionarea sesiunilor de autentificare a utilizatorilor, dar și a cererilor trimise de către acesta aplicației web. Printre avantajele ale framework-ului Flask se regăsesc:
  \begin{itemize}
  \item Este un framework backend minimalist cu posibilitatea extinderii aplicației în funcție de cerințele impuse.
  \item Este ușor de învățat deoarece API-ul intuitiv oferă posibilitatea chiar și începătorilor să se familiarizeze cu el.
@@ -516,9 +516,60 @@ Flask a fost creat \cite{flaskwiki} în anul 2004 de către Armin Ronacher, un m
  \item Posibilă integrarea cu Jinja2 care oferă o paletă largă de unelte pentru generarea paginilor HTML dinamice.
  \end{itemize}
  
+O primă funcționalitate pe care o are Flask este gestionarea logică a aplicației web și baza de date asociată. Atunci când o acțiune de tipul citire, scriere, update sau delete are loc la nivel de frontend, Flask va fi intermediarul între utilizator și baza de date în care va traduce comanda inițiată în limbajul SQL pentru executare, în final rezultatul fiind vizibil și la nivel de frontend.
+
+Cea de a doua funcționalitate constă în permiterea autentificării și existența sesiunii de utilizator. Flask se ocupă cu crearea noilor conturi, logarea utilizatorilor, reținerea cine este logat și ce acțiuni îi sunt permise.
+
+O altă funcționalitate se referă la afișarea paginilor dinamice folosind template-uri HTML.
+
+Ultma funcționalitate o reprezintă controlul fluxului aplicației în care utilizatorii după efectuarea anumitor acțiunii sunt redirecționați spre alte pagini. De exemplu, la crearea unui nou cont, utilizatorii sunt redirecționați către pagina de login unde se vor conecta la aplicație.
+
+ \section{Bază de date distribuită MySQL}
+
+ O bază de date reprezintă \cite{bdd} o colecție de informații corelate organizate sub forma unui spațiu de stocare menite pentru a facilita procesele de gestionare, accesare a informațiilor de către utilizatori. Sistemul de gestiune a bazelor de date (SGBD) este un software fundamental ce stă la baza multor aplicații cum ar fi sisteme de rezervări, cumpărături online în care utilizatorii au posibilitatea să definească, să creeze, să întrețină și să controleze accesul la baza de date. 
+ 
+ O bază de date relațională este o bază de date ce se bazează pe modelul relațional al datelor organizat sub forma unor tabele. Un tabel (sau relație) este format din rânduri și coloane. Rândurile, denumite și tupluri, reprezintă o entitate sau o înregistrare individuală în baza de date. Coloanele sau atributele, reprezintă caracteristicile sau proprietățile entităților. Fiecare coloană are un identificator unic și un tip de date specific.
+ 
+ O bază de date distribuită este o bază de date logică unică divizată în mai multe părți stocate fizic pe mai multe computere sau noduri interconectate în rețea. La nivel de frontend, o bază de date distribuită funcționează ca o singură bază de date centralizată, nu este nevoie ca utilizatorii să folosească mai multe interfețe, dar la nivel de backend datele sunt distribuite și replicate în diverse locații. Principalele obiective pe care o bază de date distribuită le prezintă includ scalabilitatea, disponibilitatea, fiabilitatea și performanța îmbunătățită prin alocarea unor locații cu roluri specifice.
+ 
+ Configurația master-slave este o structură de replicare a bazei de date în care datele de pe un master sunt copiate pe un slave. Un master este nodul principal în care au loc toate operațiile de scriere (INSERT, UPDATE, DELETE). Orice modificare efectuată asupra master-ului este transmisă și slave-lui. Slave-ul este un nod secundar ce are rol în efectuarea tuturor operațiilor de citire (SELECT) și în actualizarea datelor primite din partea master-ului. 
+ 
+ 
+ În contextul prezentei lucrări, s-a implementat o arhitectură de tip master-slave datorită următoarelor avantaje:
+\begin {itemize}
+\item Scalabilitatea operațiilor de citire: într-un sistem de rezervări volumul operațiilor de citire depășește semnificativ volumul operațiilor de scriere. Așadar, o arhitectură de tip master-slave devine esențială prin direcționarea cererilor de citire către nodurile slave, eliberarea resurselor consumate de către nodul master și eficientizarea operațiilor de scriere importante. De asemenea, flexibilitatea sistemului asigură posibilitatea de extindere orizontală cu noi noduri slave, distribuind uniform și eficient cererile de citire pe măsură ce volumul de date crește.
+ \item Separarea sarcinilor: arhitectura master-slave stabilește două roluri bine separate între cele două noduri ale bazei de date.  Nodul master-ul se ocupă exclusiv cu procesarea și validarea operațiilor de scriere (INSERT, UPDATE, DELETE) pentru a asigura consistența și integritatea datelor. Nodurile slave au rol în preluarea și executarea operațiilor de citire (SELECT). Această separare a rolurilor optimizează performanța operațiilor de citire și scriere prin minimizarea conflictelor de blocare și contopire a resurselor.
+ \item Îmbunătățirea disponibilității: configurația master-slave este o metodă preventivă în cazul unei defecțiuni sau indisponibilități a unei resurse. În cazul în care master-ul nu mai funcționează, slave-ul preia atribuțiile de scriere și este promovat la rolul de master. Acest mecanism se numește failover și are rol în menținerea continuității operațiilor de citire și scriere prin minimizarea timpului de nefuncționare a aplicației. 
+\end{itemize}
+
+SQL (Structured Query Language) este cel mai utilizat limbaj de baze de date. Este un limbaj standardizat, declarativ, folosit în interacțiunea și gestionarea bazelor de date relațional. A fost dezvoltat de către compania IBM, prima versiune fiind concepută în anul 1970. Numele original al limbajului a fost SEQUEL (Structured English Query Language). 
+
+SQL este interfața universală pentru SGBD-ul MySQL. Se ocupă cu definirea structurii bazei de date, manipularea datelor și controlul accesului dintr-o bază de date relațională. SQL poate fi utilizat pentru a căuta informații specifice, insera noi înregistrări, a actualiza date existente și a șterge înregistrări. 
+
+Fiind un limbaj standard, SQL asigură logica de interacțiune cu baza de date care este bine definită și compatibilă cu diverse SGBD-uri. În cadrul aplicației Flask de rezervări, operațiile efectuate asupra bazei de date sunt traduse în interogări SQL, ce urmează a fi executate de către serverul MySQL.
+
+\chapter{Arhitectura și structura aplicației}
+Acest capitol prezintă în detaliu arhitectura și structura soluției software implementate care își propune să atingă fenomenele de scalabilitate, performanță și redundanță definite în prezenta lucrare. Proiectul "Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web" a dezvoltat o platformă web de rezervări, a cărei structură a fost concepută într-o manieră modulară pentru a gestiona eficient un număr mare de cereri simultane și pentru a asigura o experiență fluidă utilizatorilor.
+
+Arhitectura aplicației web a fost divizată în ADAUGĂ NR MODULE AICI module interconectate, fiecare având un rol clar, ce respectă clar cerințele temei abordate. Se vor prezenta în detaliu fiecare componentă în parte, fiind evidențiate conceptele teoretice aplicate, cât și implementarea practică cu ajutorul fragmentelor de cod și a capturilor de ecran relevante.
+
+\section  {Modulul principal: aplicația web Flask Python}
+Aplicația web reprezintă centrul sistemului în care se intersectează interacțiunea cu utilizatorul, logica operațiilor unui site de rezervări și prelucrarea datelor. S-a folosit în implementare framework-ul Flask Python.
 
 
-\chapter{Structura aplicației}
+Am ales acest framework pentru a implementa serverul de aplicații datorită simplității si flexbilității în crearea și organizarea aplicației. Fiind un micro-framework, sunt necesare doar două componente esențiale în dezvoltarea unei aplicații web cum ar fi un motor de rutare și un sistem de gestiune a cererilor și răspunsurilor HTTP. Datorită abordării minimaliste am avut libertatea totală în alegerea uneltelor și a bibliotecilor necesare pentru diferite funcționalități (de exemplu formulare, autentificare) fără a mai fi necesară utilizarea altor componente inutile. De asemenea Flask oferă o varietate de extensii ce aduc noi funcționalități proiectului. Am MAI AM DE AFAUGAT CEAV 
+
+
+\subsection {Ruta \ (pagina principală}
+Pagina principală a unei aplicații web reprezintă prima impresie a unui utilizator atunci când o accesează. Aceasta prezintă o imagine de ansamblu a platformei, afișând o selecție de proprietăți disponibile începând cu ziua curentă accesării și oferind posibilitatea de a căuta în funcție de mai multe criterii. Pentru utilizatorii autentificați, pagina principală exclude din a prezenta propriile cazări înregistrare. 
+
+Metoda HTTP folosită în implementarea rutei este GET deoarece ruta este destinată exclusiv vizualizărilor de informații, nefiind implicate trimitere de date de la client la server. 
+
+
+
+
+
+
 Aplicația a fost structurată în șapte module, fiecare modul având un rol bine definit în arhitectura generală. Acestea sunt următoarele:
 \begin{enumerate}
 \item Modulul de aplicație web în Python Flask este prezent pe stația de lucru și include rute importante precum /, /login, /register, /logout, /profile, /admin, /reserve pentru gestionarea logicii unui sistem de management al rezervărilor, autentificarea utilizatorilor și interacțiunea cu baza de date. Funcționalitățile rutelor sunt:

@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Profilul tău</title>
+    <title>Rezultatele căutării</title>
     <style>
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
@@ -17,8 +17,9 @@
         .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
         .dropdown-menu a:hover { background-color: #e0e0e0; }
         .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .item-list { list-style-type: none; padding: 0; }
-        .item-list li { background: #f9f9f9; border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 0.5em; border-radius: 6px; }
+        .property { border: 1px solid #ddd; padding: 1.5em; margin-bottom: 1.5em; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+        .property h4 a { text-decoration: none; color: #0056b3; }
+        .property p.room-summary { font-style: italic; color: #555; font-size: 0.9em; }
         .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
     </style>
 </head>
@@ -59,30 +60,27 @@
 </script>
 
 <div class="container">
-    <h3>Profilul lui {{ username }}</h3>
+    <h3>Rezultate pentru căutarea ta</h3>
     <hr>
-    <h4>Rezervările tale:</h4>
-    {% if rezervari %}
-        <ul class="item-list">
-        {% for r in rezervari %}
-            <li><strong>{{ r.property_name }}</strong> - {{ r.room_name }} ({{ r.start_date | ro_date }} → {{ r.end_date | ro_date }})</li>li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nu ai nicio rezervare.</p>
-    {% endif %}
+    {% if properties %}
+        <p>Am găsit <strong>{{ properties|length }}</strong> proprietăți care se potrivesc cerințelor tale.</p>
+        {% for p in properties %}
+            <div class="property">
+                {% set start_date, end_date = (search_params.period.split(' to ') if ' to ' in search_params.period else [None, None]) %}
+                
+                <h4><a href="{{ url_for('view_property', property_id=p.property_id, start=start_date, end=end_date, adults=search_params.adults, rooms=search_params.rooms) }}">{{ p.name }}</a></h4>
+                <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                
+                {% if p.room_summary %}
+                    <p class="room-summary"><strong>Tipuri de camere:</strong> {{ p.room_summary }}</p>
+                {% endif %}
 
-    <h4 style="margin-top: 2em;">Proprietățile tale:</h4>
-    {% if proprietati %}
-        <ul class="item-list">
-        {% for p in proprietati %}
-            <li>{{ p.name }} – {{ p.city }}, {{ p.country }}</li>
+                <a href="{{ url_for('view_property', property_id=p.property_id, start=start_date, end=end_date, adults=search_params.adults, rooms=search_params.rooms) }}" class="cta-button">Vezi oferta personalizată</a>
+            </div>
         {% endfor %}
-        </ul>
     {% else %}
-        <p>Nu deții nicio proprietate.</p>
+        <p>Nu s-au găsit rezultate care să corespundă întocmai cerințelor tale. Încearcă o altă perioadă sau o altă destinație.</p>
     {% endif %}
-    <a href="/add_property" class="cta-button">Adaugă o proprietate nouă</a>
 </div>
 
 </body>

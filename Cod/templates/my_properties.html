@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Profilul tău</title>
+    <title>Cazările mele</title>
     <style>
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
@@ -17,9 +17,32 @@
         .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
         .dropdown-menu a:hover { background-color: #e0e0e0; }
         .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .item-list { list-style-type: none; padding: 0; }
-        .item-list li { background: #f9f9f9; border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 0.5em; border-radius: 6px; }
-        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .property { border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 1em; border-radius: 6px; background: #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+        /* Style for the button group */
+        .property-actions {
+            display: flex; /* Use flexbox for button alignment */
+            gap: 10px; /* Space between buttons */
+            align-items: center; /* Vertically align buttons */
+        }
+        .cta-button { /* Keep existing cta-button styles */
+            display: inline-block;
+            margin-top: 0; /* Remove margin-top as gap handles spacing now */
+            background: #ffcc80;
+            color: #5d4037;
+            padding: 0.6em 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        /* Specific overrides for button colors */
+        .cta-button.blue { background-color: #64b5f6; color: white; }
+        .cta-button.red { background-color: #ef5350; color: white; }
+
+        /* Stiluri pentru mesaje flash adaugate */
+        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; text-align: center; }
+        .flash-error { background-color: #f44336; }
+        .flash-success { background-color: #4caf50; }
+        .flash-info { background-color: #2196F3; }
     </style>
 </head>
 <body>
@@ -59,30 +82,36 @@
 </script>
 
 <div class="container">
-    <h3>Profilul lui {{ username }}</h3>
-    <hr>
-    <h4>Rezervările tale:</h4>
-    {% if rezervari %}
-        <ul class="item-list">
-        {% for r in rezervari %}
-            <li><strong>{{ r.property_name }}</strong> - {{ r.room_name }} ({{ r.start_date | ro_date }} → {{ r.end_date | ro_date }})</li>li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Nu ai nicio rezervare.</p>
-    {% endif %}
+    <h3>Cazările mele</h3>
 
-    <h4 style="margin-top: 2em;">Proprietățile tale:</h4>
-    {% if proprietati %}
-        <ul class="item-list">
-        {% for p in proprietati %}
-            <li>{{ p.name }} – {{ p.city }}, {{ p.country }}</li>
+    {# Flash messages block #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {# End flash messages block #}
+
+    {% if properties %}
+        {% for p in properties %}
+            <div class="property">
+                <div>
+                    <h4>{{ p.name }}</h4>
+                    <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                </div>
+                <div class="property-actions"> {# New wrapper div for buttons #}
+                    <a href="/edit_property/{{ p.property_id }}" class="cta-button blue">Editează</a>
+                    <a href="{{ url_for('manage_property_reservations', property_id=p.property_id) }}" class="cta-button">Vezi și gestionează rezervările</a>
+                    <a href="/delete_property/{{ p.property_id }}" class="cta-button red" onclick="return confirm('Sunteți sigur că doriți să ștergeți această proprietate și toate camerele sale? Această acțiune este ireversibilă și va eșua dacă există rezervări active!');">Șterge</a>
+                </div>
+            </div>
         {% endfor %}
-        </ul>
     {% else %}
-        <p>Nu deții nicio proprietate.</p>
+        <p>Nu ai nicio proprietate înregistrată.</p>
+        <a href="/add_property" class="cta-button">Adaugă una acum</a>
     {% endif %}
-    <a href="/add_property" class="cta-button">Adaugă o proprietate nouă</a>
 </div>
 
 </body>
