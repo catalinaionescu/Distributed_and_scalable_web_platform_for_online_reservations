@@ -549,13 +549,48 @@ SQL este interfața universală pentru SGBD-ul MySQL. Se ocupă cu definirea str
 Fiind un limbaj standard, SQL asigură logica de interacțiune cu baza de date care este bine definită și compatibilă cu diverse SGBD-uri. În cadrul aplicației Flask de rezervări, operațiile efectuate asupra bazei de date sunt traduse în interogări SQL, ce urmează a fi executate de către serverul MySQL.
 
 \chapter{Arhitectura și structura aplicației}
-Acest capitol prezintă în detaliu arhitectura și structura soluției software implementate care își propune să atingă fenomenele de scalabilitate, performanță și redundanță definite în prezenta lucrare. Proiectul "Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web" a dezvoltat o platformă web de rezervări, a cărei structură a fost concepută într-o manieră modulară pentru a gestiona eficient un număr mare de cereri simultane și pentru a asigura o experiență fluidă utilizatorilor.
+Proiectarea unei aplicații web moderne, capabilă să ruleze în mod eficient sub presiunea unui trafic de date intens, cât și să îndeplinească cerințele utilizatorilor necesită o arhitectură bine definită. Proiectul "Studiul și implementarea soluțiilor cloud scalabile pentru aplicații web" a dezvoltat o platformă web de rezervări, a cărei structură a fost concepută într-o manieră modulară pentru a gestiona eficient un număr mare de cereri simultane și pentru a asigura o experiență fluidă utilizatorilor. S-a urmărit cercetarea și analiza principiilor ingineriei software precum ar fi scalabilitatea, disponibilitatea ridicată și performanța. În ziua de astăzi este important ca dezvoltatorii să îndeplinească cerințele pretențioase ale utilizatorilor pentru a oferi servicii de calitate înaltă.
 
-Arhitectura aplicației web a fost divizată în ADAUGĂ NR MODULE AICI module interconectate, fiecare având un rol clar, ce respectă clar cerințele temei abordate. Se vor prezenta în detaliu fiecare componentă în parte, fiind evidențiate conceptele teoretice aplicate, cât și implementarea practică cu ajutorul fragmentelor de cod și a capturilor de ecran relevante.
+Acest capitol prezintă în detaliu arhitectura și structura soluției software implementate care își propune să atingă fenomenele de scalabilitate, performanță și redundanță definite în prezenta lucrare. Soluția propusă a fost adoptarea unui sistem distribuit, alcătuit din mai multe module interconectate, fiecare având un rol clar definit și unic. Un sistem modular va facilita mentenanța, depanarea și dezvoltarea optimă a componentelor în mod individual, fără a afecta sistemul ca întreg.
+
+Procesul dezvoltării arhitecturii a început cu premisa că un sistem monolitic, în care componentele sunt în strânsă legătură, poate deveni un obstacol în cazul mentenanței și extinderii. Prin urmare, am optat pentru o structură modulară și distribuită, în care fiecare componentă are un rol clar stabilt și izolat. Această strategie determină o creștere a performanței prin paralelizarea sarcinilor, oferă o reziliență îmbunătățită asupra erorilor și facilitează dezvoltarea și actualizarea independentă a componentelor.
+
+Capitolul prezent își propune să analizeze în detaliu fiecare modul al aplicației din cele șapte, de la modulul principal la mecanismele de load balancing și replicare a datelor. Următorul pas implică un studiu aprofundat al fiecărei soluții implementate și justificarea în contextul obiectivelor proiectului, iar conceptele teoretice vor fi susținute de exemple concrete din codul sursă implementat.
+
+\section {Prezentarea generală a modulelor arhitecturale}
+
+Aplicația web de rezervări este formată din șapte module principale, fiecare având un rol bine definit, care colaborează pentru a oferi utilizatorilor o experiență fluidă și fiabilă.
+
+
+\begin{itemize}
+\item Modulul principal - aplicația web Flask, găzduit pe stația de lucru, constituie componenta principală a sistemului care are rol în gestionarea tuturor cererilor HTTP, implementează logica sistemului de rezervări și interacțiunea cu utilizatorii.
+
+\item Modulul de load balancing (Nginx) instalat pe stația de lucru distribuie uniform cererile trimise către serverele web Flask de pe stația de lucru și serverul IIS de pe VM2, astfel echilibrând resursele folosite și asigurând disponibilitatea acestora.
+
+\item Modulul de server IIS reprezintă o a doua instanță web care poate fi folosit pentru a replica parțial funcționalități ale aplicației Flask, distribuirea paginilor, resurselor statice (HTML, JavaScript, CSS), resurselor REST și pentru a răspunde la cererile distribuite de către load balancer.
+
+\item Modulul de bază de date MySQL Master, ce se află pe stația de lucru, are la bază nodul principal al bazei de date unde toate operațiile de scriere (INSERT, UPDATE, DELETE) se fac pe acest server. Principalele obiective ale modulului sunt de a gestiona tabelele aplicației web, replicarea automată către slave (VM2), crearea utilizatorilor și a privilegiilor pentru replicare și acceptarea conexiunilor de la aplicația Flask.
+
+\item Modulul de bază de date MySQL Slave, găzduit pe VM2, are rolul de a prelua și stoca copii ale datelor scrise pe master în timp real pentru a efectua operații de citire (SELECT) asupra bazei de date. Această tehnică asigură îmbunătățirea performanței aplicației atunci când este folosită frecvent comanda SELECT și asigură redundanța datelor. Un alt rol crucial pe care îl reprezintă slave este acela că poate fi promovat la master în cazul în care nodul principal eșuează, astfel datele nu vor putea fi pierdute sau compromise.
+
+\item Modulul de testare are rol în testarea izolată a aplicației web fără ca sistemul principal să fie afectat. Pentru acest mediu de testare izolat s-a folosit VM1 care are responsabilitatea de a testa codul Flask, conectivitatea cu serviciul MySQL, validarea configurației Nginx, rularea unui debug server Flask și de utilizarea a aplicației Postman sau chiar a browser-ului local pentru a rula testele.
+
+
+\item Modulul de rețea și virtualizare asigură comunicarea între stația de lucru, VM1 și VM2 prin intermediul rețelei bridged sau NAT în VMware Workstation. La nivelul fiecărei mașini sunt setate IP-uri statice pentru a asigura o conexiune stabilă.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=1\columnwidth, center]{figuri/mod.png}
+\caption{Arhitectura aplicației}
+\label{fig:bodcer2}
+\end{figure}
+
+
+\end{itemize}
 
 \section  {Modulul principal: aplicația web Flask Python}
 Aplicația web reprezintă centrul sistemului în care se intersectează interacțiunea cu utilizatorul, logica operațiilor unui site de rezervări și prelucrarea datelor. S-a folosit în implementare framework-ul Flask Python.
-
 
 Am ales acest framework pentru a implementa serverul de aplicații datorită simplității si flexbilității în crearea și organizarea aplicației. Fiind un micro-framework, sunt necesare doar două componente esențiale în dezvoltarea unei aplicații web cum ar fi un motor de rutare și un sistem de gestiune a cererilor și răspunsurilor HTTP. Datorită abordării minimaliste am avut libertatea totală în alegerea uneltelor și a bibliotecilor necesare pentru diferite funcționalități (de exemplu formulare, autentificare) fără a mai fi necesară utilizarea altor componente inutile. De asemenea Flask oferă o varietate de extensii ce aduc noi funcționalități proiectului. Am MAI AM DE AFAUGAT CEAV 
 
@@ -564,7 +599,9 @@ Am ales acest framework pentru a implementa serverul de aplicații datorită sim
 Pagina principală a unei aplicații web reprezintă prima impresie a unui utilizator atunci când o accesează. Aceasta prezintă o imagine de ansamblu a platformei, afișând o selecție de proprietăți disponibile începând cu ziua curentă accesării și oferind posibilitatea de a căuta în funcție de mai multe criterii. Pentru utilizatorii autentificați, pagina principală exclude din a prezenta propriile cazări înregistrare. 
 
 Metoda HTTP folosită în implementarea rutei este GET deoarece ruta este destinată exclusiv vizualizărilor de informații, nefiind implicate trimitere de date de la client la server. 
-
+ 
+ Mod de funcționare:
+ 
 
 
 
@@ -589,11 +626,10 @@ Aplicația a fost structurată în șapte module, fiecare modul având un rol bi
 \item Balansarea cererilor trimise către servere, astfel încât cereri sunt preluate secvențial.
 \item Măsură de rezervă în cazul în care unul dintre servere devine inaccesibil, traficul va fi redirecționat către următorul server disponibil.
 \end{itemize}
-\item Modulul de testare are rol în testarea izolată a aplicației web fără ca sistemul principal să fie afectat. Pentru acest mediu de testare izolat s-a folosit VM1 care are responsabilitatea de a testa codul Flask, conectivitatea cu serviciul MySQL, validarea configurației Nginx, rularea unui debug server Flask și de utilizarea a aplicației Postman sau chiar a browser-ului local pentru a rula testele.
-\item Modulul de server IIS reprezintă o a doua instanță web care poate fi folosit pentru a replica parțial funcționalități ale aplicației Flask, distribuirea paginilor, resurselor statice (HTML, JavaScript, CSS), resurselor REST și pentru a răspunde la cererile distribuite de către load balancer.
-\item Modulul de bază de date MySQL Master, ce se află pe stația de lucru, are la bază nodul principal al bazei de date unde toate operațiile de scriere (INSERT, UPDATE, DELETE) se fac pe acest server. Principalele obiective ale modulului sunt de a gestiona tabelele aplicației web, replicarea automată către slave (VM2), creare utilizatorilor și a privilegiilor pentru replicare și acceptarea conexiunilor de la aplicația Flask.
-\item Modulul de bază de date MySQL Sclave are rolul de a prelua și stoca copii ale datelor scrise pe master în timp real pentru a efectua operații de citire (SELECT) asupra bazei de date. Această tehnică asigură îmbunătățirea performanței aplicației atunci când este folosită frecvent comanda SELECT și asigură redundanța datelor. Un alt rol crucial pe care îl reprezintă sclave este acela că poate fi promovat la master în cazul în care nodul principal eșuează, astfel datele nu vor putea fi pierdute sau compromise.
-\item Modulul de rețea și virtualizare asigură comunicarea între stația de lucru, VM1 și VM2 prin intermediul rețelei bridged sau NAT în VMware Workstation. La nivelul fiecărei mașini sunt setate IP-uri statice pentru a asigura o conexiune stabilă.
+
+
+
+
 \end{enumerate}
 
 
