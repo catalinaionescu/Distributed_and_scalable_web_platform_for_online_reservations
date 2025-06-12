@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmare Rezervare Pachet</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .summary { background: #f9f9f9; padding: 1.5em; border-radius: 8px; margin-bottom: 2em; border: 1px solid #e0e0e0; }
+        .summary p { margin: 0.8em 0; font-size: 1.1em; }
+        input, button { width: 100%; padding: 0.8em; margin: 0.5em 0 1.5em 0; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; }
+        label { font-weight: bold; margin-top: 1em; display: block; }
+        button { background: #81c784; color: white; font-weight: bold; border: none; cursor: pointer; }
+        button:hover { background: #66bb6a; }
+        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; }
+        .flash-error { background-color: #f44336; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/my-reservations">Rezervările mele</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Confirmare și Finalizare Rezervare</h3>
+    <div class="summary">
+        <h4>Sumar Pachet</h4>
+        <p>Perioada: <strong>{{ start }}</strong> - <strong>{{ end }}</strong> ({{ nights }} noap{{ 'te' if nights == 1 else 'ți' }})</p>
+        <hr>
+        {% for room in package_rooms %}
+            <p>1x {{ room.name }} ({{ room.capacity }} pers.) - {{ "%.2f"|format(room.price) }} lei/noapte</p>
+        {% endfor %}
+        <hr>
+        <p style="text-align: right; font-size: 1.4em;">Total de plată: <span style="font-weight:bold; color:#c62828;">{{ "%.2f"|format(total_price) }} lei</span></p>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}{% for category, message in messages %}<div class="flash-message flash-{{ category }}">{{ message }}</div>{% endfor %}{% endif %}
+    {% endwith %}
+
+    <h4>Date de contact</h4>
+    <form method="POST">
+        <label for="full_name">Nume complet:</label>
+        <input type="text" id="full_name" name="full_name" required>
+        <label for="phone">Telefon:</label>
+        <input type="text" id="phone" name="phone" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Confirmă și Trimite Rezervarea</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            });
+            document.addEventListener('click', function (e) {
+                if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
