@@ -41,7 +41,7 @@
                     <a href="/profile">Profil</a>
                     <a href="/my-reservations">Rezervările mele</a>
                     <a href="/my-properties">Cazările mele</a>
-                    <a href="/edit-profile">Editează profilul</a>
+                    <a href="{{ url_for('edit_profile') }}">Editează profilul</a>
                 </div>
             </div>
             <a href="/logout">Logout</a>
@@ -55,7 +55,7 @@
     <h3>Confirmare și Finalizare Rezervare</h3>
     <div class="summary">
         <h4>Sumar Pachet</h4>
-        <p>Perioada: <strong>{{ start }}</strong> - <strong>{{ end }}</strong> ({{ nights }} noap{{ 'te' if nights == 1 else 'ți' }})</p>
+        <p>Perioada: <strong>{{ start | ro_date }}</strong> - <strong>{{ end | ro_date }}</strong> ({{ nights }} noap{{ 'te' if nights != 1 else 'te' }})</p>
         <hr>
         {% for room in package_rooms %}
             <p>1x {{ room.name }} ({{ room.capacity }} pers.) - {{ "%.2f"|format(room.price) }} lei/noapte</p>

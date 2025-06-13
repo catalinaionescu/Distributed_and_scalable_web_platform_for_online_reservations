@@ -66,16 +66,14 @@
         <p>Am găsit <strong>{{ properties|length }}</strong> proprietăți care se potrivesc cerințelor tale.</p>
         {% for p in properties %}
             <div class="property">
-                {% set start_date, end_date = (search_params.period.split(' to ') if ' to ' in search_params.period else [None, None]) %}
-                
-                <h4><a href="{{ url_for('view_property', property_id=p.property_id, start=start_date, end=end_date, adults=search_params.adults, rooms=search_params.rooms) }}">{{ p.name }}</a></h4>
+                <h4><a href="{{ url_for('view_property', property_id=p.property_id, period=search_params.period, adults=search_params.adults, rooms=search_params.rooms) }}">{{ p.name }}</a></h4>
                 <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
                 
                 {% if p.room_summary %}
                     <p class="room-summary"><strong>Tipuri de camere:</strong> {{ p.room_summary }}</p>
                 {% endif %}
 
-                <a href="{{ url_for('view_property', property_id=p.property_id, start=start_date, end=end_date, adults=search_params.adults, rooms=search_params.rooms) }}" class="cta-button">Vezi oferta personalizată</a>
+                <a href="{{ url_for('view_property', property_id=p.property_id, period=search_params.period, adults=search_params.adults, rooms=search_params.rooms) }}" class="cta-button">Vezi oferta personalizată</a>
             </div>
         {% endfor %}
     {% else %}

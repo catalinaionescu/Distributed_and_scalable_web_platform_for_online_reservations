@@ -391,7 +391,8 @@
 
 \newcommand\titlep{\vbox to \textheight{%
     \vskip 12mm
-    \centering\large{Universitatea POLITEHNICA din București\\
+    \centering\large{Universitatea Națională de Știință și Tehnologie POLITEHNICA București
+\\
 \@facultatea} \par\nobreak % DN
     \vskip 40mm
         \parskip0pt 

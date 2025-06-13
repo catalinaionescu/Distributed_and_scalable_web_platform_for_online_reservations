@@ -40,7 +40,6 @@
         .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; text-align: center; }
         .flash-error { background-color: #f44336; }
         
-        /* STIL PENTRU NOUL MESAJ DE EROARE */
         .custom-error-message {
             background-color: #ffebee;
             color: #c62828;
@@ -174,31 +173,27 @@
             minDays: 2
         });
 
-        // SCRIPT NOU PENTRU VALIDARE FORMULAR
         const calculatorForm = document.getElementById('calculator-form');
         if(calculatorForm) {
             calculatorForm.addEventListener('submit', function(event) {
                 const periodInput = document.getElementById('datepicker');
                 const errorDiv = document.getElementById('period-error');
                 
-                // Verificam daca inputul de perioada este gol
                 if (!periodInput.value.trim()) {
-                    event.preventDefault(); // Oprim trimiterea formularului
+                    event.preventDefault(); 
                     
                     errorDiv.textContent = 'Te rugăm să selectezi o perioadă pentru a putea căuta!';
                     errorDiv.style.display = 'block';
                     errorDiv.style.opacity = 1;
                     
-                    // Ascundem mesajul dupa 3 secunde
                     setTimeout(function() {
                         errorDiv.style.opacity = 0;
-                        // Asteptam finalizarea tranzitiei inainte de a ascunde complet
                         setTimeout(function() {
                             errorDiv.style.display = 'none';
                         }, 500);
                     }, 3000);
                 } else {
-                    errorDiv.style.display = 'none'; // Ascundem mesajul daca data este completata
+                    errorDiv.style.display = 'none';
                 }
             });
         }

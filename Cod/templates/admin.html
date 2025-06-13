@@ -116,16 +116,12 @@
     </div>
     <div class="nav-right">
         {% if logged_in %}
-            {# Admin profile doesn't need "Adauga proprietate" here, assuming admin has full full control #}
             <div class="dropdown">
                 <a href="#" id="dropdownToggle">Profil ▼</a>
                 <div class="dropdown-menu" id="dropdownMenu">
-                    {# Admin profile link usually leads to admin dashboard #}
                     <a href="/admin">Panou Admin</a>
-                    {# These links are typically for regular users, removed for admin context #}
-                    {# <a href="/my-reservations">Rezervările mele</a> #}
-                    {# <a href="/my-properties">Cazările mele</a> #}
-                    {# <a href="/edit-profile">Editează profilul</a> #}
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
                 </div>
             </div>
             <a href="/logout">Logout</a>
@@ -211,15 +207,13 @@
             });
         }
 
-        // Initialize Litepicker for the period selection
         new Litepicker({
             element: document.getElementById('datepicker'),
             singleMode: false,
             format: 'YYYY-MM-DD',
             delimiter: ' to ',
             lang: 'ro-RO',
-            minDays: 1, // Allow single-day selection for admin stats if desired
-            // Removed minDate: new Date() to allow selection of past dates for historical stats
+            minDays: 1,
         });
     });
 </script>
