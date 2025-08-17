@@ -1,0 +1,63 @@
+        /* CSS-ul tău original - NEATINS */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .item-list { list-style-type: none; padding: 0; }
+        .item-list li { background: #f9f9f9; border: 1px solid #e0e0e0; padding: 1em; margin-bottom: 0.5em; border-radius: 6px; }
+        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
+
+        /* --- STILURI NOI ADĂUGATE PENTRU CONȚINUTUL PAGINII DE PROFIL --- */
+        .profile-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            text-align: center;
+            width: 48%; /* Lățime pentru carduri */
+        }
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        .profile-card-body {
+            padding: 2.5rem;
+        }
+        .profile-card-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .profile-card-text {
+            font-size: 1.1rem;
+            color: #555;
+            min-height: 48px;
+        }
+        .profile-btn {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .profile-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-blue { background-color: #007bff; }
+        .btn-green { background-color: #28a745; }

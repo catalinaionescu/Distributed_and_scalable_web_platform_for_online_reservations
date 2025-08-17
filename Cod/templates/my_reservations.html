@@ -3,62 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Rezervările mele</title>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
-        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .nav-left h2 a { text-decoration: none; color: #333; }
-        .nav-left h2 { margin: 0; font-size: 1.5em; }
-        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
-        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
-        .nav-right a:hover { background-color: #42a5f5; }
-        .dropdown { position: relative; }
-        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
-        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
-        .dropdown-menu a:hover { background-color: #e0e0e0; }
-        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        
-        /* Stiluri noi pentru cardul de rezervare */
-        .reservation { 
-            border: 1px solid #e0e0e0; 
-            padding: 1.5em; 
-            margin-bottom: 1.5em; 
-            border-radius: 8px; 
-            background: #ffffff;
-            border-left: 5px solid #64b5f6; /* Accent vizual */
-        }
-        .reservation-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1em;
-            margin-bottom: 1em;
-        }
-        .reservation-header h4 {
-            margin: 0;
-            color: #0056b3;
-        }
-        .reservation-body p {
-            margin: 0.6em 0;
-            line-height: 1.5;
-        }
-        .reservation-body strong {
-            color: #333;
-        }
-        .price {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #c62828;
-        }
-        .status { font-weight: bold; padding: 0.2em 0.6em; border-radius: 4px; color: white; }
-        .status-confirmed { background-color: #4caf50; }
-        .status-cancelled { background-color: #c62828; }
-        .cancel-button { background: #ef5350; color: white; padding: 0.6em 1.2em; border-radius: 5px; text-decoration: none; font-weight: bold; }
-        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; }
-        .flash-success { background-color: #4caf50; }
-        .flash-error { background-color: #f44336; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_my_reservations.css') }}">
+
 </head>
 <body>
 

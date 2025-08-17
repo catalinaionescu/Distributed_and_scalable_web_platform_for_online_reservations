@@ -3,29 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Confirmare Rezervare Pachet</title>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
-        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .nav-left h2 a { text-decoration: none; color: #333; }
-        .nav-left h2 { margin: 0; font-size: 1.5em; }
-        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
-        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
-        .nav-right a:hover { background-color: #42a5f5; }
-        .dropdown { position: relative; }
-        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
-        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
-        .dropdown-menu a:hover { background-color: #e0e0e0; }
-        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .summary { background: #f9f9f9; padding: 1.5em; border-radius: 8px; margin-bottom: 2em; border: 1px solid #e0e0e0; }
-        .summary p { margin: 0.8em 0; font-size: 1.1em; }
-        input, button { width: 100%; padding: 0.8em; margin: 0.5em 0 1.5em 0; border: 1px solid #ccc; border-radius: 6px; font-size: 1em; }
-        label { font-weight: bold; margin-top: 1em; display: block; }
-        button { background: #81c784; color: white; font-weight: bold; border: none; cursor: pointer; }
-        button:hover { background: #66bb6a; }
-        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; }
-        .flash-error { background-color: #f44336; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_booking_confirmation.css') }}">
+
 </head>
 <body>
 <nav>
