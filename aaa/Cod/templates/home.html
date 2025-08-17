@@ -4,47 +4,8 @@
     <meta charset="UTF-8">
     <title>Platformă de Cazare</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
-        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .nav-left h2 a { text-decoration: none; color: #333; }
-        .nav-left h2 { margin: 0; font-size: 1.5em; }
-        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
-        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
-        .nav-right a:hover { background-color: #42a5f5; }
-        .dropdown { position: relative; }
-        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
-        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
-        .dropdown-menu a:hover { background-color: #e0e0e0; }
-        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .search-form-container { background-color: #fff; padding: 1.5em; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; margin-bottom: 2em;}
-        .search-form { display: flex; align-items: center; gap: 5px; width: 100%; }
-        .search-field { flex: 1; padding: 0.8em 1.2em; border: none; background-color: #f2f6f9; border-radius: 30px; cursor: pointer; text-align: left; }
-        .search-field:focus-within { outline: 2px solid #64b5f6; }
-        .search-field label { font-size: 0.8em; font-weight: bold; color: #555; }
-        .search-field input { border: none; background: transparent; width: 100%; outline: none; font-size: 1em; padding: 0.2em 0 0 0; }
-        .search-button { background-color: #ff5a5f; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-weight: bold; cursor: pointer; font-size: 1.2em; flex-shrink: 0; }
-        .guests-field { position: relative; }
-        #guests-display { font-size: 1em; padding: 0.2em 0 0 0; color: #333; }
-        .guests-popup { display: none; position: absolute; top: 110%; left: 0; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); padding: 1em; width: 280px; z-index: 100; }
-        .guests-popup .guest-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5em; }
-        .guests-popup input[type="number"] { width: 60px; text-align: center; }
-        .property { border: 1px solid #ddd; padding: 1.5em; margin-bottom: 1.5em; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .property:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .property h4 a { text-decoration: none; color: #0056b3; }
-        .property p.room-summary { font-style: italic; color: #555; font-size: 0.9em; }
-        .property p.next-available-summary { font-weight: bold; color: #0056b3; }
-        .my-property { border-left: 5px solid #64b5f6; }
-        .cta-button { display: inline-block; margin-top: 1em; background: #ffcc80; color: #5d4037; padding: 0.6em 1.2em; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_home.css') }}">
 
-        /* Stiluri pentru mesaje flash adaugate */
-        .flash-message { padding: 1em; margin-bottom: 1em; border-radius: 6px; color: white; font-weight: bold; text-align: center; }
-        .flash-error { background-color: #f44336; }
-        .flash-success { background-color: #4caf50; }
-        .flash-info { background-color: #2196F3; }
-
-    </style>
 </head>
 <body>
 
@@ -61,7 +22,7 @@
                     <a href="/profile">Profil</a>
                     <a href="/my-reservations">Rezervările mele</a>
                     <a href="/my-properties">Cazările mele</a>
-                    <a href="/edit-profile">Editează profilul</a>
+                    <a href="{{ url_for('edit_profile') }}">Editează profilul</a>
                 </div>
             </div>
             <a href="/logout">Logout</a>

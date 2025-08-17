@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editează Profilul</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_edit_profile.css') }}">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă o proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="{{ url_for('edit_profile') }}">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+    <div class="container">
+        <h1>Editează Profilul</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('edit_profile') }}" method="post">
+            <div class="form-group">
+                <label for="username">Nume de utilizator:</label>
+                <input type="text" id="username" name="username" class="form-control" value="{{ user.username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
+            </div>
+
+            <div class="password-section">
+                <h4>Schimbă Parola (opțional)</h4>
+                <p style="color: #6c757d;">Completează aceste câmpuri doar dacă dorești să schimbi parola.</p>
+
+                <div class="form-group">
+                    <label for="new_password">Parola nouă:</label>
+                    <input type="password" id="new_password" name="new_password" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_new_password">Confirmă parola nouă:</label>
+                    <input type="password" id="confirm_new_password" name="confirm_new_password" class="form-control">
+                </div>
+            </div>
+
+            <hr style="margin: 2em 0; border:none; border-top: 1px solid #eee;">
+            
+            <div class="form-group">
+                <label for="current_password">Parola Curentă (necesară pentru a salva modificările):</label>
+                <input type="password" id="current_password" name="current_password" class="form-control" required>
+            </div>
+
+            <div style="text-align: center; margin-top: 2em;">
+                <button type="submit" class="btn btn-primary">Salvează Modificările</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
