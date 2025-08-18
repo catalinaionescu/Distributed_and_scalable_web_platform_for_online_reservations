@@ -779,5 +779,5 @@ def check_room_type_reservations(property_id, room_type_name_encoded):
 
 if __name__ == '__main__':
     # --- MODIFICARE PENTRU A FOLOSI SERVERUL STANDARD DIN PYTHON ---
-    serve(app, host='0.0.0.0', port=5000, threads = 50)
+    serve(app, host='0.0.0.0', port=8080, threads = 32)
     print("buna")

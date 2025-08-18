@@ -1,0 +1,101 @@
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; width: 100%; font-family: 'Segoe UI', sans-serif; background: #f2f6f9; }
+        nav { display: flex; justify-content: space-between; align-items: center; background-color: #dceefc; padding: 1em 2em; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .nav-left h2 a { text-decoration: none; color: #333; }
+        .nav-left h2 { margin: 0; font-size: 1.5em; }
+        .nav-right { display: flex; align-items: center; gap: 10px; position: relative; }
+        .nav-right a { background-color: #64b5f6; color: white; padding: 0.5em 1em; border-radius: 6px; text-decoration: none; font-size: 0.95em; white-space: nowrap; }
+        .nav-right a:hover { background-color: #42a5f5; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 2.8em; right: 0; background-color: white; border: 1px solid #ccc; border-radius: 6px; padding: 10px; min-width: 180px; z-index: 1000; }
+        .dropdown-menu a { display: block; padding: 8px; margin: 5px 0; background-color: #f5f5f5; color: #333; text-decoration: none; border-radius: 4px; }
+        .dropdown-menu a:hover { background-color: #e0e0e0; }
+        .container { max-width: 900px; margin: 2em auto; background: white; padding: 2em; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        /* Specific styles for admin stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        .stat-card {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 1em 1.5em;
+            text-align: center;
+        }
+        .stat-card h4 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        .stat-card .value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        .status-section h4 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+        }
+        .status-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .status-list li {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 0.8em 1.2em;
+            margin-bottom: 0.5em;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status-list li strong {
+            color: #333;
+        }
+        /* Form styling */
+        form {
+            background: #f0f8ff;
+            border: 1px solid #dceefc;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-top: 2em;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+        /* Adjust input for datepicker */
+        form input[type="text"]#datepicker { /* Use text type for datepicker */
+            padding: 0.7em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 1em;
+            width: calc(100% - 10px); /* Full width within its container */
+        }
+        form button {
+            padding: 0.7em 1.5em;
+            border-radius: 5px;
+            border: none;
+            background: #64b5f6;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        form button:hover {
+            background: #42a5f5;
+        }
+        .form-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .form-row > div {
+            flex-grow: 1;
+        }

@@ -14,7 +14,7 @@ class ApiUser(HttpUser):
     wait_time = between(1, 3)
     
     # Adresa serverului care va fi testat
-    host = "http://localhost:8080"
+    host = "http://localhost:5000"
     
     # Definim credențialele utilizatorilor pre-existenți pentru login
     EXISTING_USER_CREDENTIALS = {f"test{i}": "parola123" for i in range(1, 51)}

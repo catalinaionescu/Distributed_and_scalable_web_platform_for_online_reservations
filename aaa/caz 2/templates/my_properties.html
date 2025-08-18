@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Cazările mele</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_my_properties.css') }}">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă o proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (!toggle) return;
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) { e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block'; });
+        document.addEventListener('click', function (e) { if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) { menu.style.display = 'none'; } });
+    });
+</script>
+
+<div class="container">
+    <h3>Cazările mele</h3>
+
+    {# Flash messages block #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {# End flash messages block #}
+
+    {% if properties %}
+        {% for p in properties %}
+            <div class="property">
+                <div>
+                    <h4>{{ p.name }}</h4>
+                    <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                </div>
+                <div class="property-actions"> {# New wrapper div for buttons #}
+                    <a href="/edit_property/{{ p.property_id }}" class="cta-button blue">Editează</a>
+                    <a href="{{ url_for('manage_property_reservations', property_id=p.property_id) }}" class="cta-button">Vezi și gestionează rezervările</a>
+                    <a href="/delete_property/{{ p.property_id }}" class="cta-button red" onclick="return confirm('Sunteți sigur că doriți să ștergeți această proprietate și toate camerele sale? Această acțiune este ireversibilă și va eșua dacă există rezervări active!');">Șterge</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Nu ai nicio proprietate înregistrată.</p>
+        <a href="/add_property" class="cta-button">Adaugă una acum</a>
+    {% endif %}
+</div>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

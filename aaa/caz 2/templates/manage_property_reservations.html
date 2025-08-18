@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionează Rezervările pentru {{ prop.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_manage_property_reservations.css') }}">
+    
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă o proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Gestionează Rezervările pentru: {{ prop.name }}</h3>
+    <p><strong>Adresă:</strong> {{ prop.address }}, {{ prop.city }}, {{ prop.country }}</p>
+    <hr>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category or 'info' }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h4>Rezervări active și viitoare pentru această proprietate:</h4>
+    {% if reservations %}
+        {% for r in reservations %}
+            <div class="reservation">
+                <div class="reservation-header">
+                    <h4>{{ r.room_name }} (Cameră #{{ r.room_id }})</h4>
+                    <span class="status status-{{ r.status }}">{{ r.status }}</span>
+                </div>
+                <div class="reservation-body">
+                    <p><strong>Perioadă:</strong> {{ r.start_date | ro_date }} - {{ r.end_date | ro_date }}</p>
+                    <p><strong>Rezervat de:</strong> {{ r.full_name }} ({{ r.email }})</p>
+                    <p><strong>Telefon:</strong> {{ r.phone }}</p>
+
+                    {% if r.total_price is not none %}
+                        <p><strong>Preț total:</strong> <span class="price">{{ "%.2f"|format(r.total_price) }} lei</span></p>
+                    {% endif %}
+                </div>
+
+                {% if r.status == 'confirmed' %}
+                <div style="text-align: right; margin-top: 1em;">
+                    <a href="{{ url_for('cancel_reservation', reservation_id=r.reservation_id, redirect_to_prop_id=prop.property_id) }}" class="cancel-button" onclick="return confirm('Sunteți sigur că doriți să anulați această rezervare?');">Anulează Rezervarea</a>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Această proprietate nu are rezervări active sau viitoare.</p>
+    {% endif %}
+    <div style="text-align: center; margin-top: 2em;">
+        {# Apply cta-button class for consistent styling #}
+        <a href="/my-properties" class="cta-button">Înapoi la proprietățile mele</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';});
+            document.addEventListener('click', function (e) {if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {menu.style.display = 'none';}});
+        }
+    });
+</script>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>
