@@ -39,14 +39,14 @@
 \contentsline {section}{\numberline {3.2}Arhitectura Generală a Sistemului Distribuit}{22}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Arhitectura Bazei de Date}{24}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Introducere}{24}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.1}Tabela \texttt {users}}{24}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.2}Tabela \texttt {properties}}{24}{subsubsection.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.3.1.3}Tabela \texttt {rooms}}{25}{subsubsection.3.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.3.1.4}Tabela \texttt {reservations}}{26}{subsubsection.3.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.3.1.5}Tabela \texttt {reservation\_details}}{26}{subsubsection.3.3.1.5}%
-\contentsline {subsection}{\numberline {3.3.2}Structura Tabelelor și Relațiile}{27}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Importanța Integrității Referențiale}{27}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.2}Tabela \texttt {users}}{24}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Tabela \texttt {properties}}{24}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}Tabela \texttt {rooms}}{25}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}Tabela \texttt {reservations}}{26}{subsubsection.3.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.3.2.4}Tabela \texttt {reservation\_details}}{26}{subsubsection.3.3.2.4}%
+\contentsline {subsection}{\numberline {3.3.3}Structura Tabelelor și Relațiile}{27}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Importanța Integrității Referențiale}{27}{subsection.3.3.5}%
 \contentsline {section}{\numberline {3.4}Structura Internă a Aplicației Flask}{30}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Organizarea codului sursă}{30}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Biblioteci Principale Utilizate}{30}{subsection.3.4.2}%
@@ -152,5 +152,4 @@
 \contentsline {subsection}{\numberline {7.2.2}Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}{71}{subsection.7.2.2}%
 \contentsline {subsection}{\numberline {7.2.3}Procese de Dezvoltare și Deploy}{72}{subsection.7.2.3}%
 \contentsline {section}{\numberline {7.3}Încheiere}{72}{section.7.3}%
-\contentsline {unnumberedsection}{Bibliografie}{73}{chapter*.52}%
-\contentsline {chapter}{\appnumberline {A}Coduri sursă}{75}{appendix.A}%
+\contentsline {chapter}{\appnumberline {A}Coduri sursă}{73}{appendix.A}%
