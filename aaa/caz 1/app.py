@@ -816,3 +816,4 @@ def check_room_type_reservations(property_id, room_type_name_encoded):
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=5000, threads=32)
+    print(1)
