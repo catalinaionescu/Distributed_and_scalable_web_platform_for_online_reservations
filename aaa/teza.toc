@@ -14,11 +14,7 @@
 \contentsline {paragraph}{Arhitectura N-Tier (Multi-Tier)}{4}{subsection.2.1.1}%
 \contentsline {section}{\numberline {2.2}Protocolul HTTP}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Componentele sistemelor bazate pe HTTP}{4}{subsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.1}Clientul: user-agent-ul}{4}{subsubsection.2.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.2}Server-ul web}{5}{subsubsection.2.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.2.1.3}Componente URL}{5}{subsubsection.2.2.1.3}%
 \contentsline {subsection}{\numberline {2.2.2}Conexiunea HTTP}{7}{subsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.1}Cum funcționează o conexiune HTTP}{8}{subsubsection.2.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.3}Mesaje HTTP}{9}{subsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.3.1}Structura mesajelor HTTP}{9}{subsubsection.2.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.2.3.2}Cereri HTTP}{11}{subsubsection.2.2.3.2}%
@@ -38,15 +34,14 @@
 \contentsline {section}{\numberline {3.1}Introducere}{22}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Arhitectura Generală a Sistemului Distribuit}{22}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Arhitectura Bazei de Date}{24}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Introducere}{24}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Tabela \texttt {users}}{24}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}Tabela \texttt {properties}}{24}{subsubsection.3.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.3.2.2}Tabela \texttt {rooms}}{25}{subsubsection.3.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.3.2.3}Tabela \texttt {reservations}}{26}{subsubsection.3.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.3.2.4}Tabela \texttt {reservation\_details}}{26}{subsubsection.3.3.2.4}%
-\contentsline {subsection}{\numberline {3.3.3}Structura Tabelelor și Relațiile}{27}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Importanța Integrității Referențiale}{27}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.1}Tabela \texttt {users}}{24}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}Tabela \texttt {properties}}{24}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}Tabela \texttt {rooms}}{25}{subsubsection.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.3.1.3}Tabela \texttt {reservations}}{26}{subsubsection.3.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.3.1.4}Tabela \texttt {reservation\_details}}{26}{subsubsection.3.3.1.4}%
+\contentsline {subsection}{\numberline {3.3.2}Structura Tabelelor și Relațiile}{27}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Importanța Integrității Referențiale}{27}{subsection.3.3.4}%
 \contentsline {section}{\numberline {3.4}Structura Internă a Aplicației Flask}{30}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Organizarea codului sursă}{30}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Biblioteci Principale Utilizate}{30}{subsection.3.4.2}%
@@ -59,13 +54,13 @@
 \contentsline {paragraph}{Logica Backend}{33}{figure.caption.34}%
 \contentsline {subsection}{\numberline {4.2.2}Formularul de autentificare}{34}{subsection.4.2.2}%
 \contentsline {paragraph}{Interfața Frontend}{34}{figure.caption.35}%
-\contentsline {paragraph}{Logica Backend}{35}{figure.caption.35}%
+\contentsline {paragraph}{Logica Backend}{34}{figure.caption.35}%
 \contentsline {subsection}{\numberline {4.2.3}Mecanismele de Securitate}{35}{subsection.4.2.3}%
 \contentsline {paragraph}{Procesul de Înregistrare}{36}{subsection.4.2.3}%
 \contentsline {paragraph}{Procesul de autentificare}{37}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Mecanismul de Gestiune a Sesiunii}{37}{subsection.4.2.4}%
 \contentsline {subsection}{\numberline {4.2.5}Interacțiunea cu Baza de Date}{37}{subsection.4.2.5}%
-\contentsline {paragraph}{Crearea unui Utilizator Nou (Operațiunea \texttt {INSERT})}{38}{subsection.4.2.5}%
+\contentsline {paragraph}{Crearea unui Utilizator Nou (Operațiunea \texttt {INSERT})}{37}{subsection.4.2.5}%
 \contentsline {paragraph}{Regăsirea Datelor la Autentificare (Operațiunea \texttt {SELECT})}{38}{subsection.4.2.5}%
 \contentsline {subsubsection}{\numberline {4.2.5.1}Terminarea Sesiunii Utilizatorului}{38}{subsubsection.4.2.5.1}%
 \contentsline {section}{\numberline {4.3}Pagina Principală (Homepage)}{38}{section.4.3}%
@@ -133,23 +128,20 @@
 \contentsline {chapter}{\numberline {6}Testarea Performanței și Analiza Scalabilității}{64}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Introducere în Testarea de Performanță}{64}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Alegerea Instrumentului de Testare: Locust}{64}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Implementarea Testelor cu Locust}{65}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Exemplu de Comportament de Utilizator (User Behavior) pentru Căutări}{65}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Exemplu de Comportament de Utilizator pentru Rezervări (Flux Complet)}{65}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.3}Implementarea Testelor cu Locust}{66}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Procesul de Execuție și Monitorizare}{66}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Arhitectura Mediului de Testare}{66}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Scenarii de Testare Implementate}{67}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Cazul 1: Aplicația Flask Monolitică (Baseline - Fără Scalare/Load Balancing)}{67}{subsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.1.1}Configurația Mediului}{67}{subsubsection.6.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.6.1.2}Pregătirea și Rularea Testului Locust}{68}{subsubsection.6.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.6.1.3}Colectarea Metricilor și Observații}{68}{subsubsection.6.6.1.3}%
-\contentsline {section}{\numberline {6.7}Analiza Rezultatelor și Identificarea Limitărilor}{68}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Cazul 1: Aplicația Flas\textbf {Aplicația Flask Monolitică} (Baseline - Fără Scalare/Load Balancing)}{69}{section.6.8}%
+\contentsline {subsubsection}{\numberline {6.5.0.1}Pregătirea și Rularea Testului Locust}{67}{subsubsection.6.5.0.1}%
+\contentsline {section}{\numberline {6.6}Analiza Rezultatelor și Identificarea Limitărilor}{67}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Scenarii de Testare Implementate}{68}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}{68}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}Configurația Mediului}{68}{subsubsection.6.7.1.1}%
+\contentsline {section}{\numberline {6.8}Cazul 2: Aplicația Flask\textbf {Aplicația Flask } (Load Balancing)}{69}{section.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.0.1}Configurația Mediului}{69}{subsubsection.6.8.0.1}%
 \contentsline {chapter}{\numberline {7}Concluzii și Direcții Viitoare}{70}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Concluzii}{70}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Direcții Viitoare de Dezvoltare}{71}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Extensii ale Funcționalităților Aplicației}{71}{subsection.7.2.1}%
 \contentsline {subsection}{\numberline {7.2.2}Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}{71}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Procese de Dezvoltare și Deploy}{72}{subsection.7.2.3}%
 \contentsline {section}{\numberline {7.3}Încheiere}{72}{section.7.3}%
 \contentsline {chapter}{\appnumberline {A}Coduri sursă}{73}{appendix.A}%
