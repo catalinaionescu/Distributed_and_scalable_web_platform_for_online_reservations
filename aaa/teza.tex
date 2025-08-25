@@ -1673,8 +1673,8 @@ Virtualizarea oferă o flexibilitate enormă în configurarea și reconfigurarea
 
 \chapter{Testarea Performanței și Analiza Scalabilității}
 
-\section{Introducere în Testarea de Performanță}
-Asigurarea scalabilității și fiabilității reprezintă un obiectiv central al acestei lucrări, având în vedere natura aplicației web de rezervări, care trebuie să gestioneze un număr ridicat de utilizatori și interacțiuni concurente. Testarea de performanță, sau load testing, este o disciplină esențială în ingineria software, permițând evaluarea comportamentului sistemului sub sarcini specifice. Aceasta presupune simularea unui volum semnificativ de utilizatori și cereri concurente pentru a măsura capacitatea, reziliența și timpii de răspuns ai aplicației. Prin aplicarea unor scenarii realiste, se pot identifica blocajele, se poate evalua stabilitatea sistemului și se poate determina limita maximă a traficului gestionabil. Scopul acestei etape a fost validarea eficienței soluțiilor de scalabilitate implementate, respectiv Nginx load balancing și replicarea MySQL Master-Slave, în cadrul unei aplicații web funcționale.
+\section*{Introducere în Testarea de Performanță}
+Asigurarea scalabilității și fiabilității a constituit un obiectiv central al acestei lucrări, având în vedere specificul unei aplicații web de rezervări, care trebuie să susțină un număr mare de utilizatori și interacțiuni simultane. Testarea de performanță (load testing) reprezintă o etapă esențială în ingineria software, deoarece permite analizarea modului în care sistemul răspunde la sarcini ridicate. Aceasta implică simularea unui trafic intens, cu utilizatori și cereri concurente, pentru a măsura capacitatea de procesare, stabilitatea și timpii de răspuns ai aplicației. Prin aplicarea unor scenarii apropiate de utilizarea reală, pot fi identificate punctele critice, evaluate limitele de scalabilitate și determinate pragurile maxime de trafic gestionabil. Scopul acestei etape a fost validarea soluțiilor de scalare implementate, respectiv echilibrarea traficului cu Nginx și replicarea MySQL Master-Slave într-un context funcțional și realist.
 
 \section{Alegerea Instrumentului de Testare: Locust}
 Pentru realizarea testelor de performanță, s-a optat pentru instrumentul open-source Locust. Alegerea Locust a fost justificată de următoarele avantaje care se aliniază cerințelor proiectului:
@@ -1692,40 +1692,34 @@ Pentru realizarea testelor de performanță, s-a optat pentru instrumentul open-
 Pentru a evalua performanța aplicației într-un mod cât mai complet, au fost implementate mai multe scenarii de testare cu Locust, fiecare vizând un comportament specific al utilizatorului și un tip de sarcină distinctă pentru sistem:
 \begin{itemize}
 \item \textbf{Fluxul de Navigare și Descoperire a Informațiilor:}
-\textbf{Descriere:} Simulează comportamentul unui utilizator care explorează platforma, incluzând accesarea paginii principale și a paginii personale de rezervări, urmată de efectuarea unei căutări parametrizate pentru o proprietate.
-\textbf{Scop:} Testează performanța operațiunilor de citire (read) din baza de date și capacitatea serverului de a genera pagini dinamice care implică interogări complexe.
+Simulează comportamentul unui utilizator care explorează platforma, incluzând accesarea paginii principale și a paginii personale de rezervări, urmată de efectuarea unei căutări parametrizate pentru o proprietate.Are ca scop testarea operațiunilor de citire (read) din baza de date și capacitatea serverului de a genera pagini dinamice care implică interogări complexe.
 \item \textbf{Fluxul Complet de Gestionare a Proprietăților (CRUD):}  
-\textbf{Descriere:} Acoperă ciclul de viață complet al unei entități de tip „proprietate”, incluzând operațiuni de creare (Create), modificare (Update) și ștergere (Delete).  
-\textbf{Scop:} Evaluează performanța operațiunilor de scriere (write) în baza de date și menținerea coerenței datelor în condiții de stres, testând în același timp tranzacțiile și mecanismele de blocare (locking).  
+Acoperă toate etapele de gestionare a unei proprietăți, de la creare până la modificare și ștergere. Evaluează performanța operațiunilor de scriere (write) în baza de date și menținerea coerenței datelor în condiții de stres, testând în același timp tranzacțiile și mecanismele de blocare (locking).  
 
 \item \textbf{Fluxul Tranzacțional End-to-End: Rezervare și Anulare:}  
-\textbf{Descriere:} Simulează un flux complet de tranzacție, incluzând căutarea disponibilității, selectarea unei proprietăți, parcurgerea pașilor de confirmare a rezervării (cu multiple validări și scrieri în baza de date) și anularea aceleiași rezervări.  
-\textbf{Scop:} Testează integritatea întregului sistem tranzacțional, de la interfața web până la logica de business și persistența datelor, asigurând că aplicația poate gestiona un volum mare de tranzacții concurente fără coruperea datelor.  
+Simulează un flux complet de tranzacție, incluzând căutarea disponibilității, selectarea unei proprietăți, parcurgerea pașilor de confirmare a rezervării (cu multiple validări și scrieri în baza de date) și anularea aceleiași rezervări. Testează integritatea întregului sistem tranzacțional, de la interfața web până la logica de business și persistența datelor, asigurând că aplicația poate gestiona un volum mare de tranzacții concurente fără coruperea datelor.  
 
 \item \textbf{Fluxul de Administrare a Contului de Utilizator:}  
-\textbf{Descriere:} Simulează accesarea și modificarea datelor din profilul personal al utilizatorului.  
-\textbf{Scop:} Evaluează performanța subsistemului de autentificare și autorizare, precum și a operațiunilor de actualizare a datelor specifice utilizatorului.  
+Simulează accesarea și modificarea datelor din profilul personal al utilizatorului. De asemenea, evaluează performanța subsistemului de autentificare și autorizare, precum și a operațiunilor de actualizare a datelor specifice utilizatorului.  
 
 \item \textbf{Fluxul de Solicitare a Resurselor Statice:}  
-\textbf{Descriere:} Utilizatorul virtual solicită în mod repetat fișierele statice ale aplicației (CSS, JavaScript, imagini).  
-\textbf{Scop:} Izolează și testează performanța serverului web (Nginx) în livrarea de conținut static, independent de serverul de aplicație, ajutând la identificarea eventualelor probleme de configurare sau limitări de lățime de bandă.  
+tilizatorul virtual accesează în mod repetat fișierele statice ale aplicației (CSS, JavaScript, imagini), ceea ce permite izolarea și testarea performanței serverului web (Nginx) în livrarea de conținut static. Acest scenariu contribuie la identificarea eventualelor probleme de configurare sau a limitărilor de lățime de bandă. 
 
-\item \textbf{Simularea Căutărilor (Read-Heavy):}  
-Scenariul a simulat utilizatori care efectuează căutări repetate de proprietăți, vizualizează detalii și navighează prin rezultate. A evaluat performanța operațiunilor de citire din baza de date, eficiența direcționării cererilor către nodul Slave și capacitatea Nginx de a gestiona un volum mare de cereri GET.  
+\item \textbf{Căutări (Read-Heavy):}  
+Utilizatorii virtuali au efectuat căutări repetate de proprietăți, au vizualizat detalii și au navigat prin rezultate. Acest flux a permis evaluarea operațiunilor de citire din baza de date, a eficienței direcționării cererilor către nodul Slave și a capacității Nginx de a gestiona un volum mare de cereri GET.  
 
-\item \textbf{Simularea Înregistrărilor și Autentificărilor:}  
-Acest scenariu a testat procesele de înregistrare a utilizatorilor noi și autentificare, implicând operațiuni de scriere (INSERT) și citire (SELECT), evaluând atât performanța nodului Master, cât și logica de sesiune gestionată de Flask.  
+\item \textbf{Înregistrări și autentificări:}  
+Au fost testate procesele de creare a conturilor și de login, care implică atât scrieri (INSERT), cât și citiri (SELECT). Accentul a fost pus pe performanța nodului Master și pe logica de sesiune gestionată de Flask.  
 
-\item \textbf{Simularea Procesului de Rezervare (Write-Heavy/Transactional):}  
-Cel mai complex scenariu, simulând întregul flux de rezervare de la căutare la finalizarea tranzacției. A implicat multiple operațiuni de scriere și actualizare (INSERT, UPDATE) și a evaluat performanța nodului Master și capacitatea sistemului de a gestiona tranzacții ACID complexe sub sarcină.  
+\item \textbf{Procesul de rezervare (Write-Heavy/Transactional):}  
+Cel mai complex flux, care acoperă pașii de la căutare până la confirmarea tranzacției. A inclus multiple operațiuni de scriere și actualizare (INSERT, UPDATE), urmărindu-se performanța nodului Master și modul în care sistemul gestionează tranzacții ACID sub sarcină.  
 
-\item \textbf{Testarea Rezilienței și Failover-ului:}  
-Au fost simulate scenarii de eșec, cum ar fi oprirea unei instanțe Flask sau a MySQL Master, pentru a valida comportamentul de failover al Nginx și replicarea MySQL, precum și pentru a măsura timpul de recuperare a serviciului.  
+\item \textbf{Reziliență și failover:}  
+Au fost introduse situații de eșec, precum oprirea unei instanțe Flask sau a nodului MySQL Master. S-a observat comportamentul de failover al Nginx și replicarea MySQL, fiind măsurat și timpul de recuperare a serviciului.  
+
 
 \end{itemize}
 
-\section{Implementarea Testelor cu Locust}
-Un test \texttt{Locust} este definit printr-o clasă \texttt{User} în \texttt{Python}, care moștenește de la \texttt{HttpUser} (pentru aplicații web). Această clasă conține atribute precum \texttt{host} (adresa \texttt{Nginx}-ului), \texttt{wait\_time} (intervalul de așteptare între cereri) și metode decorate cu \texttt{@task} care definesc acțiunile pe care utilizatorii virtuali le vor executa.
 
 \section{Procesul de Execuție și Monitorizare}
 Execuția testelor de performanță cu \texttt{Locust} implică următorii pași:
@@ -1744,7 +1738,7 @@ Execuția testelor de performanță cu \texttt{Locust} implică următorii pași
 		\item Distribuția Timpilor de Răspuns (Percentile): Arată procentul de cereri care au fost procesate sub un anumit timp (ex: 90\% din cereri au răspuns în mai puțin de X ms).
 	\end{enumerate}
 	
-	\item \textbf{Monitorizare Resurse Sistem:} Concomitent cu testele Locust, resursele hardware ale fiecărei mașini (Host, VM1, VM2) sunt monitorizate cu instrumente precum htop (pentru CPU, RAM, procese pe Linux), top (similar htop), glances (un instrument de monitorizare cross-platform) și Task Manager (pentru Windows). Instrumente precum Prometheus și Grafana pot fi, de asemenea, utilizate pentru o monitorizare mai avansată a metricilor de performanță (CPU, RAM, I/O, trafic de rețea) la nivel de sistem de operare și aplicație.
+	\item \textbf{Monitorizare Resurse Sistem:} Concomitent cu testele Locust, resursele hardware ale fiecărei mașini (Host, VM1, VM2) precum ar fi CPU-ul și memoria RAM sunt monitorizate cu Task Manager. 
 	
 	\item \textbf{Analiza Log-urilor:} Log-urile generate de Nginx, Flask și MySQL sunt analizate pentru a identifica erori, avertismente sau anomalii care ar putea indica probleme de performanță sau securitate sub sarcină.
 \end{enumerate}
@@ -1752,10 +1746,32 @@ Execuția testelor de performanță cu \texttt{Locust} implică următorii pași
 Mediul de testare a fost conceput pentru a replica fidel arhitectura de producție propusă, asigurând validitatea rezultatelor obținute. Componentele au fost distribuite pe mașini virtuale pentru a simula un mediu real de cloud și pentru a permite izolarea resurselor:
 \begin{itemize}
 	\item Stația de Lucru Principală (Host): Găzduiește serverul MySQL Master, responsabil cu operațiile de scriere, și o instanță a aplicației Flask. De asemenea, pe Host este configurat Nginx, care funcționează ca load balancer pentru ambele instanțe Flask (Host și VM2). Instanța master a Locust a fost rulată tot pe această mașină, coordonând workerii.
-	\item Mașina Virtuală 1 (VM1): A fost configurată ca server MySQL Slave, dedicat operațiilor de citire și replicării datelor de la Master. Această VM a fost utilizată și pentru a rula workerii Locust, generând trafic intens către aplicație.
-	\item Mașina Virtuală 2 (VM2): A găzduit o instanță secundară a aplicației Flask, care a primit cereri distribuite de la Nginx. Această mașină a jucat un rol cheie în demonstrarea scalabilității orizontale a stratului de aplicație. Această distribuție a permis simularea realistă a traficului și a interacțiunilor între componentele unui sistem distribuit, oferind o platformă robustă pentru testele de performanță.
+	\item Mașina Virtuală 1 (VM1): A fost configurată ca server MySQL Slave, dedicat operațiilor de citire și replicării datelor de la Master. Această mașină virtuală a fost utilizată și pentru a rula workerii Locust, generând trafic intens către aplicație.
+	\item Mașina Virtuală 2 (VM2):  A găzduit o instanță secundară a aplicației Flask, care a preluat cereri distribuite de Nginx. Rolul ei a fost esențial în demonstrarea scalabilității orizontale a stratului de aplicație, permițând simularea realistă a traficului și a interacțiunilor dintre componentele sistemului distribuit. În acest mod, a oferit o bază solidă pentru testele de performanță.  
+
 
 \end{itemize}
+
+
+
+\section{Scenarii de Testare Implementate}
+
+
+Acest capitol detaliază pașii specifici pentru fiecare caz de testare, menit să valideze diferitele aspecte ale scalabilității și rezilienței arhitecturii sistemului de rezervări. Fiecare caz va fi executat utilizând Locust pentru generarea sarcinii și instrumente de monitorizare la nivel de sistem pentru colectarea metricilor.
+
+\subsection{Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}
+
+Acest scenariu de testare are rolul de a stabili performanța de referință, simulând comportamentul unei arhitecturi tradiționale, monolitice, pentru aplicația web de rezervări, fără mecanisme active de scalare sau load balancing. Obiectivul principal constă în înregistrarea metricilor de performanță inițiale, care vor servi ulterior drept punct de comparație pentru evaluarea îmbunătățirilor aduse de soluțiile distribuite implementate.
+
+\subsubsection{Configurația Mediului}
+
+Pentru a reproduce configurația monolitică, cadrul de testare a fost simplificat, plasând toate componentele esențiale pe un singur sistem.
+
+O singură instanță a aplicației web Flask a fost pornită, rulând pe portul implicit 5000, fiind responsabilă atât de logica funcțională, cât și de procesarea directă a cererilor HTTP. Serverul principal MySQL, operativ pe sistemul gazdă, a gestionat toate tranzacțiile cu baza de date, incluzând operațiuni de citire și scriere.
+
+Pe durata testării, instanțele virtuale VM1 și VM2 au fost dezactivate: serverul MySQL secundar nu a fost utilizat, iar a doua instanță Flask nu a rulat. Componenta Nginx a fost de asemenea oprită, astfel încât cererile generate de Locust au fost direcționate direct către aplicația Flask de pe sistemul gazdă, fără implicarea unui load balancer sau proxy invers. Baza de date MySQL principală a fost populată cu un set de date de test (150 de utilizatori, 300 de proprietăți și 900 de unități locative), generat cu programul \texttt{generate\_test\_data.py}, pentru a asigura consistența operațiilor de citire și scriere.
+
+
 
 \subsubsection{Pregătirea și Rularea Testului Locust}
 Pentru a executa testul în acest scenariu monolitic, au fost urmați pașii de configurare și lansare a Locust:
@@ -1774,53 +1790,109 @@ Pentru a executa testul în acest scenariu monolitic, au fost urmați pașii de 
 	
 \end{enumerate}
 
-\section{Analiza Rezultatelor și Identificarea Limitărilor}
-Analiza detaliată a datelor colectate este crucială pentru a trage concluzii relevante despre performanța și scalabilitatea arhitecturii.
+\section{Interpretarea Detaliată a Rezultatelor}
+
+Analiza performanței aplicației s-a bazat pe date colectate în două momente relevante: la 2-3 minute și la 15 minute de la începutul testului, pentru a surprinde atât comportamentul inițial, cât și stabilitatea pe termen lung.
+
+\subsection{Debitul și Stabilitatea Sistemului}
+
+Graficul \textit{Total Requests per Second} indică o performanță robustă:
+
 \begin{itemize}
-	\item Indicatori Cheie de Performanță (KPIs): Se evaluează timpii de răspuns medii și percentilele (ex: P90, P95, P99) pentru a înțelege experiența utilizatorului. O rată mare de eșec indică probleme de stabilitate.
-	
-	\item Identificarea Blocajelor (Bottlenecks): Prin corelarea metricilor Locust cu monitorizarea resurselor sistemului, se pot identifica componentele care limitează performanța:
-	\begin{itemize}
-		\item CPU-bound: Dacă utilizarea CPU este la 100\% pe serverele Flask, înseamnă că logica aplicației este intensivă.
-		
-		\item Memory-bound: Dacă RAM-ul este la limită și se observă swap-in/out, memoria este un factor limitator.
-		
-		\item I/O-bound: Dacă discul (I/O) este supraîncărcat, baza de date sau scrierea log-urilor poate fi bottleneck-ul.
-		
-		\item Network-bound: Lățimea de bandă a rețelei poate limita traficul.
-
-	\end{itemize}
-	
-	\item Comportamentul Load Balancer-ului: Se analizează log-urile Nginx pentru a verifica distribuția cererilor între serverele Flask. O distribuție inegală sau o rată mare de erori pentru un anumit server pot indica probleme.
-	
-	\item Comportamentul Replicării MySQL: Se monitorizează lag-ul de replicare (timpul dintre scrierea pe Master și aplicarea pe Slave) pentru a asigura că Slave-ul este suficient de actualizat. Se analizează performanța nodului Master sub operații de scriere și a nodului Slave sub operații de citire.
-	\item Concluzii din Teste: Se trage o concluzie generală despre eficiența soluțiilor de scalabilitate implementate, evidențiind succesul în gestionarea traficului și identificând eventualele limitări care ar putea necesita optimizări suplimentare în direcțiile viitoare.
+    \item Sistemul atinge rapid debitul maxim și se stabilizează în primele secunde.
+    \item Debit constant în jur de 150 RPS pe întreaga durată a testului.
+    \item Număr de eșecuri constant 0, demonstrând fiabilitatea aplicației.
 \end{itemize}
 
-\section{Scenarii de Testare Implementate}
-
-
-Acest capitol detaliază pașii specifici pentru fiecare caz de testare, menit să valideze diferitele aspecte ale scalabilității și rezilienței arhitecturii sistemului de rezervări. Fiecare caz va fi executat utilizând Locust pentru generarea sarcinii și instrumente de monitorizare la nivel de sistem pentru colectarea metricilor.
-
-\subsection{Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}
-
-Acest scenariu de testare are rolul de a stabili performanța de referință, simulând comportamentul unei arhitecturi tradiționale, monolitice, pentru aplicația web de rezervări, fără mecanisme active de scalare sau load balancing. Obiectivul principal constă în înregistrarea metricilor de performanță inițiale, care vor servi ulterior drept punct de comparație pentru evaluarea îmbunătățirilor aduse de soluțiile distribuite implementate.
-
-\subsubsection{Configurația Mediului}
-
-În vederea reproducerii configurației monolitice cadrul de testare a fost aranjat simplist amplasând toate elementele indispensabile pe un singur sistem.
-
-\begin{enumerate}
-	\item Sistemul Gazdă (Unitatea de Procesare Principală):
-	\begin{itemize}
-\item A fost pornită o singură instanță a aplicației web Flask, rulând pe portul implicit 5000, responsabilă atât de logica funcțională, cât și de procesarea directă a cererilor HTTP.
-\item Serverul principal MySQL, operativ pe sistemul gazdă, a gestionat toate tranzacțiile cu baza de date, incluzând atât operațiuni de citire, cât și de scriere.
+Date agregate:
+\begin{itemize}
+    \item După 2-3 minute: 150.2 RPS
+    \item După 15 minute: 135.8 RPS
 \end{itemize}
-	\item \textbf{Instanța Virtuală 1 (VM1):} A fost dezactivată pe durata testării, iar serverul MySQL secundar nu a fost utilizat.
-\item \textbf{Instanța Virtuală 2 (VM2):} A fost dezactivată și nu a fost folosită, iar cealaltă instanță Flask nu a fost operativă.
-\item \textbf{Nginx:} Componenta Nginx a fost dezactivată și nu a gestionat traficul. Cererile generate de Locust au fost direcționate direct către instanța Flask de pe sistemul gazdă, fără implicarea unui load balancer sau proxy invers.
-\item \textbf{Depozitul de date:} Instanța principală MySQL de pe sistemul gazdă a fost conectată la aplicația Flask. Baza de date a fost populată cu un set de date de test (aproximativ 150 de utilizatori, 300 de proprietăți și 900 de unități locative), generat cu programul \texttt{generate\_test\_data.py}, asigurând uniformitate pentru operațiunile de citire și scriere pe durata testului.
-\end{enumerate}
+
+\subsection{Timpii de Răspuns și Percentilele}
+
+Percentilele sunt esențiale pentru a înțelege experiența utilizatorului:
+
+\begin{itemize}
+    \item \textbf{Median (50\%):} jumătate dintre cereri au timp de răspuns egal sau mai mic.
+    \item \textbf{Percentila 95:} 95\% dintre cereri sunt mai rapide decât această valoare.
+    \item \textbf{Percentila 99:} 99\% dintre cereri sunt mai rapide, indicând experiența utilizatorilor cu cei mai slabi timpi de răspuns.
+\end{itemize}
+
+\subsubsection{Rezultate Agregate (Toate Cererile)}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 9 ms & 9 ms & Jumătate din cereri sunt extrem de rapide \\
+95\%ile & 260 ms & 290 ms & Performanță bună pentru majoritatea cererilor \\
+99\%ile & 350 ms & 360 ms & Chiar și cele mai lente cereri rămân sub 0.4 secunde \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns agregat pentru toate cererile.}
+\label{tab:all-requests}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 2300 ms & 2300 ms & Experiență foarte slabă: un utilizator tipic așteaptă 2.3 secunde \\
+95\%ile & 2400 ms & 2400 ms & Majoritatea utilizatorilor așteaptă până la 2.4 secunde \\
+99\%ile & 2400 ms & 2400 ms & Timp constant, dar foarte lent \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /login.}
+\label{tab:login}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 300 ms & 320 ms & Acceptabil, dar mai ridicat decât media \\
+95\%ile & 390 ms & 400 ms & Majoritatea cererilor sub 0.5 sec \\
+99\%ile & 460 ms & 560 ms & Unii utilizatori așteaptă peste 0.5 sec \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /edit-profile.}
+\label{tab:edit-profile}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 5 ms & 9 ms & Extrem de rapid \\
+95\%ile & 13 ms & 22 ms & Performanță excelentă pentru majoritatea utilizatorilor \\
+99\%ile & 21 ms & 34 ms & Chiar și cele mai lente cereri sunt practic instantanee \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru GET /my-reservations.}
+\label{tab:my-reservations}
+\end{table}
+
+
+\subsection{Utilizarea Resurselor Sistemului}
+
+\begin{itemize}
+    \item \textbf{CPU:} Intel i5-9300H a înregistrat utilizare de 82\% la începutul testului și ~65\% după 10 minute, indicând încărcare intensă.
+    \item \textbf{Memorie:} Consumul de RAM a fost constant ~11.5 GB din 15.8 GB (72-73\%), fără semne de scurgeri de memorie.
+\end{itemize}
+
+\subsection{Concluzii}
+
+Analiza detaliată confirmă că aplicația are performanță generală bună și stabilă. Totuși, câteva operațiuni critice, în special autentificarea și editarea profilului, prezintă latențe mari, necesitând optimizare pentru a îmbunătăți experiența utilizatorilor.
 
 
 

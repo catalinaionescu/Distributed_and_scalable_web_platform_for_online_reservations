@@ -261,77 +261,88 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Testarea Scenariilor de Eșec și a Rezilienței}{63}{subsection.5.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Flexibilitatea în Configurare și Dezvoltare Rapidă}{63}{subsection.5.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Testarea Performanței și Analiza Scalabilității}{64}{chapter.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Introducere în Testarea de Performanță}{64}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Alegerea Instrumentului de Testare: Locust}{64}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Implementarea Testelor cu Locust}{66}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Procesul de Execuție și Monitorizare}{66}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Arhitectura Mediului de Testare}{66}{section.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.0.1}Pregătirea și Rularea Testului Locust}{67}{subsubsection.6.5.0.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.6}Analiza Rezultatelor și Identificarea Limitărilor}{67}{section.6.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.7}Scenarii de Testare Implementate}{68}{section.6.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7.1}Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}{68}{subsection.6.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.7.1.1}Configurația Mediului}{68}{subsubsection.6.7.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.8}Cazul 2: Aplicația Flask\textbf  {Aplicația Flask } (Load Balancing)}{69}{section.6.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.8.0.1}Configurația Mediului}{69}{subsubsection.6.8.0.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Concluzii și Direcții Viitoare}{70}{chapter.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Concluzii}{70}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Direcții Viitoare de Dezvoltare}{71}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Extensii ale Funcționalităților Aplicației}{71}{subsection.7.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}{71}{subsection.7.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Alegerea Instrumentului de Testare: Locust}{64}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Procesul de Execuție și Monitorizare}{65}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Arhitectura Mediului de Testare}{66}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Scenarii de Testare Implementate}{67}{section.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}{67}{subsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.1}Configurația Mediului}{67}{subsubsection.6.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1.2}Pregătirea și Rularea Testului Locust}{67}{subsubsection.6.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Interpretarea Detaliată a Rezultatelor}{68}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.1}Debitul și Stabilitatea Sistemului}{68}{subsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.2}Timpii de Răspuns și Percentilele}{68}{subsection.6.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2.1}Rezultate Agregate (Toate Cererile)}{68}{subsubsection.6.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.3}Utilizarea Resurselor Sistemului}{68}{subsection.6.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Timp de răspuns agregat pentru toate cererile.}}{69}{table.caption.52}\protected@file@percent }
+\newlabel{tab:all-requests}{{6.1}{69}{Timp de răspuns agregat pentru toate cererile}{table.caption.52}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Timp de răspuns pentru endpoint-ul POST /login.}}{69}{table.caption.53}\protected@file@percent }
+\newlabel{tab:login}{{6.2}{69}{Timp de răspuns pentru endpoint-ul POST /login}{table.caption.53}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5.4}Concluzii}{69}{subsection.6.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.6}Cazul 2: Aplicația Flask\textbf  {Aplicația Flask } (Load Balancing)}{69}{section.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.0.1}Configurația Mediului}{69}{subsubsection.6.6.0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Timp de răspuns pentru endpoint-ul POST /edit-profile.}}{70}{table.caption.54}\protected@file@percent }
+\newlabel{tab:edit-profile}{{6.3}{70}{Timp de răspuns pentru endpoint-ul POST /edit-profile}{table.caption.54}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Timp de răspuns pentru GET /my-reservations.}}{70}{table.caption.55}\protected@file@percent }
+\newlabel{tab:my-reservations}{{6.4}{70}{Timp de răspuns pentru GET /my-reservations}{table.caption.55}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Concluzii și Direcții Viitoare}{71}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Concluzii}{71}{section.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Direcții Viitoare de Dezvoltare}{72}{section.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Extensii ale Funcționalităților Aplicației}{72}{subsection.7.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.2}Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}{72}{subsection.7.2.2}\protected@file@percent }
 \bibstyle{unsrt}
 \bibdata{referinte}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Încheiere}{72}{section.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\appnumberline {A}Coduri sursă}{73}{appendix.A}\protected@file@percent }
-\newlabel{lst:nginx_config}{{A.1}{73}{Fragment de configurare \texttt {Nginx} pentru \texttt {load balancing} și \texttt {reverse proxy}}{lstlisting.A.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Fragment de configurare \texttt  {Nginx} pentru \texttt  {load balancing} și \texttt  {reverse proxy}}}{73}{lstlisting.A.1}\protected@file@percent }
-\newlabel{lst:locust_booking_task}{{A.2}{74}{Exemplu de User Task în \texttt {Locust} pentru rezervări (fragment)}{lstlisting.A.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.2}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru rezervări (fragment)}}{74}{lstlisting.A.2}\protected@file@percent }
-\newlabel{lst:register_html_snippet}{{A.3}{74}{Fragment din \texttt {register.html} demonstrând structura formularului de înregistrare}{lstlisting.A.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.3}{\ignorespaces Fragment din \texttt  {register.html} demonstrând structura formularului de înregistrare}}{74}{lstlisting.A.3}\protected@file@percent }
-\newlabel{lst:register_logic}{{A.4}{75}{Logica de backend pentru înregistrarea unui utilizator nou}{lstlisting.A.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.4}{\ignorespaces Logica de backend pentru înregistrarea unui utilizator nou}}{75}{lstlisting.A.4}\protected@file@percent }
-\newlabel{lst:login_logic_final}{{A.5}{75}{Logica de backend pentru autentificarea utilizatorului și crearea sesiunii}{lstlisting.A.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.5}{\ignorespaces Logica de backend pentru autentificarea utilizatorului și crearea sesiunii}}{75}{lstlisting.A.5}\protected@file@percent }
-\newlabel{lst:register_logic_py_short}{{A.6}{76}{Implementarea rutei de înregistrare a utilizatorilor}{lstlisting.A.6}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.6}{\ignorespaces Implementarea rutei de înregistrare a utilizatorilor}}{76}{lstlisting.A.6}\protected@file@percent }
-\newlabel{lst:login_logic_py_short}{{A.7}{76}{Implementarea rutei pentru autentificare a utilizatorilor}{lstlisting.A.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.7}{\ignorespaces Implementarea rutei pentru autentificare a utilizatorilor}}{76}{lstlisting.A.7}\protected@file@percent }
-\newlabel{lst:secret_key_setup}{{A.8}{76}{Inițializarea aplicației și a cheii secrete pentru sesiuni}{lstlisting.A.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.8}{\ignorespaces Inițializarea aplicației și a cheii secrete pentru sesiuni}}{76}{lstlisting.A.8}\protected@file@percent }
-\newlabel{lst:session_population}{{A.9}{76}{Popularea sesiunii după o autentificare reușită}{lstlisting.A.9}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.9}{\ignorespaces Popularea sesiunii după o autentificare reușită}}{76}{lstlisting.A.9}\protected@file@percent }
-\newlabel{lst:select_user_login_sql_short}{{A.10}{76}{Comandă SQL pentru regăsirea utilizatorului la autentificare}{lstlisting.A.10}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.10}{\ignorespaces Comandă SQL pentru regăsirea utilizatorului la autentificare}}{76}{lstlisting.A.10}\protected@file@percent }
-\newlabel{lst:insert_user_sql_short}{{A.11}{77}{Comandă SQL pentru inserarea unui utilizator nou}{lstlisting.A.11}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.11}{\ignorespaces Comandă SQL pentru inserarea unui utilizator nou}}{77}{lstlisting.A.11}\protected@file@percent }
-\newlabel{lst:logout_logic}{{A.12}{77}{Implementarea rutei \texttt {/logout}}{lstlisting.A.12}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.12}{\ignorespaces Implementarea rutei \texttt  {/logout}}}{77}{lstlisting.A.12}\protected@file@percent }
-\newlabel{lst:nav_logic}{{A.13}{77}{Implementarea barei de navigație dinamice în \texttt {home.html}}{lstlisting.A.13}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.13}{\ignorespaces Implementarea barei de navigație dinamice în \texttt  {home.html}}}{77}{lstlisting.A.13}\protected@file@percent }
-\newlabel{lst:home_logic}{{A.14}{77}{Logica de backend pentru pagina principală}{lstlisting.A.14}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.14}{\ignorespaces Logica de backend pentru pagina principală}}{77}{lstlisting.A.14}\protected@file@percent }
-\newlabel{lst:profile_logic_full}{{A.15}{78}{Logica de backend pentru agregarea datelor în pagina de profil}{lstlisting.A.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.15}{\ignorespaces Logica de backend pentru agregarea datelor în pagina de profil}}{78}{lstlisting.A.15}\protected@file@percent }
-\newlabel{lst:profile_html_snippet}{{A.16}{78}{Fragment din \texttt {profile.html} pentru afișarea datelor agregate}{lstlisting.A.16}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.16}{\ignorespaces Fragment din \texttt  {profile.html} pentru afișarea datelor agregate}}{78}{lstlisting.A.16}\protected@file@percent }
-\newlabel{lst:edit_profile_logic_final}{{A.17}{78}{Logica de backend pentru actualizarea profilului utilizatorului}{lstlisting.A.17}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.17}{\ignorespaces Logica de backend pentru actualizarea profilului utilizatorului}}{78}{lstlisting.A.17}\protected@file@percent }
-\newlabel{lst:admin_logic}{{A.18}{79}{Logica de backend pentru panoul de administrare}{lstlisting.A.18}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.18}{\ignorespaces Logica de backend pentru panoul de administrare}}{79}{lstlisting.A.18}\protected@file@percent }
-\newlabel{lst:search_results_link}{{A.19}{79}{Fragment din \texttt {search\_results.html} care pasează parametrii căutării}{lstlisting.A.19}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.19}{\ignorespaces Fragment din \texttt  {search\_results.html} care pasează parametrii căutării}}{79}{lstlisting.A.19}\protected@file@percent }
-\newlabel{lst:recommendation_logic}{{A.20}{80}{Fragment din logica de bază a algoritmului de recomandare}{lstlisting.A.20}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.20}{\ignorespaces Fragment din logica de bază a algoritmului de recomandare}}{80}{lstlisting.A.20}\protected@file@percent }
-\newlabel{lst:add_property_logic}{{A.21}{80}{Logica de backend pentru adăugarea unei proprietăți și a camerelor asociate}{lstlisting.A.21}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.21}{\ignorespaces Logica de backend pentru adăugarea unei proprietăți și a camerelor asociate}}{80}{lstlisting.A.21}\protected@file@percent }
-\newlabel{lst:my_properties_logic}{{A.22}{81}{Logica de backend pentru afișarea proprietăților personale}{lstlisting.A.22}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.22}{\ignorespaces Logica de backend pentru afișarea proprietăților personale}}{81}{lstlisting.A.22}\protected@file@percent }
-\newlabel{lst:edit_property_backend}{{A.23}{81}{Fragment din logica tranzacțională a rutei \texttt {/edit\_property}}{lstlisting.A.23}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.23}{\ignorespaces Fragment din logica tranzacțională a rutei \texttt  {/edit\_property}}}{81}{lstlisting.A.23}\protected@file@percent }
-\newlabel{lst:delete_property_logic}{{A.24}{82}{Logica de backend pentru ștergerea securizată a unei proprietăți}{lstlisting.A.24}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.24}{\ignorespaces Logica de backend pentru ștergerea securizată a unei proprietăți}}{82}{lstlisting.A.24}\protected@file@percent }
-\newlabel{lst:locust_search_task}{{A.25}{83}{Exemplu de User Task în \texttt {Locust} pentru căutări (fragment)}{lstlisting.A.25}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.25}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru căutări (fragment)}}{83}{lstlisting.A.25}\protected@file@percent }
-\newlabel{lst:locust_booking_task}{{A.26}{83}{Exemplu de User Task în \texttt {Locust} pentru rezervări (fragment)}{lstlisting.A.26}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.26}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru rezervări (fragment)}}{83}{lstlisting.A.26}\protected@file@percent }
-\gdef \@abspage@last{94}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Încheiere}{73}{section.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\appnumberline {A}Coduri sursă}{74}{appendix.A}\protected@file@percent }
+\newlabel{lst:nginx_config}{{A.1}{74}{Fragment de configurare \texttt {Nginx} pentru \texttt {load balancing} și \texttt {reverse proxy}}{lstlisting.A.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}{\ignorespaces Fragment de configurare \texttt  {Nginx} pentru \texttt  {load balancing} și \texttt  {reverse proxy}}}{74}{lstlisting.A.1}\protected@file@percent }
+\newlabel{lst:locust_booking_task}{{A.2}{75}{Exemplu de User Task în \texttt {Locust} pentru rezervări (fragment)}{lstlisting.A.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.2}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru rezervări (fragment)}}{75}{lstlisting.A.2}\protected@file@percent }
+\newlabel{lst:register_html_snippet}{{A.3}{75}{Fragment din \texttt {register.html} demonstrând structura formularului de înregistrare}{lstlisting.A.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.3}{\ignorespaces Fragment din \texttt  {register.html} demonstrând structura formularului de înregistrare}}{75}{lstlisting.A.3}\protected@file@percent }
+\newlabel{lst:register_logic}{{A.4}{76}{Logica de backend pentru înregistrarea unui utilizator nou}{lstlisting.A.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.4}{\ignorespaces Logica de backend pentru înregistrarea unui utilizator nou}}{76}{lstlisting.A.4}\protected@file@percent }
+\newlabel{lst:login_logic_final}{{A.5}{76}{Logica de backend pentru autentificarea utilizatorului și crearea sesiunii}{lstlisting.A.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.5}{\ignorespaces Logica de backend pentru autentificarea utilizatorului și crearea sesiunii}}{76}{lstlisting.A.5}\protected@file@percent }
+\newlabel{lst:register_logic_py_short}{{A.6}{77}{Implementarea rutei de înregistrare a utilizatorilor}{lstlisting.A.6}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.6}{\ignorespaces Implementarea rutei de înregistrare a utilizatorilor}}{77}{lstlisting.A.6}\protected@file@percent }
+\newlabel{lst:login_logic_py_short}{{A.7}{77}{Implementarea rutei pentru autentificare a utilizatorilor}{lstlisting.A.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.7}{\ignorespaces Implementarea rutei pentru autentificare a utilizatorilor}}{77}{lstlisting.A.7}\protected@file@percent }
+\newlabel{lst:secret_key_setup}{{A.8}{77}{Inițializarea aplicației și a cheii secrete pentru sesiuni}{lstlisting.A.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.8}{\ignorespaces Inițializarea aplicației și a cheii secrete pentru sesiuni}}{77}{lstlisting.A.8}\protected@file@percent }
+\newlabel{lst:session_population}{{A.9}{77}{Popularea sesiunii după o autentificare reușită}{lstlisting.A.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.9}{\ignorespaces Popularea sesiunii după o autentificare reușită}}{77}{lstlisting.A.9}\protected@file@percent }
+\newlabel{lst:select_user_login_sql_short}{{A.10}{77}{Comandă SQL pentru regăsirea utilizatorului la autentificare}{lstlisting.A.10}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.10}{\ignorespaces Comandă SQL pentru regăsirea utilizatorului la autentificare}}{77}{lstlisting.A.10}\protected@file@percent }
+\newlabel{lst:insert_user_sql_short}{{A.11}{78}{Comandă SQL pentru inserarea unui utilizator nou}{lstlisting.A.11}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.11}{\ignorespaces Comandă SQL pentru inserarea unui utilizator nou}}{78}{lstlisting.A.11}\protected@file@percent }
+\newlabel{lst:logout_logic}{{A.12}{78}{Implementarea rutei \texttt {/logout}}{lstlisting.A.12}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.12}{\ignorespaces Implementarea rutei \texttt  {/logout}}}{78}{lstlisting.A.12}\protected@file@percent }
+\newlabel{lst:nav_logic}{{A.13}{78}{Implementarea barei de navigație dinamice în \texttt {home.html}}{lstlisting.A.13}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.13}{\ignorespaces Implementarea barei de navigație dinamice în \texttt  {home.html}}}{78}{lstlisting.A.13}\protected@file@percent }
+\newlabel{lst:home_logic}{{A.14}{78}{Logica de backend pentru pagina principală}{lstlisting.A.14}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.14}{\ignorespaces Logica de backend pentru pagina principală}}{78}{lstlisting.A.14}\protected@file@percent }
+\newlabel{lst:profile_logic_full}{{A.15}{79}{Logica de backend pentru agregarea datelor în pagina de profil}{lstlisting.A.15}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.15}{\ignorespaces Logica de backend pentru agregarea datelor în pagina de profil}}{79}{lstlisting.A.15}\protected@file@percent }
+\newlabel{lst:profile_html_snippet}{{A.16}{79}{Fragment din \texttt {profile.html} pentru afișarea datelor agregate}{lstlisting.A.16}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.16}{\ignorespaces Fragment din \texttt  {profile.html} pentru afișarea datelor agregate}}{79}{lstlisting.A.16}\protected@file@percent }
+\newlabel{lst:edit_profile_logic_final}{{A.17}{79}{Logica de backend pentru actualizarea profilului utilizatorului}{lstlisting.A.17}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.17}{\ignorespaces Logica de backend pentru actualizarea profilului utilizatorului}}{79}{lstlisting.A.17}\protected@file@percent }
+\newlabel{lst:admin_logic}{{A.18}{80}{Logica de backend pentru panoul de administrare}{lstlisting.A.18}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.18}{\ignorespaces Logica de backend pentru panoul de administrare}}{80}{lstlisting.A.18}\protected@file@percent }
+\newlabel{lst:search_results_link}{{A.19}{80}{Fragment din \texttt {search\_results.html} care pasează parametrii căutării}{lstlisting.A.19}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.19}{\ignorespaces Fragment din \texttt  {search\_results.html} care pasează parametrii căutării}}{80}{lstlisting.A.19}\protected@file@percent }
+\newlabel{lst:recommendation_logic}{{A.20}{81}{Fragment din logica de bază a algoritmului de recomandare}{lstlisting.A.20}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.20}{\ignorespaces Fragment din logica de bază a algoritmului de recomandare}}{81}{lstlisting.A.20}\protected@file@percent }
+\newlabel{lst:add_property_logic}{{A.21}{81}{Logica de backend pentru adăugarea unei proprietăți și a camerelor asociate}{lstlisting.A.21}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.21}{\ignorespaces Logica de backend pentru adăugarea unei proprietăți și a camerelor asociate}}{81}{lstlisting.A.21}\protected@file@percent }
+\newlabel{lst:my_properties_logic}{{A.22}{82}{Logica de backend pentru afișarea proprietăților personale}{lstlisting.A.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.22}{\ignorespaces Logica de backend pentru afișarea proprietăților personale}}{82}{lstlisting.A.22}\protected@file@percent }
+\newlabel{lst:edit_property_backend}{{A.23}{82}{Fragment din logica tranzacțională a rutei \texttt {/edit\_property}}{lstlisting.A.23}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.23}{\ignorespaces Fragment din logica tranzacțională a rutei \texttt  {/edit\_property}}}{82}{lstlisting.A.23}\protected@file@percent }
+\newlabel{lst:delete_property_logic}{{A.24}{83}{Logica de backend pentru ștergerea securizată a unei proprietăți}{lstlisting.A.24}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.24}{\ignorespaces Logica de backend pentru ștergerea securizată a unei proprietăți}}{83}{lstlisting.A.24}\protected@file@percent }
+\newlabel{lst:locust_search_task}{{A.25}{84}{Exemplu de User Task în \texttt {Locust} pentru căutări (fragment)}{lstlisting.A.25}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.25}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru căutări (fragment)}}{84}{lstlisting.A.25}\protected@file@percent }
+\newlabel{lst:locust_booking_task}{{A.26}{84}{Exemplu de User Task în \texttt {Locust} pentru rezervări (fragment)}{lstlisting.A.26}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {A.26}{\ignorespaces Exemplu de User Task în \texttt  {Locust} pentru rezervări (fragment)}}{84}{lstlisting.A.26}\protected@file@percent }
+\gdef \@abspage@last{95}

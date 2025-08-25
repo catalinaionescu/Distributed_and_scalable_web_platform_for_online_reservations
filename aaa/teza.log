@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.24)  25 AUG 2025 00:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.24)  25 AUG 2025 20:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1107,6 +1107,12 @@ LaTeX Warning: Label `fig:prop' multiply defined.
 LaTeX Warning: Label `fig:prop' multiply defined.
 
 
+LaTeX Warning: Label `altebasme' multiply defined.
+
+
+LaTeX Warning: Label `altebasme' multiply defined.
+
+
 LaTeX Warning: Label `lst:locust_booking_task' multiply defined.
 
 )
@@ -1348,7 +1354,7 @@ LaTeX Warning: Citation `http' on page 4 undefined on input line 186.
 
 LaTeX Warning: Citation `usag' on page 4 undefined on input line 193.
 
-<figuri/ussyntax.png, id=837, 422.17725pt x 60.82726pt>
+<figuri/ussyntax.png, id=870, 422.17725pt x 60.82726pt>
 File: figuri/ussyntax.png Graphic file (type png)
 <use figuri/ussyntax.png>
 Package pdftex.def Info: figuri/ussyntax.png  used on input line 197.
@@ -1362,12 +1368,12 @@ LaTeX Warning: Citation `svweb' on page 5 undefined on input line 206.
 
 LaTeX Warning: Citation `url' on page 5 undefined on input line 210.
 
-<figuri/url.png, id=844, 4426.5375pt x 401.5pt>
+<figuri/url.png, id=877, 4426.5375pt x 401.5pt>
 File: figuri/url.png Graphic file (type png)
 <use figuri/url.png>
 Package pdftex.def Info: figuri/url.png  used on input line 213.
 (pdftex.def)             Requested size: 822.28314pt x 74.58264pt.
-<figuri/http.png, id=847, 260.172pt x 283.0575pt>
+<figuri/http.png, id=880, 260.172pt x 283.0575pt>
 File: figuri/http.png Graphic file (type png)
 <use figuri/http.png>
 Package pdftex.def Info: figuri/http.png  used on input line 223.
@@ -1375,17 +1381,17 @@ Package pdftex.def Info: figuri/http.png  used on input line 223.
 
 
 [5 <./figuri/ussyntax.png> <./figuri/url.png>]
-<figuri/port.png, id=856, 475.17525pt x 259.56975pt>
+<figuri/port.png, id=889, 475.17525pt x 259.56975pt>
 File: figuri/port.png Graphic file (type png)
 <use figuri/port.png>
 Package pdftex.def Info: figuri/port.png  used on input line 235.
 (pdftex.def)             Requested size: 193.47577pt x 105.68759pt.
-<figuri/cale.png, id=858, 579.96675pt x 276.43275pt>
+<figuri/cale.png, id=891, 579.96675pt x 276.43275pt>
 File: figuri/cale.png Graphic file (type png)
 <use figuri/cale.png>
 Package pdftex.def Info: figuri/cale.png  used on input line 248.
 (pdftex.def)             Requested size: 193.47577pt x 92.21854pt.
-<figuri/param.png, id=860, 861.2175pt x 234.8775pt>
+<figuri/param.png, id=893, 861.2175pt x 234.8775pt>
 File: figuri/param.png Graphic file (type png)
 <use figuri/param.png>
 Package pdftex.def Info: figuri/param.png  used on input line 259.
@@ -1393,12 +1399,12 @@ Package pdftex.def Info: figuri/param.png  used on input line 259.
 
 
 [6 <./figuri/http.png> <./figuri/port.png> <./figuri/cale.png>]
-<figuri/ancora.png, id=872, 385.44pt x 239.6955pt>
+<figuri/ancora.png, id=905, 385.44pt x 239.6955pt>
 File: figuri/ancora.png Graphic file (type png)
 <use figuri/ancora.png>
 Package pdftex.def Info: figuri/ancora.png  used on input line 270.
 (pdftex.def)             Requested size: 145.11052pt x 90.24036pt.
-<figuri/wbsv.png, id=874, 513.71925pt x 333.6465pt>
+<figuri/wbsv.png, id=907, 513.71925pt x 333.6465pt>
 File: figuri/wbsv.png Graphic file (type png)
 <use figuri/wbsv.png>
 Package pdftex.def Info: figuri/wbsv.png  used on input line 282.
@@ -1406,12 +1412,12 @@ Package pdftex.def Info: figuri/wbsv.png  used on input line 282.
 
 
 [7 <./figuri/param.png> <./figuri/ancora.png>]
-<figuri/tcp.png, id=884, 453.49425pt x 172.2435pt>
+<figuri/tcp.png, id=917, 453.49425pt x 172.2435pt>
 File: figuri/tcp.png Graphic file (type png)
 <use figuri/tcp.png>
 Package pdftex.def Info: figuri/tcp.png  used on input line 291.
 (pdftex.def)             Requested size: 386.95894pt x 146.97798pt.
-<figuri/cltcp.png, id=886, 407.121pt x 94.55325pt>
+<figuri/cltcp.png, id=919, 407.121pt x 94.55325pt>
 File: figuri/cltcp.png Graphic file (type png)
 <use figuri/cltcp.png>
 Package pdftex.def Info: figuri/cltcp.png  used on input line 300.
@@ -1419,12 +1425,12 @@ Package pdftex.def Info: figuri/cltcp.png  used on input line 300.
 
 
 [8 <./figuri/wbsv.png> <./figuri/tcp.png>]
-<figuri/svtcp.png, id=895, 404.712pt x 215.00325pt>
+<figuri/svtcp.png, id=928, 404.712pt x 215.00325pt>
 File: figuri/svtcp.png Graphic file (type png)
 <use figuri/svtcp.png>
 Package pdftex.def Info: figuri/svtcp.png  used on input line 307.
 (pdftex.def)             Requested size: 386.95894pt x 205.5806pt.
-<figuri/httpmesaj.png, id=898, 1526.70375pt x 943.525pt>
+<figuri/httpmesaj.png, id=931, 1526.70375pt x 943.525pt>
 File: figuri/httpmesaj.png Graphic file (type png)
 <use figuri/httpmesaj.png>
 Package pdftex.def Info: figuri/httpmesaj.png  used on input line 322.
@@ -1432,7 +1438,7 @@ Package pdftex.def Info: figuri/httpmesaj.png  used on input line 322.
 
 
 [9 <./figuri/cltcp.png> <./figuri/svtcp.png>]
-<figuri/cerex.png, id=909, 812.28468pt x 323.70938pt>
+<figuri/cerex.png, id=942, 812.28468pt x 323.70938pt>
 File: figuri/cerex.png Graphic file (type png)
 <use figuri/cerex.png>
 Package pdftex.def Info: figuri/cerex.png  used on input line 346.
@@ -1443,12 +1449,12 @@ Package pdftex.def Info: figuri/cerex.png  used on input line 346.
 
 LaTeX Warning: Citation `req' on page 11 undefined on input line 350.
 
-<figuri/cer.png, id=920, 1145.02782pt x 707.64375pt>
+<figuri/cer.png, id=953, 1145.02782pt x 707.64375pt>
 File: figuri/cer.png Graphic file (type png)
 <use figuri/cer.png>
 Package pdftex.def Info: figuri/cer.png  used on input line 354.
 (pdftex.def)             Requested size: 386.95894pt x 239.14879pt.
-<figuri/msjcer.png, id=922, 649.82774pt x 96.36pt>
+<figuri/msjcer.png, id=955, 649.82774pt x 96.36pt>
 File: figuri/msjcer.png Graphic file (type png)
 <use figuri/msjcer.png>
 Package pdftex.def Info: figuri/msjcer.png  used on input line 366.
@@ -1456,12 +1462,12 @@ Package pdftex.def Info: figuri/msjcer.png  used on input line 366.
 
 
 [11 <./figuri/cerex.png> <./figuri/cer.png> <./figuri/msjcer.png>]
-<figuri/formorig.png, id=935, 629.9535pt x 92.14426pt>
+<figuri/formorig.png, id=968, 629.9535pt x 92.14426pt>
 File: figuri/formorig.png Graphic file (type png)
 <use figuri/formorig.png>
 Package pdftex.def Info: figuri/formorig.png  used on input line 393.
 (pdftex.def)             Requested size: 386.95894pt x 56.60158pt.
-<figuri/abs.png, id=937, 627.5445pt x 112.62074pt>
+<figuri/abs.png, id=970, 627.5445pt x 112.62074pt>
 File: figuri/abs.png Graphic file (type png)
 <use figuri/abs.png>
 Package pdftex.def Info: figuri/abs.png  used on input line 401.
@@ -1469,17 +1475,17 @@ Package pdftex.def Info: figuri/abs.png  used on input line 401.
 
 
 [12 <./figuri/formorig.png>]
-<figuri/conn.png, id=945, 628.14674pt x 88.53075pt>
+<figuri/conn.png, id=978, 628.14674pt x 88.53075pt>
 File: figuri/conn.png Graphic file (type png)
 <use figuri/conn.png>
 Package pdftex.def Info: figuri/conn.png  used on input line 409.
 (pdftex.def)             Requested size: 386.95894pt x 54.53859pt.
-<figuri/ast.png, id=947, 461.92575pt x 65.64525pt>
+<figuri/ast.png, id=980, 461.92575pt x 65.64525pt>
 File: figuri/ast.png Graphic file (type png)
 <use figuri/ast.png>
 Package pdftex.def Info: figuri/ast.png  used on input line 417.
 (pdftex.def)             Requested size: 386.95894pt x 54.99336pt.
-<figuri/reqhed.png, id=949, 453.19313pt x 246.1697pt>
+<figuri/reqhed.png, id=982, 453.19313pt x 246.1697pt>
 File: figuri/reqhed.png Graphic file (type png)
 <use figuri/reqhed.png>
 Package pdftex.def Info: figuri/reqhed.png  used on input line 430.
@@ -1488,17 +1494,17 @@ Package pdftex.def Info: figuri/reqhed.png  used on input line 430.
 
 [13 <./figuri/abs.png> <./figuri/conn.png> <./figuri/ast.png> <./figuri/reqhed.
 png>]
-<figuri/bodcer1.png, id=966, 703.87968pt x 222.8325pt>
+<figuri/bodcer1.png, id=999, 703.87968pt x 222.8325pt>
 File: figuri/bodcer1.png Graphic file (type png)
 <use figuri/bodcer1.png>
 Package pdftex.def Info: figuri/bodcer1.png  used on input line 456.
 (pdftex.def)             Requested size: 386.95894pt x 122.50044pt.
-<figuri/bodcer2.png, id=968, 704.6325pt x 306.39468pt>
+<figuri/bodcer2.png, id=1001, 704.6325pt x 306.39468pt>
 File: figuri/bodcer2.png Graphic file (type png)
 <use figuri/bodcer2.png>
 Package pdftex.def Info: figuri/bodcer2.png  used on input line 463.
 (pdftex.def)             Requested size: 386.95894pt x 168.26045pt.
-<figuri/rasex.png, id=970, 716.6775pt x 335.00156pt>
+<figuri/rasex.png, id=1003, 716.6775pt x 335.00156pt>
 File: figuri/rasex.png Graphic file (type png)
 <use figuri/rasex.png>
 Package pdftex.def Info: figuri/rasex.png  used on input line 471.
@@ -1509,7 +1515,7 @@ Package pdftex.def Info: figuri/rasex.png  used on input line 471.
 
 LaTeX Warning: Citation `ras' on page 15 undefined on input line 476.
 
-<figuri/ras.png, id=980, 1145.02782pt x 701.62125pt>
+<figuri/ras.png, id=1013, 1145.02782pt x 701.62125pt>
 File: figuri/ras.png Graphic file (type png)
 <use figuri/ras.png>
 Package pdftex.def Info: figuri/ras.png  used on input line 480.
@@ -1517,12 +1523,12 @@ Package pdftex.def Info: figuri/ras.png  used on input line 480.
 
 
 [15 <./figuri/rasex.png> <./figuri/ras.png>]
-<figuri/raspline.png, id=992, 529.98pt x 77.53969pt>
+<figuri/raspline.png, id=1025, 529.98pt x 77.53969pt>
 File: figuri/raspline.png Graphic file (type png)
 <use figuri/raspline.png>
 Package pdftex.def Info: figuri/raspline.png  used on input line 500.
 (pdftex.def)             Requested size: 386.95894pt x 56.61531pt.
-<figuri/resphed.png, id=994, 219.82124pt x 118.19156pt>
+<figuri/resphed.png, id=1027, 219.82124pt x 118.19156pt>
 File: figuri/resphed.png Graphic file (type png)
 <use figuri/resphed.png>
 Package pdftex.def Info: figuri/resphed.png  used on input line 522.
@@ -1567,7 +1573,7 @@ LaTeX Warning: Citation `ng' on page 20 undefined on input line 599.
 
 [21]
 Capitolul 3.
-<figuri/mod.png, id=1029, 1156.32pt x 352.31625pt>
+<figuri/mod.png, id=1062, 1156.32pt x 352.31625pt>
 File: figuri/mod.png Graphic file (type png)
 <use figuri/mod.png>
 Package pdftex.def Info: figuri/mod.png  used on input line 654.
@@ -1611,7 +1617,7 @@ s\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 properties []\T1/cmr/m/n/12 i
 
 
 [27]
-<figuri/bd.png, id=1075, 597.432pt x 845.0772pt>
+<figuri/bd.png, id=1108, 597.432pt x 845.0772pt>
 File: figuri/bd.png Graphic file (type png)
 <use figuri/bd.png>
 Package pdftex.def Info: figuri/bd.png  used on input line 813.
@@ -1627,12 +1633,12 @@ See the caption package documentation for explanation.
 [28]
 
 [29 <./figuri/bd.png (PNG copy)>]
-<figuri/strucpr.png, id=1087, 530.73282pt x 115.93312pt>
+<figuri/strucpr.png, id=1120, 530.73282pt x 115.93312pt>
 File: figuri/strucpr.png Graphic file (type png)
 <use figuri/strucpr.png>
 Package pdftex.def Info: figuri/strucpr.png  used on input line 824.
 (pdftex.def)             Requested size: 483.69684pt x 105.66028pt.
-<figuri/bib.png, id=1090, 764.8575pt x 103.88812pt>
+<figuri/bib.png, id=1123, 764.8575pt x 103.88812pt>
 File: figuri/bib.png Graphic file (type png)
 <use figuri/bib.png>
 Package pdftex.def Info: figuri/bib.png  used on input line 833.
@@ -1649,7 +1655,7 @@ flu-xul de na-vi-gare, permi[]ând
 
 [31]
 Capitolul 4.
-<figuri/newuser.png, id=1104, 1433.355pt x 656.4525pt>
+<figuri/newuser.png, id=1137, 1433.355pt x 656.4525pt>
 File: figuri/newuser.png Graphic file (type png)
 <use figuri/newuser.png>
 Package pdftex.def Info: figuri/newuser.png  used on input line 892.
@@ -1661,7 +1667,7 @@ Package pdftex.def Info: figuri/newuser.png  used on input line 892.
 ]
 
 [33 <./figuri/newuser.png>]
-<figuri/login.png, id=1123, 1434.86063pt x 631.60968pt>
+<figuri/login.png, id=1156, 1434.86063pt x 631.60968pt>
 File: figuri/login.png Graphic file (type png)
 <use figuri/login.png>
 Package pdftex.def Info: figuri/login.png  used on input line 925.
@@ -1687,7 +1693,7 @@ Overfull \hbox (0.66707pt too wide) in paragraph at lines 998--999
 [36]
 
 [37]
-<figuri/home1.png, id=1164, 1394.20876pt x 630.85687pt>
+<figuri/home1.png, id=1197, 1394.20876pt x 630.85687pt>
 File: figuri/home1.png Graphic file (type png)
 <use figuri/home1.png>
 Package pdftex.def Info: figuri/home1.png  used on input line 1066.
@@ -1696,7 +1702,7 @@ Package pdftex.def Info: figuri/home1.png  used on input line 1066.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/home.png, id=1167, 1392.70313pt x 641.39626pt>
+<figuri/home.png, id=1200, 1392.70313pt x 641.39626pt>
 File: figuri/home.png Graphic file (type png)
 <use figuri/home.png>
 Package pdftex.def Info: figuri/home.png  used on input line 1073.
@@ -1709,7 +1715,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [38]
 
 [39 <./figuri/home1.png> <./figuri/home.png>]
-<figuri/prof.png, id=1190, 1132.23pt x 449.88075pt>
+<figuri/prof.png, id=1223, 1132.23pt x 449.88075pt>
 File: figuri/prof.png Graphic file (type png)
 <use figuri/prof.png>
 Package pdftex.def Info: figuri/prof.png  used on input line 1111.
@@ -1719,7 +1725,7 @@ Package pdftex.def Info: figuri/prof.png  used on input line 1111.
 [40]
 
 [41 <./figuri/prof.png>]
-<figuri/editprof.png, id=1210, 901.11656pt x 609.02531pt>
+<figuri/editprof.png, id=1243, 901.11656pt x 609.02531pt>
 File: figuri/editprof.png Graphic file (type png)
 <use figuri/editprof.png>
 Package pdftex.def Info: figuri/editprof.png  used on input line 1143.
@@ -1733,7 +1739,7 @@ See the caption package documentation for explanation.
 
 
 [42 <./figuri/editprof.png>]
-<figuri/admin.png, id=1223, 1117.17375pt x 526.96875pt>
+<figuri/admin.png, id=1256, 1117.17375pt x 526.96875pt>
 File: figuri/admin.png Graphic file (type png)
 <use figuri/admin.png>
 Package pdftex.def Info: figuri/admin.png  used on input line 1192.
@@ -1747,7 +1753,7 @@ See the caption package documentation for explanation.
 
 
 [43]
-<figuri/s3.png, id=1234, 1121.3895pt x 252.945pt>
+<figuri/s3.png, id=1267, 1121.3895pt x 252.945pt>
 File: figuri/s3.png Graphic file (type png)
 <use figuri/s3.png>
 Package pdftex.def Info: figuri/s3.png  used on input line 1221.
@@ -1755,7 +1761,7 @@ Package pdftex.def Info: figuri/s3.png  used on input line 1221.
 
 
 [44 <./figuri/admin.png>]
-<figuri/s4.png, id=1247, 1137.048pt x 437.83575pt>
+<figuri/s4.png, id=1280, 1137.048pt x 437.83575pt>
 File: figuri/s4.png Graphic file (type png)
 <use figuri/s4.png>
 Package pdftex.def Info: figuri/s4.png  used on input line 1234.
@@ -1774,7 +1780,7 @@ Underfull \hbox (badness 1189) in paragraph at lines 1243--1243
 o-man-d ri
  []
 
-<figuri/prop.png, id=1259, 1127.412pt x 536.0025pt>
+<figuri/prop.png, id=1292, 1127.412pt x 536.0025pt>
 File: figuri/prop.png Graphic file (type png)
 <use figuri/prop.png>
 Package pdftex.def Info: figuri/prop.png  used on input line 1251.
@@ -1788,12 +1794,12 @@ sis-te-mu-lui de c -u-tare. Ea
 
 
 [46 <./figuri/prop.png>]
-<figuri/addprop1.png, id=1271, 1028.643pt x 422.7795pt>
+<figuri/addprop1.png, id=1304, 1028.643pt x 422.7795pt>
 File: figuri/addprop1.png Graphic file (type png)
 <use figuri/addprop1.png>
 Package pdftex.def Info: figuri/addprop1.png  used on input line 1272.
 (pdftex.def)             Requested size: 483.69684pt x 198.80315pt.
-<figuri/addprop2.png, id=1273, 908.193pt x 537.80925pt>
+<figuri/addprop2.png, id=1306, 908.193pt x 537.80925pt>
 File: figuri/addprop2.png Graphic file (type png)
 <use figuri/addprop2.png>
 Package pdftex.def Info: figuri/addprop2.png  used on input line 1279.
@@ -1807,7 +1813,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [47 <./figuri/addprop1.png>]
 
 [48 <./figuri/addprop2.png>]
-<figuri/myprop.png, id=1294, 1396.4672pt x 605.26125pt>
+<figuri/myprop.png, id=1327, 1396.4672pt x 605.26125pt>
 File: figuri/myprop.png Graphic file (type png)
 <use figuri/myprop.png>
 Package pdftex.def Info: figuri/myprop.png  used on input line 1326.
@@ -1815,7 +1821,7 @@ Package pdftex.def Info: figuri/myprop.png  used on input line 1326.
 
 
 [49 <./figuri/myprop.png>]
-<figuri/editprop1.png, id=1303, 872.058pt x 304.13625pt>
+<figuri/editprop1.png, id=1336, 872.058pt x 304.13625pt>
 File: figuri/editprop1.png Graphic file (type png)
 <use figuri/editprop1.png>
 Package pdftex.def Info: figuri/editprop1.png  used on input line 1355.
@@ -1826,7 +1832,7 @@ Underfull \hbox (badness 1043) in paragraph at lines 1352--1359
 i con[]ine câm-pu-rile pen-tru de-ta-li-ile
  []
 
-<figuri/editprop2.png, id=1305, 988.29225pt x 513.71925pt>
+<figuri/editprop2.png, id=1338, 988.29225pt x 513.71925pt>
 File: figuri/editprop2.png Graphic file (type png)
 <use figuri/editprop2.png>
 Package pdftex.def Info: figuri/editprop2.png  used on input line 1362.
@@ -1862,7 +1868,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 [53]
-<figuri/rez.png, id=1344, 684.75826pt x 516.7305pt>
+<figuri/rez.png, id=1377, 684.75826pt x 516.7305pt>
 File: figuri/rez.png Graphic file (type png)
 <use figuri/rez.png>
 Package pdftex.def Info: figuri/rez.png  used on input line 1452.
@@ -1871,7 +1877,7 @@ Package pdftex.def Info: figuri/rez.png  used on input line 1452.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/confrez.png, id=1346, 1128.01425pt x 497.4585pt>
+<figuri/confrez.png, id=1379, 1128.01425pt x 497.4585pt>
 File: figuri/confrez.png Graphic file (type png)
 <use figuri/confrez.png>
 Package pdftex.def Info: figuri/confrez.png  used on input line 1477.
@@ -1891,7 +1897,7 @@ Underfull \hbox (badness 3815) in paragraph at lines 1488--1489
 
 
 [55 <./figuri/rez.png>]
-<figuri/myres.png, id=1365, 1125.003pt x 341.47575pt>
+<figuri/myres.png, id=1398, 1125.003pt x 341.47575pt>
 File: figuri/myres.png Graphic file (type png)
 <use figuri/myres.png>
 Package pdftex.def Info: figuri/myres.png  used on input line 1513.
@@ -1917,7 +1923,7 @@ ion/<int:reservation_id>\T1/cmr/bx/n/14.4 )|
 
 
 [57 <./figuri/myres.png>]
-<figuri/proprez.png, id=1389, 1133.4345pt x 454.69875pt>
+<figuri/proprez.png, id=1422, 1133.4345pt x 454.69875pt>
 File: figuri/proprez.png Graphic file (type png)
 <use figuri/proprez.png>
 Package pdftex.def Info: figuri/proprez.png  used on input line 1573.
@@ -1959,7 +1965,7 @@ Capitolul 6.
 ]
 
 [65]
-Underfull \hbox (badness 10000) in paragraph at lines 1735--1736
+Underfull \hbox (badness 10000) in paragraph at lines 1729--1730
 []\T1/cmr/bx/n/12 Configurare Test din UI: \T1/cmr/m/n/12 Din interfa[]a web a 
 Lo-cust (ac-ce-si-bil  la
  []
@@ -1968,61 +1974,85 @@ Lo-cust (ac-ce-si-bil  la
 
 [66]
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1760.
-
-
-
 [67]
+Underfull \hbox (badness 1496) in paragraph at lines 1833--1834
+[]|\T1/cmr/m/n/12 Chiar []i cele mai lente ce-reri
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1848
+[]|\T1/cmr/m/n/12 Majoritatea uti-li-za-to-ri-lor
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1877--1878
+[]|\T1/cmr/m/n/12 Performan[]  ex-ce-lent  pen-tru
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 [68]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1837.
+(hyperref)                than one, level fixed on input line 1909.
 
 
 
 [69]
+
+[70]
 Capitolul 7.
 
-Underfull \hbox (badness 4479) in paragraph at lines 1862--1863
+Underfull \hbox (badness 4479) in paragraph at lines 1934--1935
 []\T1/cmr/m/n/12 S-au im-ple-men-tat flu-xuri de ma-na-ge-ment pen-tru pro-pri-
 e-tari (ad -u-ga-re/e-di-tare
  []
 
 
 
-[70
+[71
 
 ]
 
-[71]
+[72]
 No file teza.bbl.
 
 
-[72]
+[73]
 Anexa A.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\advance' on input line 1913.
+(hyperref)                removing `\advance' on input line 1985.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hangindent' on input line 1913.
+(hyperref)                removing `\hangindent' on input line 1985.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@tempdima' on input line 1913.
+(hyperref)                removing `\@tempdima' on input line 1985.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1913.
+(hyperref)                removing `\hbox' on input line 1985.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 1915.
+nput line 1987.
 
 
-[73
+[74
 
 ]
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
@@ -2031,14 +2061,12 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 
-[74]
-
 [75]
+
+[76]
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-
-[76]
 
 [77]
 
@@ -2054,7 +2082,9 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 
 [83]
 
-[84] (teza.aux)
+[84]
+
+[85] (teza.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-20>
@@ -2072,20 +2102,28 @@ Package rerunfilecheck Warning: File `teza.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `teza.out':
-(rerunfilecheck)             Before: 423C9DCCFE4C8FD2A588A8BED7C9698D;35195
-(rerunfilecheck)             After:  25544F1E734EA7A3DD4D1F3DFECBE74B;34963.
+(rerunfilecheck)             Before: B3727665308A1BFFC60EBD169B5EA787;36172
+(rerunfilecheck)             After:  57E5A5D50A685EAE6C9EBA75D04D598A;35503.
  ) 
 Here is how much of TeX's memory you used:
- 24388 strings out of 468134
- 443310 string characters out of 5430256
- 1482939 words of memory out of 5000000
- 51838 multiletter control sequences out of 15000+600000
+ 24407 strings out of 468134
+ 443739 string characters out of 5430256
+ 1483135 words of memory out of 5000000
+ 51852 multiletter control sequences out of 15000+600000
  649078 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,16n,95p,2486b,2310s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.7.2.3} has been referenced but does not 
-exist, replaced by a fixed one
+pdfTeX warning (dest): name{subsubsection.6.5.2.4} has been referenced but does
+ not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.6.5.2.3} has been referenced but does
+ not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.6.5.2.2} has been referenced but does
+ not exist, replaced by a fixed one
 
  <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
 095.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
@@ -2109,9 +2147,9 @@ k/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\senapi\AppData\Local\MiKTeX\
 fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\senapi\AppData\Local\
 MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/senapi/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-Output written on teza.pdf (94 pages, 2332238 bytes).
+Output written on teza.pdf (95 pages, 2339740 bytes).
 PDF statistics:
- 2843 PDF objects out of 2984 (max. 8388607)
- 867 named destinations out of 1000 (max. 500000)
- 1608 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2878 PDF objects out of 2984 (max. 8388607)
+ 872 named destinations out of 1000 (max. 500000)
+ 1648 words of extra memory for PDF output out of 10000 (max. 10000000)
 
