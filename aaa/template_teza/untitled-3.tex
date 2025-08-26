@@ -1,62 +1,148 @@
-\documentclass[12pt, a4paper, oneside, romanian]{teza-upb}
-\documentclass[12pt, a4paper, oneside, romanian]{teza-upb}
-\usepackage[utf8]{inputenc}  % dacă e nevoie
-   % o singură dată
-\usepackage{multicol}
+% Created by Anders Wettergreen Gundersen -----------------
+% 2021-01-13: Ownership transferred to Endre Bjørndal, Programme Manager MScEBA
+
+\documentclass[12pt, a4paper, twoside, romanian]{article} 
+\usepackage{caption}
+\captionsetup[table]{name=Tabelul}
+% -------------- Setup, do not change these ---------------
+\usepackage{textcomp}
+\usepackage[T1]{fontenc, url}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{minted} % Code highlighting
+\usepackage{adjustbox}
+\usepackage{acro}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{ragged2e}  % just
+\usepackage{amsmath, amssymb, amsthm} % Mathematical packages
+\usepackage{parskip} % Removing indenting in new paragraphs
+\usepackage{graphicx,wrapfig,lipsum}
+\urlstyle{sf}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref} % elimina incercuitul pe text
+\usepackage{subcaption} 
+\usepackage{appendix}
+\usepackage{pdfpages}
+\usepackage{chngcntr} % needed for correct table numbering
+\counterwithin{table}{section} % numbering of tables 
+\counterwithin{figure}{section} % numbering of figures
+\numberwithin{equation}{section} % numbering of equations
+\hyphenpenalty=100000 % preventing splitting of words
+\sloppy 
+\raggedbottom 
+\usepackage{xparse,nameref}
+\usepackage[bottom]{footmisc} % Fotnotes are fixed to bottom of page
+% --------- You can edit from this point on --------
+
+
+% ----- Appearance and language ----- 
+\usepackage[romanian]{babel} % document language
+\graphicspath{{Imagini/}{Imagini/}} % path to images
+\usepackage[left=2cm,top=2cm,right=2cm,bottom=2cm]{geometry} % sets margins for the document
 \usepackage{setspace}
-\usepackage{babel}
+\usepackage{indentfirst}
+\linespread{1.15}
+\setlength{\parindent}{4em} 
+\usepackage{microtype}
+\usepackage{csquotes} % typesetting quotations
+\usepackage[pdftex]{hyperref} % hyperlinks
+\usepackage{siunitx}
 
-\begin{document}
+% ----- Sections -----
+\titleformat*{\section}{\LARGE\bfseries} % \section heading
+\titleformat*{\section}{\LARGE\bfseries} % \section heading
+\titleformat*{\subsection}{\Large\bfseries} % \subsection heading
+\titleformat*{\subsubsection}{\large\bfseries} % \subsubsection heading
+% next three lines creates the \paragraph command with correct heading 
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{1.5ex}{1.5ex}
 
-\begin{titlepage}
-\begin{center}
-    \large Universitatea Națională de Știință și Tehnologie POLITEHNICA București\\
-    \large Facultatea de Electronică, Telecomunicații și Tehnologia Informației\\
-    
-    \vspace*{7\baselineskip}
-    
-    \Large \textbf{\textit{Metodologie de dezvoltare a modelelor comportamentale pentru studiul stabilității unei aplicații}}\\
-    
-    \vspace*{2\baselineskip}
 
-    \Huge \textbf{Proiect de diplomă}\\
-    
-    \vspace*{0.25\baselineskip}
-    
-    \setstretch{1.2} 
-    \large prezentat ca cerință parțială pentru obținerea titlului de \textit{Inginer}\\
-    \large în domeniul \textit{Inginerie Electronică, Telecomunicaţii și Tehnologii Informaționale}\\
-    \large programul de studii de licență \textit{Microelectronică, Optoelectronică și Nanotehnologii}\\
-    
-    \vspace*{3\baselineskip}
-\end{center}
 
-\begin{multicols}{2}
-\noindent
-\begin{minipage}[t]{0.48\textwidth}
-\begin{flushleft}
-    \Large Conducători științifici\\
-    \large \textit{Prof. dr. ing. Lidia DOBRESCU}\\
-    \large \textit{Dipl. Ing. Tudor-Cristian HARAGA}\\
-    \large \textit{Dipl. Ing. Raluca SMEU}\\
-    \large \textit{Infineon Technologies România}\\
-\end{flushleft}l.3 \usepackage
-               {graphicx}
-\end{minipage}
-\columnbreak
-\begin{minipage}[t]{0.48\textwidth}
-\begin{flushright}
-    \Large Absolvent\\
-    \large \textit{Florin-Cătălin VIDEANU}\\
-\end{flushright}
-\end{minipage}
-\end{multicols}
 
-\vspace*{3\baselineskip}
+% ----- Figures, tables, acronyms ----- 
+\usepackage{fancyhdr}
+\usepackage{subfiles}
+%\ushttps://www.overleaf.com/project/6333e5bd423f6833235c99c8epackage{array}
+\usepackage[rightcaption]{sidecap}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage[labelfont=bf]{caption} % bold text for captions
+\usepackage[para]{threeparttable} % fancy tables, check these before you use them
+\usepackage{url}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{makecell}
+\usepackage{hhline}
+\usepackage[raggedrightboxes]{ragged2e}
+\usepackage{multicol}
+\usepackage{vwcol}
+\usepackage{acronym}
+\usepackage{gensymb}
+\usepackage{afterpage}
+\usepackage{listings}
+\usepackage[nopostdot,nogroupskip,nonumberlist,automake]{glossaries} %Load glossaries package
+%pot adauga parametru style=super ca sa fie doar text normal
+\makeglossaries
+\input{Extra/g_Acronime}
 
-\begin{center}
-    \large \textit{2025}
-\end{center}
-\end{titlepage}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
 
-\end{document}
+% Redefine the \figurename command
+\renewcommand{\figurename}{Figura}
+
+% Redefine the autoref name for figures
+\renewcommand{\figureautorefname}{Figura}
+
+% Redefine the name for equations
+\renewcommand{\equationautorefname}{Ecuatia}
+
+\newcommand{\subsubsubsection}[1]
+
+
+% ----- Sources -----
+% citation and reference list style
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+
+\usepackage[backend=biber,style=chem-angew,sorting=none]{biblatex}
+\addbibresource{Extra/k_Bibliografie.bib}
+
+%\usepackage[nottoc]{tocbibind} %Includes listof.. in the table of contents
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{amber(sae/ece)}{rgb}{1.0, 0.49, 0.0}
+\definecolor{asparagus}{rgb}{0.53, 0.66, 0.42}
+\definecolor{camel}{rgb}{0.76, 0.6, 0.42}
+\definecolor{grullo}{rgb}{0.66, 0.6, 0.53}
+	
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{grullo},
+    keywordstyle=\color{amber(sae/ece)},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{asparagus},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
