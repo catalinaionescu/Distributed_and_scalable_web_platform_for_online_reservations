@@ -189,7 +189,7 @@ literate=
 	
 	\subsection{Componentele sistemelor bazate pe HTTP}
 	
-	\subsubsection*{Clientul: user-agent-ul}
+	\subsection*{Clientul: user-agent-ul}
 	User-agent-ul \cite{usag} este un header de tip string folosit într-o cerere HTTP pentru a trimite informații despre aplicație, sistemul de operare, furnizorul și/sau versiunea folosită către server. 
 	
 	\begin{figure}[H]
@@ -202,11 +202,11 @@ literate=
 	
 	Ca să afișeze o pagină web, în primă fază, browser-ul trimite o cerere inițială pentru a prelua documentul HTML solicitat de către client. În cea de-a doua fază, acesta analizează fișierul primit și trimite cereri suplimentare pentru a obține informații despre stilizarea paginii (CSS), eventuale scripturi ce trebuiesc executate și sub-resursele aflate în pagină (imagini sau videoclipuri). În fază finală a procesului, browser-ul combină toate aceste resursele pentru a afișa varinta finală a documentului.
 	
-	\subsubsection *{Server-ul web}
+	\subsection *{Server-ul web}
 	Server-ul web \cite{svweb} se ocupă cu livrarea resurselor cerute de către client. Din punct de vedere al structurii hardware, acesta poate fi reprezentat de către o stație de lucru individuală sau de o colecție de servere interconectate în aceeași rețea care au rol în a gestiona schimbul de date stocate (de exemplu: documente HTML, imaginii, fișiere JavaScript) cu alte dispozitive.
 	
 	Pe de altă parte, din punct de vedere al structurii software, un server web are rolul de a interpreta adresele URL și de a procesa cererile și răspunsurile transmise prin protocolul HTTP.
-	\subsubsection*{Componente URL}
+	\subsection*{Componente URL}
 	URL (Uniform Resource Locators) \cite {url} reprezintă adresa unei resurse unice de pe internet și unul dintre mecanismele folosite de browsere pentru a prelua resurse cum ar fi pagini HTML, documente, imagini ș.a.m.d. Orice URL introdus în bara de adrese trimite o solicitare directă către un server web pentru a accesa resursa specifică, iar în funcție de răspunsul serverul-ui, resursa solicitată fie este afișată, fie un mesaj de eroare este returnat. Conform figurii \ref{fig:wbsv}, un URL este alcătuit din mai multe componente cum ar fi: tipul de protocolul URL, numele resursei, portul, calea către resursă, parametrii și fragmentul de identificare internă.
 	\begin{figure}[H]
 		\centering
@@ -284,7 +284,7 @@ literate=
 		\label{fig:wbsv}
 	\end{figure}
 	
-	\subsubsection*{Cum funcționează o conexiune HTTP}
+	\subsection*{Cum funcționează o conexiune HTTP}
 	O conexiune HTTP este controlată la nivelul stratului de transport, ceea ce implică faptul că se va folosi un protocol de transport pentru gestionarea conexiunii între client și server. Pentru a transmite mesaje cu o rată de pierdere foarte mică s-a optat în folosirea protocolului TCP. Datorită fiabilității sale, se utilizează protocolul TCP care garantează trimiterea mesajelor cu un număr minim erori, cu prețul unei vitezei de transfer mai mici. 
 	\begin{figure}[H]
 		\centering
@@ -315,7 +315,7 @@ literate=
 	
 	
 	
-	\subsubsection{Structura mesajelor HTTP}
+	\subsection*{Structura mesajelor HTTP}
 	Conform figurei \ref{fig:httpmesaj} se poate observa faptul că mesajele de tip cerere și răspuns prezintă o structură asemănătoare. Partea superioară (head) a mesajului HTTP este alcătuită din linia de start și anteturi, iar corpul, deși conține date transmise între client și server, este o componentă opțională.
 	\begin{figure}[H]
 		\centering
@@ -340,7 +340,7 @@ literate=
 	
 	
 	
-	\subsubsection{Cereri HTTP}
+	\subsection*{Cereri HTTP}
 	\begin{figure}[H]
 		\centering
 		\includegraphics*[width=0.8\columnwidth, center]{figuri/cerex.png}
@@ -465,7 +465,7 @@ literate=
 		\label{fig:bodcer2}
 	\end{figure}
 	
-	\subsubsection{Răspunsuri HTTP}
+	\subsection*{Răspunsuri HTTP}
 	\begin{figure}[H]
 		\centering
 		\includegraphics*[width=0.8\columnwidth, center]{figuri/rasex.png}
@@ -560,10 +560,10 @@ literate=
 	
 	O bază de date reprezintă \cite{bdd} o colecție de informații corelate organizate sub forma unui spațiu de stocare menite pentru a facilita procesele de gestionare, accesare a informațiilor de către utilizatori. Sistemul de gestiune a bazelor de date (SGBD) este un software fundamental ce stă la baza multor aplicații cum ar fi sisteme de rezervări, cumpărături online în care utilizatorii au posibilitatea să definească, să creeze, să întrețină și să controleze accesul la baza de date. 
 	
-	\subsection{Concepte de Baze de Date Relaționale și SGBD}
+	\subsection*{Concepte de Baze de Date Relaționale și SGBD}
 	O bază de date relațională este o bază de date ce se bazează pe modelul relațional al datelor organizat sub forma unor tabele. Un tabel (sau relație) este format din rânduri și coloane. Rândurile, denumite și tupluri, reprezintă o entitate sau o înregistrare individuală în baza de date. Coloanele sau atributele, reprezintă caracteristicile sau proprietățile entităților. Fiecare coloană are un identificator unic și un tip de date specific.
 	
-	\subsection{Baze de Date Distribuite și Replicarea Master-Slave}
+	\subsection*{Baze de Date Distribuite și Replicarea Master-Slave}
 	
 	O bază de date distribuită este o bază de date logică unică divizată în mai multe părți stocate fizic pe mai multe computere sau noduri interconectate în rețea. La nivel de frontend, o bază de date distribuită funcționează ca o singură bază de date centralizată, nu este nevoie ca utilizatorii să folosească mai multe interfețe, dar la nivel de backend datele sunt distribuite și replicate în diverse locații. Principalele obiective pe care o bază de date distribuită le prezintă includ scalabilitatea, disponibilitatea, fiabilitatea și performanța îmbunătățită prin alocarea unor locații cu roluri specifice.
 	
@@ -583,7 +583,7 @@ literate=
 	\item Îmbunătățirea disponibilității: configurația master-slave este o metodă preventivă în cazul unei defecțiuni sau indisponibilități a unei resurse. În cazul în care master-ul nu mai funcționează, slave-ul preia atribuțiile de scriere și este promovat la rolul de master. Acest mecanism se numește failover și are rol în menținerea continuității operațiilor de citire și scriere prin minimizarea timpului de nefuncționare a aplicației. 
 \end{itemize}
 
-	\subsection{Limbajul SQL și Securitatea Datelor}
+	\subsection*{Limbajul SQL și Securitatea Datelor}
 SQL (Structured Query Language) \cite{bdd} este limbajul principal utilizat pentru lucrul cu baze de date relaționale, fiind recunoscut ca standard în industrie. Acesta a fost inițial dezvoltat de IBM la începutul anilor ’70, în cadrul proiectului System R, sub denumirea SEQUEL (Structured English Query Language). Ulterior, numele a fost abreviat la forma actuală, SQL, odată cu standardizarea sa. Limbajul a fost conceput pentru a permite interogarea și manipularea datelor într-un mod declarativ, concentrându-se pe rezultatul dorit, mai degrabă decât pe pașii necesari obținerii acestuia.
 
 SQL este strâns legat de modelul relațional, servind drept interfață standard pentru interacțiunea cu sistemele de gestiune a bazelor de date relaționale. În acest model, datele sunt organizate sub formă de tabele (relații), fiecare rând corespunzând unui tuplu, iar fiecare coloană unui atribut. Limbajul permite definirea structurii bazei de date, manipularea conținutului și gestionarea accesului, oferind astfel o abstracție eficientă asupra modului în care datele sunt stocate și accesate. Prin natura sa declarativă, SQL permite exprimarea interogărilor într-un mod logic, independent de modul fizic de stocare, ceea ce îl face portabil între diverse implementări de SGBD-uri.
@@ -595,9 +595,9 @@ SQL este organizat în mai multe subcomponente funcționale, fiecare având un r
 Deși SQL \cite{sql} oferă mecanisme integrate pentru definirea permisiunilor de acces asupra obiectelor din baza de date, responsabilitatea implementării unei securități eficiente nu se oprește la nivelul SGBD-ului. În mod special, aplicațiile web trebuie să adopte practici suplimentare pentru a preveni vulnerabilități precum SQL injection. Astfel, în cadrul aplicației, sunt utilizate interogări parametrizate care înlocuiesc concatenarea directă a datelor în instrucțiunile SQL, limitând posibilitatea introducerii de cod malițios. Acest aspect este esențial pentru protejarea integrității și confidențialității datelor gestionate.
 
 
-\section{Nginx (Load Balancing și Reverse Proxy)}
+\section{Nginx (Load Balancing și Reverse Proxy)}\label{sec:nginx}
 Nginx (Engine-X) \cite{ng}  este un server web de înaltă performanță, un reverse proxy și un load balancer. A fost ales pentru a îndeplini rolurile de server web, cât și reverse proxy cu capabilități de load balancing. Această componentă este poziționată strategic în fața serverelor de aplicații Flask, acționând ca un "distribuitor de trafic" și un punct de intrare unic pentru toate cererile utilizatorilor.
-\subsection{Principiul de Funcționare al Load Balancing-ului}
+\subsection*{Principiul de Funcționare al Load Balancing-ului}
 Load balancing reprezintă procesul de distribuire a traficului de rețea sau a sarcinilor de lucru între mai multe servere, având ca obiective utilizarea eficientă a resurselor, creșterea debitului, reducerea timpului de răspuns și prevenirea supraîncărcării unui singur server. În absența unui load balancer, un volum ridicat de trafic poate suprasolicita un server unic, ceea ce conduce la degradarea performanței aplicației sau chiar la indisponibilitatea acesteia. Configurat ca load balancer, Nginx preia toate cererile HTTP/HTTPS de la clienți și le distribuie către instanțele aplicației Flask (denumite upstreams în terminologia Nginx). Distribuirea se poate realiza pe baza unor algoritmi specifici de load balancing, pe care Nginx îi suportă nativ:
 \begin{itemize}
 	\item Round Robin: Este cea mai simplă și cea mai comună strategie. Cererile sunt distribuite secvențial către fiecare server din lista upstreams. Fiecare server primește o cerere la rând
@@ -605,14 +605,14 @@ Load balancing reprezintă procesul de distribuire a traficului de rețea sau a 
 	\item IP Hash: Direcționează cererile pe baza adresei IP a clientului. Aceasta asigură că un client anume va fi întotdeauna trimis către același server, util pentru aplicațiile care depind de persistența sesiunii pe server. 
 	
 \end{itemize}
-\subsection{Integrarea Nginx cu Flask ca Reverse Proxy}
+\subsection*{Integrarea Nginx cu Flask ca Reverse Proxy}
 Pe lângă rolul său de load balancer, Nginx acționează și ca un reverse proxy pentru aplicația Flask. Un reverse proxy este un server care primește cereri de la clienți și le retransmite către serverele interne, gestionând traficul între clienți și infrastructura internă. Configurația Nginx implică definirea unui bloc upstream care listează adresele (IP și port) ale tuturor instanțelor Flask disponibile. Apoi, într-un bloc server care ascultă pe porturile HTTP/HTTPS standard (80/443), cererile sunt redirecționate către grupul upstream folosind directive precum proxy\_pass. Un alt aspect esențial al integrării Nginx constă în capacitatea sa de a furniza fișiere statice, precum CSS, JavaScript sau imagini încărcate de utilizatori. Deși aplicațiile Flask pot livra fișiere statice, acestea nu sunt optimizate pentru această sarcină, iar gestionarea directă a fișierelor statice poate consuma resurse semnificative ale serverului de aplicații. Nginx este extrem de eficient în servirea fișierelor statice direct din sistemul de fișiere, reducând semnificativ sarcina pe serverul Flask. De exemplu, cererile către /static/ sau /uploads/ pot fi configurate în Nginx pentru a fi servite direct, în timp ce toate celelalte cereri dinamice sunt transmise către Flask. 
 Un exemplu simplificat de configurație Nginx ar putea arăta astfel:\ref{lst:nginx_config}
 
 
 Această configurație exemplifică modul în care Nginx preia controlul traficului, direcționând cererile statice direct și proxy-ind cererile dinamice către grupul de servere Flask. Directivele proxy\_set\_header sunt importante pentru a transmite informații despre cererea originală (IP-ul clientului, host, protocol) către serverul Flask, care altfel ar vedea doar IP-ul Nginx-ului.
 
-\subsection{Impactul asupra Fluxurilor de Aplicație}
+\subsection*{Impactul asupra Fluxurilor de Aplicație}
 Rolul Nginx ca load balancer și reverse proxy îmbunătățește performanța, scalabilitatea și reziliența tuturor fluxurilor de aplicație prezentate anterior:
 \begin{itemize}
 	\item Înregistrare și autentificare: Chiar și în condiții de trafic intens, cererile de înregistrare și autentificare sunt distribuite, asigurând că procesul de creare de conturi noi și de accesare a conturilor existente rămâne rapid și responsiv. Dacă un server Flask devine indisponibil, Nginx redirecționează cererile către serverele active, asigurând funcționarea continuă a aplicației.
@@ -681,7 +681,7 @@ Baza de date a aplicației "rezervari" este concepută pentru a stoca și gestio
 
 	 Tabela \texttt{users} reprezintă componenta centrală a aplicației, stocând informațiile esențiale despre utilizatorii platformei. Aceasta conține date necesare pentru autentificare, autorizare și personalizarea experienței utilizatorilor.
 	 
-Structură:
+	Structură:
 	\begin{itemize}
 		\item \texttt{user\_id}: Acesta este identificatorul unic primar pentru fiecare utilizator, generat automat. Este cheia principală prin care alte tabele se vor lega la un utilizator specific.
 		\item \texttt{username}: Numele de utilizator ales de către utilizator la înregistrare, care trebuie să fie unic pe platformă. Este folosit, de obicei, pentru login.
@@ -697,7 +697,7 @@ Structură:
 	\end{itemize}
 
 
-\subsubsection{Tabela \texttt{properties}}
+\subsection{Tabela \texttt{properties}}
 \begin{itemize}
 	\item \textbf{Scop:} Tabela \texttt{properties} este dedicată stocării detaliilor complete despre fiecare unitate de cazare (hotel, pensiune, apartament) înregistrată pe platformă.
 	\item \textbf{Coloane cheie și semnificația lor:}
@@ -716,7 +716,7 @@ Structură:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Tabela \texttt{rooms}}
+\subsection{Tabela \texttt{rooms}}
 \begin{itemize}
     \item \textbf{Scop:} Tabela \texttt{rooms} stochează informații detaliate pentru fiecare cameră sau tip de cameră (în funcție de semnificația coloanei \texttt{number\_of}) disponibilă pentru rezervare.
 
@@ -739,7 +739,7 @@ Structură:
 \end{itemize}
 
 
-\subsubsection{Tabela \texttt{reservations}}
+\subsection{Tabela \texttt{reservations}}
 \begin{itemize}
 	\item Scop: Tabela \texttt{reservations} reprezintă componenta centrală a sistemului de rezervări, înregistrând fiecare tranzacție efectuată în cadrul platformei.
 	\item \textbf{Coloane cheie și semnificația lor:}
@@ -760,7 +760,7 @@ Structură:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Tabela \texttt{reservation\_details}}
+\subsection{Tabela \texttt{reservation\_details}}
 \begin{itemize}
 	\item Scop: Tabela stochează detalii de contact ale clientului care a efectuat rezervarea, precum și prețul total al acesteia. Separarea acestor informații respectă principiile de normalizare, reducând redundanța și facilitând gestionarea datelor sensibile.
 	\item \textbf{Coloane cheie și semnificația lor:}
@@ -781,6 +781,7 @@ Structură:
 
 
 \subsection{Structura Tabelelor și Relațiile}
+inserare grafic mare
 
 
 
@@ -816,56 +817,18 @@ Dacă arhitectura generală descrie interacțiunile la nivel de sistem, arhitect
 \end{center}
 
 \section {Structura Internă a Aplicației Flask}
-\subsection{Organizarea codului sursă}
-Organizarea codului sursă este esențială pentru mentenanță. Proiectul adoptă o structură clară, conform principiului separării responsabilităților, așa cum este ilustrat în Figura \ref{fig:struc_pro}. Fișierul \texttt{app.py} reprezintă punctul de intrare și nucleul logic al aplicației; aici se inițializează instanța Flask, se configurează conexiunea la baza de date, se definesc rutele, funcțiile de suport și logica de business. Directorul \texttt{templates/} conține toate fișierele HTML care alcătuiesc interfața vizuală, realizându-se astfel o separare eficientă a logicii de prezentare.
+\subsection*{Organizarea codului sursă}
+Aplicația Flask realizată este bine structurată și se bazează pe o separare clară a responsabilităților, ceea ce o face scalabilă și ușor de întreținut. Fiecare componentă a aplicației este concepută să gestioneze sarcini distincte, permițând dezvoltarea, testarea și scalarea independentă fără a afecta funcționarea celorlalte părți ale sistemului.  
 
-\begin{figure}[H]
-	\centering
-	\includegraphics*[width=1\columnwidth, center]{figuri/strucpr.png}
-	\caption{Structura ierarhică a proiectului Flask}
-	\label{fig:struc_pro}
-\end{figure}
-\subsection{Biblioteci Principale Utilizate}
-Funcționalitatea aplicației este susținută de un set de biblioteci Python, fiecare având un rol bine definit, așa cum este evidențiat în Figura \ref{fig:bib}.
+Inițializarea aplicației începe prin crearea unei instanțe standard Flask. La acest pas, este setată o cheie secretă, esențială pentru gestionarea securizată a sesiunilor și pentru protejarea operațiunilor sensibile, precum autentificarea utilizatorilor. Baza de date este configurată într-o arhitectură Master-Slave, unde toate operațiunile de scriere, cum ar fi înregistrarea sau actualizarea datelor, sunt direcționate către baza de date principală, în timp ce operațiunile de citire, cum ar fi vizualizarea proprietăților, sunt preluate de baza de date secundară. Această separare permite distribuirea eficientă a traficului și eliberează baza de date principală să se concentreze pe operațiuni critice de scriere. În plus, aplicația utilizează pooling de conexiuni pentru ambele baze de date, prin \texttt{mysql.connector.pooling}, ceea ce reduce semnificativ timpul de răspuns, deoarece conexiunile existente sunt reutilizate în loc să fie create altele noi pentru fiecare cerere.  
 
-\begin{figure}[H]
-	\centering
-	\includegraphics*[width=1\columnwidth, center]{figuri/bib.png}
-	\caption{Biblioteci principale utilizate în proiect}
-	
-	\label{fig:bib}
-\end{figure}
+Interacțiunea cu baza de date este gestionată prin context managers în Python, care asigură deschiderea și închiderea automată a conexiunilor chiar și în cazul apariției unor erori. De asemenea, gestionarea cursorilor se face printr-un context manager dedicat, simplificând logica de acces la date în cadrul fiecărei rute. Fiecare rută este configurată să folosească în mod deliberat fie conexiunea către master pentru scriere, fie conexiunea către slave pentru citire, asigurând integritatea datelor și performanța optimă a sistemului. Operațiuni precum înregistrarea, adăugarea unei proprietăți sau confirmarea unei rezervări folosesc conexiunea master, în timp ce vizualizarea proprietăților, căutările și afișarea profilului utilizează conexiunea slave.  
 
-Rolul fiecărei biblioteci principale este detaliat mai jos:
-\begin{itemize}
-	\item \textbf{flask:} Aceasta este biblioteca fundamentală. Din ea se importă obiecte esențiale:
-	\begin{itemize}
-		\item \textit{Flask:} Clasa principală utilizată pentru crearea instanței aplicației.
-		\item \textit{render\_template:} Funcția cheie pentru a invoca motorul de șabloane Jinja2 și a genera pagini HTML dinamice.
-		\item \textit{request:} Un obiect global care încapsulează toate informațiile despre cererea HTTP curentă (metodă, date de formular, parametri URL, antete).
-		\item \textit{redirect, url\_for:} Unelte pentru a gestiona fluxul de navigare, permițând redirecționarea utilizatorului către alte rute.
-		\item \textit{session:} Un obiect de tip dicționar utilizat pentru a stoca date specifice unui utilizator între cereri (ex., ID-ul utilizatorului după logare), securizat printr-un cookie semnat criptografic.
-		\item \textit{flash:} Un mecanism pentru a afișa mesaje temporare utilizatorului (ex., "Înregistrare reușită!").
-		\item \textit{jsonify:} O funcție utilizată pentru a crea răspunsuri HTTP cu formatul application/json.
-	\end{itemize}
-	
-	\item \textbf{mysql.connector:} Biblioteca oficială pentru conectarea la MySQL. S-a utilizat sub-modulul \textit{pooling} pentru a implementare \textit{Connection Pooling}, o tehnică de optimizare ce menține un set de conexiuni deschise și refolosibile.
-	
-	\item \textbf{bcrypt:} O bibliotecă esențială pentru securitate, dedicată procesării (hashing) parolelor. Utilizează algoritmul Blowfish și mecanismul de "salting" pentru a proteja împotriva atacurilor de tip forță brută și "rainbow table".
-	
-	\item \textbf{biblioteci standard Python:}
-	\begin{itemize}
-		\item \textit{datetime, date, timedelta:} Folosite intensiv pentru a manipula și calcula intervale de timp, necesare pentru gestionarea perioadelor de rezervare.
-		\item \textit{collections.defaultdict:} O structură de date avansată utilizată în algoritmul de calcul al zilelor blocate.
-		\item \textit{itertools:} O bibliotecă puternică pentru crearea de iteratori eficienți, utilizată în motorul de recomandări.
-	\end{itemize}
-\end{itemize}
+Structura rutelor este organizată logic pe funcționalități, chiar dacă aplicația nu folosește Blueprints. Astfel, rutele pentru autentificare, gestionarea utilizatorilor, administrarea proprietăților, rezervări și zona de administrare sunt grupate și ușor de identificat. Fiecare funcție asociată unei rute verifică autentificarea utilizatorului, gestionează cererile GET și POST, interacționează cu baza de date prin context managers, afișează mesaje flash pentru feedback-ul utilizatorului și redă template-uri HTML cu datele necesare.  
 
-\subsection{Configurarea Aplicației}
+Pe lângă logica principală, aplicația include funcții utilitare care sporesc claritatea și reutilizarea codului. Funcția \texttt{is\_logged\_in()} verifică rapid dacă un utilizator este autentificat, iar filtrul Jinja2 \texttt{format\_ro\_date} afișează datele într-un format prietenos pentru utilizator. Motorul de recomandări \texttt{get\_recommendations} realizează logica complexă pentru selectarea camerelor potrivite pe baza criteriilor de căutare, iar funcția \texttt{check\_server\_status} permite monitorizarea stării serverelor în panoul de administrare.  
 
-
-Instanța aplicației configurează \texttt{app.secret\_key}, utilizată de Flask pentru semnarea criptografică a cookie-urilor de sesiune, prevenind manipularea acestora și securizând sistemul de autentificare.
-.
+În ceea ce privește implementarea pentru producție, aplicația nu rulează pe serverul de dezvoltare al Flask. În schimb, se utilizează \texttt{waitress}, un server WSGI robust, capabil să gestioneze multiple cereri concurente. Configurarea acestuia permite accesul aplicației pe rețea și asigură stabilitate și performanță ridicată chiar și în condiții de trafic intens.
 
 \chapter {Mecanisme de Comunicare și Securitate (Funcționalitățile Aplicației)}
 
@@ -879,7 +842,7 @@ Mecanismele de înregistrare și autentificare reprezintă punctul de acces prin
 \subsection{Formularul de înregistrare}
 Procesul de înregistrare este poarta de intrare a utilizatorilor în aplicație. Implementarea sa este împărțită între interfața cu utilizatorul, responsabilă de colectarea datelor, și logica de backend, care asigură validarea, securizarea și persistența acestora.
 
-\paragraph{Interfața Frontend}
+\subsection*{Interfața Frontend}
 Interfața de înregistrare este un formular \texttt{HTML} simplu și intuitiv, conceput pentru a colecta informațiile esențiale de la un utilizator nou. Formularul conține următoarele câmpuri:
 \begin{itemize}
 	\item \textbf{Nume de utilizator:} Un câmp text unic pentru identificarea în platformă.
@@ -903,7 +866,7 @@ Fragmentul de cod HTML de mai jos ilustrează structura simplă și eficientă a
 Codul folosește clase \texttt{CSS} pentru organizarea și stilizarea elementelor formularului. Aceste clase contribuie la crearea unei interfețe moderne, clare și responsivă, facilitând o experiență utilizator coerentă și intuitivă. O astfel de abordare este importantă pentru menținerea interesului și confortului utilizatorilor pe durata interacțiunii cu aplicația.
 
 
-\paragraph{Logica Backend}
+\subsection*{Logica Backend}
 Procesarea datelor se realizează în funcția asociată rutei \texttt{/register}, care gestionează cererile de tip \texttt{POST}. Logica de business urmează un flux de validare strict, în mai mulți pași:
 \begin{enumerate}
 	\item \textbf{Preluarea Datelor:} Informațiile trimise prin formular sunt extrase din obiectul \texttt{request.form}.
@@ -928,7 +891,7 @@ Procesul de autentificare este mecanismul prin care un utilizator înregistrat o
 \end{figure}
 
 
-\paragraph{Interfața Frontend}
+\subsection*{Interfața Frontend}
 Interfața de autentificare este un formular \texttt{HTML} minimalist, care solicită utilizatorului introducerea a două date esențiale:
 \begin{itemize}
 	\item \textbf{Nume de utilizator:} Câmpul de identificare al contului.
@@ -936,7 +899,7 @@ Interfața de autentificare este un formular \texttt{HTML} minimalist, care soli
 \end{itemize}
 La trimitere, datele sunt transmise serverului printr-o cerere de tip \textbf{HTTP POST}. Interfața este, de asemenea, capabilă să afișeze mesaje de eroare (ex: "Date de autentificare incorecte") prin sistemul \texttt{flash} al Flask, oferind un feedback clar utilizatorului în cazul unui eșec.
 
-\paragraph{Logica Backend}
+\subsection*{Logica Backend}
 Funcția \texttt{login()} din backend este responsabilă cu validarea credențialelor. Procesul este securizat și eficient, urmând mai mulți pași logici:
 \begin{enumerate}
 	\item \textbf{Preluarea Credențialelor:} Datele (nume de utilizator și parolă) sunt extrase din cererea \texttt{POST}.
@@ -975,7 +938,7 @@ Securitatea oferită de \textbf{bcrypt} se bazează pe doi piloni: utilizarea un
 În practică, biblioteca \textbf{bcrypt} abstractizează elegant această complexitate. Funcția \textbf{\texttt{bcrypt.hashpw()}}, combinată cu \textbf{\texttt{bcrypt.gensalt()}}, gestionează automat generarea salt-ului și aplicarea factorului de lucru, producând la final un singur șir de caractere. Acest hash rezultat încorporează atât algoritmul, cât și salt-ul și factorul de lucru. Ulterior, la autentificare, funcția \textbf{\texttt{bcrypt.checkpw()}} utilizează aceste informații. Ea extrage automat salt-ul din hash-ul stocat în baza de date pentru a procesa parola introdusă de utilizator și a valida corectitudinea acesteia. Implementarea acestui mecanism este, așadar, esențială pentru integritatea sistemului și pentru încrederea utilizatorilor în platformă.
 
 
-\paragraph{Procesul de Înregistrare}
+\subsection*{Procesul de Înregistrare}
 Când un utilizator își creează un cont nou, parola introdusă de la frontend este supusă imediat unui proces robust de hashing. Funcția cheie utilizată este \textbf{\texttt{bcrypt.hashpw()}} din biblioteca \textbf{bcrypt}.
 
 \begin{itemize}
@@ -992,7 +955,7 @@ Principiul fundamental al acestui mecanism este că \textbf{doar hash-ul calcula
 
 Codul implementează atât mecanisme de securizare a parolei prin \texttt{bcrypt}, cât și validări pentru unicitatea numelui de utilizator și a adresei de email, prevenind astfel crearea conturilor duplicate și menținând consistența datelor din sistem.
 
-\paragraph{Procesul de autentificare}
+\subsection*{Procesul de autentificare}
 În momentul autentificării, parola introdusă de utilizator este comparată cu hash-ul corespunzător, stocat anterior în baza de date. 
 
 Verificarea se realizează prin apelul funcției \texttt{bcrypt.checkpw(password.encode('utf-8'), account['password'].encode('utf-8'))}, care compară parola furnizată (după codificare în format binar) cu hash-ul existent. Această metodă este esențială pentru securitatea procesului de autentificare, garantând că parola nu este procesată într-un format nesecurizat. \ref{lst:login_logic_py_short}
@@ -1023,16 +986,16 @@ Odată ce cheia \texttt{'user\_id'} este prezentă în sesiune, aplicația consi
 \subsection{Interacțiunea cu Baza de Date}
 Operațiunile de înregistrare și autentificare se bazează pe interacțiunea cu baza de date pentru a asigura persistența și regăsirea datelor utilizatorilor.
 
-\paragraph{Crearea unui Utilizator Nou (Operațiunea \texttt{INSERT})}
+\subsection*{Crearea unui Utilizator Nou (Operațiunea \texttt{INSERT})}
 La înregistrarea unui utilizator nou, informațiile acestuia (nume de utilizator, email și parola deja procesată prin hashing) sunt salvate în tabelul \texttt{users} printr-o comandă \texttt{INSERT}. Folosirea placeholder-elor (\texttt{\%s}) în locul concatenării directe a valorilor în interogare este necesară, deoarece reprezintă metoda standard prin care driver-ul bazei de date previne atacurile de tip \textbf{SQL injection}. \ref{lst:insert_user_sql_short}
 
 
-\paragraph{Regăsirea Datelor la Autentificare (Operațiunea \texttt{SELECT})}
+\subsection*{Regăsirea Datelor la Autentificare (Operațiunea \texttt{SELECT})}
 În timpul autentificării, după ce utilizatorul introduce numele de utilizator și parola, se execută o interogare \texttt{SELECT} pentru a regăsi înregistrarea corespunzătoare din baza de date. Scopul este de a compara hash-ul parolei stocate cu cel generat din parola introdusă. Dacă interogarea returnează un rezultat, sunt preluate și alte informații relevante, precum ID-ul și rolul utilizatorului, necesare pentru crearea sesiunii. \ref{lst:select_user_login_sql_short}
 
 
 
-\subsubsection{Terminarea Sesiunii Utilizatorului}
+\subsubsection*{Terminarea Sesiunii Utilizatorului}
 Ruta \texttt{/logout} asigură încheierea sigură și ordonată a sesiunii utilizatorului autentificat. Deși implementarea este concisă, ea este extrem de eficientă și robustă. Funcția asociată acestei rute execută următoarele acțiuni:
 
 \begin{itemize}
@@ -1149,7 +1112,7 @@ Interfața de editare constă într-un formular \texttt{HTML} care, la o cerere 
 
 
 
-\paragraph{Logica Backend (Ruta \texttt{/edit-profile} în \texttt{app.py})}
+\subsection{Logica Backend (Ruta \texttt{/edit-profile} în \texttt{app.py})}
 Logica din spatele acestei interfețe, gestionată la o cerere de tip \texttt{POST}, este un proces multi-etapă care prioritizează securitatea și integritatea datelor:
 \begin{enumerate}
 	\item \textbf{Verificarea Identității:} Primul și cel mai important pas este validarea parolei curente. Aplicația preia hash-ul parolei utilizatorului din baza de date și folosește \textbf{\texttt{bcrypt.checkpw()}} pentru a verifica dacă parola introdusă în formular corespunde. Dacă verificarea eșuează, procesul este oprit imediat, iar utilizatorul este informat printr-un mesaj de eroare.
@@ -1170,10 +1133,10 @@ Fragmentul de cod de mai jos prezintă implementarea logicii rutei \texttt{/edit
 
 
 
-\section{Panoul de Administrare: Privilegiu și Agregare de Date}
+\section{Panoul de Administrare}
 Panoul de administrare, accesibil prin ruta \texttt{/admin}, este o componentă cu acces restricționat, proiectată pentru a oferi o imagine de ansamblu asupra întregii platforme. Acesta reprezintă un instrument de monitorizare și analiză, nu unul de gestiune personală.
 
-\subsection{Diferența Fundamentală față de Profilul de Utilizator}
+\subsection*{Diferența față de Profilul de Utilizator}
 Spre deosebire de pagina de profil a unui utilizator normal, care afișează date filtrate și relevante doar pentru acel utilizator (ex: "rezervările mele", "proprietățile mele"), panoul de administrare operează la un nivel global. Interogările sale nu sunt condiționate de \texttt{user\_id}-ul din sesiune, ci rulează pe întreg setul de date pentru a calcula indicatori cheie de performanță (KPIs) și statistici agregate la nivel de sistem. Accesul la această rută este, prin urmare, cea mai importantă funcționalitate protejată de rolul de administrator.
 
 \subsection{Prezentarea Frontend (\texttt{admin.html})}
@@ -1367,7 +1330,8 @@ Interfața de editare este un formular avansat, care la încărcare este pre-pop
 	\item \textbf{Validare Asincronă la Ștergere:} O caracteristică notabilă este mecanismul de ștergere a unui tip de cameră. La apăsarea butonului de ștergere, se execută o funcție JavaScript care trimite o cerere \textbf{asincronă (AJAX/Fetch)} către un endpoint dedicat din backend (\texttt{/check\_room\_type\_reservations/...}). Acest endpoint verifică în timp real dacă există rezervări active pentru acel tip de cameră. Doar dacă nu există rezervări, interfața permite eliminarea vizuală a grupului de câmpuri, prevenind erorile și oferind un feedback instantaneu.
 \end{itemize}
 
-\paragraph{Logica Backend (Rutele \texttt{/edit\_property} și \texttt{/check\_room\_type...})}
+\subsection{Logica Backend (Rutele \texttt{/edit\_property} și \texttt{/check\_room\_type...})}
+
 Backend-ul gestionează acest proces prin două rute distincte:
 \begin{enumerate}
 	\item \textbf{Ruta principală \texttt{/edit\_property/<id>}:}
@@ -1386,13 +1350,13 @@ Fragmentele de cod de mai jos ilustrează logica tranzacțională din backend. \
 \section{Ștergerea unei Proprietăți}
 Funcționalitatea de ștergere a unei proprietăți este o operațiune distructivă care necesită un grad înalt de securitate și validare pentru a preveni pierderea accidentală de date și pentru a menține integritatea bazei de date. Procesul este inițiat din interfața de management a proprietarului și este gestionat de o rută dedicată în backend.
 
-\paragraph{Interfața Frontend (\texttt{my\_properties.html})}
+\subsection{Interfața Frontend (\texttt{my\_properties.html})}
 Pe pagina "Cazările mele", fiecare proprietate listată are un buton de "Șterge". Pentru a preveni acțiunile accidentale din partea utilizatorului, acest buton nu declanșează imediat ștergerea, ci implementează o măsură de siguranță pe partea de client:
 \begin{itemize}
 	\item \textbf{Dialog de Confirmare JavaScript:} Butonul are un atribut \texttt{onclick} care execută funcția nativă a browser-ului \texttt{return confirm(...)}. Aceasta afișează o fereastră de dialog modală care cere utilizatorului o a doua confirmare explicită. Doar dacă utilizatorul apasă "OK", cererea de ștergere este trimisă către server. În caz contrar, acțiunea este anulată.
 \end{itemize}
 
-\paragraph{Logica Backend (Ruta \texttt{/delete\_property/<id>} în \texttt{app.py})}
+\subsection{Logica Backend (Ruta \texttt{/delete\_property/<id>} în \texttt{app.py})}
 Backend-ul tratează ștergerea ca pe o operațiune securizată și tranzacțională, executând un set riguros de verificări înainte de a efectua orice modificare în baza de date.
 \begin{enumerate}
 	\item \textbf{Verificarea Autentificării și a Dreptului de Proprietate:} Prima acțiune este de a valida dacă utilizatorul este autentificat. Apoi, se execută o interogare \texttt{SELECT} pentru a verifica dacă \texttt{user\_id}-ul utilizatorului curent (stocat în sesiune) corespunde cu \texttt{owner\_id}-ul proprietății care se dorește a fi ștearsă. Dacă nu există o potrivire, operațiunea este imediat oprită, prevenind astfel ca un utilizator să poată șterge proprietățile altuia.
@@ -1402,7 +1366,7 @@ Backend-ul tratează ștergerea ca pe o operațiune securizată și tranzacțion
 	\item \textbf{Gestiunea Tranzacției și Ștergerea în Cascadă:} Dacă toate verificările de mai sus trec cu succes, se inițiază operațiunile de ștergere. Deși schema bazei de date are definite constrângeri de tip \texttt{ON DELETE CASCADE} pentru a propaga ștergerea automat, codul implementează explicit ștergerea datelor din tabelele dependente (\texttt{reservation\_details}, \texttt{reservations}, \texttt{rooms}) înainte de a șterge înregistrarea finală din tabela \texttt{properties}. Toate aceste comenzi \texttt{DELETE} sunt executate într-o singură tranzacție. La final, se apelează \texttt{cnx.commit()} pentru a confirma toate ștergerile. În caz de eroare, întreaga tranzacție este anulată automat de context manager, menținând starea bazei de date consistentă.
 \end{enumerate}
 
-\subsubsection{Cod Relevat}
+
 Fragmentul de cod de mai jos prezintă implementarea completă a rutei \texttt{/delete\_property}, evidențiind verificările de securitate și logica tranzacțională. \ref{lst:delete_property_logic}
  
 
@@ -1413,14 +1377,14 @@ Fragmentul de cod de mai jos prezintă implementarea completă a rutei \texttt{/
 
 Procesul de rezervare efectivă, de la alegerea unei proprietăți până la confirmarea finală, este un flux complex gestionat de mai multe rute și componente, asigurând integritatea datelor și o experiență clară pentru utilizator.
 
-\subsection{Căutarea și Inițierea Rezervării (\texttt{/search\_results} și \texttt{/property/<id>})}
+\subsection*{Căutarea și Inițierea Rezervării (\texttt{/search\_results} și \texttt{/property/<id>})}
 
 
 Fluxul începe cu afișarea rezultatelor căutării, unde utilizatorul poate alege o proprietate. Odată selectată proprietatea, pagina de vizualizare a acesteia (\texttt{/property/<id>}) permite inițierea procesului de rezervare prin selectarea perioadei și a numărului de persoane.
 
 
 
-\subsubsection{Prezentarea Frontend (\texttt{search\_results.html} și \texttt{view\_property.html})}
+\subsection*{Prezentarea Frontend (\texttt{search\_results.html} și \texttt{view\_property.html})}
 După o căutare inițială, pagina \texttt{search\_results.html} afișează proprietățile relevante. Fiecare proprietate listată în aceste rezultate are un link dedicat care direcționează utilizatorul către pagina sa de vizualizare detaliată.
 
 \begin{figure}[h]
@@ -1439,10 +1403,10 @@ Pe pagina \texttt{view\_property.html}, un "calculator" de disponibilitate este 
 	\label{fig:prop}
 \end{figure}
 
-\subsubsection{Logica Backend (\texttt{/property/<id>} în \texttt{app.py})}
+\subsection*{Logica Backend (\texttt{/property/<id>} în \texttt{app.py})}
 Funcția \texttt{view\_property()} preia parametrii de căutare din URL sau din formular. Extrage camerele disponibile pentru proprietatea și perioada specificate, apoi apelează algoritmul de recomandare \texttt{get\_recommendations()} pentru a construi și sorta pachetele optime. Aceste pachete, împreună cu detaliile proprietății, sunt trimise către template pentru afișare. Dacă nu se găsește nicio combinație, se afișează un mesaj informativ.
 
-\subsection{Confirmarea și Finalizarea Rezervării (\texttt{/booking/confirm})}
+\section{Confirmarea și Finalizarea Rezervării (\texttt{/booking/confirm})}
 
 
 Odată ce utilizatorul a ales un pachet de camere, este redirecționat către pagina de rezervare, unde furnizează detaliile de contact și finalizează tranzacția.
@@ -1454,12 +1418,12 @@ Odată ce utilizatorul a ales un pachet de camere, este redirecționat către pa
 	\label{fig:rez}
 \end{figure}
 
-\subsubsection{Prezentarea Frontend (\texttt{booking\_confirmation.html})}
+\subsection{Prezentarea Frontend (\texttt{booking\_confirmation.html})}
 Pagina de confirmare a rezervării prezintă un sumar detaliat al pachetului de camere selectat. Aceasta include perioada rezervării, numărul de nopți, detaliile fiecărei camere (nume, capacitate, preț per noapte) și prețul total de plată. De asemenea, conține un formular pentru introducerea datelor de contact ale clientului (nume complet, telefon, email).
 
 
 
-\subsubsection{Logica Backend (\texttt{/booking/confirm} în \texttt{app.py})}
+\subsection{Logica Backend (\texttt{/booking/confirm} în \texttt{app.py})}
 Logica de backend pentru ruta \texttt{/booking/confirm} gestionează atât afișarea formularului de confirmare (\texttt{GET}), cât și procesarea finală a rezervării (\texttt{POST}).
 \begin{enumerate}
 	\item \textbf{Verificare autentificare și parametri:} Ruta necesită ca utilizatorul să fie autentificat, și preia ID-urile camerelor și datele de start/end din URL, validând perioada.
@@ -1468,7 +1432,7 @@ Logica de backend pentru ruta \texttt{/booking/confirm} gestionează atât afiș
 	Se inițiază o tranzacție de bază de date pentru a asigura atomicitea operațiunilor. Se re-verifică disponibilitatea camerelor și prețurile direct în baza de date. Pentru fiecare cameră din pachet, se inserează o înregistrare în tabelul \texttt{reservations}, iar detaliile de contact și prețul total sunt salvate într-un tabel separat. Tranzacția este confirmată (\texttt{cnx.commit()}) dacă toate operațiunile reușesc, sau anulată (\texttt{cnx.rollback()}) în caz de eroare, prevenind rezervările parțiale. Utilizatorul este redirecționat către pagina de succes.
 \end{enumerate}
 
-\subsection{Pagina de Confirmare a Rezervării (\texttt{/booking/success})}
+\section{Pagina de Confirmare a Rezervării (\texttt{/booking/success})}
 
 
 Această rută este responsabilă pentru afișarea unui mesaj de succes și a detaliilor rezervării după ce aceasta a fost confirmată.
@@ -1479,10 +1443,10 @@ Această rută este responsabilă pentru afișarea unui mesaj de succes și a de
 	\label{fig:confrez}
 \end{figure}
 
-\subsubsection{Prezentarea Frontend (\texttt{reservation\_success.html})}
+\subsection{Prezentarea Frontend (\texttt{reservation\_success.html})}
 Pagina de succes include un mesaj vizual de confirmare ("Mulțumim, rezervarea a fost realizată cu succes!"). Detaliază complet rezervarea: proprietate, perioadă, număr de nopți, preț total, precum și numele, emailul și telefonul clientului. De asemenea, oferă un buton pentru a redirecționa utilizatorul către pagina "Rezervările mele".
 
-\subsubsection{Logica Backend (\texttt{/booking/success} în \texttt{app.py})}
+\subsection{Logica Backend (\texttt{/booking/success} în \texttt{app.py})}
 Logica de backend pentru ruta \texttt{/booking/success} gestionează afișarea detaliilor rezervării după ce aceasta a fost confirmată cu succes.
 \begin{enumerate}
 	\item \textbf{Verificare sesiune:} Verifică dacă utilizatorul este logat și dacă există un \texttt{last\_booking\_id} stocat în sesiune.
@@ -1492,13 +1456,13 @@ Logica de backend pentru ruta \texttt{/booking/success} gestionează afișarea d
 
 
 
-\subsection{Vizualizarea și Gestionarea Rezervărilor}
+\section{Vizualizarea și Gestionarea Rezervărilor}
 
 
 Secțiunea "Rezervările mele" este un panou de control dedicat utilizatorilor non-administratori, oferindu-le posibilitatea de a vizualiza și gestiona toate rezervările pe care le-au efectuat în cadrul platformei.
 
 
-\subsubsection{Prezentarea Frontend (\texttt{my\_reservations.html})}
+\subsection{Prezentarea Frontend (\texttt{my\_reservations.html})}
 Interfața paginii "Rezervările mele" este proiectată pentru a oferi o imagine de ansamblu clară și acces rapid la informațiile esențiale ale rezervărilor. Fiecare rezervare este afișată într-un card distinct, conținând următoarele detalii:
 \begin{itemize}
 	\item Numele proprietății la care s-a efectuat rezervarea.
@@ -1518,7 +1482,7 @@ Interfața paginii "Rezervările mele" este proiectată pentru a oferi o imagine
 
 De asemenea, dacă statusul rezervării este "confirmed", este afișat un buton "Anulează Rezervarea". Acest buton include o confirmare JavaScript (\texttt{onclick="return confirm(...)"}) pentru a preveni anulările accidentale, asigurând o măsură suplimentară de siguranță.
 
-\subsubsection{Logica Backend (\texttt{/my-reservations} în \texttt{app.py})}
+\subsection{Logica Backend (\texttt{/my-reservations} în \texttt{app.py})}
 Funcția de backend asociată rutei \texttt{/my-reservations} este responsabilă cu preluarea și pregătirea datelor pentru afișarea în interfață.
 \begin{enumerate}
 	\item \textbf{Verificare autentificare:} Primul pas esențial este verificarea sesiunii utilizatorului. Dacă utilizatorul nu este autentificat, acesta este redirecționat automat către pagina de login, protejând astfel accesul neautorizat la informațiile personale.
@@ -1530,12 +1494,12 @@ Funcția de backend asociată rutei \texttt{/my-reservations} este responsabilă
 
 
 
-\subsection{Anularea Rezervării (\texttt{/cancel\_reservation/<int:reservation\_id>})}
+\section{Anularea Rezervării (\texttt{/cancel\_reservation/<int:reservation\_id>})}
 
 
 Această rută permite utilizatorilor să anuleze o rezervare existentă, cu verificări stricte ale drepturilor și ale stării rezervării.
 
-\subsubsection{Logica Backend (\texttt{/cancel\_reservation/<int:reservation\_id>} în \texttt{app.py})}
+\subsection{Logica Backend (\texttt{/cancel\_reservation/<int:reservation\_id>} în \texttt{app.py})}
 \begin{enumerate}
 	\item \textbf{Verificare autentificare:} Ruta necesită ca utilizatorul să fie logat.
 	\item \textbf{Verificare drepturi de acces:} Se preiau informații despre rezervare și proprietar pentru a se asigura că utilizatorul logat este fie creatorul rezervării, fie proprietarul proprietății. Operațiunea este interzisă în caz contrar.
@@ -1551,14 +1515,14 @@ Această rută permite utilizatorilor să anuleze o rezervare existentă, cu ver
 
 
 
-\subsection{Gestionarea Rezervărilor Proprietăților Personale}
+\section{Gestionarea Rezervărilor Proprietăților Personale}
 
 
 Această secțiune este un panou de control dedicat proprietarilor de proprietăți, oferindu-le o vizualizare centralizată a tuturor rezervărilor active și viitoare aferente unei proprietăți specifice. Spre deosebire de pagina generală "Rezervările mele" (care afișează rezervările făcute de utilizator), aceasta listează rezervările primite pentru una dintre proprietățile sale.
 
 
 
-\subsubsection{Prezentarea Frontend (\texttt{manage\_property\_reservations.html})}
+\subsection{Prezentarea Frontend (\texttt{manage\_property\_reservations.html})}
 Interfața este concepută pentru a oferi proprietarului o imagine clară asupra stării rezervărilor pentru o anumită proprietate. Pe lângă numele, adresa și orașul proprietății afișate proeminent, pagina prezintă o listă de carduri, unde fiecare card reprezintă o rezervare individuală. Detaliile afișate pentru fiecare rezervare includ:
 \begin{itemize}
 	\item Numele camerei și ID-ul camerei.
@@ -1577,7 +1541,7 @@ Interfața este concepută pentru a oferi proprietarului o imagine clară asupra
 
 Dacă statusul rezervării este "confirmed", este afișat un buton "Anulează Rezervarea". Acest buton include o confirmare JavaScript pentru a preveni anulările accidentale și, un aspect important, trimite un parametru de redirecționare (\texttt{redirect\_to\_prop\_id}) către backend, astfel încât, după anulare, utilizatorul să fie readus pe pagina de gestionare a rezervărilor proprietății curente. Un buton "Înapoi la proprietățile mele" este de asemenea disponibil pentru o navigare facilă.
 
-\subsubsection{Logica Backend (\texttt{/manage\_property\_reservations/<int:property\_id>} în \texttt{app.py})}
+\subsection{Logica Backend (\texttt{/manage\_property\_reservations/<int:property\_id>} în \texttt{app.py})}
 Funcția de backend asociată acestei rute este responsabilă pentru:
 \begin{enumerate}
 	\item \textbf{Verificarea autentificării și a drepturilor de proprietar:} Ruta este protejată și necesită ca utilizatorul să fie autentificat. În plus, se efectuează o verificare strictă pentru a se asigura că utilizatorul logat este *proprietarul* proprietății al cărei ID este specificat în URL. Dacă utilizatorul nu este proprietarul de drept sau proprietatea nu există, accesul este interzis și utilizatorul este redirecționat.
@@ -1590,23 +1554,23 @@ Funcția de backend asociată acestei rute este responsabilă pentru:
 
 \chapter{Arhitectura de Suport și Înaltă Disponibilitate}
 
-\section{Introducere în Arhitectura de Suport}
+\section*{Introducere în Arhitectura de Suport}
 Acest capitol se concentrează pe elementele fundamentale ale infrastructurii și arhitecturii de suport care asigură scalabilitatea, reziliența și performanța necesare unei aplicații web moderne, capabile să gestioneze un trafic considerabil și să funcționeze fără întreruperi. Dincolo de logica de afaceri a aplicației, modul în care aceasta este găzduită și gestionată la nivel de infrastructură este la fel de crucial pentru succesul său. Se vor explora mecanisme cheie precum \texttt{load balancing}-ul, replicarea bazelor de date și rolul virtualizării în testarea și implementarea unei astfel de arhitecturi.
 
-\section{Rolul Nginx (Load Balancing și Reverse Proxy) în Contextul Arhitecturii Implementate}
-Așa cum a fost prezentat în Secțiunea 2.5, Nginx are un rol esențial în menținerea scalabilității și rezilienței aplicației web, prin funcționalitățile sale de load balancing și reverse proxy. În arhitectura implementată pentru sistemul de rezervări, Nginx este configurat să gestioneze eficient traficul către instanțele aplicației Flask, contribuind direct la optimizarea performanței și disponibilității platformei.
+\section{Rolul Nginx în contextul arhitecturii implementate}
+Așa cum a fost prezentat în Secțiunea \ref{sec:nginx}, Nginx are un rol esențial în menținerea scalabilității și rezilienței aplicației web, prin funcționalitățile sale de load balancing și reverse proxy. În arhitectura implementată pentru sistemul de rezervări, Nginx este configurat să gestioneze eficient traficul către instanțele aplicației Flask, contribuind direct la optimizarea performanței și disponibilității platformei.
 
 
 
-\subsection{Aplicarea Load Balancing-ului în Arhitectura Proiectului}
+\subsection*{Aplicarea Load Balancing-ului în Arhitectura Proiectului}
 În arhitectura distribuită prezentată, Nginx, configurat pe stația de lucru principală (Host), acționează ca punct unic de intrare pentru cererile utilizatorilor. Aceste cereri sunt distribuite între cele două instanțe ale aplicației Flask - una locală (Host) și una pe Mașina Virtuală 2 (VM2) - asigurând o repartizare echilibrată a încărcării și prevenind supraîncărcarea unei singure instanțe. Distribuția activă a traficului permite gestionarea unui volum ridicat de cereri concurente și menținerea unor timpi de răspuns rapizi, chiar în condiții de trafic intens. Totodată, Nginx poate detecta instanțele indisponibile și redirecționa traficul către cele funcționale, contribuind astfel la reziliența și disponibilitatea ridicată a stratului de aplicație.
 
-\subsection{Integrarea Nginx cu Flask ca Reverse Proxy și Servirea Fișierelor Statice}
+\subsection*{Integrarea Nginx cu Flask ca Reverse Proxy și Servirea Fișierelor Statice}
 Nginx este integrat ca reverse proxy pentru a facilita comunicarea securizată și eficientă între utilizatori și serverele Flask. Configurația Nginx este adaptată pentru a recunoaște cererile dinamice destinate logicii aplicației Flask și a le proxy-a către grupul de servere definite, asigurând transmiterea corectă a antetelor HTTP esențiale (Host, X-Real-IP, X-Forwarded-For). Un aspect crucial al acestei integrări este rolul Nginx în servirea fișierelor statice (CSS, JavaScript, imagini). Prin configurarea Nginx să servească direct aceste resurse, se reduce semnificativ sarcina pe serverele Flask, care pot astfel dedica mai multe resurse procesării logicii de business și a cererilor dinamice. Această optimizare îmbunătățește considerabil viteza de încărcare a paginilor și experiența generală a utilizatorului.
 
 Fragmentul de configurare Nginx care exemplifică această integrare specifică este prezentat în fragmentul de cod \ref{lst:nginx_config} (Capitolul 2), unde sunt definite grupul upstream și regulile de location pentru proxy-ing și servirea staticului.
 
-\subsection{Impactul asupra Fluxurilor de Aplicație}
+\subsection*{Impactul asupra Fluxurilor de Aplicație}
 Folosirea Nginx ca load balancer și reverse proxy aduce beneficii pentru fiecare flux de lucru al aplicației de rezervări:
 \begin{itemize}
 	\item \textbf{Înregistrare și Autentificare:} Chiar și în condiții de trafic intens, cererile critice de înregistrare și autentificare sunt distribuite uniform, asigurând un proces fluid și responsiv. Resiliența oferită de Nginx previne disrupțiile în cazul unei defecțiuni a unei instanțe Flask.
@@ -1619,13 +1583,13 @@ Folosirea Nginx ca load balancer și reverse proxy aduce beneficii pentru fiecar
 \end{itemize}
 
 
-\section{Mecanismul Remarcabil: Rolul Replicării MySQL (Master-Slave) în Contextul Fluxurilor Reale}
+\section{Rolul Replicării MySQL (Master-Slave) în Contextul Fluxurilor Reale}
 Scalabilitatea și disponibilitatea ridicată a nivelului de bază al bazei de date sunt esențiale pentru performanța și reziliența sistemului de rezervări, în special datorită caracterului predominant „read-heavy” al aplicațiilor web de acest tip. Pentru a satisface aceste cerințe, arhitectura implementată utilizează un mecanism robust de replicare MySQL Master-Slave, cu nodul Master găzduit pe stația de lucru principală (Host) și nodul Slave pe Mașina Virtuală 1 (VM1). Această configurație permite optimizarea operațiilor de citire și scriere, precum și asigurarea continuității serviciului în caz de defecțiuni.
 
-\subsection{Separarea Citirilor de Scrieri (Read/Write Splitting) în Implementarea Proiectului}
+\subsection*{Separarea Citirilor de Scrieri (Read/Write Splitting) în Implementarea Proiectului}
 Unul dintre beneficiile majore ale configurației Master-Slave, esențial pentru optimizarea performanței, este posibilitatea de a separa cererile de citire (SELECT) de cele de scriere (INSERT, UPDATE, DELETE). În cadrul proiectului, nodul MySQL Master (pe Host) este configurat să gestioneze exclusiv toate operațiile de scriere, asigurând consistența și integritatea datelor. Concomitent, nodul MySQL Slave (pe VM1) preia majoritatea operațiilor de citire. Această distribuție a sarcinilor maximizează debitul și reduce presiunea asupra nodului Master, eliberându-l de majoritatea cererilor de citire. Prin direcționarea inteligentă a traficului, aplicația poate scala operațiile de citire prin adăugarea de noduri Slave suplimentare, dacă este necesar, fără a compromite performanța operațiunilor de scriere critice.
 
-\subsection{Impactul Replicării asupra Fluxurilor de Aplicație și Rezilienței Sistemului}
+\subsection*{Impactul Replicării asupra Fluxurilor de Aplicație și Rezilienței Sistemului}
 Replicarea MySQL și separarea citirilor de scrieri au un impact profund asupra fiabilității și performanței tuturor fluxurilor de aplicație:
 
 \begin{itemize}
@@ -1641,7 +1605,7 @@ Replicarea MySQL și separarea citirilor de scrieri au un impact profund asupra 
 \section{Rolul Infrastructurii de Virtualizare în Testarea Arhitecturii}
 Implementarea și testarea arhitecturii distribuite, multi-nod a sistemului de rezervări a necesitat un mediu flexibil, izolat și ușor de gestionat. Infrastructura de virtualizare a fost esențială în acest proces, oferind posibilitatea de a crea un mediu de dezvoltare și testare care reproduce fidel condițiile de producție, fără a implica costuri și complexitate asociate hardware-ului fizic. Mașinile virtuale VM1 și VM2 au fost utilizate pentru a demonstra eficient conceptele de scalabilitate și disponibilitate ridicată.
 
-\subsection{Crearea unui Mediu Izolat și Consistent}
+\subsection*{Crearea unui Mediu Izolat și Consistent}
 Virtualizarea permite crearea de mașini virtuale sau containere care rulează sisteme de operare și aplicații într-un mediu izolat față de hardware-ul gazdă și de celelalte instanțe virtuale. Această izolare este esențială pentru:
 \begin{itemize}
 	\item \textbf{Consistență:}Fiecare mediu de dezvoltare sau testare poate fi configurat identic, garantând că un comportament observat într-o instanță se va reproduce în oricare altă instanță. Această consistență reduce erorile legate de diferențele de configurare între medii.
@@ -1650,7 +1614,7 @@ Virtualizarea permite crearea de mașini virtuale sau containere care rulează s
 \end{itemize}
 
 
-\subsection{Testarea Scenariilor de Eșec și a Rezilienței}
+\subsection*{Testarea Scenariilor de Eșec și a Rezilienței}
 Unul dintre cele mai mari avantaje ale virtualizării în contextul arhitecturilor distribuite este capacitatea de a testa scenarii de eșec în mod controlat, fără a afecta mediul de producție. Aceste teste sunt esențiale pentru a valida mecanismele de \texttt{failover} și reziliență implementate:
 \begin{itemize}
 	\item \textbf{Simularea căderii componentelor:} Se poate opri o instanță \texttt{Flask} pentru a vedea dacă \texttt{Nginx} o detectează și redirecționează corect traficul către celelalte. Se poate opri serverul \texttt{MySQL Master} pentru a testa procesul de \texttt{failover} către un \texttt{Slave}.
@@ -1659,7 +1623,7 @@ Unul dintre cele mai mari avantaje ale virtualizării în contextul arhitecturil
 \end{itemize}
 Această capacitate de a provoca defecțiuni controlate în timpul testării este extrem de utilă pentru identificarea și corectarea punctelor slabe înainte ca aplicația să fie lansată în mediul de producție, unde astfel de erori ar putea avea consecințe semnificativ mai grave.
 
-\subsection{Flexibilitatea în Configurare și Dezvoltare Rapidă}
+\subsection*{Flexibilitatea în Configurare și Dezvoltare Rapidă}
 Virtualizarea oferă o flexibilitate enormă în configurarea și reconfigurarea mediilor de dezvoltare.
 \begin{itemize}
 	\item \textbf{Snashots:} Mașinile virtuale pot fi salvate în stări specifice (\texttt{snapshots}), permițând dezvoltatorilor să revină rapid la o stare anterioară stabilă în cazul unor modificări care strică mediul.
@@ -1673,8 +1637,8 @@ Virtualizarea oferă o flexibilitate enormă în configurarea și reconfigurarea
 
 \chapter{Testarea Performanței și Analiza Scalabilității}
 
-\section{Introducere în Testarea de Performanță}
-Asigurarea scalabilității și fiabilității reprezintă un obiectiv central al acestei lucrări, având în vedere natura aplicației web de rezervări, care trebuie să gestioneze un număr ridicat de utilizatori și interacțiuni concurente. Testarea de performanță, sau load testing, este o disciplină esențială în ingineria software, permițând evaluarea comportamentului sistemului sub sarcini specifice. Aceasta presupune simularea unui volum semnificativ de utilizatori și cereri concurente pentru a măsura capacitatea, reziliența și timpii de răspuns ai aplicației. Prin aplicarea unor scenarii realiste, se pot identifica blocajele, se poate evalua stabilitatea sistemului și se poate determina limita maximă a traficului gestionabil. Scopul acestei etape a fost validarea eficienței soluțiilor de scalabilitate implementate, respectiv Nginx load balancing și replicarea MySQL Master-Slave, în cadrul unei aplicații web funcționale.
+\section*{Introducere în Testarea de Performanță}
+Asigurarea scalabilității și fiabilității a constituit un obiectiv central al acestei lucrări, având în vedere specificul unei aplicații web de rezervări, care trebuie să susțină un număr mare de utilizatori și interacțiuni simultane. Testarea de performanță (load testing) reprezintă o etapă esențială în ingineria software, deoarece permite analizarea modului în care sistemul răspunde la sarcini ridicate. Aceasta implică simularea unui trafic intens, cu utilizatori și cereri concurente, pentru a măsura capacitatea de procesare, stabilitatea și timpii de răspuns ai aplicației. Prin aplicarea unor scenarii apropiate de utilizarea reală, pot fi identificate punctele critice, evaluate limitele de scalabilitate și determinate pragurile maxime de trafic gestionabil. Scopul acestei etape a fost validarea soluțiilor de scalare implementate, respectiv echilibrarea traficului cu Nginx și replicarea MySQL Master-Slave într-un context funcțional și realist.
 
 \section{Alegerea Instrumentului de Testare: Locust}
 Pentru realizarea testelor de performanță, s-a optat pentru instrumentul open-source Locust. Alegerea Locust a fost justificată de următoarele avantaje care se aliniază cerințelor proiectului:
@@ -1692,40 +1656,34 @@ Pentru realizarea testelor de performanță, s-a optat pentru instrumentul open-
 Pentru a evalua performanța aplicației într-un mod cât mai complet, au fost implementate mai multe scenarii de testare cu Locust, fiecare vizând un comportament specific al utilizatorului și un tip de sarcină distinctă pentru sistem:
 \begin{itemize}
 \item \textbf{Fluxul de Navigare și Descoperire a Informațiilor:}
-\textbf{Descriere:} Simulează comportamentul unui utilizator care explorează platforma, incluzând accesarea paginii principale și a paginii personale de rezervări, urmată de efectuarea unei căutări parametrizate pentru o proprietate.
-\textbf{Scop:} Testează performanța operațiunilor de citire (read) din baza de date și capacitatea serverului de a genera pagini dinamice care implică interogări complexe.
+Simulează comportamentul unui utilizator care explorează platforma, incluzând accesarea paginii principale și a paginii personale de rezervări, urmată de efectuarea unei căutări parametrizate pentru o proprietate.Are ca scop testarea operațiunilor de citire (read) din baza de date și capacitatea serverului de a genera pagini dinamice care implică interogări complexe.
 \item \textbf{Fluxul Complet de Gestionare a Proprietăților (CRUD):}  
-\textbf{Descriere:} Acoperă ciclul de viață complet al unei entități de tip „proprietate”, incluzând operațiuni de creare (Create), modificare (Update) și ștergere (Delete).  
-\textbf{Scop:} Evaluează performanța operațiunilor de scriere (write) în baza de date și menținerea coerenței datelor în condiții de stres, testând în același timp tranzacțiile și mecanismele de blocare (locking).  
+Acoperă toate etapele de gestionare a unei proprietăți, de la creare până la modificare și ștergere. Evaluează performanța operațiunilor de scriere (write) în baza de date și menținerea coerenței datelor în condiții de stres, testând în același timp tranzacțiile și mecanismele de blocare (locking).  
 
 \item \textbf{Fluxul Tranzacțional End-to-End: Rezervare și Anulare:}  
-\textbf{Descriere:} Simulează un flux complet de tranzacție, incluzând căutarea disponibilității, selectarea unei proprietăți, parcurgerea pașilor de confirmare a rezervării (cu multiple validări și scrieri în baza de date) și anularea aceleiași rezervări.  
-\textbf{Scop:} Testează integritatea întregului sistem tranzacțional, de la interfața web până la logica de business și persistența datelor, asigurând că aplicația poate gestiona un volum mare de tranzacții concurente fără coruperea datelor.  
+Simulează un flux complet de tranzacție, incluzând căutarea disponibilității, selectarea unei proprietăți, parcurgerea pașilor de confirmare a rezervării (cu multiple validări și scrieri în baza de date) și anularea aceleiași rezervări. Testează integritatea întregului sistem tranzacțional, de la interfața web până la logica de business și persistența datelor, asigurând că aplicația poate gestiona un volum mare de tranzacții concurente fără coruperea datelor.  
 
 \item \textbf{Fluxul de Administrare a Contului de Utilizator:}  
-\textbf{Descriere:} Simulează accesarea și modificarea datelor din profilul personal al utilizatorului.  
-\textbf{Scop:} Evaluează performanța subsistemului de autentificare și autorizare, precum și a operațiunilor de actualizare a datelor specifice utilizatorului.  
+Simulează accesarea și modificarea datelor din profilul personal al utilizatorului. De asemenea, evaluează performanța subsistemului de autentificare și autorizare, precum și a operațiunilor de actualizare a datelor specifice utilizatorului.  
 
 \item \textbf{Fluxul de Solicitare a Resurselor Statice:}  
-\textbf{Descriere:} Utilizatorul virtual solicită în mod repetat fișierele statice ale aplicației (CSS, JavaScript, imagini).  
-\textbf{Scop:} Izolează și testează performanța serverului web (Nginx) în livrarea de conținut static, independent de serverul de aplicație, ajutând la identificarea eventualelor probleme de configurare sau limitări de lățime de bandă.  
+tilizatorul virtual accesează în mod repetat fișierele statice ale aplicației (CSS, JavaScript, imagini), ceea ce permite izolarea și testarea performanței serverului web (Nginx) în livrarea de conținut static. Acest scenariu contribuie la identificarea eventualelor probleme de configurare sau a limitărilor de lățime de bandă. 
 
-\item \textbf{Simularea Căutărilor (Read-Heavy):}  
-Scenariul a simulat utilizatori care efectuează căutări repetate de proprietăți, vizualizează detalii și navighează prin rezultate. A evaluat performanța operațiunilor de citire din baza de date, eficiența direcționării cererilor către nodul Slave și capacitatea Nginx de a gestiona un volum mare de cereri GET.  
+\item \textbf{Căutări (Read-Heavy):}  
+Utilizatorii virtuali au efectuat căutări repetate de proprietăți, au vizualizat detalii și au navigat prin rezultate. Acest flux a permis evaluarea operațiunilor de citire din baza de date, a eficienței direcționării cererilor către nodul Slave și a capacității Nginx de a gestiona un volum mare de cereri GET.  
 
-\item \textbf{Simularea Înregistrărilor și Autentificărilor:}  
-Acest scenariu a testat procesele de înregistrare a utilizatorilor noi și autentificare, implicând operațiuni de scriere (INSERT) și citire (SELECT), evaluând atât performanța nodului Master, cât și logica de sesiune gestionată de Flask.  
+\item \textbf{Înregistrări și autentificări:}  
+Au fost testate procesele de creare a conturilor și de login, care implică atât scrieri (INSERT), cât și citiri (SELECT). Accentul a fost pus pe performanța nodului Master și pe logica de sesiune gestionată de Flask.  
 
-\item \textbf{Simularea Procesului de Rezervare (Write-Heavy/Transactional):}  
-Cel mai complex scenariu, simulând întregul flux de rezervare de la căutare la finalizarea tranzacției. A implicat multiple operațiuni de scriere și actualizare (INSERT, UPDATE) și a evaluat performanța nodului Master și capacitatea sistemului de a gestiona tranzacții ACID complexe sub sarcină.  
+\item \textbf{Procesul de rezervare (Write-Heavy/Transactional):}  
+Cel mai complex flux, care acoperă pașii de la căutare până la confirmarea tranzacției. A inclus multiple operațiuni de scriere și actualizare (INSERT, UPDATE), urmărindu-se performanța nodului Master și modul în care sistemul gestionează tranzacții ACID sub sarcină.  
 
-\item \textbf{Testarea Rezilienței și Failover-ului:}  
-Au fost simulate scenarii de eșec, cum ar fi oprirea unei instanțe Flask sau a MySQL Master, pentru a valida comportamentul de failover al Nginx și replicarea MySQL, precum și pentru a măsura timpul de recuperare a serviciului.  
+\item \textbf{Reziliență și failover:}  
+Au fost introduse situații de eșec, precum oprirea unei instanțe Flask sau a nodului MySQL Master. S-a observat comportamentul de failover al Nginx și replicarea MySQL, fiind măsurat și timpul de recuperare a serviciului.  
+
 
 \end{itemize}
 
-\section{Implementarea Testelor cu Locust}
-Un test \texttt{Locust} este definit printr-o clasă \texttt{User} în \texttt{Python}, care moștenește de la \texttt{HttpUser} (pentru aplicații web). Această clasă conține atribute precum \texttt{host} (adresa \texttt{Nginx}-ului), \texttt{wait\_time} (intervalul de așteptare între cereri) și metode decorate cu \texttt{@task} care definesc acțiunile pe care utilizatorii virtuali le vor executa.
 
 \section{Procesul de Execuție și Monitorizare}
 Execuția testelor de performanță cu \texttt{Locust} implică următorii pași:
@@ -1744,7 +1702,7 @@ Execuția testelor de performanță cu \texttt{Locust} implică următorii pași
 		\item Distribuția Timpilor de Răspuns (Percentile): Arată procentul de cereri care au fost procesate sub un anumit timp (ex: 90\% din cereri au răspuns în mai puțin de X ms).
 	\end{enumerate}
 	
-	\item \textbf{Monitorizare Resurse Sistem:} Concomitent cu testele Locust, resursele hardware ale fiecărei mașini (Host, VM1, VM2) sunt monitorizate cu instrumente precum htop (pentru CPU, RAM, procese pe Linux), top (similar htop), glances (un instrument de monitorizare cross-platform) și Task Manager (pentru Windows). Instrumente precum Prometheus și Grafana pot fi, de asemenea, utilizate pentru o monitorizare mai avansată a metricilor de performanță (CPU, RAM, I/O, trafic de rețea) la nivel de sistem de operare și aplicație.
+	\item \textbf{Monitorizare Resurse Sistem:} Concomitent cu testele Locust, resursele hardware ale fiecărei mașini (Host, VM1, VM2) precum ar fi CPU-ul și memoria RAM sunt monitorizate cu Task Manager. 
 	
 	\item \textbf{Analiza Log-urilor:} Log-urile generate de Nginx, Flask și MySQL sunt analizate pentru a identifica erori, avertismente sau anomalii care ar putea indica probleme de performanță sau securitate sub sarcină.
 \end{enumerate}
@@ -1752,17 +1710,18 @@ Execuția testelor de performanță cu \texttt{Locust} implică următorii pași
 Mediul de testare a fost conceput pentru a replica fidel arhitectura de producție propusă, asigurând validitatea rezultatelor obținute. Componentele au fost distribuite pe mașini virtuale pentru a simula un mediu real de cloud și pentru a permite izolarea resurselor:
 \begin{itemize}
 	\item Stația de Lucru Principală (Host): Găzduiește serverul MySQL Master, responsabil cu operațiile de scriere, și o instanță a aplicației Flask. De asemenea, pe Host este configurat Nginx, care funcționează ca load balancer pentru ambele instanțe Flask (Host și VM2). Instanța master a Locust a fost rulată tot pe această mașină, coordonând workerii.
-	\item Mașina Virtuală 1 (VM1): A fost configurată ca server MySQL Slave, dedicat operațiilor de citire și replicării datelor de la Master. Această VM a fost utilizată și pentru a rula workerii Locust, generând trafic intens către aplicație.
-	\item Mașina Virtuală 2 (VM2): A găzduit o instanță secundară a aplicației Flask, care a primit cereri distribuite de la Nginx. Această mașină a jucat un rol cheie în demonstrarea scalabilității orizontale a stratului de aplicație. Această distribuție a permis simularea realistă a traficului și a interacțiunilor între componentele unui sistem distribuit, oferind o platformă robustă pentru testele de performanță.
+	\item Mașina Virtuală 1 (VM1): A fost configurată ca server MySQL Slave, dedicat operațiilor de citire și replicării datelor de la Master. Această mașină virtuală a fost utilizată și pentru a rula workerii Locust, generând trafic intens către aplicație.
+	\item Mașina Virtuală 2 (VM2):  A găzduit o instanță secundară a aplicației Flask, care a preluat cereri distribuite de Nginx. Rolul ei a fost esențial în demonstrarea scalabilității orizontale a stratului de aplicație, permițând simularea realistă a traficului și a interacțiunilor dintre componentele sistemului distribuit. În acest mod, a oferit o bază solidă pentru testele de performanță.  
+
 
 \end{itemize}
 
 \subsubsection{Pregătirea și Rularea Testului Locust}
-Pentru a executa testul în acest scenariu monolitic, au fost urmați pașii de configurare și lansare a Locust:
+Pentru a executa testele, au fost urmați pașii de configurare și lansare a Locust:
 \begin{enumerate}
 	\item \textbf{Configurarea fișierului \texttt{locustfile.py}:} Fișierul de testare Locust a fost configurat pentru a direcționa traficul direct către instanța Flask de pe sistemul gazdă, setând \texttt{host = "http://localhost:5000"}
 . Task-urile definite au inclus simularea căutărilor (operații de citire), vizualizarea detaliilor proprietăților și, pentru utilizatorii autentificați, interacțiuni cu pagina de profil. În plus, au fost incluse, cu o pondere mai redusă, fluxuri de înregistrare și rezervare (operații de scriere).
-	\item Lansarea Aplicației Flask: Instanța aplicației Flask a fost pornită manual pe Host, asigurându-se că este accesibilă pe portul specificat (ex: python app.py).
+	\item Lansarea Aplicației Flask: Instanțele aplicației Flask au fost pornite manual, asigurându-se că sunt accesibile pe portul 5000.
 	\item Lansarea Locust: Din terminal, Locust a fost inițiat cu comanda locust -f locustfile.py. Aceasta a activat interfața web Locust, accesibilă la http:\/\/localhost:8089.
 	\item Configurația în Interfața Web Locust: În interfața web, testul a fost configurat cu următoarele setări inițiale pentru a simula un volum moderat de utilizatori:
 	\begin{itemize}
@@ -1770,139 +1729,486 @@ Pentru a executa testul în acest scenariu monolitic, au fost urmați pașii de 
 		\item Spawn rate (users per second): 5
 		\item Host: http://localhost:5000
 	\end{itemize}
-	\item Start Test: Testul a fost demarat prin apăsarea butonului "Start swarming" și lăsat să ruleze pentru o perioadă de cel puțin 5-10 minute odată ce numărul maxim de utilizatori a fost atins.
+	\item Start Test: Testul a fost demarat prin apăsarea butonului "Start swarming" și lăsat să ruleze pentru o perioadă de cel puțin 15 minute odată ce numărul maxim de utilizatori a fost atins.
 	
 \end{enumerate}
-
-\section{Analiza Rezultatelor și Identificarea Limitărilor}
-Analiza detaliată a datelor colectate este crucială pentru a trage concluzii relevante despre performanța și scalabilitatea arhitecturii.
-\begin{itemize}
-	\item Indicatori Cheie de Performanță (KPIs): Se evaluează timpii de răspuns medii și percentilele (ex: P90, P95, P99) pentru a înțelege experiența utilizatorului. O rată mare de eșec indică probleme de stabilitate.
-	
-	\item Identificarea Blocajelor (Bottlenecks): Prin corelarea metricilor Locust cu monitorizarea resurselor sistemului, se pot identifica componentele care limitează performanța:
-	\begin{itemize}
-		\item CPU-bound: Dacă utilizarea CPU este la 100\% pe serverele Flask, înseamnă că logica aplicației este intensivă.
-		
-		\item Memory-bound: Dacă RAM-ul este la limită și se observă swap-in/out, memoria este un factor limitator.
-		
-		\item I/O-bound: Dacă discul (I/O) este supraîncărcat, baza de date sau scrierea log-urilor poate fi bottleneck-ul.
-		
-		\item Network-bound: Lățimea de bandă a rețelei poate limita traficul.
-
-	\end{itemize}
-	
-	\item Comportamentul Load Balancer-ului: Se analizează log-urile Nginx pentru a verifica distribuția cererilor între serverele Flask. O distribuție inegală sau o rată mare de erori pentru un anumit server pot indica probleme.
-	
-	\item Comportamentul Replicării MySQL: Se monitorizează lag-ul de replicare (timpul dintre scrierea pe Master și aplicarea pe Slave) pentru a asigura că Slave-ul este suficient de actualizat. Se analizează performanța nodului Master sub operații de scriere și a nodului Slave sub operații de citire.
-	\item Concluzii din Teste: Se trage o concluzie generală despre eficiența soluțiilor de scalabilitate implementate, evidențiind succesul în gestionarea traficului și identificând eventualele limitări care ar putea necesita optimizări suplimentare în direcțiile viitoare.
-\end{itemize}
 
 \section{Scenarii de Testare Implementate}
 
 
-Acest capitol detaliază pașii specifici pentru fiecare caz de testare, menit să valideze diferitele aspecte ale scalabilității și rezilienței arhitecturii sistemului de rezervări. Fiecare caz va fi executat utilizând Locust pentru generarea sarcinii și instrumente de monitorizare la nivel de sistem pentru colectarea metricilor.
+Următoarea secțiune prezintă pașii efectuați pentru fiecare scenariu de testare, având ca scop evaluarea scalabilității și rezilienței arhitecturii sistemului de rezervări. Testele au fost realizate folosind Locust pentru simularea traficului și diverse instrumente de monitorizare la nivel de sistem pentru colectarea și analizarea metricilor de performanță.
 
-\subsection{Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}
+\subsection{Cazul 1: Aplicația Flask Monolitică (Fără Scalare)}
 
 Acest scenariu de testare are rolul de a stabili performanța de referință, simulând comportamentul unei arhitecturi tradiționale, monolitice, pentru aplicația web de rezervări, fără mecanisme active de scalare sau load balancing. Obiectivul principal constă în înregistrarea metricilor de performanță inițiale, care vor servi ulterior drept punct de comparație pentru evaluarea îmbunătățirilor aduse de soluțiile distribuite implementate.
 
-\subsubsection{Configurația Mediului}
+\subsection*{Configurația Mediului}
 
-În vederea reproducerii configurației monolitice cadrul de testare a fost aranjat simplist amplasând toate elementele indispensabile pe un singur sistem.
+Pentru a reproduce configurația monolitică, cadrul de testare a fost simplificat, plasând toate componentele esențiale pe un singur sistem.
 
-\begin{enumerate}
-	\item Sistemul Gazdă (Unitatea de Procesare Principală):
-	\begin{itemize}
-\item A fost pornită o singură instanță a aplicației web Flask, rulând pe portul implicit 5000, responsabilă atât de logica funcțională, cât și de procesarea directă a cererilor HTTP.
-\item Serverul principal MySQL, operativ pe sistemul gazdă, a gestionat toate tranzacțiile cu baza de date, incluzând atât operațiuni de citire, cât și de scriere.
-\end{itemize}
-	\item \textbf{Instanța Virtuală 1 (VM1):} A fost dezactivată pe durata testării, iar serverul MySQL secundar nu a fost utilizat.
-\item \textbf{Instanța Virtuală 2 (VM2):} A fost dezactivată și nu a fost folosită, iar cealaltă instanță Flask nu a fost operativă.
-\item \textbf{Nginx:} Componenta Nginx a fost dezactivată și nu a gestionat traficul. Cererile generate de Locust au fost direcționate direct către instanța Flask de pe sistemul gazdă, fără implicarea unui load balancer sau proxy invers.
-\item \textbf{Depozitul de date:} Instanța principală MySQL de pe sistemul gazdă a fost conectată la aplicația Flask. Baza de date a fost populată cu un set de date de test (aproximativ 150 de utilizatori, 300 de proprietăți și 900 de unități locative), generat cu programul \texttt{generate\_test\_data.py}, asigurând uniformitate pentru operațiunile de citire și scriere pe durata testului.
-\end{enumerate}
+O singură instanță a aplicației web Flask a fost pornită, rulând pe portul implicit 5000, fiind responsabilă atât de logica funcțională, cât și de procesarea directă a cererilor HTTP. Serverul principal MySQL, operativ pe sistemul gazdă, a gestionat toate tranzacțiile cu baza de date, incluzând operațiuni de citire și scriere.
 
+Pe durata testării, instanțele virtuale VM1 și VM2 au fost dezactivate: serverul MySQL secundar nu a fost utilizat, iar a doua instanță Flask nu a rulat. Componenta Nginx a fost de asemenea oprită, astfel încât cererile generate de Locust au fost direcționate direct către aplicația Flask de pe sistemul gazdă, fără implicarea unui load balancer sau proxy invers. Baza de date MySQL principală a fost populată cu un set de date de test (150 de utilizatori, 300 de proprietăți și 900 de unități locative), generat cu programul \texttt{generate\_test\_data.py}, pentru a asigura consistența operațiilor de citire și scriere.
 
+\subsection*{Interpretarea Detaliată a Rezultatelor}
 
+Analiza performanței aplicației s-a realizat pe două momente cheie: \textbf{după 2-3 minute} de la începutul testului și \textbf{după 15 minute}, pentru a evalua comportamentul inițial și stabilitatea pe termen lung.
 
+\subsection*{Rezultatele după 2-3 minute}
 
-
-
-
-\section{Cazul 2: Aplicația Flask\textbf{Aplicația Flask } (Load Balancing)}
-
-Acest caz de testare stabilește o linie de bază a performanței, simulând o arhitectură tradițională, monolitică, pentru aplicația web de rezervări, fără soluții active de scalare sau load balancing. Obiectivul principal al acestui test este de a înregistra metricile de performanță ale sistemului în condiții inițiale, servind ca punct de referință pentru a evalua ulterior îmbunătățirile aduse de soluțiile distribuite implementate. Rezultatele obținute în acest scenariu vor evidenția limitările inerente ale unei arhitecturi neoptimizate pentru trafic intens, justificând astfel necesitatea abordărilor complexe de scalare.
-
-
-\subsubsection{Configurația Mediului}
 \begin{itemize}
-\item A fost pornită o singură instanță a aplicației web Flask, rulând pe portul implicit 5000, responsabilă atât de logica funcțională, cât și de procesarea directă a cererilor HTTP.
-\item Serverul principal MySQL, operativ pe sistemul gazdă, a gestionat toate tranzacțiile cu baza de date, incluzând atât operațiuni de citire, cât și de scriere.
 
+ \item \textbf{Debitul sistemului (RPS):} Sistemul a atins rapid un debit de aproximativ 150.2 cereri pe secundă, stabilizându-se în primele secunde ale testului. Nu s-au înregistrat eșecuri. 
+    
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c23.png}
+	\caption{Total Requests per Second}
+	\label{fig:c23}
+\end{figure}
+\item \textbf{Timpii de răspuns (Latență)}: 
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c2cm.png}
+	\caption{Total Requests per Second}
+	\label{fig:c2cm}
+\end{figure}
+    \begin{itemize}
+        \item Endpoint-uri rapide: Majoritatea cererilor de tip GET, cum ar fi \texttt{/my-reservations} sau \texttt{/static/all\_css}, au avut mediana sub 10 ms și percentila 95 sub 260 ms, indicând un răspuns rapid pentru majoritatea utilizatorilor.
+        \item Endpoint-uri lente: \texttt{POST /login} a avut un timp mediu de ~2315 ms, mediana 2300 ms și percentila 95 de 2400 ms, indicând un blocaj semnificativ. \texttt{POST /edit-profile} a înregistrat o medie de ~313 ms.
+    \end{itemize}
+   \item \textbf{Utilizarea resurselor:} CPU-ul a fost utilizat la 82\%, cu o frecvență de 3.02 GHz, iar memoria RAM s-a situat la 73\% din totalul disponibil.
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=0.8\columnwidth, center]{figuri/c23t.png}
+	\caption{Total Requests per Second}
+	\label{fig:c2t}
+\end{figure}
+  \end{itemize}
 
-	\item \textbf{Instanța Virtuală 1 (VM1):} A fost dezactivată pe durata testării, iar serverul MySQL secundar nu a fost utilizat.
-\item \textbf{Instanța Virtuală 2 (VM2):} A fost dezactivată și nu a fost folosită, iar cealaltă instanță Flask nu a fost operativă.
-\item \textbf{Nginx:} Componenta Nginx a fost dezactivată și nu a gestionat traficul. Cererile generate de Locust au fost direcționate direct către instanța Flask de pe sistemul gazdă, fără implicarea unui load balancer sau proxy invers.
-\item \textbf{Depozitul de date:} Instanța principală MySQL de pe sistemul gazdă a fost conectată la aplicația Flask. Baza de date a fost populată cu un set de date de test (aproximativ 150 de utilizatori, 300 de proprietăți și 900 de unități locative), generat cu programul \texttt{generate\_test\_data.py}, asigurând uniformitate pentru operațiunile de citire și scriere pe durata testului.
+\subsection*{Rezultatele după 15 minute}
+
+\begin{itemize}
+    \item \textbf{Debitul sistemului (RPS):} Debit stabil la 135.8 cereri pe secundă, o scădere minoră față de valoarea inițială, semn că sistemul nu suferă degradări semnificative în timp.
+    
+    \item \textbf{Timpii de răspuns (Latență):}  
+    \begin{itemize}
+        \item Endpoint-uri rapide: Mediana pentru GET-uri rămâne sub 10 ms, iar percentila 95 sub 290 ms.
+        \item Endpoint-uri lente: \texttt{POST /login} se menține la 2315 ms mediu și 2400 ms percentila 95. \texttt{POST /edit-profile} a crescut ușor, ~328 ms, iar percentila 99 a ajuns la 560 ms.
+    \end{itemize}
+    
+    \item \textbf{Utilizarea resurselor:} CPU-ul s-a stabilizat la 65\%, iar memoria RAM a rămas constantă la 72-73\%.
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=0.8\columnwidth, center]{figuri/c210t.png}
+	\caption{Total Requests per Second}
+	\label{fig:c210t}
+\end{figure}
 \end{itemize}
+
+\subsection*{Interpretarea rezultatelor pe baza graficelor}
+
+Testul de performanță a fost monitorizat utilizând trei grafice principale: \textbf{Total Requests per Second (RPS)}, \textbf{Response Times (ms)} și \textbf{Number of Users}. Analiza a fost realizată pentru două momente cheie: după aproximativ 2-3 minute de la începutul testului și după 15 minute, pentru a evalua atât comportamentul inițial, cât și stabilitatea pe termen lung.
+
+Graficul \ref{fig:c2cr} arată că rata de cereri pe secundă a crescut rapid la începutul testului, atingând un vârf de aproximativ 200 RPS, după care s-a stabilizat într-un interval constant de aproximativ 150-175 RPS în primele 2-3 minute. Această valoare indică faptul că sistemul poate procesa cereri într-un mod stabil chiar și sub o sarcină inițială ridicată. Pe termen lung, după 15 minute, RPS-ul s-a menținut constant în jurul valorii de 135-150, demonstrând că performanța aplicației rămâne robustă și previzibilă sub o sarcină continuă. Linia care indică numărul de eșecuri pe secundă rămâne la zero în ambele momente, ceea ce confirmă fiabilitatea sistemului.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c2cr.png}
+	\caption{Total Requests per Second}
+	\label{fig:c2cr}
+\end{figure}
+
+
+Graficul  \ref{fig:c2cm} evidențiază timpii de răspuns mediani și ai percentilei 95. Percentila 50, reprezentată prin linia portocalie, se menține la un nivel foarte scăzut și constant în ambele momente, indicând că cel puțin jumătate dintre cereri sunt procesate rapid, cu performanță consistentă. Percentila 95, reprezentată prin linia violetă, indică prezența unor cereri mai lente. La începutul testului, se observă un vârf de peste 2000 ms, sugerând o supraîncărcare temporară. După stabilizare, aceste cereri mai lente rămân într-un interval relativ constant de 300-400 ms, ceea ce sugerează că sistemul poate gestiona eficient coada de cereri mai complexe, menținând predictibilitatea performanței.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c2cm.png}
+	\caption{Total Requests per Second}
+	\label{fig:c2cm}
+\end{figure}
+
+Graficul \ref{fig:c2cu} arată creșterea rapidă a utilizatorilor virtuali până la 50, care s-au menținut constant pe durata testului. Aceasta demonstrează că sistemul poate gestiona simultan un număr semnificativ de utilizatori fără degradarea performanței. La finalul testului, numărul de utilizatori a scăzut treptat la zero, indicând terminarea simulării și comportamentul așteptat al aplicației.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c2cu.png}
+	\caption{Total Requests per Second}
+	\label{fig:c2cu}
+\end{figure}
+
+\subsection*{Rezultate Agregate (Toate Cererile)}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 9 ms & 9 ms & Jumătate din cereri sunt extrem de rapide \\
+95\%ile & 260 ms & 290 ms & Performanță bună pentru majoritatea cererilor \\
+99\%ile & 350 ms & 360 ms & Chiar și cele mai lente cereri rămân sub 0.4 secunde \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns agregat pentru toate cererile.}
+\label{tab:all-requests}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 2300 ms & 2300 ms & Experiență foarte slabă: un utilizator tipic așteaptă 2.3 secunde \\
+95\%ile & 2400 ms & 2400 ms & Majoritatea utilizatorilor așteaptă până la 2.4 secunde \\
+99\%ile & 2400 ms & 2400 ms & Timp constant, dar foarte lent \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /login.}
+\label{tab:login}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 300 ms & 320 ms & Acceptabil, dar mai ridicat decât media \\
+95\%ile & 390 ms & 400 ms & Majoritatea cererilor sub 0.5 sec \\
+99\%ile & 460 ms & 560 ms & Unii utilizatori așteaptă peste 0.5 sec \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /edit-profile.}
+\label{tab:edit-profile}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+Metrică & După 2-3 min & După 15 min & Interpretare \\
+\hline
+Median (50\%) & 5 ms & 9 ms & Extrem de rapid \\
+95\%ile & 13 ms & 22 ms & Performanță excelentă pentru majoritatea utilizatorilor \\
+99\%ile & 21 ms & 34 ms & Chiar și cele mai lente cereri sunt practic instantanee \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru GET /my-reservations.}
+\label{tab:my-reservations}
+\end{table}
+
+\subsection*{Concluzii pentru testul de performanță}
+
+Analiza datelor colectate la intervalele de 2-3 minute și 15 minute arată o performanță stabilă a sistemului sub sarcină continuă. Graficul \ref{fig:c2cr} indică o capacitate de procesare constantă, cu valori medii de aproximativ 150--175 RPS, fără eșecuri (\textit{Failures/s} = 0). Numărul utilizatorilor virtuali a rămas constant la 50 pentru majoritatea testului, conform graficului \ref{fig:c2cu}, demonstrând reziliența aplicației.
+
+Timpul de răspuns agregat pentru toate cererile (Tabel \ref{tab:all-requests}) rămâne foarte scăzut, median = 9 ms, iar percentila 95 și 99 indică valori sub 0.4 secunde, arătând că majoritatea cererilor sunt procesate rapid. Endpoint-urile specifice, însă, prezintă comportamente diferite:
+
+\begin{itemize}
+    \item \texttt{POST /login} (Tabel \ref{tab:login}) rămâne un punct critic, cu timp mediu de răspuns de 2300 ms constant pe întreaga durată a testului. Percentilele 95 și 99 confirmă blocajul punctual, indicând că autentificarea necesită optimizare.
+    \item \texttt{POST /edit-profile} (Tabel \ref{tab:edit-profile}) are timpi de răspuns mai mari decât media, median = 300--320 ms, dar fără degradări majore pe parcursul testului.
+    \item Operațiuni rapide, precum \texttt{GET /my-reservations} (Tabel \ref{tab:my-reservations}), au timpi medii sub 10 ms și chiar percentila 99 rămâne foarte mică, confirmând performanța optimă pentru cererile frecvente.
+\end{itemize}
+
+Graficul \ref{fig:c2cm} arată că, după un vârf inițial de încărcare la începutul testului, mediana timpilor de răspuns se menține constantă, iar percentila 95 se stabilizează într-un interval predictibil (300--400 ms pentru endpoint-urile mai lente). Aceasta indică faptul că sistemul poate gestiona volumul de cereri într-un mod previzibil și că nu apar degradări semnificative pe termen scurt.
+
+În concluzie, testul confirmă stabilitatea generală a aplicației și capacitatea de a procesa cereri multiple simultan. Cu toate acestea, anumite endpoint-uri critice necesită optimizare pentru a asigura o experiență uniformă pentru toți utilizatorii.
+
+
+
+
+
+
+
+\subsection{Cazul 2: Aplicația Flask\textbf{Aplicația Flask } (Load Balancing)}
+
+Pentru acest scenariu, cadrul de testare a fost extins pentru a simula o arhitectură distribuită, folosind două instanțe Flask și un sistem de replicare Master-Slave pentru baza de date MySQL. 
+
+O instanță Flask a fost rulată pe sistemul gazdă, iar cea de-a doua instanță a fost pornită pe VM2. Traficul a fost gestionat prin intermediul Nginx, care a acționat ca load balancer și proxy invers, redirecționând cererile între cele două instanțe Flask pentru a echilibra sarcina și a demonstra scalabilitatea orizontală a stratului de aplicație.
+
+Serverul MySQL principal (Master) și serverul secundar (Slave) au fost active, iar Nginx a direcționat cererile către instanțele corespunzătoare. În plus, fișierele statice ale aplicației au fost livrate prin intermediul unui server IIS instalat pe VM2, optimizând astfel distribuția conținutului static și separând procesarea logicii aplicației de livrarea resurselor statice.
+
+Această configurație a permis simularea unui mediu realist, în care cererile utilizatorilor sunt distribuite între instanțe, iar baza de date replicate asigură consistența și disponibilitatea datelor. Setul de date de test a fost același ca în cazul monolitic, conținând aproximativ 150 de utilizatori, 300 de proprietăți și 900 de unități locative.
+
+\subsection*{Rezultatele după 2-3 minute}
+
+\begin{itemize}
+
+\item \textbf{Debitul sistemului (RPS):} Testul a implicat 50 de utilizatori și a generat un total de 30042 cereri, cu 0\% eșecuri. Debitul agregat a fost de 150.2 cereri pe secundă, indicând stabilitate și capacitatea aplicației de a gestiona un volum ridicat de cereri fără erori.
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=1\columnwidth, center]{figuri/c13.png}
+\caption{Total Requests per Second}
+\label{fig:c13}
+\end{figure}
+
+\item \textbf{Timpii de răspuns (Latență):}
+\begin{itemize}
+    \item Endpoint-uri rapide: Cererile de tip GET, cum ar fi \texttt{/my-reservations} și \texttt{/my-properties}, au avut timpi medii foarte mici (21-29 ms), indicând performanță excelentă pentru majoritatea utilizatorilor.
+    \item Endpoint-uri lente: \texttt{POST /login} a prezentat un timp mediu de răspuns de ~2315 ms, mediana 2300 ms și percentila 95 de 2400 ms, reprezentând un blocaj semnificativ. \texttt{POST /edit-profile} a avut o medie de ~313 ms.
+\end{itemize}
+\item \textbf{Utilizarea resurselor:} În timpul testului, CPU-ul a atins 71\% utilizare cu o frecvență de 2.77 GHz, iar memoria RAM a fost utilizată în proporție de 78\% (12.4 GB din 15.8 GB), indicând că sistemul funcționează aproape de capacitatea maximă.
+
+\begin{figure}[h]
+\centering
+\includegraphics*[width=0.8\columnwidth, center]{figuri/c13t.png}
+\caption{Utilizarea resurselor sistemului}
+\label{fig:c13t}
+\end{figure}
+
+\end{itemize}
+
+
+\subsection*{Rezultatele după 15 minute}
+
+\begin{itemize}
+    \item \textbf{Debitul sistemului (RPS):} Sistemul a menținut un debit stabil de 164.9 cereri pe secundă, ușor mai mare decât în testele anterioare, indicând că aplicația poate susține volumul de cereri fără eșecuri sau degradare semnificativă.
+    \begin{figure}[h]
+        \centering
+        \includegraphics*[width=0.8\columnwidth, center]{figuri/c110.png}
+        \caption{Utilizarea resurselor sistemului după 15 minute de testare}
+        \label{fig:c110}
+    \end{figure}
+ 
+    \item {Timpii de răspuns (Latență):  }
+    \begin{itemize}
+        \item Endpoint-uri rapide: Cererile GET, precum \texttt{/my-reservations} și \texttt{/my-properties}, au răspunsuri medii între 23 și 28 ms, iar fișierele statice (\texttt{/static/css/*}) au avut timpi medii de 8.57 ms, indicând o performanță foarte bună pentru majoritatea utilizatorilor.
+        \item Endpoint-uri lente: Cererea \texttt{POST /login} rămâne punctul critic, cu un timp mediu de răspuns de 464.71 ms și un timp maxim de 851 ms, confirmând că autentificarea reprezintă un factor limitativ. Alte endpoint-uri precum \texttt{POST /edit-profile} au timpi medii mai mari comparativ cu GET-urile, dar rămân sub 560 ms.
+    \end{itemize}
+    
+    \item \textbf{Utilizarea resurselor:} CPU-ul a atins 100\% din capacitate la o frecvență de 2.43 GHz, iar memoria RAM a fost utilizată în proporție de 84\% (13.2 GB din 15.8 GB disponibili), indicând că sistemul funcționează la capacitate maximă pentru a susține volumul de cereri.
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics*[width=0.8\columnwidth, center]{figuri/c110t.png}
+        \caption{Utilizarea resurselor sistemului după 15 minute de testare}
+        \label{fig:c110t}
+    \end{figure}
+\end{itemize}
+
+\subsection*{Interpretarea rezultatelor pe baza graficelor}
+
+Testul de performanță a fost monitorizat utilizând trei grafice principale: \textbf{Total Requests per Second (RPS)}, \textbf{Response Times (ms)} și \textbf{Number of Users}. Analiza a fost realizată pentru două momente cheie: după aproximativ 2-3 minute de la începutul testului și după 15 minute, pentru a evalua atât comportamentul inițial, cât și stabilitatea pe termen lung.
+
+Graficul \ref{fig:c110rps} arată că rata de cereri pe secundă a crescut rapid la începutul testului, atingând un vârf de aproximativ 165 RPS, după care s-a menținut într-un interval constant de aproximativ 160-165 RPS în primele 15 minute. Această valoare indică faptul că sistemul poate procesa cereri într-un mod stabil chiar și sub o sarcină ridicată și continuă. Linia care indică numărul de eșecuri pe secundă rămâne la zero, ceea ce confirmă fiabilitatea aplicației.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c110rps.png}
+	\caption{Total Requests per Second după 15 minute}
+	\label{fig:c110rps}
+\end{figure}
+
+Graficul \ref{fig:c110lat} evidențiază timpii de răspuns mediani și ai percentilei 95 pentru endpoint-uri. Percentila 50, reprezentată prin linia portocalie, se menține foarte scăzută, între 23 și 28 ms pentru GET-uri, indicând că cel puțin jumătate dintre cereri sunt procesate rapid. Percentila 95, reprezentată prin linia violetă, arată timpi mai mari pentru cererile complexe: \texttt{POST /login} are un timp mediu de 464.71 ms și un maxim de 851 ms, în timp ce \texttt{POST /edit-profile} rămâne sub 560 ms. Aceasta sugerează că, deși majoritatea cererilor sunt rapide, aplicația gestionează predictibil și cererile mai lente.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=1\columnwidth, center]{figuri/c110lat.png}
+	\caption{Timpii de răspuns după 15 minute}
+	\label{fig:c110lat}
+\end{figure}
+
+Graficul \ref{fig:c110cpu1} arată creșterea rapidă a utilizatorilor virtuali până la 50, care s-au menținut constant pe durata testului. Aceasta demonstrează că sistemul poate gestiona simultan un număr semnificativ de utilizatori fără degradarea performanței. La finalul testului, numărul de utilizatori a scăzut treptat la zero, indicând terminarea simulării și comportamentul așteptat al aplicației.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=0.8\columnwidth, center]{figuri/c110t.png}
+	\caption{Utilizarea resurselor după 15 minute de testare}
+	\label{fig:c110cpu1}
+\end{figure}
+
+
+\subsection*{Rezultate Agregate și Endpoint-uri Specifice}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|p{6cm}}
+\hline
+\textbf{Metrică} & \textbf{După 2-3 min} & \textbf{După 15 min} & \textbf{Interpretare} \\
+\hline
+\multicolumn{4}{c}{\textbf{1. Rezultate Agregate (Toate Cererile)}} \\
+\hline
+Median (50\%) & 9 ms & 9 ms & Performanța mediană a rămas extrem de rapidă și consistentă în ambele teste. \\
+95\%ile & 94 ms & 100 ms & Timpul de răspuns pentru majoritatea cererilor a rămas excelent, crescând ușor în testul mai lung. \\
+99\%ile & 170 ms & 190 ms & Chiar și cele mai lente cereri au fost procesate în mai puțin de 200 ms, cu o mică creștere în testul mai lung. \\
+\hline
+\multicolumn{4}{c}{\textbf{2. POST /login (Punctul de blocaj)}} \\
+\hline
+Median (50\%) & 440 ms & 440 ms & Timpul median de răspuns pentru autentificare este extrem de lent, reflectând o experiență slabă pentru utilizator. \\
+95\%ile & 750 ms & 750 ms & Majoritatea utilizatorilor așteaptă o perioadă considerabilă pentru a se loga. \\
+99\%ile & 850 ms & 850 ms & Valorile rămân la un nivel constant și ridicat, sugerând că problema este una fundamentală a procesului de login, nu a scalării sarcinii. \\
+\hline
+\multicolumn{4}{c}{\textbf{3. GET /my-reservations (Endpoint performant)}} \\
+\hline
+Median (50\%) & 17 ms & 18 ms & Performanța mediană a rămas excelentă. \\
+95\%ile & 77 ms & 96 ms & Chiar și 95\% dintre cereri sunt procesate rapid, arătând o performanță consistentă. \\
+99\%ile & 170 ms & 190 ms & Chiar și cele mai lente cereri au fost procesate în mai puțin de 200 ms, cu o mică creștere în testul mai lung. \\
+\hline
+\end{tabular}
+\caption{Compararea performanței generale și a endpoint-urilor pentru două seturi de teste.}
+\label{tab:comparative-results}
+\end{table}
+
+
+\section{Monolitic versus Load Balancing}
+
+Pentru a investiga modul în care arhitectura afectează performanța aplicației, s-a realizat o comparație între două configurații distincte: \textbf{Cazul 1}, corespunzător unei implementări monolitice fără load balancing, și \textbf{Cazul 2}, în care două instanțe Flask sunt gestionate prin Nginx, iar baza de date MySQL funcționează în regim Master-Slave. Analiza s-a concentrat asupra debitului sistemului, a timpilor de răspuns pe endpoint-uri și a utilizării resurselor pe durata testelor de stres, pentru a evalua impactul arhitecturii asupra scalabilității și stabilității aplicației.
+
+\subsection*{Configurația Mediului}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|p{8cm}}
+\hline
+Aspect & Cazul 1: Monolit & Cazul 2: Două instanțe Flask cu Nginx \\
+\hline
+Număr instanțe Flask & 1 instanță pe host & 2 instanțe (una pe host, una pe VM2) \\
+Load balancing & Nu există & Nginx direcționează cererile între instanțe \\
+Baza de date & MySQL principal pe host & Master-Slave: principal pe host, secundar pe VM1 \\
+Servirea fișierelor statice & Direct de la Flask & Nginx redirecționează fișiere statice către IIS pe VM2 \\
+Direcționarea cererilor & Direct către Flask & Cererile sunt distribuite între cele două instanțe \\
+\hline
+\end{tabular}
+\caption{Configurarea mediului în cele două cazuri de testare.}
+\label{tab:config}
+\end{table}
+
+\subsection*{Debitul sistemului (RPS)}
+
+Testele au arătat următoarele rezultate pentru rata de cereri pe secundă:
+
+\begin{itemize}
+    \item În primele 2-3 minute, Cazul 1 (monolit) a atins un RPS de aproximativ 150 cereri pe secundă, stabilizându-se rapid.
+    \item În aceeași perioadă, Cazul 2 (load balancing + două instanțe) a atins 158 RPS, datorită distribuirii cererilor între instanțe.
+    \item După 15 minute, Cazul 1 a înregistrat o scădere la aproximativ 135 RPS, indicând o ușoară degradare sub sarcină continuă.
+    \item Cazul 2 a menținut un RPS constant de 164 cereri pe secundă, demonstrând stabilitate pe termen lung și mai bună scalabilitate.
+\end{itemize}
+
+\subsection*{Timpii de răspuns ai endpoint-urilor}
+
+\paragraph{Toate cererile agregate}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+\hline
+Metrică & Caz 1 2-3 min & Caz 1 15 min & Caz 2 2-3 min & Caz 2 15 min \\
+\hline
+Median (50\%) & 9 ms & 9 ms & 9 ms & 9 ms \\
+95\%ile & 260 ms & 290 ms & 100 ms & 100 ms \\
+99\%ile & 350 ms & 360 ms & 190 ms & 190 ms \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns agregat pentru toate cererile.}
+\label{tab:all-requests-comp}
+\end{table}
+
+\textbf{Interpretare:} Performanța mediană rămâne foarte rapidă în toate cazurile, indicând răspuns constant pentru jumătate din cereri. În Cazul 2, distribuția sarcinii reduce timpul de răspuns pentru majoritatea cererilor, în timp ce monolitul arată o ușoară creștere pe termen lung. Cele mai lente cereri rămân sub 400 ms în monolit și sub 200 ms în arhitectura distribuită, indicând o scalabilitate mai bună.
+
+\paragraph{Endpoint critic: POST /login}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+\hline
+Metrică & Caz 1 2-3 min & Caz 1 15 min & Caz 2 2-3 min & Caz 2 15 min \\
+\hline
+Median (50\%) & 2315 ms & 2315 ms & 440 ms & 465 ms \\
+95\%ile & 2400 ms & 2400 ms & 750 ms & 780 ms \\
+99\%ile & 2400 ms & 2400 ms & 850 ms & 870 ms \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /login.}
+\label{tab:login-comp-full}
+\end{table}
+
+\textbf{Interpretare:} Endpoint-ul POST /login este punctul de blocaj major în monolit, cu timpi ridicați constanți. În arhitectura distribuită, load balancing-ul și Master-Slave reduc semnificativ timpul de autentificare, oferind o experiență mult mai bună pentru utilizatori, atât la început, cât și după 15 minute.
+
+\paragraph{Endpoint: POST /edit-profile}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+\hline
+Metrică & Caz 1 2-3 min & Caz 1 15 min & Caz 2 2-3 min & Caz 2 15 min \\
+\hline
+Median (50\%) & 300 ms & 305 ms & 313 ms & 320 ms \\
+95\%ile & 390 ms & 400 ms & 328 ms & 340 ms \\
+99\%ile & 460 ms & 560 ms & 560 ms & 570 ms \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul POST /edit-profile.}
+\label{tab:edit-profile-comp-full}
+\end{table}
+
+\textbf{Interpretare:} Endpoint-ul are timpi moderați. Load balancing-ul menține performanța stabilă și ușor mai bună pe termen lung. Unii utilizatori așteaptă mai mult de 0.5 sec, dar experiența generală rămâne constantă.
+
+\paragraph{Endpoint rapid: GET /my-reservations}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+\hline
+Metrică & Caz 1 2-3 min & Caz 1 15 min & Caz 2 2-3 min & Caz 2 15 min \\
+\hline
+Median (50\%) & 5 ms & 5 ms & 18 ms & 20 ms \\
+95\%ile & 13 ms & 14 ms & 96 ms & 98 ms \\
+99\%ile & 21 ms & 22 ms & 190 ms & 195 ms \\
+\hline
+\end{tabular}
+\caption{Timp de răspuns pentru endpoint-ul GET /my-reservations.}
+\label{tab:my-reservations-comp-full}
+\end{table}
+
+\textbf{Interpretare:} Endpoint-ul GET /my-reservations rămâne extrem de rapid. Mediana crește ușor în Cazul 2, datorită load balancing-ului. Cele mai lente cereri cresc ușor, dar rămân sub 200 ms, menținând experiența utilizatorului optimă.
+
+\section{Concluzii comparative}
+
+Analiza detaliată arată clar avantajele arhitecturii distribuite:
+
+
+\begin{itemize}
+    \item \textbf{Cazul 1 (monolit):} Endpoint-ul \texttt{POST /login} reprezintă în continuare un punct critic, cu timpi de răspuns ridicați. Debitul sistemului (RPS) scade după 15 minute, semnalând limite ale scalabilității aplicației. În schimb, endpoint-urile rapide continuă să ofere performanțe bune, însă resursele sistemului încep să fie solicitate mai intens pe măsură ce testul se prelungește.
+    \item \textbf{Cazul 2 (load balancing + Master-Slave):} Debitul aplicației este mai ridicat și se menține constant pe parcursul celor 15 minute de test. Endpoint-ul \texttt{POST /login} înregistrează timpi de răspuns semnificativ mai buni, iar endpoint-urile rapide își păstrează performanța optimă. Resursele sistemului sunt gestionate eficient, demonstrând o capacitate mai mare de procesare sub sarcină continuă.
+\end{itemize}
+
+
+
+În concluzie, trecerea de la un monolit la o arhitectură distribuită îmbunătățește performanța, scalabilitatea și experiența utilizatorilor, atât pe termen scurt, cât și pe termen lung.
+
+
 
 
 
 \chapter{Concluzii și Direcții Viitoare}
 
 \section{Concluzii}
-LLucrarea de licență a abordat studiul și implementarea unei aplicații web complexe, de tip sistem de rezervări de proprietăți, concentrându-se pe aspectele esențiale de arhitectură, implementare și scalabilitate. Prin analiza detaliată a fluxurilor funcționale principale și a mecanismelor de suport, s-a demonstrat o înțelegere aprofundată a provocărilor dezvoltării aplicațiilor distribuite și s-a realizat un sistem funcțional și robust.
+Lucrarea de licență a urmărit studiul și implementarea unei aplicații web complexe, de tip sistem de rezervări de proprietăți, concentrându-se pe aspectele esențiale de arhitectură, implementare și scalabilitate. Analiza detaliată a fluxurilor funcționale principale și a mecanismelor de suport a demonstrat o înțelegere aprofundată a provocărilor dezvoltării aplicațiilor distribuite și a permis realizarea unui sistem funcțional și robust.
 
-Obiectivele principale ale lucrării au fost atinse cu succes:
+Arhitectura proiectului a fost concepută astfel încât să se asigure o separare clară între interfața utilizatorului, logica aplicației și gestionarea datelor. Această structură facilitează mentenanța, testarea și scalarea componentelor în mod independent. Funcționalitățile principale, cum ar fi înregistrarea și autentificarea utilizatorilor, căutarea și vizualizarea proprietăților, precum și procesul de creare a rezervărilor, au fost implementate cu un accent deosebit pe securitatea datelor, utilizând metode criptografice sigure, inclusiv hashing-ul parolelor cu bcrypt. În plus, mecanismele avansate pentru prevenirea rezervărilor duble, bazate pe interogări SQL și tranzacții ACID, garantează integritatea și consistența informațiilor în timpul operațiilor critice. Funcționalitățile pentru gestionarea proprietăților și panoul de administrare, cu control detaliat al accesului pe roluri, permit monitorizarea și gestionarea eficientă a întregului sistem.
 
-\begin{itemize}
-\item A fost proiectată și implementată o arhitectură \texttt{N-Tier} modulară, separând clar straturile de prezentare (\texttt{frontend}), logică de afaceri (\texttt{backend}) și date. Această abordare asigură mentenanță facilă, testabilitate și posibilități de scalare independentă a componentelor.
-\item Au fost implementate fluxurile esențiale ale aplicației: înregistrarea și autentificarea utilizatorilor, căutarea și vizualizarea proprietăților, precum și procesul complex de creare a rezervărilor. S-a pus accent pe securitatea datelor sensibile, folosind mecanisme criptografice robuste, precum \texttt{bcrypt} pentru hashing-ul parolelor.
-\item A fost dezvoltată o logică avansată pentru prevenirea \texttt{double booking}-ului, prin interogări SQL de suprapunere și gestionarea tranzacțională \texttt{ACID}, asigurând integritatea și consistența datelor în timpul operațiilor critice de rezervare.
-\item S-au implementat fluxuri de management pentru proprietari (adăugare/editare proprietăți, vizualizare rezervări primite) și un panou de administrare cu control granular al accesului pe roluri (\texttt{session['is\_admin']}), esențial pentru supravegherea și controlul sistemului.
-\item S-au integrat componente cheie de infrastructură, precum \texttt{Nginx} pentru \texttt{load balancing} și servirea fișierelor statice, și replicarea \texttt{MySQL Master-Slave} pentru înaltă disponibilitate și scalarea operațiilor de citire. Rolul infrastructurii de virtualizare a fost evidențiat în dezvoltarea și testarea acestor componente într-un mediu controlat.
-\end{itemize}
+Din punct de vedere al performanței, testele comparative între arhitectura monolitică și cea distribuită au evidențiat diferențe semnificative. În arhitectura monolitică, endpoint-ul critic \texttt{POST /login} a rămas un punct de blocaj, iar debitul sistemului a scăzut după 15 minute, indicând limitări de scalabilitate. Endpoint-urile rapide au menținut performanța optimă, însă resursele sistemului au fost mai solicitate pe termen lung. În schimb, arhitectura distribuită, cu load balancing și replicare Master-Slave, a demonstrat un RPS mai ridicat și constant pe întreaga durată a testelor. Endpoint-ul \texttt{POST /login} a înregistrat timpi de răspuns semnificativ reduși, iar resursele au fost utilizate eficient, asigurând o experiență superioară utilizatorilor și o capacitate mai mare de procesare. Aceste rezultate subliniază avantajele trecerii de la un monolit la o arhitectură distribuită, atât în ceea ce privește performanța, cât și reziliența sistemului.
 
-Punctele forte ale arhitecturii și implementării includ:
-
-\begin{itemize}
-\item \textbf{Securitate robustă:} Implementarea \texttt{bcrypt} și a sesiunilor criptografice oferă protecție avansată a credențialelor și a integrității sesiunilor.
-\item \textbf{Integritate tranzacțională:} Tranzacțiile \texttt{ACID} garantează că operațiile critice, precum rezervările, sunt sigure și consistente, prevenind stările de date incorecte.
-\item \textbf{Scalabilitate și reziliență:} Prin utilizarea \texttt{Nginx} pentru \texttt{load balancing} și a replicării \texttt{MySQL}, aplicația poate gestiona volume mari de trafic și funcționează continuu chiar și în cazul unor defecțiuni.
-\item \textbf{Modularitate:} Structura \texttt{N-Tier} și separarea responsabilităților contribuie la un cod ușor de înțeles, extins și depanat.
-\item \textbf{Experiența utilizatorului:} Designul intuitiv și mecanismele de căutare „fuzzy” și recomandare a camerelor asigură o experiență pozitivă pentru utilizator.
-\end{itemize}
-
-Pe parcursul dezvoltării, au fost învățate lecții importante, precum complexitatea menținerii consistenței datelor în medii distribuite și necesitatea validării stricte a intrărilor de la utilizatori la nivel de backend. De asemenea, testarea exhaustivă a scenariilor de eșec s-a dovedit esențială pentru asigurarea robusteței sistemului.
+Pe parcursul dezvoltării, au fost identificate lecții importante legate de complexitatea menținerii consistenței datelor în medii distribuite și necesitatea validării stricte a intrărilor de la utilizatori la nivel de backend. Testarea exhaustivă a scenariilor de încărcare și eșec s-a dovedit esențială pentru asigurarea robusteței sistemului, evidențiind importanța unei infrastructuri adecvate și a unei strategii eficiente de distribuție a traficului.
 
 \section{Direcții Viitoare de Dezvoltare}
+Aplicația realizată constituie o bază solidă pentru o platformă completă de rezervări, oferind numeroase posibilități de extindere și îmbunătățire. În plan funcțional, se pot adăuga un sistem de mesagerie integrat între chiriași și proprietari, cu notificări în timp real, și un sistem de recenzii și rating-uri care să permită evaluarea proprietăților și construirea încrederii între utilizatori. Integrarea unui gateway de plată securizat ar permite finalizarea rezervărilor direct în platformă, iar funcționalități avansate de căutare și filtrare, inclusiv hărți interactive, ar îmbunătăți navigarea și experiența utilizatorilor. Notificările automate prin e-mail sau SMS și gestionarea disponibilității la nivel de calendar ar optimiza fluxul de informații și ar simplifica organizarea rezervărilor.
 
-Proiectul reprezintă o fundație solidă pentru o platformă de rezervări de proprietăți, cu multiple oportunități de extindere și îmbunătățire, menite să transforme aplicația într-o soluție completă și competitivă pe piață. Aceste direcții pot fi structurate pe două paliere principale:
+Pe lângă aceste îmbunătățiri funcționale, aplicația poate beneficia și de optimizări tehnice mai simple și practice. De exemplu, automatizarea unor sarcini de rutină, precum trimiterea automată a notificărilor sau generarea rapoartelor de rezervări, ar reduce efortul manual și ar crește eficiența platformei. Implementarea unor mecanisme de caching pentru datele frecvent accesate ar putea scurta timpii de răspuns și îmbunătăți performanța percepută de utilizatori. De asemenea, configurarea unor backup-uri automate și monitorizarea activității sistemului ar crește siguranța datelor și disponibilitatea aplicației, oferind utilizatorilor o experiență mai stabilă și fiabilă.
 
-\subsection{Extensii ale Funcționalităților Aplicației}
-\begin{itemize}
-\item \textbf{Sistem de Mesagerie Integrat:} Comunicare directă între chiriași și proprietari, cu notificări în timp real, pentru o experiență mai interactivă.
-\item \textbf{Sistem de Recenzii și Rating-uri:} Permite utilizatorilor să evalueze proprietățile, construind încredere și oferind informații utile altor potențiali chiriași. Aceasta ar implica crearea unui tabel \texttt{reviews} și agregarea rating-urilor.
-\item \textbf{Integrare cu Sisteme de Plăți Online:} Implementarea unui gateway de plată (ex: Stripe, PayPal) pentru finalizarea rezervărilor direct în platformă, cu gestionarea securizată a tranzacțiilor.
-\item \textbf{Funcționalități Avansate de Căutare și Filtrare:} Adăugarea de filtre suplimentare și integrarea unei hărți interactive cu proprietăți pentru o navigare mai intuitivă.
-\item \textbf{Notificări Automate:} Email-uri și mesaje \texttt{SMS} pentru confirmări, anulări, memento-uri sau mesaje noi, pentru creșterea angajamentului utilizatorilor.
-\item \textbf{Gestionarea Disponibilității la Nivel de Calendar:} Calendar interactiv pentru proprietari și vizualizare clară a disponibilității pentru chiriași.
-\end{itemize}
+În ansamblu, combinația dintre extinderea funcționalităților și câteva ajustări tehnice accesibile poate transforma aplicația într-o platformă completă, eficientă și prietenoasă, capabilă să gestioneze cereri multiple și să ofere o experiență constantă și sigură utilizatorilor.
 
-\subsection{Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}
-\begin{itemize}
-\item \textbf{Introducerea unui Strat de Caching:} Utilizarea unui sistem de \texttt{caching} (ex: \texttt{Redis}, \texttt{Memcached}) pentru date frecvent accesate, reducând cererile către baza de date și scurtând timpii de răspuns.
-\item \textbf{Arhitectura de Microservicii:} Refactorizarea aplicației pe servicii independente (autentificare, proprietăți, rezervări, plăți) pentru scalare și dezvoltare modulară.
-\item \textbf{Servicii Cloud Gestiunate:} Migrarea bazei de date către un serviciu cloud gestionat (ex: Amazon RDS, Google Cloud SQL) și utilizarea load balancer-ilor cloud pentru scalare automată și \texttt{failover}.
-\item \textbf{Content Delivery Network (CDN):} Servirea fișierelor statice prin CDN pentru reducerea latenței și îmbunătățirea vitezei de încărcare a paginilor la nivel geografic extins.
-\end{itemize}
+\chapter{Încheiere}
+Lucrarea de față demonstrează capacitatea de a proiecta, implementa și testa o aplicație web complexă, integrând în mod coerent conceptele teoretice în practică. Prin realizarea acestei platforme de rezervări, s-a evidențiat modul în care arhitectura aplicației, structura bazelor de date și gestionarea traficului influențează performanța, scalabilitatea și stabilitatea sistemului. Aplicația oferă o experiență sigură și eficientă pentru utilizatori, combinând funcționalități esențiale, cum ar fi autentificarea, crearea și vizualizarea rezervărilor, cu mecanisme avansate de protecție a datelor și prevenire a erorilor critice.
 
+Pe parcursul dezvoltării, au fost acumulate cunoștințe valoroase legate de gestionarea datelor sensibile, utilizarea criptografiei, implementarea tranzacțiilor sigure și testarea aplicațiilor sub sarcină reală. De asemenea, s-au identificat provocările legate de menținerea performanței și a consistenței datelor în medii distribuite, precum și importanța validării stricte a intrărilor utilizatorilor și a monitorizării constante a resurselor sistemului.
 
+Aplicația realizată nu doar că îndeplinește obiectivele inițiale, dar oferă și un cadru solid pentru dezvoltări viitoare. Aceasta poate fi extinsă prin integrarea unor funcționalități suplimentare, precum mesageria internă între utilizatori, sistemele de recenzii și rating-uri, notificări automate, funcționalități avansate de căutare și filtrare sau vizualizarea proprietăților pe hărți interactive. Mai mult, se pot implementa îmbunătățiri tehnice mai accesibile, cum ar fi automatizarea unor procese frecvente sau optimizarea gestionării resurselor pentru o experiență mai rapidă și mai fluentă.
 
-
-\section{Încheiere}
-Lucrarea de licență a demonstrat capabilitatea de a proiecta, implementa și testa o aplicație web complexă, utilizând tehnologii moderne și principii de arhitectură software. Soluția dezvoltată servește ca o platformă funcțională, sigură și scalabilă, care poate fi extinsă în multiple direcții pentru a răspunde cerințelor unui sistem de rezervări la scară reală. Experiența acumulată în procesul de dezvoltare subliniază importanța colaborării strânse dintre conceptele teoretice și aplicarea lor practică în construirea de sisteme software robuste și eficiente.
-
+În concluzie, experiența acumulată prin realizarea acestui proiect subliniază importanța aplicării practice a cunoștințelor teoretice, oferind totodată un exemplu de sistem software robust, scalabil și sigur. Aplicația servește ca platformă funcțională și poate fi considerată o fundație solidă pentru viitoare proiecte similare, contribuind astfel la dezvoltarea competențelor tehnice și la înțelegerea aprofundată a provocărilor reale din domeniul dezvoltării aplicațiilor web.
 
 
 \bibliographystyle{unsrt}

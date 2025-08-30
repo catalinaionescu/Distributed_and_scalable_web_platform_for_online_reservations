@@ -16,132 +16,96 @@
 \contentsline {subsection}{\numberline {2.2.1}Componentele sistemelor bazate pe HTTP}{4}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Conexiunea HTTP}{7}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Mesaje HTTP}{9}{subsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.3.1}Structura mesajelor HTTP}{9}{subsubsection.2.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.2.3.2}Cereri HTTP}{11}{subsubsection.2.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.2.3.3}Răspunsuri HTTP}{15}{subsubsection.2.2.3.3}%
 \contentsline {section}{\numberline {2.3}Framework-ul Flask Python}{17}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Prezentare generală}{17}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Rolul Flask în aplicație dezvoltată}{17}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Sistemul de Baze de Date MySQL}{18}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Concepte de Baze de Date Relaționale și SGBD}{18}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Baze de Date Distribuite și Replicarea Master-Slave}{18}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Limbajul SQL și Securitatea Datelor}{19}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}Nginx (Load Balancing și Reverse Proxy)}{20}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Principiul de Funcționare al Load Balancing-ului}{20}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Integrarea Nginx cu Flask ca Reverse Proxy}{20}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Impactul asupra Fluxurilor de Aplicație}{21}{subsection.2.5.3}%
 \contentsline {chapter}{\numberline {3}Arhitectura și Structura Aplicației}{22}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introducere}{22}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Arhitectura Generală a Sistemului Distribuit}{22}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Arhitectura Bazei de Date}{24}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Tabela \texttt {users}}{24}{subsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.1}Tabela \texttt {properties}}{24}{subsubsection.3.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.3.1.2}Tabela \texttt {rooms}}{25}{subsubsection.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.3.1.3}Tabela \texttt {reservations}}{26}{subsubsection.3.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.3.1.4}Tabela \texttt {reservation\_details}}{26}{subsubsection.3.3.1.4}%
-\contentsline {subsection}{\numberline {3.3.2}Structura Tabelelor și Relațiile}{27}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Importanța Integrității Referențiale}{27}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.2}Tabela \texttt {properties}}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Tabela \texttt {rooms}}{25}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Tabela \texttt {reservations}}{26}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Tabela \texttt {reservation\_details}}{26}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Structura Tabelelor și Relațiile}{27}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Fluxul Datelor și Funcționarea Generală a Bazei de Date}{27}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Importanța Integrității Referențiale}{27}{subsection.3.3.8}%
 \contentsline {section}{\numberline {3.4}Structura Internă a Aplicației Flask}{30}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Organizarea codului sursă}{30}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Biblioteci Principale Utilizate}{30}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Configurarea Aplicației}{31}{subsection.3.4.3}%
-\contentsline {chapter}{\numberline {4}Mecanisme de Comunicare și Securitate (Funcționalitățile Aplicației)}{32}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introducere în Mecanismul de Comunicare}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Înregistrarea și Autentificare Utilizator}{32}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Formularul de înregistrare}{32}{subsection.4.2.1}%
-\contentsline {paragraph}{Interfața Frontend}{32}{subsection.4.2.1}%
-\contentsline {paragraph}{Logica Backend}{33}{figure.caption.34}%
-\contentsline {subsection}{\numberline {4.2.2}Formularul de autentificare}{34}{subsection.4.2.2}%
-\contentsline {paragraph}{Interfața Frontend}{34}{figure.caption.35}%
-\contentsline {paragraph}{Logica Backend}{34}{figure.caption.35}%
-\contentsline {subsection}{\numberline {4.2.3}Mecanismele de Securitate}{35}{subsection.4.2.3}%
-\contentsline {paragraph}{Procesul de Înregistrare}{36}{subsection.4.2.3}%
-\contentsline {paragraph}{Procesul de autentificare}{37}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Mecanismul de Gestiune a Sesiunii}{37}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Interacțiunea cu Baza de Date}{37}{subsection.4.2.5}%
-\contentsline {paragraph}{Crearea unui Utilizator Nou (Operațiunea \texttt {INSERT})}{37}{subsection.4.2.5}%
-\contentsline {paragraph}{Regăsirea Datelor la Autentificare (Operațiunea \texttt {SELECT})}{38}{subsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.5.1}Terminarea Sesiunii Utilizatorului}{38}{subsubsection.4.2.5.1}%
-\contentsline {section}{\numberline {4.3}Pagina Principală (Homepage)}{38}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Prezentarea Frontend (\texttt {home.html})}{38}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Logica Backend (Ruta \texttt {/} în \texttt {app.py})}{40}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Pagina de Profil: Dashboard-ul Personalizat al Utilizatorului}{40}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Prezentarea Frontend (\texttt {profile.html})}{40}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Logica Backend (Ruta \texttt {/profile} în \texttt {app.py})}{41}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Modificarea Datelor de Profil}{41}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Prezentarea Frontend (\texttt {edit-profile.html})}{41}{subsection.4.5.1}%
-\contentsline {paragraph}{Logica Backend (Ruta \texttt {/edit-profile} în \texttt {app.py})}{42}{figure.4.6}%
-\contentsline {section}{\numberline {4.6}Panoul de Administrare: Privilegiu și Agregare de Date}{43}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Diferența Fundamentală față de Profilul de Utilizator}{43}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Prezentarea Frontend (\texttt {admin.html})}{43}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Logica Backend (Ruta \texttt {/admin} în \texttt {app.py})}{44}{subsection.4.6.3}%
-\contentsline {section}{\numberline {4.7}Fluxul de Căutare și Recomandări Personalizate}{44}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Etapa 1: Căutarea Inițială (de pe Homepage)}{45}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Etapa 2: Afișarea Rezultatelor (\texttt {search\_results.html})}{45}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Etapa 3: Calculatorul de Disponibilitate și Recomandări (\texttt {view\_property.html})}{46}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}Algoritmul de Recomandare (\texttt {get\_recommendations()})}{46}{subsection.4.7.4}%
-\contentsline {section}{\numberline {4.8}Adăugarea unei Proprietăți Noi}{47}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Prezentarea Frontend (\texttt {add\_property.html})}{47}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Logica Backend (Ruta \texttt {/add\_property} în \texttt {app.py})}{48}{subsection.4.8.2}%
-\contentsline {section}{\numberline {4.9}Gestiunea Proprietăților Personale}{49}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Prezentarea Frontend (\texttt {my\_properties.html})}{49}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}Logica Backend (Ruta \texttt {/my-properties} în \texttt {app.py})}{50}{subsection.4.9.2}%
-\contentsline {section}{\numberline {4.10}Modificarea unei Proprietăți Existente}{50}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Prezentarea Frontend (\texttt {edit\_property.html})}{50}{subsection.4.10.1}%
-\contentsline {paragraph}{Logica Backend (Rutele \texttt {/edit\_property} și \texttt {/check\_room\_type...})}{51}{figure.caption.45}%
-\contentsline {section}{\numberline {4.11}Ștergerea unei Proprietăți}{52}{section.4.11}%
-\contentsline {paragraph}{Interfața Frontend (\texttt {my\_properties.html})}{52}{section.4.11}%
-\contentsline {paragraph}{Logica Backend (Ruta \texttt {/delete\_property/<id>} în \texttt {app.py})}{52}{section.4.11}%
-\contentsline {subsubsection}{\numberline {4.11.0.1}Cod Relevat}{53}{subsubsection.4.11.0.1}%
-\contentsline {section}{\numberline {4.12}Procesul de Rezervare Efectivă}{53}{section.4.12}%
-\contentsline {subsection}{\numberline {4.12.1}Căutarea și Inițierea Rezervării (\texttt {/search\_results} și \texttt {/property/<id>})}{53}{subsection.4.12.1}%
-\contentsline {subsubsection}{\numberline {4.12.1.1}Prezentarea Frontend (\texttt {search\_results.html} și \texttt {view\_property.html})}{53}{subsubsection.4.12.1.1}%
-\contentsline {subsubsection}{\numberline {4.12.1.2}Logica Backend (\texttt {/property/<id>} în \texttt {app.py})}{53}{subsubsection.4.12.1.2}%
-\contentsline {subsection}{\numberline {4.12.2}Confirmarea și Finalizarea Rezervării (\texttt {/booking/confirm})}{54}{subsection.4.12.2}%
-\contentsline {subsubsection}{\numberline {4.12.2.1}Prezentarea Frontend (\texttt {booking\_confirmation.html})}{54}{subsubsection.4.12.2.1}%
-\contentsline {subsubsection}{\numberline {4.12.2.2}Logica Backend (\texttt {/booking/confirm} în \texttt {app.py})}{54}{subsubsection.4.12.2.2}%
-\contentsline {subsection}{\numberline {4.12.3}Pagina de Confirmare a Rezervării (\texttt {/booking/success})}{55}{subsection.4.12.3}%
-\contentsline {subsubsection}{\numberline {4.12.3.1}Prezentarea Frontend (\texttt {reservation\_success.html})}{55}{subsubsection.4.12.3.1}%
-\contentsline {subsubsection}{\numberline {4.12.3.2}Logica Backend (\texttt {/booking/success} în \texttt {app.py})}{55}{subsubsection.4.12.3.2}%
-\contentsline {subsection}{\numberline {4.12.4}Vizualizarea și Gestionarea Rezervărilor}{56}{subsection.4.12.4}%
-\contentsline {subsubsection}{\numberline {4.12.4.1}Prezentarea Frontend (\texttt {my\_reservations.html})}{56}{subsubsection.4.12.4.1}%
-\contentsline {subsubsection}{\numberline {4.12.4.2}Logica Backend (\texttt {/my-reservations} în \texttt {app.py})}{56}{subsubsection.4.12.4.2}%
-\contentsline {subsection}{\numberline {4.12.5}Anularea Rezervării (\texttt {/cancel\_reservation/<int:reservation\_id>})}{57}{subsection.4.12.5}%
-\contentsline {subsubsection}{\numberline {4.12.5.1}Logica Backend (\texttt {/cancel\_reservation/<int:reservation\_id>} în \texttt {app.py})}{57}{subsubsection.4.12.5.1}%
-\contentsline {subsection}{\numberline {4.12.6}Gestionarea Rezervărilor Proprietăților Personale}{58}{subsection.4.12.6}%
-\contentsline {subsubsection}{\numberline {4.12.6.1}Prezentarea Frontend (\texttt {manage\_property\_reservations.html})}{58}{subsubsection.4.12.6.1}%
-\contentsline {subsubsection}{\numberline {4.12.6.2}Logica Backend (\texttt {/manage\_property\_reservations/<int:property\_id>} în \texttt {app.py})}{58}{subsubsection.4.12.6.2}%
-\contentsline {chapter}{\numberline {5}Arhitectura de Suport și Înaltă Disponibilitate}{60}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introducere în Arhitectura de Suport}{60}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Rolul Nginx (Load Balancing și Reverse Proxy) în Contextul Arhitecturii Implementate}{60}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Aplicarea Load Balancing-ului în Arhitectura Proiectului}{60}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Integrarea Nginx cu Flask ca Reverse Proxy și Servirea Fișierelor Statice}{60}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Impactul asupra Fluxurilor de Aplicație}{61}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Mecanismul Remarcabil: Rolul Replicării MySQL (Master-Slave) în Contextul Fluxurilor Reale}{61}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Separarea Citirilor de Scrieri (Read/Write Splitting) în Implementarea Proiectului}{61}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Impactul Replicării asupra Fluxurilor de Aplicație și Rezilienței Sistemului}{62}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Rolul Infrastructurii de Virtualizare în Testarea Arhitecturii}{62}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Crearea unui Mediu Izolat și Consistent}{62}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Testarea Scenariilor de Eșec și a Rezilienței}{63}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Flexibilitatea în Configurare și Dezvoltare Rapidă}{63}{subsection.5.4.3}%
-\contentsline {chapter}{\numberline {6}Testarea Performanței și Analiza Scalabilității}{64}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introducere în Testarea de Performanță}{64}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Alegerea Instrumentului de Testare: Locust}{64}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Implementarea Testelor cu Locust}{66}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Procesul de Execuție și Monitorizare}{66}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Arhitectura Mediului de Testare}{66}{section.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.0.1}Pregătirea și Rularea Testului Locust}{67}{subsubsection.6.5.0.1}%
-\contentsline {section}{\numberline {6.6}Analiza Rezultatelor și Identificarea Limitărilor}{67}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Scenarii de Testare Implementate}{68}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Cazul 1: Aplicația Flask Monolitică (Fără Scalare/Load Balancing)}{68}{subsection.6.7.1}%
-\contentsline {subsubsection}{\numberline {6.7.1.1}Configurația Mediului}{68}{subsubsection.6.7.1.1}%
-\contentsline {section}{\numberline {6.8}Cazul 2: Aplicația Flask\textbf {Aplicația Flask } (Load Balancing)}{69}{section.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.0.1}Configurația Mediului}{69}{subsubsection.6.8.0.1}%
-\contentsline {chapter}{\numberline {7}Concluzii și Direcții Viitoare}{70}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Concluzii}{70}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Direcții Viitoare de Dezvoltare}{71}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Extensii ale Funcționalităților Aplicației}{71}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Îmbunătățiri ale Performanței și Scalabilității Infrastructurii}{71}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Încheiere}{72}{section.7.3}%
-\contentsline {chapter}{\appnumberline {A}Coduri sursă}{73}{appendix.A}%
+\contentsline {chapter}{\numberline {4}Mecanisme de Comunicare și Securitate (Funcționalitățile Aplicației)}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introducere în Mecanismul de Comunicare}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Înregistrarea și Autentificare Utilizator}{31}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Formularul de înregistrare}{31}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Formularul de autentificare}{33}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Mecanismele de Securitate}{34}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Mecanismul de Gestiune a Sesiunii}{36}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Interacțiunea cu Baza de Date}{36}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Pagina Principală (Homepage)}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Prezentarea Frontend (\texttt {home.html})}{37}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Logica Backend (Ruta \texttt {/} în \texttt {app.py})}{39}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Pagina de Profil: Dashboard-ul Personalizat al Utilizatorului}{39}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Prezentarea Frontend (\texttt {profile.html})}{39}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Logica Backend (Ruta \texttt {/profile} în \texttt {app.py})}{40}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Modificarea Datelor de Profil}{40}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Prezentarea Frontend (\texttt {edit-profile.html})}{40}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Logica Backend (Ruta \texttt {/edit-profile} în \texttt {app.py})}{41}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Panoul de Administrare}{42}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Prezentarea Frontend (\texttt {admin.html})}{42}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Logica Backend (Ruta \texttt {/admin} în \texttt {app.py})}{43}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Fluxul de Căutare și Recomandări Personalizate}{43}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Etapa 1: Căutarea Inițială (de pe Homepage)}{44}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Etapa 2: Afișarea Rezultatelor (\texttt {search\_results.html})}{44}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Etapa 3: Calculatorul de Disponibilitate și Recomandări (\texttt {view\_property.html})}{45}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}Algoritmul de Recomandare (\texttt {get\_recommendations()})}{45}{subsection.4.7.4}%
+\contentsline {section}{\numberline {4.8}Adăugarea unei Proprietăți Noi}{46}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Prezentarea Frontend (\texttt {add\_property.html})}{46}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Logica Backend (Ruta \texttt {/add\_property} în \texttt {app.py})}{47}{subsection.4.8.2}%
+\contentsline {section}{\numberline {4.9}Gestiunea Proprietăților Personale}{48}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Prezentarea Frontend (\texttt {my\_properties.html})}{48}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Logica Backend (Ruta \texttt {/my-properties} în \texttt {app.py})}{49}{subsection.4.9.2}%
+\contentsline {section}{\numberline {4.10}Modificarea unei Proprietăți Existente}{49}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Prezentarea Frontend (\texttt {edit\_property.html})}{49}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Logica Backend (Rutele \texttt {/edit\_property} și \texttt {/check\_room\_type...})}{50}{subsection.4.10.2}%
+\contentsline {section}{\numberline {4.11}Ștergerea unei Proprietăți}{51}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Interfața Frontend (\texttt {my\_properties.html})}{51}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Logica Backend (Ruta \texttt {/delete\_property/<id>} în \texttt {app.py})}{51}{subsection.4.11.2}%
+\contentsline {section}{\numberline {4.12}Procesul de Rezervare Efectivă}{52}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Confirmarea și Finalizarea Rezervării (\texttt {/booking/confirm})}{53}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Prezentarea Frontend (\texttt {booking\_confirmation.html})}{53}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Logica Backend (\texttt {/booking/confirm} în \texttt {app.py})}{53}{subsection.4.13.2}%
+\contentsline {section}{\numberline {4.14}Pagina de Confirmare a Rezervării (\texttt {/booking/success})}{54}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Prezentarea Frontend (\texttt {reservation\_success.html})}{54}{subsection.4.14.1}%
+\contentsline {subsection}{\numberline {4.14.2}Logica Backend (\texttt {/booking/success} în \texttt {app.py})}{54}{subsection.4.14.2}%
+\contentsline {section}{\numberline {4.15}Vizualizarea și Gestionarea Rezervărilor}{55}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Prezentarea Frontend (\texttt {my\_reservations.html})}{55}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Logica Backend (\texttt {/my-reservations} în \texttt {app.py})}{56}{subsection.4.15.2}%
+\contentsline {section}{\numberline {4.16}Anularea Rezervării (\texttt {/cancel\_reservation/<int:reservation\_id>})}{56}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Logica Backend (\texttt {/cancel\_reservation/<int:reservation\_id>} în \texttt {app.py})}{56}{subsection.4.16.1}%
+\contentsline {section}{\numberline {4.17}Gestionarea Rezervărilor Proprietăților Personale}{57}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Prezentarea Frontend (\texttt {manage\_property\_reservations.html})}{57}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Logica Backend (\texttt {/manage\_property\_reservations/<int:property\_id>} în \texttt {app.py})}{58}{subsection.4.17.2}%
+\contentsline {chapter}{\numberline {5}Arhitectura de Suport și Înaltă Disponibilitate}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Rolul Nginx în contextul arhitecturii implementate}{59}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Rolul Replicării MySQL (Master-Slave) în Contextul Fluxurilor Reale}{60}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Rolul Infrastructurii de Virtualizare în Testarea Arhitecturii}{61}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Testarea Performanței și Analiza Scalabilității}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Alegerea Instrumentului de Testare: Locust}{63}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Procesul de Execuție și Monitorizare}{64}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Arhitectura Mediului de Testare}{65}{section.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.0.1}Pregătirea și Rularea Testului Locust}{66}{subsubsection.6.3.0.1}%
+\contentsline {section}{\numberline {6.4}Scenarii de Testare Implementate}{66}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Cazul 1: Aplicația Flask Monolitică (Fără Scalare)}{66}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Cazul 2: Aplicația Flask\textbf {Aplicația Flask } (Load Balancing)}{71}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Monolitic versus Load Balancing}{74}{section.6.5}%
+\contentsline {paragraph}{Toate cererile agregate}{75}{table.caption.69}%
+\contentsline {paragraph}{Endpoint critic: POST /login}{75}{table.caption.70}%
+\contentsline {paragraph}{Endpoint: POST /edit-profile}{76}{table.caption.71}%
+\contentsline {paragraph}{Endpoint rapid: GET /my-reservations}{76}{table.caption.72}%
+\contentsline {section}{\numberline {6.6}Concluzii comparative}{76}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Concluzii și Direcții Viitoare}{81}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Concluzii}{81}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Direcții Viitoare de Dezvoltare}{81}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Încheiere}{83}{chapter.8}%
+\contentsline {chapter}{\appnumberline {A}Coduri sursă}{84}{appendix.A}%
