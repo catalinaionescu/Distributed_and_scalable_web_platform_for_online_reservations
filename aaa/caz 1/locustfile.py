@@ -7,7 +7,11 @@ from locust import HttpUser, task, between
 class FinalArchitectureUser(HttpUser):
     wait_time = between(0.5, 2.5)
     host = "http://192.168.50.1"
-    EXISTING_USER_CREDENTIALS = {f"test{i}": "parola123" for i in range(1, 51)}
+    
+    # -----------------------------------------------------------------------------
+    # Modificat: Incarca toti cei 500 de utilizatori pentru a face testul realist
+    # -----------------------------------------------------------------------------
+    EXISTING_USER_CREDENTIALS = {f"test{i}": "parola123" for i in range(1, 501)}
     
     def on_start(self):
         time.sleep(random.uniform(0, 5))
