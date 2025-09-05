@@ -6,7 +6,11 @@ from locust import HttpUser, task, between
 
 class FinalArchitectureUser(HttpUser):
     wait_time = between(0.5, 2.5)
-    host = "http://192.168.50.1"
+    # Host-ul principal (serverul Flask)
+    host = "http://192.168.50.1" 
+    
+    # Adresa serverului secundar de unde se încarcă alte resurse statice
+    iis_host = "http://192.168.50.3" 
     
     EXISTING_USER_CREDENTIALS = {f"test{i}": "parola123" for i in range(1, 501)}
     
@@ -20,11 +24,21 @@ class FinalArchitectureUser(HttpUser):
             self.get_static_files(response)
 
     def get_static_files(self, response):
-        """Extrage și încarcă fișierele statice locale dintr-un răspuns HTML."""
+        """
+        Extrage și încarcă fișierele statice dintr-un răspuns HTML.
+        Funcționează atât pentru resurse locale (relative), cât și pentru cele externe (absolute de pe serverul IIS).
+        """
         if response.text and isinstance(response.text, str):
-            # Caută doar URL-uri relative care încep cu /static/
+            # 1. Caută fișiere statice relative de pe serverul principal (Flask)
             for url in re.findall(r'["\'](/static/.*?\.?(?:css|js|png|ico))["\']', response.text):
                 self.client.get(url, name="/static/[...]")
+            
+            # 2. Caută fișiere statice absolute de pe serverul IIS
+            # Folosim host-ul definit în clasă (self.iis_host)
+            for url in re.findall(r'["\'](' + re.escape(self.iis_host) + r'/.*?\.?(?:css|js|png|ico))["\']', response.text):
+                # Extragem calea de la URL-ul complet pentru a o folosi în request
+                path = url.replace(self.iis_host, "")
+                self.client.get(path, host=self.iis_host, name="/static_iis/[...]")
 
     @task(5)
     def browse_and_search(self):
@@ -39,9 +53,7 @@ class FinalArchitectureUser(HttpUser):
         end_date = start_date + timedelta(days=random.randint(2, 7))
         search_data = {
             "period": f"{start_date.isoformat()} to {end_date.isoformat()}",
-            "destination": "Brasov", 
-            "adults": 2, 
-            "rooms": 1
+            "destination": "Brasov", "adults": 2, "rooms": 1
         }
         with self.client.post("/search_results", data=search_data, name="/search_results") as response:
             self.get_static_files(response)
@@ -52,6 +64,7 @@ class FinalArchitectureUser(HttpUser):
         add_data = {
             "name": f"Hotel Stres Test {random.randint(1, 1000)}", "address": "Strada Testarii",
             "city": "Sibiu", "country": "Romania", 
+            # ATENȚIE: Am adăugat "[]" la finalul numelor pentru a fi procesate corect ca liste de către Flask
             "room_type_name[]": ["Cameră de Test"],
             "room_count[]": ["1"], "capacity[]": ["2"], "price[]": ["500"], "available[]": ["1"]
         }
