@@ -22,13 +22,11 @@ class FinalArchitectureUser(HttpUser):
     def get_static_files(self, response):
         """Extrage și încarcă fișierele statice locale dintr-un răspuns HTML."""
         if response.text and isinstance(response.text, str):
-            # Caută doar URL-uri relative care încep cu /static/
             for url in re.findall(r'["\'](/static/.*?\.?(?:css|js|png|ico))["\']', response.text):
                 self.client.get(url, name="/static/[...]")
 
     @task(5)
     def browse_and_search(self):
-        """Task pentru navigare generală și căutare."""
         with self.client.get("/", name="/home") as response:
             self.get_static_files(response)
 
@@ -48,7 +46,6 @@ class FinalArchitectureUser(HttpUser):
 
     @task(1)
     def manage_properties(self):
-        """Task pentru adăugarea și editarea proprietăților."""
         add_data = {
             "name": f"Hotel Stres Test {random.randint(1, 1000)}", "address": "Strada Testarii",
             "city": "Sibiu", "country": "Romania", 
@@ -75,7 +72,6 @@ class FinalArchitectureUser(HttpUser):
 
     @task(2)
     def full_booking_flow(self):
-        """Task ce simulează un flux complet de rezervare."""
         start_date = datetime.now().date() + timedelta(days=random.randint(200, 300))
         end_date = start_date + timedelta(days=random.randint(2, 5))
         
@@ -105,7 +101,6 @@ class FinalArchitectureUser(HttpUser):
 
     @task(3)
     def profile_and_edit(self):
-        """Task pentru vizualizarea și editarea profilului."""
         with self.client.get("/profile", name="/profile") as response:
             self.get_static_files(response)
         
@@ -120,6 +115,5 @@ class FinalArchitectureUser(HttpUser):
 
     @task(1)
     def test_logout(self):
-        """Task simplu pentru logout."""
         with self.client.get("/logout", name="/logout") as response:
             self.get_static_files(response)

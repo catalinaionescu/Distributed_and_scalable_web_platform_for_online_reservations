@@ -14,7 +14,9 @@ from contextlib import contextmanager
 app = Flask(__name__)
 app.secret_key = "cheie_super_secreta_perta_proiect_v6"
 
-# --- CONFIGURARE BAZĂ DE DATE (cu SQLAlchemy și PyMySQL) ---
+active_sessions = 0 # Contor pentru sesiuni active
+
+# --- CONFIGURARE BAZĂ DE DATE ---
 MASTER_DB_CONFIG = {
     'user': 'app_user',
     'password': 'parola_aplicatiei',
@@ -63,8 +65,6 @@ def execute_commit(engine, query, params=None):
             return result.inserted_primary_key[0]
         return None
 
-# --- Funcții Utilitare (Păstrate din ambele fișiere) ---
-
 
 def is_logged_in():
     return 'user_id' in session
@@ -84,7 +84,6 @@ def add_header_no_cache(response):
     return response
 
 def get_recommendations(room_groups, requested_adults, requested_rooms_count):
-    # Această funcție a fost copiată integral din app2.py
     all_available_rooms = [group for group in room_groups for _ in range(int(group['count']))]
     single_room_options = []
     for room in all_available_rooms:
@@ -133,7 +132,7 @@ def get_recommendations(room_groups, requested_adults, requested_rooms_count):
     recommendations.sort(key=lambda x: x['sort_score'])
     return recommendations[:5]
 
-# --- Rutele Aplicației (Refactorizate cu funcțiile SQLAlchemy) ---
+# --- Rutele Aplicației  ---
 
 @app.route('/')
 def home():
@@ -169,10 +168,6 @@ def register():
             return redirect(url_for('register'))
     return render_template('register.html')
 
-# Adaugă această variabilă globală la începutul fișierului tău, după `app = Flask(__name__)`
-active_sessions = 0 # Contor pentru sesiuni active
-
-# ... restul codului ...
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -200,7 +195,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-    # Modificare: Verifică dacă există o sesiune înainte de a o șterge
     if 'user_id' in session:
         global active_sessions
         active_sessions -= 1
@@ -264,7 +258,6 @@ def edit_profile():
             flash(f"A apărut o eroare la actualizarea profilului: {e}", "danger")
             return redirect(url_for('edit_profile'))
             
-    # GET request
     user = fetch_one(slave_engine, "SELECT * FROM users WHERE user_id = :uid", {'uid': user_id})
     if not user:
         flash("Utilizatorul nu a fost găsit.", "danger")
@@ -272,13 +265,12 @@ def edit_profile():
 
     return render_template('edit_profile.html', user=user, logged_in=True)
 
-# ... (restul codului) ...
+
 def check_server_status(host, port):
-    """Verifică dacă un server este online la un host și port specificat."""
+    # Verifică dacă un server este online la un host și port specificat
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(2)
     try:
-        # Aici are loc căutarea efectivă, prin încercarea de conectare la server
         result = sock.connect_ex((host, port))
         if result == 0:
             return '<span style="color: green;">Online</span>'
@@ -292,12 +284,10 @@ def check_server_status(host, port):
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
     if not session.get('is_admin'): return "Acces interzis", 403
-
-    # Verifică statusul serverelor (adăugat din nou)
     flask_status_html = '<span style="color: green;">Online</span>'
     iis_status_html = check_server_status('192.168.50.3', 80)
     
-    # Preia datele din baza de date folosind funcțiile helper
+    # Preia datele din baza de date 
     try:
         total_users = fetch_one(slave_engine, "SELECT COUNT(*) AS total FROM users")['total']
         total_properties = fetch_one(slave_engine, "SELECT COUNT(*) AS total FROM properties")['total']
@@ -322,7 +312,7 @@ def admin():
                                iis_status=iis_status_html, 
                                total_properties=total_properties, 
                                total_users=total_users, 
-                               active_sessions_count=active_sessions, # Noua variabilă pentru sesiuni
+                               active_sessions_count=active_sessions, 
                                active_reservations=active_reservations, 
                                cancelled_reservations=cancelled_reservations, 
                                ocupate=ocupate, 
@@ -333,6 +323,7 @@ def admin():
     except Exception as e:
         print(f"Eroare la admin: {e}")
         return "Eroare panou admin", 500
+    
 @app.route('/my-properties')
 def my_properties():
     if not is_logged_in(): return redirect('/login')
@@ -375,13 +366,20 @@ def add_property():
 @app.route('/search_results', methods=['POST'])
 def search_results():
     try:
+        # Preluăm TOȚI parametrii din formular
         period = request.form.get('period', '').strip()
+        destination = request.form.get('destination', '').strip()
+        adults = request.form.get('adults', '1', type=int)
+        rooms_needed = request.form.get('rooms', '1', type=int)
+
         if not period or ' to ' not in period:
             flash("Perioada selectată este invalidă.", "error")
             return redirect(url_for('home'))
+        
         start_date, end_date = [datetime.strptime(d.strip(), '%Y-%m-%d').date() for d in period.split(' to ')]
-        destination = request.form.get('destination', '').strip()
 
+        # Interogarea existentă este bună, dar trebuie să ne asigurăm că
+        # transmitem TOȚI parametrii către template
         query = """
             SELECT DISTINCT p.property_id, p.name, p.address, p.city, p.country
             FROM properties p
@@ -401,7 +399,19 @@ def search_results():
         
         properties_that_match = fetch_all(slave_engine, query, params)
         
-        return render_template("search_results.html", properties=properties_that_match, logged_in=is_logged_in(), username=session.get('username'), search_params={'period': period})
+        search_params = {
+            'period': period,
+            'adults': adults,
+            'rooms': rooms_needed
+        }
+        
+        return render_template(
+            "search_results.html", 
+            properties=properties_that_match, 
+            logged_in=is_logged_in(), 
+            username=session.get('username'), 
+            search_params=search_params  
+        )
     except Exception as e:
         print(f"Database Error in search: {e}")
         return "A apărut o eroare la căutare.", 500
@@ -592,11 +602,10 @@ def booking_confirmation():
         nights = (end_date - start_date).days
         if nights <= 0: raise ValueError("Perioadă invalidă.")
         
-        # Aici este fix-ul! Folosim SQLAlchemy cu funcția `text()`.
         with get_db_master_connection() as conn:
             if request.method == 'POST':
                 try:
-                    # Verificăm din nou disponibilitatea, folosind SQLAlchemy.
+                    # Verificăm din nou disponibilitatea
                     check_availability_stmt = text("""
                         SELECT idrooms FROM rooms WHERE idrooms IN :room_ids 
                         AND idrooms NOT IN (
@@ -610,28 +619,26 @@ def booking_confirmation():
                         'start_date': start_date,
                         'end_date': end_date
                     })
-                    # Corecție: accesăm valoarea folosind un indice numeric
+
                     available_rooms = [row[0] for row in result.fetchall()]
                     
                     if len(available_rooms) != len(room_id_list):
                         raise ValueError("Una sau mai multe camere nu mai sunt disponibile.")
 
-                    # Obținem prețurile camerelor, tot cu SQLAlchemy.
+                    # Obținem prețurile camerelor
                     get_prices_stmt = text("SELECT idrooms, price FROM rooms WHERE idrooms IN :room_ids")
                     result = conn.execute(get_prices_stmt, {'room_ids': room_id_list})
-                    # Corecție: folosim fetchall() pentru a obține o listă de tupluri
                     package_rooms_db = result.fetchall()
-                    
-                    # Corecție: Accesăm elementele din tupluri cu indici numerici
+
                     total_price = sum(r[1] for r in package_rooms_db) * nights
                     first_res_id = None
                     
-                    # Inserăm rezervările, folosind `text()` pentru fiecare INSERT.
+                    # Inserăm rezervările, folosind `text()` pentru fiecare INSERT
                     insert_reservation_stmt = text("""
                         INSERT INTO reservations (user_id, room_id, start_date, end_date, status) 
                         VALUES (:user_id, :room_id, :start_date, :end_date, 'confirmed')
                     """)
-                    # Corecție: Accesăm elementele din tupluri cu indici numerici
+
                     for room in package_rooms_db:
                         result = conn.execute(insert_reservation_stmt, {
                             'user_id': session['user_id'],
@@ -668,8 +675,7 @@ def booking_confirmation():
                     flash(f"A apărut o eroare neașteptată: {e}", "error")
                     return redirect(url_for('home'))
             
-            else: # GET
-                # Folosim SQLAlchemy și pentru partea de GET
+            else: 
                 get_rooms_stmt = text("""
                     SELECT r.*, p.name AS property_name, p.address, p.city, p.country 
                     FROM rooms r JOIN properties p ON r.property_id = p.property_id 
@@ -677,13 +683,11 @@ def booking_confirmation():
                 """)
                 result = conn.execute(get_rooms_stmt, {'room_ids': room_id_list})
                 
-                # Corecție: convertim rezultatul (o listă de Row-uri) într-o listă de dicționare.
                 package_rooms = [dict(row._mapping) for row in result.fetchall()]
 
                 if len(package_rooms) != len(room_id_list):
                     return "Una sau mai multe camere nu au fost găsite.", 404
                 
-                # Corecție: acum putem accesa 'price' ca o cheie de dicționar.
                 total_price = sum(room['price'] for room in package_rooms) * nights
                 return render_template("booking_confirmation.html", package_rooms=package_rooms, start=start_date, end=end_date, total_price=total_price, nights=nights, logged_in=True)
     
@@ -717,7 +721,6 @@ def booking_success():
                 flash("Nu am putut regăsi detaliile ultimei rezervări.", "error")
                 return redirect(url_for('my_reservations'))
             
-            # Corecție: convertim rezultatul (un Row) într-un dicționar.
             rezervare_dict = dict(rezervare._mapping)
             
             return render_template("reservation_success.html", rezervare=rezervare_dict, logged_in=True)

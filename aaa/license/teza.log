@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.24)  25 AUG 2025 22:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.7)  7 SEP 2025 18:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./teza.tex
 (teza.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-07-20>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
 (teza-upb.cls
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 
@@ -462,32 +462,32 @@ Now handling font encoding U ...
 )))
 Document Class: teza-upb 03/04/2011 v1.0 Standard LaTeX2e document class
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
-Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@chapter=\count276
-\c@section=\count277
-\c@subsection=\count278
-\c@subsubsection=\count279
-\c@paragraph=\count280
-\c@subparagraph=\count281
-\c@figure=\count282
-\c@table=\count283
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
-\col@sep=\dimen149
-\ar@mcellbox=\box53
-\extrarowheight=\dimen150
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen141
+\ar@mcellbox=\box51
+\extrarowheight=\dimen142
 \NC@list=\toks19
-\extratabsurround=\skip51
-\backup@length=\skip52
-\ar@cellbox=\box54
+\extratabsurround=\skip50
+\backup@length=\skip51
+\ar@cellbox=\box52
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
@@ -497,55 +497,38 @@ Package: setspace 2022/12/04 v6.7b set line spacing
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
 )
-\lst@mode=\count284
-\lst@gtempboxa=\box55
+\lst@mode=\count196
+\lst@gtempboxa=\box53
 \lst@token=\toks21
-\lst@length=\count285
-\lst@currlwidth=\dimen151
-\lst@column=\count286
-\lst@pos=\count287
-\lst@lostspace=\dimen152
-\lst@width=\dimen153
-\lst@newlines=\count288
-\lst@lineno=\count289
-\lst@maxwidth=\dimen154
+\lst@length=\count197
+\lst@currlwidth=\dimen143
+\lst@column=\count198
+\lst@pos=\count199
+\lst@lostspace=\dimen144
+\lst@width=\dimen145
+\lst@newlines=\count266
+\lst@lineno=\count267
+\lst@maxwidth=\dimen146
 
-(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count290
-\lst@skipnumbers=\count291
-\lst@framebox=\box56
-) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cf
-g
-File: listings.cfg 2024/09/23 1.10c listings configuration
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count268
+\lst@skipnumbers=\count269
+\lst@framebox=\box54
+)
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
  (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/08/03 v25.12 The multilingual framework for LuaLaTeX, pdfLa
-TeX and XeLaTeX
-\babel@savecnt=\count292
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2045.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2047.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2049.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2050.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2051.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2053.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2078.
-\U@D=\dimen155
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count270
+\U@D=\dimen147
 \l@unhyphenated=\language79
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count293
+\bbl@dirlevel=\count271
 
 *************************************
 * Local config file bblopts.cfg used
@@ -557,60 +540,60 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/babel-romanian\romania
 n.ldf
 Language: romanian 2021/04/04 v1.2m Romanian support from the babel system
-
+))
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/ro\babe
 l-romanian.tex
 Package babel Info: Importing font and identification data for romanian
-(babel)             from babel-ro.ini. Reported on input line 12.
-)))
+(babel)             from babel-ro.ini. Reported on input line 11.
+)
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
 cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
 f
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen156
-\Gin@req@width=\dimen157
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
 ) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen158
-\captionmargin=\dimen159
-\caption@leftmargin=\dimen160
-\caption@rightmargin=\dimen161
-\caption@width=\dimen162
-\caption@indent=\dimen163
-\caption@parindent=\dimen164
-\caption@hangindent=\dimen165
+\caption@tempdima=\dimen150
+\captionmargin=\dimen151
+\caption@leftmargin=\dimen152
+\caption@rightmargin=\dimen153
+\caption@width=\dimen154
+\caption@indent=\dimen155
+\caption@parindent=\dimen156
+\caption@hangindent=\dimen157
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count294
-\c@continuedfloat=\count295
+\c@caption@flags=\count272
+\c@continuedfloat=\count273
 Package caption Info: listings package is loaded.
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/base\glossa
 ries.sty
-Package: glossaries 2025/05/14 v4.7 (NLCT)
+Package: glossaries 2025/08/11 v4.8 (NLCT)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
@@ -620,15 +603,15 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks22
 \XKV@tempa@toks=\toks23
 )
-\XKV@depth=\count296
+\XKV@depth=\count274
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
 Package: mfirstuc 2025/04/03 v2.09 (NLCT)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count297
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
 )
 \@glsmfirst=\toks24
 \@glsmrest=\toks25
@@ -638,7 +621,7 @@ Package: xfor 2009/02/05 v1.05 (NLCT)
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks26
-\ex@=\dimen166
+\ex@=\dimen158
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.st
 y
@@ -665,118 +648,118 @@ Package glossaries Warning: No language module detected for `romanian'.
 Package: datatool-base 2025/04/25 v3.4.1 (NLCT)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
-\@mathmargin=\skip53
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
+Package: amstext 2021/08/26 v2.01 AMS text
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen167
+\pmbraise@=\dimen159
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count298
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count299
-\leftroot@=\count300
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count301
-\DOTSCASE@=\count302
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box57
-\strutbox@=\box58
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen168
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count303
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count304
-\dotsspace@=\muskip17
-\c@parentequation=\count305
-\dspbrk@lvl=\count306
+\inf@bad=\count276
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count277
+\leftroot@=\count278
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count279
+\DOTSCASE@=\count280
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box55
+\strutbox@=\box56
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen160
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count281
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count282
+\dotsspace@=\muskip16
+\c@parentequation=\count283
+\dspbrk@lvl=\count284
 \tag@help=\toks27
-\row@=\count307
-\column@=\count308
-\maxfields@=\count309
+\row@=\count285
+\column@=\count286
+\maxfields@=\count287
 \andhelp@=\toks28
-\eqnshift@=\dimen169
-\alignsep@=\dimen170
-\tagshift@=\dimen171
-\tagwidth@=\dimen172
-\totwidth@=\dimen173
-\lineht@=\dimen174
+\eqnshift@=\dimen161
+\alignsep@=\dimen162
+\tagshift@=\dimen163
+\tagwidth@=\dimen164
+\totwidth@=\dimen165
+\lineht@=\dimen166
 \@envbody=\toks29
-\multlinegap=\skip54
-\multlinetaggap=\skip55
+\multlinegap=\skip53
+\multlinetaggap=\skip54
 \mathdisplay@stack=\toks30
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3fp
 .def
 File: datatool-l3fp.def 2025/04/25 v3.4.1 (NLCT)
 )
 \@dtl@toks=\toks31
-\@dtl@tmpcount=\count310
-\dtl@tmplength=\skip56
-\l__datatool_measure_box=\box59
-\dtl@sortresult=\count311
+\@dtl@tmpcount=\count288
+\dtl@tmplength=\skip55
+\l__datatool_measure_box=\box57
+\dtl@sortresult=\count289
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8
 .ldf
 File: datatool-utf8.ldf 2025/04/25 v3.4.1 (NLCT)
 )
-\@dtl@datatype=\count312
-\l__datatool_tmpa_int=\count313
-\l__datatool_tmpb_int=\count314
-\l__datatool_tmpc_int=\count315
-\l__datatool_tmpd_int=\count316
-\l__datatool_count_int=\count317
-\l__datatool_tmp_datatype_int=\count318
-\l__datatool_tmpa_dim=\dimen175
-\l__datatool_tmpb_dim=\dimen176
-\c_datatool_unknown_int=\count319
-\l__datatool_year_int=\count320
-\l__datatool_month_int=\count321
-\l__datatool_day_int=\count322
-\l__datatool_hour_int=\count323
-\l__datatool_minute_int=\count324
-\l__datatool_second_int=\count325
-\l__datatool_tzhour_int=\count326
-\l__datatool_tzminute_int=\count327
-\l__datatool_julian_int=\count328
-\l__datatool_local_julian_int=\count329
-\l__datatool_prefix_int=\count330
-\l__datatool_suffix_int=\count331
-\@dtl@foreach@level=\count332
+\@dtl@datatype=\count290
+\l__datatool_tmpa_int=\count291
+\l__datatool_tmpb_int=\count292
+\l__datatool_tmpc_int=\count293
+\l__datatool_tmpd_int=\count294
+\l__datatool_count_int=\count295
+\l__datatool_tmp_datatype_int=\count296
+\l__datatool_tmpa_dim=\dimen167
+\l__datatool_tmpb_dim=\dimen168
+\c_datatool_unknown_int=\count297
+\l__datatool_year_int=\count298
+\l__datatool_month_int=\count299
+\l__datatool_day_int=\count300
+\l__datatool_hour_int=\count301
+\l__datatool_minute_int=\count302
+\l__datatool_second_int=\count303
+\l__datatool_tzhour_int=\count304
+\l__datatool_tzminute_int=\count305
+\l__datatool_julian_int=\count306
+\l__datatool_local_julian_int=\count307
+\l__datatool_prefix_int=\count308
+\l__datatool_suffix_int=\count309
+\@dtl@foreach@level=\count310
 
 
 Package tracklang Warning: No `datatool' support for dialect `romanian'  on inp
 ut line 9908.
 
-\dtl@codeA=\count333
-\dtl@codeB=\count334
+\dtl@codeA=\count311
+\dtl@codeB=\count312
 )
-\gls@level=\count335
+\gls@level=\count313
 \@gls@tmpb=\toks32
-\gls@tmplen=\skip57
-\l__glossaries_tmpa_dim=\dimen177
-\l__glossaries_tmpb_dim=\dimen178
+\gls@tmplen=\skip56
+\l__glossaries_tmpa_dim=\dimen169
+\l__glossaries_tmpb_dim=\dimen170
 \glskeylisttok=\toks33
 \glslabeltok=\toks34
 \glsshorttok=\toks35
@@ -784,83 +767,87 @@ ut line 9908.
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glos
 sary-hypernav.sty
-Package: glossary-hypernav 2025/05/14 v4.7 (NLCT)
+Package: glossary-hypernav 2025/08/11 v4.8 (NLCT)
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glos
 sary-list.sty
-Package: glossary-list 2025/05/14 v4.7 (NLCT)
-\glslistdottedwidth=\skip58
+Package: glossary-list 2025/08/11 v4.8 (NLCT)
+\glslistdottedwidth=\skip57
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glos
 sary-long.sty
-Package: glossary-long 2025/05/14 v4.7 (NLCT)
+Package: glossary-long 2025/08/11 v4.8 (NLCT)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
-Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
-\LTleft=\skip59
-\LTright=\skip60
-\LTpre=\skip61
-\LTpost=\skip62
-\LTchunksize=\count336
-\LTcapwidth=\dimen179
-\LT@head=\box60
-\LT@firsthead=\box61
-\LT@foot=\box62
-\LT@lastfoot=\box63
-\LT@gbox=\box64
-\LT@cols=\count337
-\LT@rows=\count338
-\c@LT@tables=\count339
-\c@LT@chunks=\count340
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip58
+\LTright=\skip59
+\LTpre=\skip60
+\LTpost=\skip61
+\LTchunksize=\count314
+\LTcapwidth=\dimen171
+\LT@head=\box58
+\LT@firsthead=\box59
+\LT@foot=\box60
+\LT@lastfoot=\box61
+\LT@gbox=\box62
+\LT@cols=\count315
+\LT@rows=\count316
+\c@LT@tables=\count317
+\c@LT@chunks=\count318
 \LT@p@ftn=\toks37
 )
-\glsdescwidth=\skip63
-\glspagelistwidth=\skip64
+\glsdescwidth=\skip62
+\glspagelistwidth=\skip63
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glos
 sary-super.sty
-Package: glossary-super 2025/05/14 v4.7 (NLCT)
+Package: glossary-super 2025/08/11 v4.8 (NLCT)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabu
 lar.sty
 Package: supertabular 2024/07/20 v4.2c the supertabular environment
-\c@tracingst=\count341
-\ST@wd=\dimen180
-\ST@rightskip=\skip65
-\ST@leftskip=\skip66
-\ST@parfillskip=\skip67
-\ST@pageleft=\dimen181
-\ST@headht=\dimen182
-\ST@tailht=\dimen183
-\ST@pagesofar=\dimen184
-\ST@pboxht=\dimen185
-\ST@rowht=\dimen186
-\ST@prevht=\dimen187
-\ST@toadd=\dimen188
-\ST@dimen=\dimen189
-\ST@pbox=\box65
+\c@tracingst=\count319
+\ST@wd=\dimen172
+\ST@rightskip=\skip64
+\ST@leftskip=\skip65
+\ST@parfillskip=\skip66
+\ST@pageleft=\dimen173
+\ST@headht=\dimen174
+\ST@tailht=\dimen175
+\ST@pagesofar=\dimen176
+\ST@pboxht=\dimen177
+\ST@rowht=\dimen178
+\ST@prevht=\dimen179
+\ST@toadd=\dimen180
+\ST@dimen=\dimen181
+\ST@pbox=\box63
 ))
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\glos
 sary-tree.sty
-Package: glossary-tree 2025/05/14 v4.7 (NLCT)
-\l__glossaries_tree_max_known_level_int=\count342
-\l__glossaries_tree_offset_dim=\dimen190
-\l__glossaries_tree_namewidth_dim=\dimen191
-\l__glossaries_tree_symbolwidth_dim=\dimen192
-\l__glossaries_tree_prenamesym_width_dim=\dimen193
-\l__glossaries_tree_presubnamesym_width_dim=\dimen194
-\l__glossaries_tree_namewidth_padding_dim=\dimen195
-\l__glossaries_tree_symbolwidth_padding_dim=\dimen196
-\l__glossaries_tree_namesymbolwidth_dim=\dimen197
-\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen198
-\l__glossaries_tree_level_int=\count343
-\glstreeindent=\skip68
+Package: glossary-tree 2025/08/11 v4.8 (NLCT)
+\l__glossaries_tree_max_known_level_int=\count320
+\l__glossaries_tree_offset_dim=\dimen182
+\l__glossaries_tree_namewidth_dim=\dimen183
+\l__glossaries_tree_symbolwidth_dim=\dimen184
+\l__glossaries_tree_prenamesym_width_dim=\dimen185
+\l__glossaries_tree_presubnamesym_width_dim=\dimen186
+\l__glossaries_tree_namewidth_padding_dim=\dimen187
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen188
+\l__glossaries_tree_namesymbolwidth_dim=\dimen189
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen190
+\l__glossaries_tree_level_int=\count321
+\glstreeindent=\skip67
 ))
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.
+sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.st
 y
@@ -881,11 +868,6 @@ Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 s.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.
-sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
@@ -893,8 +875,15 @@ Package pdftexcmds Info: \pdfdraftmode found.
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacr
+o.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -907,49 +896,44 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 y
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count344
+\c@section@level=\count322
 )
-(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.
-sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
-)
-)
-\@linkdim=\dimen199
-\Hy@linkcounter=\count345
-\Hy@pagecounter=\count346
+\@linkdim=\dimen191
+\Hy@linkcounter=\count323
+\Hy@pagecounter=\count324
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count347
+\Hy@SavedSpaceFactor=\count325
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `bookmarks' set `true' on input line 4066.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 4066.
-Package hyperref Info: Option `linktocpage' set `true' on input line 4066.
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4064.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4064.
+Package hyperref Info: Option `linktocpage' set `true' on input line 4064.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count348
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count326
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip18
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen256
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen192
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -959,26 +943,36 @@ c.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count349
-\Field@Width=\dimen257
-\Fld@charsize=\dimen258
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count350
-\c@Item=\count351
-\c@Hfootnote=\count352
+\Fld@menulength=\count327
+\Field@Width=\dimen193
+\Fld@charsize=\dimen194
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count328
+\c@Item=\count329
+\c@Hfootnote=\count330
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
 
-(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count353
-\c@bookmark@seq@number=\count354
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count331
+\c@bookmark@seq@number=\count332
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfi
 lecheck.sty
@@ -991,10 +985,10 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip69
+\Hy@SectionHShift=\skip68
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -1004,11 +998,11 @@ Package color Info: Driver file: pdftex.def on input line 149.
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
 )) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count355
+\c@float@type=\count333
 \float@exts=\toks38
-\float@box=\box66
+\float@box=\box64
 \@float@everytoks=\toks39
-\@floatcapt=\box67
+\@floatcapt=\box65
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.st
 y
@@ -1024,60 +1018,59 @@ Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.
 sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
-\collectedbox=\box68
+\collectedbox=\box66
 )
-\tc@llx=\dimen259
-\tc@lly=\dimen260
-\tc@urx=\dimen261
-\tc@ury=\dimen262
+\tc@llx=\dimen195
+\tc@lly=\dimen196
+\tc@urx=\dimen197
+\tc@ury=\dimen198
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.de
 f
 File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen263
-\adjbox@Height=\dimen264
-\adjbox@Depth=\dimen265
-\adjbox@Totalheight=\dimen266
-\adjbox@pwidth=\dimen267
-\adjbox@pheight=\dimen268
-\adjbox@pdepth=\dimen269
-\adjbox@ptotalheight=\dimen270
+\adjbox@Width=\dimen199
+\adjbox@Height=\dimen256
+\adjbox@Depth=\dimen257
+\adjbox@Totalheight=\dimen258
+\adjbox@pwidth=\dimen259
+\adjbox@pheight=\dimen260
+\adjbox@pdepth=\dimen261
+\adjbox@ptotalheight=\dimen262
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.st
 y
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count356
+\c@checkoddpage=\count334
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box69
-\sift@deathcycles=\count357
-\@vwid@loff=\dimen271
-\@vwid@roff=\dimen272
-)
-==> First Aid for varwidth.sty applied!
-)
+\@vwid@box=\box67
+\sift@deathcycles=\count335
+\@vwid@loff=\dimen263
+\@vwid@roff=\dimen264
+))
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box70
-\beforetitleunit=\skip70
-\aftertitleunit=\skip71
-\ttl@plus=\dimen273
-\ttl@minus=\dimen274
+\ttl@box=\box68
+\beforetitleunit=\skip69
+\aftertitleunit=\skip70
+\ttl@plus=\dimen265
+\ttl@minus=\dimen266
 \ttl@toksa=\toks40
-\titlewidth=\dimen275
-\titlewidthlast=\dimen276
-\titlewidthfirst=\dimen277
+\titlewidth=\dimen267
+\titlewidthlast=\dimen268
+\titlewidthfirst=\dimen269
 ) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.st
 y
-File: lstlang1.sty 2024/09/23 1.10c listings language file
+File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
 ftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count358
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count336
+\l__pdf_internal_box=\box69
 ) (teza.aux
 
 LaTeX Warning: Label `fig:wbsv' multiply defined.
@@ -1133,21 +1126,21 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
-\c@lstlisting=\count359
+\c@lstlisting=\count337
 
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
 kii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count360
-\scratchdimen=\dimen278
-\scratchbox=\box71
-\nofMPsegments=\count361
-\nofMParguments=\count362
+\scratchcounter=\count338
+\scratchdimen=\dimen270
+\scratchbox=\box70
+\nofMPsegments=\count339
+\nofMParguments=\count340
 \everyMPshowfont=\toks41
-\MPscratchCnt=\count363
-\MPscratchDim=\dimen279
-\MPnumerator=\count364
-\makeMPintoPDFobject=\count365
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen271
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
 \everyMPtoPDFconversion=\toks42
 )
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
@@ -1187,8 +1180,6 @@ Overfull \hbox (41.9053pt too wide) in paragraph at lines 92--92
  [][] 
  []
 
-
-
 [1
 
 {C:/Users/senapi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
@@ -1201,10 +1192,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--92
 
  []
 
-
-
 [2] (teza.toc
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+8.
 
+(C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 [3
 
 ]
@@ -1226,13 +1220,9 @@ Overfull \hbox (5.11018pt too wide) in paragraph at lines 88--88
 vations/<int:property_id> 
  []
 
-
-
 [4])
 \tf@toc=\write4
 \openout4 = `teza.toc'.
-
-
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
@@ -1241,8 +1231,6 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
                    \relax 
 l.93 	\listoffigures
                      [2] (teza.lof
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
 s been already used, duplicate ignored
 <to be read again> 
@@ -1255,8 +1243,6 @@ l.43 ... a utilizatorilor}}{49}{figure.caption.42}
 \openout5 = `teza.lof'.
 
 
-
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -1266,9 +1252,7 @@ l.94 	\listoftables
 \tf@lot=\write6
 \openout6 = `teza.lot'.
 
-
-
-[5
+ [5
 
 ]
 
@@ -1276,50 +1260,17 @@ Package hyperref Warning: bookmark level for unknown unnumberedsection defaults
  to 0.
 
 Lista acronimelor
-
-
 [6
 
 ]
 Capitolul 1.
-
-LaTeX Warning: Citation `scal' on page 1 undefined on input line 110.
-
-
-LaTeX Warning: Citation `scal.soft' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation `scal.hard' on page 1 undefined on input line 114.
-
-
-LaTeX Warning: Citation `bd' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation `ss' on page 1 undefined on input line 123.
-
-
-
 [1
 
-]
-
-[2]
+] [2]
 Capitolul 2.
-
-LaTeX Warning: Citation `web' on page 3 undefined on input line 150.
-
-
-LaTeX Warning: Citation `mono' on page 3 undefined on input line 166.
-
-
-
 [3
 
 ]
-
-LaTeX Warning: Citation `n' on page 4 undefined on input line 173.
-
-
 Overfull \hbox (14.5758pt too wide) in paragraph at lines 177--178
 []\T1/cmr/m/n/12 Stratul de Date (Data Tier): Asi-gur  persisten[]a da-te-lor, 
 sto-ca-rea []i ges-tio-na-rea informa[]iilor
@@ -1331,252 +1282,163 @@ Overfull \hbox (35.13214pt too wide) in paragraph at lines 180--181
 ea cres-cut , se-pa-ra-rea clar  a responsabilit []ilor
  []
 
-
-LaTeX Warning: Citation `http' on page 4 undefined on input line 186.
-
-
-LaTeX Warning: Citation `usag' on page 4 undefined on input line 193.
-
-<figuri/ussyntax.png, id=732, 422.17725pt x 60.82726pt>
+<figuri/ussyntax.png, id=754, 422.17725pt x 60.82726pt>
 File: figuri/ussyntax.png Graphic file (type png)
 <use figuri/ussyntax.png>
 Package pdftex.def Info: figuri/ussyntax.png  used on input line 197.
 (pdftex.def)             Requested size: 386.95894pt x 55.75476pt.
-
-
 [4]
-
-LaTeX Warning: Citation `svweb' on page 5 undefined on input line 206.
-
-
-LaTeX Warning: Citation `url' on page 5 undefined on input line 210.
-
-<figuri/url.png, id=740, 4426.5375pt x 401.5pt>
+<figuri/url.png, id=767, 4426.5375pt x 401.5pt>
 File: figuri/url.png Graphic file (type png)
 <use figuri/url.png>
 Package pdftex.def Info: figuri/url.png  used on input line 213.
 (pdftex.def)             Requested size: 822.28314pt x 74.58264pt.
-<figuri/http.png, id=743, 260.172pt x 283.0575pt>
+<figuri/http.png, id=770, 260.172pt x 283.0575pt>
 File: figuri/http.png Graphic file (type png)
 <use figuri/http.png>
 Package pdftex.def Info: figuri/http.png  used on input line 223.
 (pdftex.def)             Requested size: 96.73788pt x 105.24791pt.
-
-
-[5 <./figuri/ussyntax.png> <./figuri/url.png>]
-<figuri/port.png, id=752, 475.17525pt x 259.56975pt>
+ [5 <./figuri/ussyntax.png> <./figuri/url.png>]
+<figuri/port.png, id=781, 475.17525pt x 259.56975pt>
 File: figuri/port.png Graphic file (type png)
 <use figuri/port.png>
 Package pdftex.def Info: figuri/port.png  used on input line 235.
 (pdftex.def)             Requested size: 193.47577pt x 105.68759pt.
-<figuri/cale.png, id=754, 579.96675pt x 276.43275pt>
+<figuri/cale.png, id=783, 579.96675pt x 276.43275pt>
 File: figuri/cale.png Graphic file (type png)
 <use figuri/cale.png>
 Package pdftex.def Info: figuri/cale.png  used on input line 248.
 (pdftex.def)             Requested size: 193.47577pt x 92.21854pt.
-<figuri/param.png, id=756, 861.2175pt x 234.8775pt>
+<figuri/param.png, id=785, 861.2175pt x 234.8775pt>
 File: figuri/param.png Graphic file (type png)
 <use figuri/param.png>
 Package pdftex.def Info: figuri/param.png  used on input line 259.
 (pdftex.def)             Requested size: 290.22105pt x 79.15125pt.
-
-
-[6 <./figuri/http.png> <./figuri/port.png> <./figuri/cale.png>]
-<figuri/ancora.png, id=768, 385.44pt x 239.6955pt>
+ [6 <./figuri/http.png> <./figuri/port.png> <./figuri/cale.png>]
+<figuri/ancora.png, id=797, 385.44pt x 239.6955pt>
 File: figuri/ancora.png Graphic file (type png)
 <use figuri/ancora.png>
 Package pdftex.def Info: figuri/ancora.png  used on input line 270.
 (pdftex.def)             Requested size: 145.11052pt x 90.24036pt.
-<figuri/wbsv.png, id=770, 513.71925pt x 333.6465pt>
+<figuri/wbsv.png, id=799, 513.71925pt x 333.6465pt>
 File: figuri/wbsv.png Graphic file (type png)
 <use figuri/wbsv.png>
 Package pdftex.def Info: figuri/wbsv.png  used on input line 282.
 (pdftex.def)             Requested size: 290.22105pt x 188.50043pt.
-
-
-[7 <./figuri/param.png> <./figuri/ancora.png>]
-<figuri/tcp.png, id=780, 453.49425pt x 172.2435pt>
+ [7 <./figuri/param.png> <./figuri/ancora.png>]
+<figuri/tcp.png, id=809, 453.49425pt x 172.2435pt>
 File: figuri/tcp.png Graphic file (type png)
 <use figuri/tcp.png>
 Package pdftex.def Info: figuri/tcp.png  used on input line 291.
 (pdftex.def)             Requested size: 386.95894pt x 146.97798pt.
-<figuri/cltcp.png, id=782, 407.121pt x 94.55325pt>
+<figuri/cltcp.png, id=811, 407.121pt x 94.55325pt>
 File: figuri/cltcp.png Graphic file (type png)
 <use figuri/cltcp.png>
 Package pdftex.def Info: figuri/cltcp.png  used on input line 300.
 (pdftex.def)             Requested size: 338.5863pt x 78.64075pt.
-
-
-[8 <./figuri/wbsv.png> <./figuri/tcp.png>]
-<figuri/svtcp.png, id=791, 404.712pt x 215.00325pt>
+ [8 <./figuri/wbsv.png> <./figuri/tcp.png>]
+<figuri/svtcp.png, id=820, 404.712pt x 215.00325pt>
 File: figuri/svtcp.png Graphic file (type png)
 <use figuri/svtcp.png>
 Package pdftex.def Info: figuri/svtcp.png  used on input line 307.
 (pdftex.def)             Requested size: 386.95894pt x 205.5806pt.
-<figuri/httpmesaj.png, id=794, 1526.70375pt x 943.525pt>
+<figuri/httpmesaj.png, id=823, 1325.95375pt x 452.69125pt>
 File: figuri/httpmesaj.png Graphic file (type png)
 <use figuri/httpmesaj.png>
 Package pdftex.def Info: figuri/httpmesaj.png  used on input line 322.
-(pdftex.def)             Requested size: 386.95894pt x 239.13438pt.
-
-
-[9 <./figuri/cltcp.png> <./figuri/svtcp.png>]
-<figuri/cerex.png, id=804, 812.28468pt x 323.70938pt>
+(pdftex.def)             Requested size: 386.95894pt x 132.10599pt.
+ [9 <./figuri/cltcp.png> <./figuri/svtcp.png>]
+<figuri/cerex.png, id=833, 812.28468pt x 323.70938pt>
 File: figuri/cerex.png Graphic file (type png)
 <use figuri/cerex.png>
 Package pdftex.def Info: figuri/cerex.png  used on input line 346.
 (pdftex.def)             Requested size: 386.95894pt x 154.2081pt.
-
-
-[10 <./figuri/httpmesaj.png>]
-
-LaTeX Warning: Citation `req' on page 11 undefined on input line 350.
-
-<figuri/cer.png, id=816, 1145.02782pt x 707.64375pt>
+ [10 <./figuri/httpmesaj.png>]
+<figuri/cer.png, id=846, 1145.02782pt x 707.64375pt>
 File: figuri/cer.png Graphic file (type png)
 <use figuri/cer.png>
 Package pdftex.def Info: figuri/cer.png  used on input line 354.
 (pdftex.def)             Requested size: 386.95894pt x 239.14879pt.
-<figuri/msjcer.png, id=818, 649.82774pt x 96.36pt>
+<figuri/msjcer.png, id=848, 649.82774pt x 96.36pt>
 File: figuri/msjcer.png Graphic file (type png)
 <use figuri/msjcer.png>
 Package pdftex.def Info: figuri/msjcer.png  used on input line 366.
 (pdftex.def)             Requested size: 386.95894pt x 57.38121pt.
-
-
-[11 <./figuri/cerex.png> <./figuri/cer.png> <./figuri/msjcer.png>]
-<figuri/formorig.png, id=831, 629.9535pt x 92.14426pt>
+ [11 <./figuri/cerex.png> <./figuri/cer.png> <./figuri/msjcer.png>]
+<figuri/formorig.png, id=862, 629.9535pt x 92.14426pt>
 File: figuri/formorig.png Graphic file (type png)
 <use figuri/formorig.png>
 Package pdftex.def Info: figuri/formorig.png  used on input line 393.
 (pdftex.def)             Requested size: 386.95894pt x 56.60158pt.
-<figuri/abs.png, id=833, 627.5445pt x 112.62074pt>
+<figuri/abs.png, id=864, 627.5445pt x 112.62074pt>
 File: figuri/abs.png Graphic file (type png)
 <use figuri/abs.png>
 Package pdftex.def Info: figuri/abs.png  used on input line 401.
 (pdftex.def)             Requested size: 386.95894pt x 69.44435pt.
-
-
-[12 <./figuri/formorig.png>]
-<figuri/conn.png, id=841, 628.14674pt x 88.53075pt>
+ [12 <./figuri/formorig.png>]
+<figuri/conn.png, id=872, 628.14674pt x 88.53075pt>
 File: figuri/conn.png Graphic file (type png)
 <use figuri/conn.png>
 Package pdftex.def Info: figuri/conn.png  used on input line 409.
 (pdftex.def)             Requested size: 386.95894pt x 54.53859pt.
-<figuri/ast.png, id=843, 461.92575pt x 65.64525pt>
+<figuri/ast.png, id=874, 461.92575pt x 65.64525pt>
 File: figuri/ast.png Graphic file (type png)
 <use figuri/ast.png>
 Package pdftex.def Info: figuri/ast.png  used on input line 417.
 (pdftex.def)             Requested size: 386.95894pt x 54.99336pt.
-<figuri/reqhed.png, id=845, 453.19313pt x 246.1697pt>
+<figuri/reqhed.png, id=876, 453.19313pt x 246.1697pt>
 File: figuri/reqhed.png Graphic file (type png)
 <use figuri/reqhed.png>
 Package pdftex.def Info: figuri/reqhed.png  used on input line 430.
 (pdftex.def)             Requested size: 241.84842pt x 131.36705pt.
-
-
-[13 <./figuri/abs.png> <./figuri/conn.png> <./figuri/ast.png> <./figuri/reqhed.
-png>]
-<figuri/bodcer1.png, id=862, 703.87968pt x 222.8325pt>
+ [13 <./figuri/abs.png> <./figuri/conn.png> <./figuri/ast.png> <./figuri/reqhed
+.png>]
+<figuri/bodcer1.png, id=893, 703.87968pt x 222.8325pt>
 File: figuri/bodcer1.png Graphic file (type png)
 <use figuri/bodcer1.png>
 Package pdftex.def Info: figuri/bodcer1.png  used on input line 456.
 (pdftex.def)             Requested size: 386.95894pt x 122.50044pt.
-<figuri/bodcer2.png, id=864, 704.6325pt x 306.39468pt>
+<figuri/bodcer2.png, id=895, 704.6325pt x 306.39468pt>
 File: figuri/bodcer2.png Graphic file (type png)
 <use figuri/bodcer2.png>
 Package pdftex.def Info: figuri/bodcer2.png  used on input line 463.
 (pdftex.def)             Requested size: 386.95894pt x 168.26045pt.
-<figuri/rasex.png, id=866, 716.6775pt x 335.00156pt>
+<figuri/rasex.png, id=897, 716.6775pt x 335.00156pt>
 File: figuri/rasex.png Graphic file (type png)
 <use figuri/rasex.png>
 Package pdftex.def Info: figuri/rasex.png  used on input line 471.
 (pdftex.def)             Requested size: 386.95894pt x 180.8828pt.
-
-
-[14 <./figuri/bodcer1.png> <./figuri/bodcer2.png>]
-
-LaTeX Warning: Citation `ras' on page 15 undefined on input line 476.
-
-<figuri/ras.png, id=876, 1145.02782pt x 701.62125pt>
+ [14 <./figuri/bodcer1.png> <./figuri/bodcer2.png>]
+<figuri/ras.png, id=908, 1145.02782pt x 701.62125pt>
 File: figuri/ras.png Graphic file (type png)
 <use figuri/ras.png>
 Package pdftex.def Info: figuri/ras.png  used on input line 480.
 (pdftex.def)             Requested size: 386.95894pt x 237.11348pt.
-
-
-[15 <./figuri/rasex.png> <./figuri/ras.png>]
-<figuri/raspline.png, id=887, 529.98pt x 77.53969pt>
+ [15 <./figuri/rasex.png> <./figuri/ras.png>]
+<figuri/raspline.png, id=920, 529.98pt x 77.53969pt>
 File: figuri/raspline.png Graphic file (type png)
 <use figuri/raspline.png>
 Package pdftex.def Info: figuri/raspline.png  used on input line 500.
 (pdftex.def)             Requested size: 386.95894pt x 56.61531pt.
-<figuri/resphed.png, id=889, 219.82124pt x 118.19156pt>
+<figuri/resphed.png, id=922, 219.82124pt x 118.19156pt>
 File: figuri/resphed.png Graphic file (type png)
 <use figuri/resphed.png>
 Package pdftex.def Info: figuri/resphed.png  used on input line 522.
 (pdftex.def)             Requested size: 193.47577pt x 104.02872pt.
-
-
-LaTeX Warning: Citation `flask' on page 16 undefined on input line 533.
-
-
-LaTeX Warning: Citation `flaskdoc' on page 16 undefined on input line 533.
-
-
-
-[16 <./figuri/raspline.png> <./figuri/resphed.png>]
-
-LaTeX Warning: Citation `flaskwiki' on page 17 undefined on input line 536.
-
-
-
-[17]
-
-LaTeX Warning: Citation `bdd' on page 18 undefined on input line 561.
-
-
-
-[18]
-
-LaTeX Warning: Citation `bdd' on page 19 undefined on input line 587.
-
-
-LaTeX Warning: Citation `sql' on page 19 undefined on input line 595.
-
-
-
-[19]
-
-LaTeX Warning: Citation `ng' on page 20 undefined on input line 599.
-
-
-
-[20]
-
-[21]
+ [16 <./figuri/raspline.png> <./figuri/resphed.png>] [17] [18] [19]
+[20] [21]
 Capitolul 3.
-<figuri/mod.png, id=924, 1156.32pt x 352.31625pt>
+<figuri/mod.png, id=970, 1156.32pt x 352.31625pt>
 File: figuri/mod.png Graphic file (type png)
 <use figuri/mod.png>
 Package pdftex.def Info: figuri/mod.png  used on input line 654.
 (pdftex.def)             Requested size: 483.69684pt x 147.37508pt.
-
-
 [22
 
-]
-
-[23 <./figuri/mod.png>]
+] [23 <./figuri/mod.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 680.
-
-
-[24]
-
-[25]
-
-[26]
+ [24] [25] [26]
 Underfull \hbox (badness 3354) in paragraph at lines 798--799
 []\T1/cmr/m/n/12 Concomitent, de-ta-li-ile de con-tact []i pre[]ul to-tal sunt 
 in-se-rate în ta-bela
@@ -1595,10 +1457,8 @@ Underfull \hbox (badness 2027) in paragraph at lines 801--802
 s\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 properties []\T1/cmr/m/n/12 i
  []
 
-
-
 [27]
-<figuri/bd.png, id=970, 597.432pt x 845.0772pt>
+<figuri/bd.png, id=1016, 597.432pt x 845.0772pt>
 File: figuri/bd.png Graphic file (type png)
 <use figuri/bd.png>
 Package pdftex.def Info: figuri/bd.png  used on input line 814.
@@ -1609,41 +1469,29 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 815.
 See the caption package documentation for explanation.
 
-
-
 [28]
 Underfull \hbox (badness 1852) in paragraph at lines 821--822
 \T1/cmr/m/n/12 Aplica[]ia Flask re-a-li-zat  este bine struc-tu-rat  []i se ba-
 zeaz  pe o se-pa-rare clar  a
  []
 
-
-
-[29 <./figuri/bd.png (PNG copy)>]
-
-[30]
+[29 <./figuri/bd.png (PNG copy)>] [30]
 Capitolul 4.
-
-
 [31
 
 ]
-<figuri/newuser.png, id=990, 1433.355pt x 656.4525pt>
+<figuri/newuser.png, id=1036, 1433.355pt x 656.4525pt>
 File: figuri/newuser.png Graphic file (type png)
 <use figuri/newuser.png>
 Package pdftex.def Info: figuri/newuser.png  used on input line 855.
 (pdftex.def)             Requested size: 483.68176pt x 204.74023pt.
-
-
-[32 <./figuri/newuser.png>]
-<figuri/login.png, id=1004, 1434.86063pt x 631.60968pt>
+ [32 <./figuri/newuser.png>]
+<figuri/login.png, id=1050, 1434.86063pt x 631.60968pt>
 File: figuri/login.png Graphic file (type png)
 <use figuri/login.png>
 Package pdftex.def Info: figuri/login.png  used on input line 888.
 (pdftex.def)             Requested size: 483.69684pt x 212.91331pt.
-
-
-[33 <./figuri/login.png>]
+ [33 <./figuri/login.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 909.
 
@@ -1652,20 +1500,14 @@ Underfull \hbox (badness 3884) in paragraph at lines 933--934
 riu, ge-ne-rat auto-mat de func[]ia
  []
 
-
-
-[34]
-
-[35]
+[34] [35]
 Overfull \hbox (0.66707pt too wide) in paragraph at lines 961--962
 []\T1/cmr/m/n/12 Verificarea se re-a-li-zeaz  prin ape-lul func[]iei \T1/cmtt/m
 /n/12 bcrypt.checkpw(password.encode('utf-8'),
  []
 
-
-
 [36]
-<figuri/home1.png, id=1046, 1394.20876pt x 630.85687pt>
+<figuri/home1.png, id=1092, 1394.20876pt x 630.85687pt>
 File: figuri/home1.png Graphic file (type png)
 <use figuri/home1.png>
 Package pdftex.def Info: figuri/home1.png  used on input line 1029.
@@ -1674,7 +1516,7 @@ Package pdftex.def Info: figuri/home1.png  used on input line 1029.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/home.png, id=1049, 1392.70313pt x 641.39626pt>
+<figuri/home.png, id=1095, 1392.70313pt x 641.39626pt>
 File: figuri/home.png Graphic file (type png)
 <use figuri/home.png>
 Package pdftex.def Info: figuri/home.png  used on input line 1036.
@@ -1682,22 +1524,14 @@ Package pdftex.def Info: figuri/home.png  used on input line 1036.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
-[37]
-
-[38 <./figuri/home1.png> <./figuri/home.png>]
-<figuri/prof.png, id=1071, 1132.23pt x 449.88075pt>
+[37] [38 <./figuri/home1.png> <./figuri/home.png>]
+<figuri/prof.png, id=1117, 1132.23pt x 449.88075pt>
 File: figuri/prof.png Graphic file (type png)
 <use figuri/prof.png>
 Package pdftex.def Info: figuri/prof.png  used on input line 1074.
 (pdftex.def)             Requested size: 435.32419pt x 172.96779pt.
-
-
-[39]
-
-[40 <./figuri/prof.png>]
-<figuri/editprof.png, id=1092, 901.11656pt x 609.02531pt>
+ [39] [40 <./figuri/prof.png>]
+<figuri/editprof.png, id=1138, 901.11656pt x 609.02531pt>
 File: figuri/editprof.png Graphic file (type png)
 <use figuri/editprof.png>
 Package pdftex.def Info: figuri/editprof.png  used on input line 1106.
@@ -1708,10 +1542,8 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1107.
 See the caption package documentation for explanation.
 
-
-
 [41 <./figuri/editprof.png>]
-<figuri/admin.png, id=1105, 1117.17375pt x 526.96875pt>
+<figuri/admin.png, id=1151, 1117.17375pt x 526.96875pt>
 File: figuri/admin.png Graphic file (type png)
 <use figuri/admin.png>
 Package pdftex.def Info: figuri/admin.png  used on input line 1155.
@@ -1722,18 +1554,14 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1156.
 See the caption package documentation for explanation.
 
-
-
 [42]
-<figuri/s3.png, id=1116, 1121.3895pt x 252.945pt>
+<figuri/s3.png, id=1162, 1121.3895pt x 252.945pt>
 File: figuri/s3.png Graphic file (type png)
 <use figuri/s3.png>
 Package pdftex.def Info: figuri/s3.png  used on input line 1184.
 (pdftex.def)             Requested size: 483.69684pt x 109.10387pt.
-
-
-[43 <./figuri/admin.png>]
-<figuri/s4.png, id=1129, 1137.048pt x 437.83575pt>
+ [43 <./figuri/admin.png>]
+<figuri/s4.png, id=1175, 1137.048pt x 437.83575pt>
 File: figuri/s4.png Graphic file (type png)
 <use figuri/s4.png>
 Package pdftex.def Info: figuri/s4.png  used on input line 1197.
@@ -1744,15 +1572,13 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 1198.
 See the caption package documentation for explanation.
 
-
-
 [44 <./figuri/s3.png> <./figuri/s4.png>]
 Underfull \hbox (badness 1189) in paragraph at lines 1206--1206
 |[]\T1/cmr/bx/n/14.4 Etapa 3: Cal-cu-la-to-rul de Dis-po-ni-bi-li-tate []i Re-c
 o-man-d ri
  []
 
-<figuri/prop.png, id=1140, 1127.412pt x 536.0025pt>
+<figuri/prop.png, id=1186, 1127.412pt x 536.0025pt>
 File: figuri/prop.png Graphic file (type png)
 <use figuri/prop.png>
 Package pdftex.def Info: figuri/prop.png  used on input line 1214.
@@ -1763,15 +1589,13 @@ Underfull \hbox (badness 2469) in paragraph at lines 1223--1224
 sis-te-mu-lui de c -u-tare. Ea
  []
 
-
-
 [45 <./figuri/prop.png>]
-<figuri/addprop1.png, id=1152, 1028.643pt x 422.7795pt>
+<figuri/addprop1.png, id=1198, 1028.643pt x 422.7795pt>
 File: figuri/addprop1.png Graphic file (type png)
 <use figuri/addprop1.png>
 Package pdftex.def Info: figuri/addprop1.png  used on input line 1235.
 (pdftex.def)             Requested size: 483.69684pt x 198.80315pt.
-<figuri/addprop2.png, id=1154, 908.193pt x 537.80925pt>
+<figuri/addprop2.png, id=1200, 908.193pt x 537.80925pt>
 File: figuri/addprop2.png Graphic file (type png)
 <use figuri/addprop2.png>
 Package pdftex.def Info: figuri/addprop2.png  used on input line 1242.
@@ -1780,20 +1604,14 @@ Package pdftex.def Info: figuri/addprop2.png  used on input line 1242.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
-[46 <./figuri/addprop1.png>]
-
-[47 <./figuri/addprop2.png>]
-<figuri/myprop.png, id=1176, 1396.4672pt x 605.26125pt>
+[46 <./figuri/addprop1.png>] [47 <./figuri/addprop2.png>]
+<figuri/myprop.png, id=1222, 1396.4672pt x 605.26125pt>
 File: figuri/myprop.png Graphic file (type png)
 <use figuri/myprop.png>
 Package pdftex.def Info: figuri/myprop.png  used on input line 1289.
 (pdftex.def)             Requested size: 483.69684pt x 209.64655pt.
-
-
-[48 <./figuri/myprop.png>]
-<figuri/editprop1.png, id=1185, 872.058pt x 304.13625pt>
+ [48 <./figuri/myprop.png>]
+<figuri/editprop1.png, id=1231, 872.058pt x 304.13625pt>
 File: figuri/editprop1.png Graphic file (type png)
 <use figuri/editprop1.png>
 Package pdftex.def Info: figuri/editprop1.png  used on input line 1318.
@@ -1804,24 +1622,18 @@ Underfull \hbox (badness 1043) in paragraph at lines 1315--1322
 i con[]ine câm-pu-rile pen-tru de-ta-li-ile
  []
 
-<figuri/editprop2.png, id=1187, 988.29225pt x 513.71925pt>
+<figuri/editprop2.png, id=1233, 988.29225pt x 513.71925pt>
 File: figuri/editprop2.png Graphic file (type png)
 <use figuri/editprop2.png>
 Package pdftex.def Info: figuri/editprop2.png  used on input line 1325.
 (pdftex.def)             Requested size: 483.69684pt x 251.42676pt.
-
-
 [49 <./figuri/editprop1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1333--1333
 |[]\T1/cmr/bx/n/14.4 Logica Ba-c-kend (Ru-tele \T1/cmtt/m/n/14.4 /edit_property
  []\T1/cmr/bx/n/14.4 i
  []
 
-
-
-[50 <./figuri/editprop2.png>]
-
-[51]
+[50 <./figuri/editprop2.png>] [51]
 File: figuri/s4.png Graphic file (type png)
 <use figuri/s4.png>
 Package pdftex.def Info: figuri/s4.png  used on input line 1392.
@@ -1834,24 +1646,20 @@ Package pdftex.def Info: figuri/prop.png  used on input line 1401.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/rez.png, id=1219, 684.75826pt x 516.7305pt>
+<figuri/rez.png, id=1265, 684.75826pt x 516.7305pt>
 File: figuri/rez.png Graphic file (type png)
 <use figuri/rez.png>
 Package pdftex.def Info: figuri/rez.png  used on input line 1416.
 (pdftex.def)             Requested size: 483.69684pt x 365.00467pt.
-
-
 [52]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/confrez.png, id=1228, 1128.01425pt x 497.4585pt>
+<figuri/confrez.png, id=1274, 1128.01425pt x 497.4585pt>
 File: figuri/confrez.png Graphic file (type png)
 <use figuri/confrez.png>
 Package pdftex.def Info: figuri/confrez.png  used on input line 1441.
 (pdftex.def)             Requested size: 483.69684pt x 213.31091pt.
-
-
 [53]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1862,10 +1670,8 @@ Underfull \hbox (badness 3815) in paragraph at lines 1452--1453
 -to-rul este lo-gat []i dac  exist  un
  []
 
-
-
 [54 <./figuri/rez.png>]
-<figuri/myres.png, id=1246, 1125.003pt x 341.47575pt>
+<figuri/myres.png, id=1292, 1125.003pt x 341.47575pt>
 File: figuri/myres.png Graphic file (type png)
 <use figuri/myres.png>
 Package pdftex.def Info: figuri/myres.png  used on input line 1477.
@@ -1873,8 +1679,6 @@ Package pdftex.def Info: figuri/myres.png  used on input line 1477.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 [55 <./figuri/confrez.png>]
 Underfull \hbox (badness 1286) in paragraph at lines 1490--1491
@@ -1888,10 +1692,8 @@ Overfull \hbox (5.21368pt too wide) in paragraph at lines 1497--1497
 ion/<int:reservation_id>\T1/cmr/bx/n/14.4 )| 
  []
 
-
-
 [56 <./figuri/myres.png>]
-<figuri/proprez.png, id=1268, 1133.4345pt x 454.69875pt>
+<figuri/proprez.png, id=1314, 1133.4345pt x 454.69875pt>
 File: figuri/proprez.png Graphic file (type png)
 <use figuri/proprez.png>
 Package pdftex.def Info: figuri/proprez.png  used on input line 1537.
@@ -1902,31 +1704,15 @@ Overfull \hbox (32.48958pt too wide) in paragraph at lines 1544--1544
 vations/<int:property_id>
  []
 
-
-
-[57 <./figuri/proprez.png>]
-
-[58]
+[57 <./figuri/proprez.png>] [58]
 Capitolul 5.
-
-
 [59
 
-]
-
-[60]
-
-[61]
-
-[62]
+] [60] [61] [62]
 Capitolul 6.
-
-
 [63
 
-]
-
-[64]
+] [64]
 Underfull \hbox (badness 10000) in paragraph at lines 1693--1694
 []\T1/cmr/bx/n/12 Configurare Test din UI: \T1/cmr/m/n/12 Din interfa[]a web a 
 Lo-cust (ac-ce-si-bil  la
@@ -1936,17 +1722,13 @@ Lo-cust (ac-ce-si-bil  la
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 1719.
 
-
-
-[65]
-
-[66]
-<figuri/c23.png, id=1337, 585.98924pt x 460.72125pt>
+[65] [66]
+<figuri/c23.png, id=1383, 585.98924pt x 460.72125pt>
 File: figuri/c23.png Graphic file (type png)
 <use figuri/c23.png>
 Package pdftex.def Info: figuri/c23.png  used on input line 1765.
 (pdftex.def)             Requested size: 483.69684pt x 380.30359pt.
-<figuri/c2cm.png, id=1339, 1400.23125pt x 255.95625pt>
+<figuri/c2cm.png, id=1385, 1400.23125pt x 255.95625pt>
 File: figuri/c2cm.png Graphic file (type png)
 <use figuri/c2cm.png>
 Package pdftex.def Info: figuri/c2cm.png  used on input line 1772.
@@ -1955,35 +1737,29 @@ Package pdftex.def Info: figuri/c2cm.png  used on input line 1772.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
 [67 <./figuri/c23.png>]
-<figuri/c23t.png, id=1347, 504.08325pt x 443.85825pt>
+<figuri/c23t.png, id=1393, 504.08325pt x 443.85825pt>
 File: figuri/c23t.png Graphic file (type png)
 <use figuri/c23t.png>
 Package pdftex.def Info: figuri/c23t.png  used on input line 1783.
 (pdftex.def)             Requested size: 386.95894pt x 340.73567pt.
-
-
-[68 <./figuri/c2cm.png> <./figuri/c23t.png>]
-<figuri/c210t.png, id=1357, 492.03825pt x 439.6425pt>
+ [68 <./figuri/c2cm.png> <./figuri/c23t.png>]
+<figuri/c210t.png, id=1403, 492.03825pt x 439.6425pt>
 File: figuri/c210t.png Graphic file (type png)
 <use figuri/c210t.png>
 Package pdftex.def Info: figuri/c210t.png  used on input line 1803.
 (pdftex.def)             Requested size: 386.95894pt x 345.7507pt.
-<figuri/c2cr.png, id=1360, 1400.23125pt x 259.7203pt>
+<figuri/c2cr.png, id=1406, 1400.23125pt x 259.7203pt>
 File: figuri/c2cr.png Graphic file (type png)
 <use figuri/c2cr.png>
 Package pdftex.def Info: figuri/c2cr.png  used on input line 1817.
 (pdftex.def)             Requested size: 483.69684pt x 89.71852pt.
-
-
-[69 <./figuri/c210t.png>]
+ [69 <./figuri/c210t.png>]
 File: figuri/c2cm.png Graphic file (type png)
 <use figuri/c2cm.png>
 Package pdftex.def Info: figuri/c2cm.png  used on input line 1827.
 (pdftex.def)             Requested size: 483.69684pt x 88.41826pt.
-<figuri/c2cu.png, id=1371, 1400.23125pt x 303.38344pt>
+<figuri/c2cu.png, id=1417, 1400.23125pt x 303.38344pt>
 File: figuri/c2cu.png Graphic file (type png)
 <use figuri/c2cu.png>
 Package pdftex.def Info: figuri/c2cu.png  used on input line 1836.
@@ -2015,12 +1791,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1895--1896
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
-[70 <./figuri/c2cr.png> <./figuri/c2cu.png>]
-
-[71]
-<figuri/c13.png, id=1395, 976.24725pt x 491.436pt>
+[70 <./figuri/c2cr.png> <./figuri/c2cu.png>] [71]
+<figuri/c13.png, id=1440, 976.24725pt x 491.436pt>
 File: figuri/c13.png Graphic file (type png)
 <use figuri/c13.png>
 Package pdftex.def Info: figuri/c13.png  used on input line 1943.
@@ -2035,7 +1807,7 @@ Underfull \hbox (badness 1014) in paragraph at lines 1950--1951
 t/m/n/12 /my-reservations []\T1/cmr/m/n/12 i
  []
 
-<figuri/c13t.png, id=1397, 497.4585pt x 446.26724pt>
+<figuri/c13t.png, id=1442, 497.4585pt x 446.26724pt>
 File: figuri/c13t.png Graphic file (type png)
 <use figuri/c13t.png>
 Package pdftex.def Info: figuri/c13t.png  used on input line 1957.
@@ -2043,18 +1815,16 @@ Package pdftex.def Info: figuri/c13t.png  used on input line 1957.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/c110.png, id=1399, 954.56625pt x 468.5505pt>
+<figuri/c110.png, id=1444, 954.56625pt x 468.5505pt>
 File: figuri/c110.png Graphic file (type png)
 <use figuri/c110.png>
 Package pdftex.def Info: figuri/c110.png  used on input line 1971.
 (pdftex.def)             Requested size: 386.95894pt x 189.9335pt.
-
-
 [72]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/c110t.png, id=1405, 495.65175pt x 452.892pt>
+<figuri/c110t.png, id=1450, 495.65175pt x 452.892pt>
 File: figuri/c110t.png Graphic file (type png)
 <use figuri/c110t.png>
 Package pdftex.def Info: figuri/c110t.png  used on input line 1986.
@@ -2062,7 +1832,7 @@ Package pdftex.def Info: figuri/c110t.png  used on input line 1986.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figuri/c110rps.png, id=1408, 1120.185pt x 210.7875pt>
+<figuri/c110rps.png, id=1453, 1120.185pt x 210.7875pt>
 File: figuri/c110rps.png Graphic file (type png)
 <use figuri/c110rps.png>
 Package pdftex.def Info: figuri/c110rps.png  used on input line 2000.
@@ -2070,10 +1840,8 @@ Package pdftex.def Info: figuri/c110rps.png  used on input line 2000.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
 [73 <./figuri/c13.png>]
-<figuri/c110lat.png, id=1417, 1120.185pt x 238.64156pt>
+<figuri/c110lat.png, id=1462, 1120.185pt x 238.64156pt>
 File: figuri/c110lat.png Graphic file (type png)
 <use figuri/c110lat.png>
 Package pdftex.def Info: figuri/c110lat.png  used on input line 2009.
@@ -2117,8 +1885,6 @@ Overfull \hbox (36.90417pt too wide) in paragraph at lines 2064--2075
  [][] 
  []
 
-
-
 [74 <./figuri/c13t.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2132,13 +1898,9 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-
 [75 <./figuri/c110.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 [76 <./figuri/c110t.png>]
 Underfull \hbox (badness 1194) in paragraph at lines 2180--2181
@@ -2146,30 +1908,84 @@ Underfull \hbox (badness 1194) in paragraph at lines 2180--2181
 ur  dis-tri-bu-it  îmbun t []e[]te
  []
 
-
-
-[77 <./figuri/c110rps.png> <./figuri/c110lat.png>]
-
-[78]
-
-[79]
-
-[80]
+[77 <./figuri/c110rps.png> <./figuri/c110lat.png>] [78] [79] [80]
 Capitolul 7.
-
-
 [81
 
-]
-
-[82]
+] [82]
 Capitolul 8.
-No file teza.bbl.
-
-
-[83
+(teza.bbl [83
 
 ]
+Bibliografie
+
+Underfull \hbox (badness 4366) in paragraph at lines 10--15
+[]\T1/cmr/m/n/12 Kirill Sta-she-v-sky Na-dejda Al-khaldi.  What is software sca
+-la-bi-lity, and why
+ []
+
+
+Underfull \hbox (badness 6758) in paragraph at lines 10--15
+\T1/cmr/m/n/12 sho-uld your com-pany take it se-ri-o-u-sly?  []$\T1/cmtt/m/n/12
+ https : / / itrexgroup . com / blog /
+ []
+
+
+Underfull \hbox (badness 3009) in paragraph at lines 17--23
+[]\T1/cmr/m/n/12 LinkedIn Com-pu-ter En-gi-ne-e-ring.  What is the best way to 
+en-sure har-dware
+ []
+
+
+Underfull \hbox (badness 6658) in paragraph at lines 17--23
+\T1/cmr/m/n/12 sca-la-bi-lity in a com-pu-ter sys-tem?  []$\T1/cmtt/m/n/12 http
+s : / / www . linkedin . com / advice / 1 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--37
+\T1/cmr/m/n/12 ses.  []$\T1/cmtt/m/n/12 https : / / madappgang . com / blog / s
+calability-[]in-[]software-[]development / # :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--37
+\T1/cmtt/m/n/12 ~ : text = Scalability % 20in % 20software % 20development % 20
+refers ,[] users % 2C %
+ []
+
+
+Underfull \hbox (badness 5147) in paragraph at lines 39--43
+[]\T1/cmr/m/n/12 Silviu Stroe.  Ce este o aplica[]ie web?  []$\T1/cmtt/m/n/12 h
+ttps : / / brainic . io / ro / blog /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--51
+[]\T1/cmr/m/n/12 AWS.  What's the di-ffe-rence be-tween mo-no-li-thic and mi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--51
+\T1/cmr/m/n/12 cro-ser-vi-ces ar-chi-tec-ture?  []$\T1/cmtt/m/n/12 https : / / 
+aws . amazon . com / compare /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--51
+\T1/cmtt/m/n/12 the-[]difference-[]between-[]monolithic-[]and-[]microservices-[
+]architecture/$[]\T1/cmr/m/n/12 .  Ac-
+ []
+
+
+Underfull \hbox (badness 1546) in paragraph at lines 87--91
+[]\T1/cmr/m/n/12 Tutorialspoint.  Http - requ-ests.  []$\T1/cmtt/m/n/12 https :
+ / / www . tutorialspoint . com / http / http _
+ []
+
+[84
+
+]) [85]
 Anexa A.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -2189,98 +2005,61 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 2221.
-
-
-[84
+[86
 
 ]
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
+File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-)
-
-[85]
-
-[86]
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+) [87] [88]
 (C:\Users\senapi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
-
-[87]
-
-[88]
-
-[89]
-
-[90]
-
-[91]
-
-[92]
-
-[93]
-
-[94]
-
-[95] (teza.aux)
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) [89] [90] [91] [92] [93] [94] [95] [96] [97] (teza.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-07-20>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `teza.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `teza.out':
-(rerunfilecheck)             Before: 3DD2ED803325C876613E1670F1B22169;26045
-(rerunfilecheck)             After:  25048628884DAA4318D2DBC807F089FB;26052.
+Package rerunfilecheck Info: File `teza.out' has not changed.
+(rerunfilecheck)             Checksum: 43933B85F1457CB2B019A51331F6CEC7;26158.
  ) 
 Here is how much of TeX's memory you used:
- 24455 strings out of 468134
- 444466 string characters out of 5430256
- 1485124 words of memory out of 5000000
- 51905 multiletter control sequences out of 15000+600000
- 649078 words of font info for 90 fonts, out of 8000000 for 9000
+ 24542 strings out of 474485
+ 446534 string characters out of 5743263
+ 2357542 words of memory out of 5000000
+ 45628 multiletter control sequences out of 15000+600000
+ 580322 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,16n,95p,2486b,2310s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section.6.7} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
-095.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ectt1440.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\tcrm1200.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ectt1200.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecbx0600.pk> <C:\Users\senapi\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\senapi\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti0600.pk> <C:\Users\senapi\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\senap
-i\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\User
-s\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti0700.pk> <
-C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti144
-0.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecbx0700.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1440.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx2488.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\senapi\AppData\Local\MiKTeX\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\senapi\AppData\Local\
-MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/senapi/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-Output written on teza.pdf (104 pages, 2833023 bytes).
+ 78i,16n,95p,2486b,2305s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ect
+t1095.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ectt1440.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\tcrm1200.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ectt1200.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx0600.pk> <C:\Users\senapi\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\senapi\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti0600.pk> <C:\Users\senapi\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\sen
+api\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Us
+ers\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti0700.pk>
+ <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1
+440.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx0700.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1440.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx2488.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\senapi\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\senapi\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\senapi\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/senapi/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+Output written on teza.pdf (106 pages, 2825822 bytes).
 PDF statistics:
- 2835 PDF objects out of 2984 (max. 8388607)
- 867 named destinations out of 1000 (max. 500000)
- 1498 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2943 PDF objects out of 2984 (max. 8388607)
+ 889 named destinations out of 1000 (max. 500000)
+ 1506 words of extra memory for PDF output out of 10000 (max. 10000000)
 

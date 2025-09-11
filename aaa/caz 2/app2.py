@@ -6,12 +6,12 @@ from collections import defaultdict
 import itertools
 from contextlib import contextmanager
 from waitress import serve
-import socket # Adăugat pentru verificarea statusului serverului
+import socket 
 
 app = Flask(__name__)
 app.secret_key = "cheie_super_secreta_perta_proiect_v6"
 
-# --- CONFIGURARE PENTRU O SINGURĂ BAZĂ DE DATE PE HOST (Păstrată din fișierul tău nou) ---
+# --- CONFIGURARE PENTRU O SINGURĂ BAZĂ DE DATE PE HOST ---
 
 DB_CONFIG = {
     'host': '127.0.0.1',
@@ -49,9 +49,6 @@ def get_db_cursor(cnx, dictionary=True):
     finally:
         if cursor: cursor.close()
 
-# --- SFÂRȘITUL SECȚIUNII DE CONFIGURARE DB ---
-
-# --- FUNCȚII HELPER (Păstrate și adăugate) ---
 
 def is_logged_in():
     return 'user_id' in session
@@ -86,7 +83,6 @@ def check_server_status(host, port):
         sock.close()
 
 def get_recommendations(room_groups, requested_adults, requested_rooms_count):
-    # Logica acestei funcții rămâne neschimbată
     all_available_rooms = [group for group in room_groups for _ in range(group['count'])]
     single_room_options = []
     for room in all_available_rooms:
@@ -135,7 +131,6 @@ def get_recommendations(room_groups, requested_adults, requested_rooms_count):
     recommendations.sort(key=lambda x: x['sort_score'])
     return recommendations[:5]
 
-# --- RUTELE APLICAȚIEI (Actualizate la ultima versiune funcțională) ---
 
 @app.route('/')
 def home():
@@ -616,7 +611,7 @@ def booking_confirmation():
                         cnx.rollback()
                         flash(f"A apărut o eroare în timpul tranzacției: {e}", "error")
                         return redirect(url_for('home'))
-        else: # GET
+        else:
             with get_db_connection() as cnx:
                 with cnx.cursor(dictionary=True) as cursor:
                     format_strings = ','.join(['%s'] * len(room_id_list))

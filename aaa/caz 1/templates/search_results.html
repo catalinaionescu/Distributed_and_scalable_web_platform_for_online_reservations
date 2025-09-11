@@ -49,7 +49,7 @@
         <p>Am găsit <strong>{{ properties|length }}</strong> proprietăți care se potrivesc cerințelor tale.</p>
         {% for p in properties %}
             <div class="property">
-                <h4><a href="{{ url_for('view_property', property_id=p.property_id, period=search_params.period, adults=search_params.adults, rooms=search_params.rooms) }}">{{ p.name }}</a></h4>
+                <h4><a href="{{ url_for('view_property', property_id=p.property_id, period=search_params.period, adults=search_params.adults, rooms=search_params.rooms) }}"></a</h4>
                 <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
                 
                 {% if p.room_summary %}

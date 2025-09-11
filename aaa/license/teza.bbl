@@ -1,0 +1,132 @@
+\begin{thebibliography}{10}
+
+\bibitem{scal}
+Adam Hayes.
+\newblock Scalability: What a scalable company is and examples.
+\newblock \url{https://www.investopedia.com/terms/s/scalability.asp}.
+\newblock Accesat: 08 mai 2025.
+
+\bibitem{scal.soft}
+Kirill~Stashevsky Nadejda~Alkhaldi.
+\newblock What is software scalability, and why should your company take it
+  seriously?
+\newblock \url{https://itrexgroup.com/blog/what-is-software-scalability}.
+\newblock Accesat: 08 mai 2025.
+
+\bibitem{scal.hard}
+LinkedIn~Computer Engineering.
+\newblock What is the best way to ensure hardware scalability in a computer
+  system?
+\newblock
+  \url{https://www.linkedin.com/advice/1/what-best-way-ensure-hardware-scalability-2pf1e}.
+\newblock Accesat: 08 mai 2025.
+
+\bibitem{bd}
+Wikipedia.
+\newblock Bază de date distribuită.
+\newblock
+  \url{https://ro.wikipedia.org/wiki/Baz%C4%83_de_date_distribuit%C4%83}.
+\newblock Accesat: 08 mai 2025.
+
+\bibitem{ss}
+Yuliia Podorozhko.
+\newblock Scalability in software development: A 101 guide for businesses.
+\newblock
+  \url{https://madappgang.com/blog/scalability-in-software-development/#:~:text=Scalability%20in%20software%20development%20refers,users%2C%20customers%2C%20or%20requests.}
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{web}
+Silviu Stroe.
+\newblock Ce este o aplicație web?
+\newblock \url{https://brainic.io/ro/blog/ce-este-o-aplicatie-web/}.
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{mono}
+AWS.
+\newblock What’s the difference between monolithic and microservices
+  architecture?
+\newblock
+  \url{https://aws.amazon.com/compare/the-difference-between-monolithic-and-microservices-architecture/}.
+\newblock Accesat: 20 mai 2025.
+
+\bibitem{n}
+Microsoft Azure.
+\newblock N-tier architecture style.
+\newblock
+  \url{https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier}.
+\newblock Accesat: 21 mai 2025.
+
+\bibitem{http}
+Developer Mozilla.
+\newblock Http documentation.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/HTTP}.
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{usag}
+Developer Mozilla.
+\newblock Http documentation.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent}.
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{svweb}
+Developer Mozilla.
+\newblock Http documentation.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server}.
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{url}
+Developer Mozilla.
+\newblock Http documentation.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL}.
+\newblock Accesat: 09 mai 2025.
+
+\bibitem{req}
+Tutorialspoint.
+\newblock Http - requests.
+\newblock \url{https://www.tutorialspoint.com/http/http_requests.htm}.
+\newblock Accesat: 10 mai 2025.
+
+\bibitem{ras}
+Tutorialspoint.
+\newblock Http - responses.
+\newblock \url{https://www.tutorialspoint.com/http/http_responses.htm}.
+\newblock Accesat: 12 mai 2025.
+
+\bibitem{flask}
+Flask Tutorial.
+\newblock Geeksforgeeks.
+\newblock \url{https://www.geeksforgeeks.org/flask-tutorial/}.
+\newblock Accesat: 12 mai 2025.
+
+\bibitem{flaskdoc}
+Flask Documentation.
+\newblock Flask.
+\newblock \url{https://flask.palletsprojects.com/en/stable/}.
+\newblock Accesat: 12 mai 2025.
+
+\bibitem{flaskwiki}
+Wikipedia.
+\newblock Flask (web framework).
+\newblock \url{https://en.wikipedia.org/wiki/Flask_(web_framework)}.
+\newblock Accesat: 12 mai 2025.
+
+\bibitem{bdd}
+Abraham Silberschatz; Henry Korth;~S. Sudarshan.
+\newblock {\em Database System Concepts}.
+\newblock McGraw Hill, 2010.
+
+\bibitem{sql}
+Dafydd Stuttard;~Marcus Pinto.
+\newblock {\em The Web Application Hacker's Handbook and Lab Manual}.
+\newblock Wiley, 2011.
+
+\bibitem{ng}
+NGINX documentation.
+\newblock nginx documentation.
+\newblock \url{https://nginx.org/en/docs/}.
+\newblock Accesat: 21 mai 2025.
+
+\end{thebibliography}

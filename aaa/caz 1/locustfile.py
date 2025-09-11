@@ -24,7 +24,7 @@ class FinalArchitectureUser(HttpUser):
                 response.failure(f"Login failed with status {response.status_code}")
 
     def get_static_files(self, response):
-        """Extrage și cere fișierele statice dintr-un răspuns HTML."""
+        # Extrage și cere fișierele statice dintr-un răspuns HTML
         if response.text:
             static_links = re.findall(r'href="/(static/.*?\.(?:css|js|png|ico))"|src="/(static/.*?\.(?:css|js|png|ico))"', response.text)
             for link_tuple in static_links:
@@ -34,7 +34,7 @@ class FinalArchitectureUser(HttpUser):
 
     @task(5)
     def browse_and_search(self):
-        """Task pentru navigare generală și căutare."""
+        # Task pentru navigare generală și căutare
         with self.client.get("/", name="/home", catch_response=True) as response:
             if response.status_code == 200:
                 response.success()
@@ -60,7 +60,7 @@ class FinalArchitectureUser(HttpUser):
 
     @task(1)
     def manage_properties(self):
-        """Task pentru adăugarea și editarea proprietăților."""
+        # Task pentru adăugarea și editarea proprietăților
         with self.client.post("/add_property", data={
             "name": f"Hotel Stres Test {random.randint(1, 1000)}", "address": "Strada Testarii",
             "city": "Sibiu", "country": "Romania", "room_type_name": ["Cameră de Test"],
@@ -88,7 +88,7 @@ class FinalArchitectureUser(HttpUser):
 
     @task(2)
     def full_booking_flow(self):
-        """Task ce simulează un flux complet de rezervare."""
+        # Task ce simulează un flux complet de rezervare
         start_date = datetime.now().date() + timedelta(days=random.randint(200, 300))
         end_date = start_date + timedelta(days=random.randint(2, 5))
         
@@ -121,7 +121,7 @@ class FinalArchitectureUser(HttpUser):
 
     @task(3)
     def profile_and_edit(self):
-        """Task pentru vizualizarea și editarea profilului."""
+        # Task pentru vizualizarea și editarea profilului
         with self.client.get("/profile", name="/profile", catch_response=True) as response:
             if response.status_code == 200:
                 response.success()
@@ -142,7 +142,7 @@ class FinalArchitectureUser(HttpUser):
 
     @task(1)
     def test_logout(self):
-        """Task simplu pentru logout."""
+        # Task simplu pentru logout
         with self.client.get("/logout", name="/logout", catch_response=True) as response:
             if response.status_code == 200:
                 response.success()

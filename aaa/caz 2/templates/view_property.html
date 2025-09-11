@@ -83,9 +83,20 @@
                 </div>
             {% endfor %}
         </div>
+
+
     {% else %}
+    
+        {% if request.method == 'POST' %}
+            <div class="recommendation-box" style="background: #fff3e0; border-color: #ffb74d; margin-top: 2.5em;">
+                <h5 style="color: #e65100;">Nicio ofertă găsită</h5>
+                <p>Ne pare rău, dar nu am găsit nicio combinație de camere disponibile care să corespundă cerințelor tale ({{ requested_adults }} persoane în {{ requested_rooms }} camere) pentru perioada selectată.</p>
+                <p>Te rugăm să încerci o altă perioadă sau să modifici numărul de persoane/camere.</p>
+            </div>
+        {% endif %}
+
         <div class="rooms-section" style="margin-top: 2.5em;">
-            <h4 style="border-bottom: 1px solid #eee; padding-bottom: 0.5em;">Tipuri de camere oferite de proprietate</h4>
+            <h4 style="border-bottom: 1px solid #eee; padding-bottom: 0.5em;">Tipuri de camere oferite de proprietate (listă generală)</h4>
             {% if room_groups_info %}
                 {% for group in room_groups_info %}
                     <div class="room-type-card">

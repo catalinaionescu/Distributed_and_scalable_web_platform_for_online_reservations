@@ -3,18 +3,17 @@ import bcrypt
 import random
 from tqdm import tqdm
 
-# --- PASUL 1: MODIFICĂ AICI DETALIILE DE CONECTARE ---
-# Pune aici user-ul și parola ta de root pentru MySQL
+
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': '', # <-- PUNE AICI PAROLA TA DE ROOT, DACĂ AI UNA
+    'password': '', 
     'cursorclass': pymysql.cursors.DictCursor
 }
 DB_NAME = 'rezervari'
 
-# --- CONFIGURAREA DATELOR GENERATE ---
-NUM_USERS = 500
+
+NUM_USERS = 100
 NUM_PROPERTIES = 200
 BCRYPT_HASH = bcrypt.hashpw(b'parola123', bcrypt.gensalt())
 CITIES = ['Cluj-Napoca', 'Craiova', 'Sibiu', 'Galati', 'Bucuresti', 'Brasov', 'Oradea', 'Iasi', 'Timisoara', 'Constanta']
@@ -71,7 +70,7 @@ def insert_data(cursor, cnx):
     cnx.commit()
     print("-> Proprietăți inserate cu succes.")
 
-    # --- NOU: Inserare Camere ---
+    # --- Inserare Camere ---
     print("-> Generare și inserare camere pentru fiecare proprietate...")
     room_data = []
     for prop_id in tqdm(range(1, NUM_PROPERTIES + 1), desc="Adăugare Camere"):
@@ -82,14 +81,12 @@ def insert_data(cursor, cnx):
             room_data.append((prop_id, room_type['name'], room_type['capacity'], price, 1))
 
     room_query = "INSERT INTO rooms (property_id, name, capacity, price, available) VALUES (%s, %s, %s, %s, %s)"
-    # Inserăm în batch-uri de 1000 pentru eficiență
     for i in tqdm(range(0, len(room_data), 1000), desc="Inserare Camere în DB"):
         cursor.executemany(room_query, room_data[i:i+1000])
         cnx.commit()
     print("-> Camere inserate cu succes.")
 
 def main():
-    """Funcția principală a scriptului."""
     cnx = None
     try:
         print("Conectare la serverul MySQL...")
@@ -107,9 +104,8 @@ def main():
         create_schema(cursor)
         insert_data(cursor, cnx)
 
-        print("\n=======================================================")
-        print("SUCCES! Baza de date a fost creată și populată complet.")
-        print("=======================================================")
+        print("SUCCES!")
+    
 
     except pymysql.MySQLError as e:
         print(f"\nEROARE MYSQL: {e}")

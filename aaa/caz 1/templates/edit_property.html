@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addRoomTypeBtn = document.getElementById('add-room-type-btn');
     const propertyId = {{ prop.property_id }}; // Get property ID from Jinja context
 
-    // Function to add a new room type block (same as before)
+
     function addRoomType() {
         const index = roomTypesContainer.children.length;
         const div = document.createElement('div');
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <button type="button" class="remove-btn new-room-type-btn">- Șterge acest tip</button>
         `;
         roomTypesContainer.appendChild(div);
-        // Attach event listener for newly added remove button
+
         div.querySelector('.remove-btn').addEventListener('click', removeRoomTypeHandler);
     }
     addRoomTypeBtn.addEventListener('click', addRoomType);
