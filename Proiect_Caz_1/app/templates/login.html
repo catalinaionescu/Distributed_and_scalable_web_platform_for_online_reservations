@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Autentificare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Autentificare</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if next %}
+        <p class="info">Te rugăm să te autentifici pentru a continua.</p>
+    {% endif %}
+
+    <form method="post">
+        <input type="hidden" name="next" value="{{ next or '' }}">
+        
+        <label for="username">Nume utilizator:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Parolă:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+        <p>Nu ai cont? <a href="/register">Înregistrează-te aici</a></p>
+    </div>
+</div>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

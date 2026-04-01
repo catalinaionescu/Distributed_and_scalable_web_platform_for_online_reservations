@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaugă Proprietate Nouă</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_add_property.css') }}">
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Adaugă o proprietate nouă</h3>
+    <form method="post">
+        <label>Numele proprietății:</label>
+        <input type="text" name="name" placeholder="Ex: Pensiunea Soarelui" required>
+        <label>Adresa:</label>
+        <input type="text" name="address" placeholder="Ex: Str. Principală, Nr. 10" required>
+        <label>Localitate:</label>
+        <input type="text" name="city" placeholder="Ex: Brașov" required>
+        <label>Țară:</label>
+        <input type="text" name="country" placeholder="Ex: România" required>
+        
+        <hr style="margin: 2em 0;">
+        <h3>Tipuri de camere:</h3>
+        <div id="room-types-container">
+            </div>
+        <button type="button" id="add-room-type-btn" style="background-color: #64b5f6;">+ Adaugă un tip de cameră</button>
+        <br><br>
+        <button type="submit">Salvează proprietatea</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('dropdownToggle');
+    if (toggle) {
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+        document.addEventListener('click', function (e) {
+            if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    }
+    
+    function addRoomType() {
+        const container = document.getElementById('room-types-container');
+        const index = container.children.length;
+        const div = document.createElement('div');
+        div.className = 'room-type-group';
+        div.innerHTML = `
+            <h4>Tip de cameră #${index + 1}</h4>
+            <label>Nume tip (ex: Dublă Standard, Apartament Deluxe)</label>
+            <input type="text" name="room_type_name[]" required>
+            
+            <label>Capacitate per cameră</label>
+            <input type="number" name="capacity[]" min="1" required>
+            
+            <label>Preț/noapte per cameră</label>
+            <input type="number" step="0.01" name="price[]" required>
+            
+            <label>Număr de camere de acest tip</label>
+            <input type="number" name="room_count[]" min="1" value="1" required>
+            
+            <label>Disponibilitate generală</label>
+            <select name="available[]">
+                <option value="1">Disponibilă</option>
+                <option value="0">Indisponibilă</option>
+            </select>
+            <button type="button" class="remove-btn">- Șterge acest tip</button>
+        `;
+        container.appendChild(div);
+        div.querySelector('.remove-btn').addEventListener('click', function() {
+            this.closest('.room-type-group').remove();
+        });
+    }
+    document.getElementById('add-room-type-btn').addEventListener('click', addRoomType);
+});
+</script>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

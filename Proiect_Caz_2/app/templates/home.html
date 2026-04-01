@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Platformă de Cazare</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_home.css') }}">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="{{ url_for('edit_profile') }}">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="search-form-container">
+        <form action="/search_results" method="post" class="search-form">
+            <div class="search-field">
+                <label>Unde mergem</label>
+                <input type="text" name="destination" placeholder="Caută destinație...">
+            </div>
+            <div class="search-field">
+                <label>Perioada</label>
+                <input type="text" name="period" id="datepicker" placeholder="Selectează datele...">
+            </div>
+            <div class="search-field guests-field" id="guests-field-activator">
+                <label>Persoane & Camere</label>
+                <div id="guests-display">Adaugă persoane</div>
+                <div class="guests-popup" id="guests-popup">
+                    <div class="guest-row">
+                        <label>Adulți</label>
+                        <input type="number" name="adults" id="adults-input" value="1" min="1">
+                    </div>
+                    <div class="guest-row">
+                        <label>Camere</label>
+                        <input type="number" name="rooms" id="rooms-input" value="1" min="1">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="search-button">➔</button>
+        </form>
+    </div>
+    
+    <hr style="margin: 2.5em 0; border: 0; border-top: 1px solid #eee;">
+    
+    <h3>Proprietăți disponibile astăzi</h3>
+
+    {% if properties %}
+        {% for p in properties %}
+            <div class="property">
+                <h4><a href="{{ url_for('view_property', property_id=p.property_id) }}">{{ p.name }}</a></h4>
+                <p>{{ p.address }}, {{ p.city }}, {{ p.country }}</p>
+                {% if p.room_summary %}
+                    <p class="room-summary"><strong>Tipuri de camere:</strong> {{ p.room_summary }}</p>
+                {% endif %}
+
+                {% if p.is_available_today %}
+                    <p class="next-available-summary" style="color: green;">Disponibilă pentru rezervare imediată!</p>
+                {% endif %}
+                
+                <a href="{{ url_for('view_property', property_id=p.property_id) }}" class="cta-button">Vezi detalii și prețuri</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Momentan nu sunt proprietăți disponibile pentru afișare.</p>
+    {% endif %}
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('dropdownToggle');
+    if (toggle) {
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+    }
+
+    new Litepicker({ 
+        element: document.getElementById('datepicker'), 
+        singleMode: false, 
+        format: 'YYYY-MM-DD', 
+        delimiter: ' to ',
+        lang: 'ro-RO',
+        minDate: new Date(), // Această linie blochează datele din trecut
+        minDays: 2 
+    });
+
+    const guestsField = document.getElementById('guests-field-activator');
+    const guestsPopup = document.getElementById('guests-popup');
+    const adultsInput = document.getElementById('adults-input');
+    const roomsInput = document.getElementById('rooms-input');
+    const guestsDisplay = document.getElementById('guests-display');
+
+    guestsField.addEventListener('click', function(event) {
+        event.stopPropagation();
+        guestsPopup.style.display = 'block';
+    });
+
+    function updateGuestsDisplay() {
+        let adultsVal = parseInt(adultsInput.value) || 0;
+        let roomsVal = parseInt(roomsInput.value) || 0;
+        let adultsText = `${adultsVal} Adult${adultsVal !== 1 ? 'i' : ''}`;
+        let roomsText = `${roomsVal} Camer${roomsVal !== 1 ? 'e' : 'ă'}`;
+        guestsDisplay.textContent = `${adultsText}, ${roomsText}`;
+    }
+    adultsInput.addEventListener('input', updateGuestsDisplay);
+    roomsInput.addEventListener('input', updateGuestsDisplay);
+    updateGuestsDisplay();
+
+    document.addEventListener('click', function (e) {
+        const menu = document.getElementById('dropdownMenu');
+        if (toggle && !toggle.contains(e.target) && menu && !menu.contains(e.target)) {
+            menu.style.display = 'none';
+        }
+        if (guestsPopup && !guestsPopup.contains(e.target) && !guestsField.contains(e.target)) {
+            guestsPopup.style.display = 'none';
+        }
+    });
+});
+</script>
+
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

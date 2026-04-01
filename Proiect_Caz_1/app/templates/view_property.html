@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ prop.name if prop else 'Proprietate' }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_view_property.css') }}">
+
+</head>
+<body>
+<nav>
+    <div class="nav-left"><h2><a href="/">Platforma Rezervări</a></h2></div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă proprietate</a>
+            <div class="dropdown"><a href="#" id="dropdownToggle">Profil ▼</a><div class="dropdown-menu" id="dropdownMenu"><a href="/profile">Profil</a><a href="/my-reservations">Rezervările mele</a><a href="/my-properties">Cazările mele</a><a href="/edit-profile">Editează profilul</a></div></div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a><a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+<div class="container">
+    <div class="property-header">
+        <h3>{{ prop.name }}</h3>
+        <p><strong>Adresă:</strong> {{ prop.address }}, {{ prop.city }}, {{ prop.country }}</p>
+    </div>
+    {% if prop.description %}
+    <div class="property-description">
+        <h4>Descriere</h4>
+        <p>{{ prop.description }}</p>
+    </div>
+    {% endif %}
+
+    <div class="calculator-container">
+        <h4>Găsește cazarea perfectă</h4>
+        <form method="POST" id="calculator-form">
+            <div id="period-error" class="custom-error-message"></div>
+            
+            <div style="display: flex; gap: 10px; align-items: flex-end;">
+                <div style="flex-grow: 1;">
+                    <label for="period"><b>Perioada:</b></label>
+                    <input type="text" id="datepicker" name="period" value="{{ period or '' }}" placeholder="Selectează intervalul...">
+                </div>
+                <div>
+                    <label for="adults"><b>Persoane:</b></label>
+                    <input type="number" id="adults" name="adults" value="{{ requested_adults or 1 }}" min="1" style="width: 100px;">
+                </div>
+                <div>
+                    <label for="rooms"><b>Camere:</b></label>
+                    <input type="number" id="rooms" name="rooms" value="{{ requested_rooms or 1 }}" min="1" style="width: 100px;">
+                </div>
+                <div><button type="submit">Caută / Actualizează</button></div>
+            </div>
+        </form>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if recommendations %}
+        <div class="results-section" style="margin-top: 2.5em;">
+            <h4 style="border-bottom: 1px solid #eee; padding-bottom: 0.5em;">Opțiuni de rezervare pentru {{ requested_adults }} persoane</h4>
+            {% for package in recommendations %}
+                <div class="recommendation-box {% if loop.first and package.room_count == requested_rooms %}optimal{% endif %}">
+                    {% if loop.first and package.room_count == requested_rooms %}<h5>⭐ Opțiunea optimă ({{ package.room_count }} camere)</h5>{% else %}<h5>Opțiunea {{ loop.index }} ({{ package.room_count }} camere)</h5>{% endif %}
+                    <ul>
+                        {% for name, details in package.rooms.items() %}
+                            <li><strong>{{ details.count }}x</strong> {{ name }} (capacitate {{ details.capacity }})</li>
+                        {% endfor %}
+                    </ul><hr>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="price">{{ "%.2f"|format(package.total_price) }} lei / noapte</span>
+                        {% if period and ' to ' in period %}
+                            <a href="{{ url_for('booking_confirmation', ids=package.room_ids_to_book|join(','), start=period.split(' to ')[0].strip(), end=period.split(' to ')[1].strip()) }}" class="book-button">Rezervă Pachetul</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    {% else %}
+    
+        {% if request.method == 'POST' %}
+            <div class="recommendation-box" style="background: #fff3e0; border-color: #ffb74d; margin-top: 2.5em;">
+                <h5 style="color: #e65100;">Nicio ofertă găsită</h5>
+                <p>Ne pare rău, dar nu am găsit nicio combinație de camere disponibile care să corespundă cerințelor tale ({{ requested_adults }} persoane în {{ requested_rooms }} camere) pentru perioada selectată.</p>
+                <p>Te rugăm să încerci o altă perioadă sau să modifici numărul de persoane/camere.</p>
+            </div>
+        {% endif %}
+
+        <div class="rooms-section" style="margin-top: 2.5em;">
+            <h4 style="border-bottom: 1px solid #eee; padding-bottom: 0.5em;">Tipuri de camere oferite de proprietate (listă generală)</h4>
+            {% if room_groups_info %}
+                {% for group in room_groups_info %}
+                    <div class="room-type-card">
+                        <div>
+                            <h5>{{ group.name }}</h5>
+                            <p>Capacitate: <strong>{{ group.capacity }} persoane</strong> / Cameră</p>
+                            <p>Număr total camere de acest tip: <strong>{{ group.count }}</strong></p>
+                        </div>
+                        <div style="text-align: right;">
+                            <span class="room-price">{{ "%.2f"|format(group.price) }} lei / noapte</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Această proprietate nu are camere adăugate în sistem.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {e.preventDefault(); menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';});
+            document.addEventListener('click', function (e) {if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {menu.style.display = 'none';}});
+        }
+        
+        const lockedDates = {{ locked_days | tojson }};
+        new Litepicker({ 
+            element: document.getElementById('datepicker'), 
+            singleMode: false, 
+            format: 'YYYY-MM-DD', 
+            delimiter: ' to ',
+            lockDays: lockedDates,
+            minDate: new Date(),
+            minDays: 2
+        });
+
+        const calculatorForm = document.getElementById('calculator-form');
+        if(calculatorForm) {
+            calculatorForm.addEventListener('submit', function(event) {
+                const periodInput = document.getElementById('datepicker');
+                const errorDiv = document.getElementById('period-error');
+                
+                if (!periodInput.value.trim()) {
+                    event.preventDefault(); 
+                    
+                    errorDiv.textContent = 'Te rugăm să selectezi o perioadă pentru a putea căuta!';
+                    errorDiv.style.display = 'block';
+                    errorDiv.style.opacity = 1;
+                    
+                    setTimeout(function() {
+                        errorDiv.style.opacity = 0;
+                        setTimeout(function() {
+                            errorDiv.style.display = 'none';
+                        }, 500);
+                    }, 3000);
+                } else {
+                    errorDiv.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

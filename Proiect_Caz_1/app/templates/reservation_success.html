@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervare Finalizată cu Succes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_reservation_success.css') }}">
+
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/my-reservations">Rezervările mele</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <div class="success-icon">✓</div>
+    <h2 class="success-message">Mulțumim, rezervarea a fost realizată cu succes!</h2>
+    <p>Un email de confirmare a fost trimis către adresa furnizată.</p>
+    
+    <div class="details">
+        <h4>Detalii Rezervare</h4>
+        <p><strong>Proprietate:</strong> {{ rezervare.property_name }}</p>
+       <p><strong>Perioadă:</strong> {{ rezervare.start_date | ro_date }} → {{ rezervare.end_date | ro_date }} ({{ rezervare.nights }} noap{{ 'te' if rezervare.nights == 1 else 'ți' }})</p>
+        <p><strong>Total Plătit:</strong> <span style="color:#c62828; font-weight: bold;">{{ "%.2f"|format(rezervare.total_price) }} lei</span></p>
+        <hr>
+        <p><strong>Nume:</strong> {{ rezervare.full_name }}</p>
+        <p><strong>Email:</strong> {{ rezervare.email }}</p>
+        <p><strong>Telefon:</strong> {{ rezervare.phone }}</p>
+    </div>
+
+    <a href="/my-reservations" class="cta-button">Vezi toate rezervările mele</a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dropdownToggle');
+        if (toggle) {
+            const menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            });
+            document.addEventListener('click', function (e) {
+                if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>

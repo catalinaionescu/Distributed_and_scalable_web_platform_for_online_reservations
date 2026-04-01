@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editează Proprietate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_edit_property.css') }}">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <h2><a href="/">Platforma Rezervări</a></h2>
+    </div>
+    <div class="nav-right">
+        {% if logged_in %}
+            <a href="/add_property">Adaugă proprietate</a>
+            <div class="dropdown">
+                <a href="#" id="dropdownToggle">Profil ▼</a>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="/profile">Profil</a>
+                    <a href="/my-reservations">Rezervările mele</a>
+                    <a href="/my-properties">Cazările mele</a>
+                    <a href="/edit-profile">Editează profilul</a>
+                </div>
+            </div>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Editează Proprietatea: {{ prop.name }}</h3>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category or 'info' }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" id="edit-property-form">
+        <label>Nume proprietate:</label>
+        <input type="text" name="name" value="{{ prop.name }}" required>
+        <label>Adresă:</label>
+        <input type="text" name="address" value="{{ prop.address }}" required>
+        <label>Localitate:</label>
+        <input type="text" name="city" value="{{ prop.city }}" required>
+        <label>Țară:</label>
+        <input type="text" name="country" value="{{ prop.country }}" required>
+
+        <hr style="margin: 2em 0;">
+        <h4 style="margin-top: 2em;">Tipuri de Camere</h4>
+        
+        <div id="room-types-container">
+            {% for group in room_groups %}
+                <div class="room-type-group">
+                    <h5>Tip de cameră existent: {{ group.name }}</h5>
+                    <label>Nume tip:</label>
+                    <input type="text" name="room_type_name[]" value="{{ group.name }}" required class="room-type-name-input">
+                    <label>Capacitate per cameră:</label>
+                    <input type="number" name="capacity[]" value="{{ group.capacity }}" required>
+                    <label>Preț/noapte per cameră:</label>
+                    <input type="number" step="0.01" name="price[]" value="{{ group.price }}" required>
+                    <label>Număr de camere de acest tip:</label>
+                    <input type="number" name="room_count[]" value="{{ group.count }}" min="0" required>
+                    <label>Disponibilitate:</label>
+                    <select name="available[]">
+                        <option value="1" {% if group.available %}selected{% endif %}>Disponibilă</option>
+                        <option value="0" {% if not group.available %}selected{% endif %}>Indisponibilă</option>
+                    </select>
+                    {# Updated delete button with data attributes and new JS function #}
+                    <button type="button" class="remove-btn" data-property-id="{{ prop.property_id }}" data-room-type-name="{{ group.name }}">
+                        - Șterge acest tip
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="button" id="add-room-type-btn" style="background-color: #64b5f6;">+ Adaugă un tip nou de cameră</button>
+        <br><br>
+        <button type="submit">Salvează modificările</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('dropdownToggle');
+    if (toggle) {
+        const menu = document.getElementById('dropdownMenu');
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+        document.addEventListener('click', function (e) {
+            if (menu && !toggle.contains(e.target) && !menu.contains(e.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    }
+
+    const roomTypesContainer = document.getElementById('room-types-container');
+    const addRoomTypeBtn = document.getElementById('add-room-type-btn');
+    const propertyId = {{ prop.property_id }}; // Get property ID from Jinja context
+
+
+    function addRoomType() {
+        const index = roomTypesContainer.children.length;
+        const div = document.createElement('div');
+        div.className = 'room-type-group';
+        div.innerHTML = `
+            <h5>Tip de cameră NOU #${index + 1}</h5>
+            <label>Nume tip (ex: Dublă Standard, Apartament Deluxe)</label>
+            <input type="text" name="room_type_name[]" required class="room-type-name-input">
+            
+            <label>Capacitate per cameră</label>
+            <input type="number" name="capacity[]" min="1" required>
+            
+            <label>Preț/noapte per cameră</label>
+            <input type="number" step="0.01" name="price[]" required>
+            
+            <label>Număr de camere de acest tip</label>
+            <input type="number" name="room_count[]" min="1" value="1" required>
+            
+            <label>Disponibilitate generală</label>
+            <select name="available[]">
+                <option value="1">Disponibilă</option>
+                <option value="0">Indisponibilă</option>
+            </select>
+            <button type="button" class="remove-btn new-room-type-btn">- Șterge acest tip</button>
+        `;
+        roomTypesContainer.appendChild(div);
+
+        div.querySelector('.remove-btn').addEventListener('click', removeRoomTypeHandler);
+    }
+    addRoomTypeBtn.addEventListener('click', addRoomType);
+
+    // New function to handle removing room types (for both existing and new)
+    async function removeRoomTypeHandler(event) {
+        const button = event.target;
+        const roomTypeGroup = button.closest('.room-type-group');
+        const isNewRoomType = button.classList.contains('new-room-type-btn');
+
+        // Handle newly added (unsaved) room types
+        if (isNewRoomType) {
+            if (confirm('Sunteți sigur că doriți să ștergeți acest tip de cameră nou adăugat?')) {
+                roomTypeGroup.remove();
+            }
+            return;
+        }
+
+        // --- START OF FIX ---
+        // For existing rooms, get the name from the button's data attribute.
+        // This is reliable and doesn't change if the user edits the input field.
+        const roomTypeName = button.dataset.roomTypeName;
+
+        if (!roomTypeName) {
+            alert('Numele tipului de cameră nu a putut fi identificat (eroare atribut).');
+            return;
+        }
+        
+        // Confirmation before AJAX call
+        if (!confirm(`Verificăm disponibilitatea. Continuați pentru a șterge tipul de cameră "${roomTypeName}"?`)) {
+             return; // User cancelled
+        }
+        // --- END OF FIX ---
+
+        // Perform AJAX check
+        try {
+            const encodedRoomTypeName = encodeURIComponent(roomTypeName);
+            const response = await fetch(`/check_room_type_reservations/${propertyId}/${encodedRoomTypeName}`);
+            const data = await response.json();
+
+            if (!response.ok) {
+                alert(`Eroare la verificare rezervări: ${data.message || response.statusText}. Te rugăm să reîncarci pagina.`);
+                return;
+            }
+
+            if (!data.can_delete_type_now) {
+                alert(data.message);
+            } else {
+                roomTypeGroup.remove();
+                alert(`Tipul de cameră "${roomTypeName}" a fost marcat pentru ștergere la salvarea proprietății.`);
+            }
+        } catch (error) {
+            console.error('Eroare AJAX:', error);
+            alert('A apărut o eroare la comunicarea cu serverul. Te rugăm să reîncarci pagina și să încerci din nou.');
+        }
+    }
+
+    // Attach event listeners for existing remove buttons (on initial page load)
+    document.querySelectorAll('.room-type-group .remove-btn').forEach(button => {
+        button.addEventListener('click', removeRoomTypeHandler);
+    });
+});
+</script>
+<script>
+    window.addEventListener('beforeunload', function () {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function(message) {
+            message.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>
