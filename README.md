@@ -1,24 +1,31 @@
-Scalable Platform for Online Reservations 🏨
-This repository contains my bachelor's thesis project, presented at the National University of Science and Technology POLITEHNICA Bucharest (UPB). The project is a multi-user web application designed for reservation management, with the main objective of implementing and testing scalable, highly available cloud / on-premise solutions.
+Overview
+This repository contains the source code and infrastructure configuration for a distributed N-tier web application designed for high-availability reservation management. The system is engineered to prevent server overload during peak traffic periods by utilizing a multi-node architecture, load balancing and database replication.
 
-The system prevents server overload during peak traffic periods through an N-Tier distributed multi-node architecture.
+System Architecture
+The platform implements a horizontally scalable infrastructure designed for fault tolerance:
 
-🛠 Tech Stack
-Backend: Python (Flask micro-framework)
+Traffic Distribution: Incoming HTTP requests are intercepted by Nginx acting as a reverse proxy and load balancer (using a Round Robin algorithm) to distribute the load evenly across multiple backend nodes.
 
-Database: MySQL with a Master-Slave replication architecture (for efficient separation of read and write operations)
+Static Asset Delivery: Static files are decoupled from the core application logic and served independently via IIS to optimize bandwidth and reduce processing overhead on the Python servers.
 
-Load Balancing & Reverse Proxy: Nginx (Round Robin algorithm)
+Data Persistence: The database layer utilizes a MySQL Master-Slave replication topology. This architecture separates heavy read operations from write operations to ensure high availability and prevent database locks under concurrent load.
 
-Static File Serving: IIS (Internet Information Services) web server
+Tech Stack
+Backend Application: Python (Flask micro-framework)
 
-Performance Testing: Locust (for concurrent load testing and response time analysis)
+Database: MySQL (Master-Slave replication)
 
-✨ Key Features
-Security: Secure authentication and user management system using bcrypt for password hashing.
+Infrastructure & Servers: Nginx, IIS and custom cloud nodes
 
-Multiple Roles: Distinct dashboards and functionalities for clients (profile & reservation management), property owners (property & room management), and administrators (system-wide statistics).
+Performance Testing: Locust
 
-Recommendation Engine: Custom internal logic that suggests and allocates optimal room packages based on the client's search criteria.
+Security: bcrypt for cryptographic password hashing
 
-Resilience: The distributed architecture and load balancing mechanism ensure connection stability and prevent bottlenecks when handling a high volume of concurrent HTTP requests.
+Core Technical Features
+Role-Based Access Control (RBAC): Secure authentication and authorization flow isolated for distinct user entities: clients, property owners and administrators.
+
+Algorithmic Allocation: A custom recommendation engine that processes user search parameters to dynamically calculate and suggest optimal room packages.
+
+High Concurrency Handling: The distributed setup ensures connection stability and prevents request bottlenecks when handling a massive volume of concurrent HTTP traffic.
+
+Load Testing & Profiling: The system's resilience, throughput and response times were aggressively tested and benchmarked using Locust to simulate real-world high-stress scenarios.
